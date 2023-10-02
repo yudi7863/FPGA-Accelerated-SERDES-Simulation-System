@@ -8,7 +8,7 @@ module prbs_pam_4_tb;
     // Generate random data
     wire binary_data;
     wire binary_data_valid;
-    prbs31 prbs (
+    prbs31 prbs(
         .clk(clk),
         .rstn(rstn),
         .en(en),
@@ -18,7 +18,7 @@ module prbs_pam_4_tb;
     // Generate grey-coded PAM-4 symbols
     wire [1:0] symbol;
     wire symbol_valid;
-    grey_encode ge (
+    grey_encode ge(
         .clk(clk),
         .rstn(rstn),
         .data_in(binary_data),
@@ -51,7 +51,7 @@ module prbs_pam_4_tb;
     // Decode PAM-4 symbols back to binary data
     wire binary_data_returned;
     wire binary_data_returned_valid;
-    grey_decode gd (
+    grey_decode gd(
         .clk(clk),
         .rstn(rstn),
         .symbol_in(symbol_returned),
@@ -62,7 +62,7 @@ module prbs_pam_4_tb;
     // Compare returned data with generated data
     wire [31:0] total_bits;
     wire [31:0] total_bit_errors;
-    prbs31_checker checker (
+    prbs31_checker checker(
         .clk(clk),
         .rstn(rstn),
         .data_in(binary_data_returned),

@@ -23,7 +23,7 @@ module pam_4_encode #(
                 endcase
                 voltage_level_out_valid <= 1;
             end else begin
-                voltage_level_out_valid <= 0;
+                voltage_level_out_valid <= 0; // To align with previous valid signal in order to convert back to binary data
             end
         end
     end
@@ -52,7 +52,7 @@ module pam_4_decode #(
                 endcase
                 symbol_out_valid <= 1;
             end else begin
-                symbol_out_valid <= 0;
+                symbol_out_valid <= 0; // To align with previous valid signal in order to convert back to binary data
             end
         end
     end
