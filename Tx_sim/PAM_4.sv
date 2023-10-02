@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module pam_4_encode#(
+module pam_4_encode #(
     parameter SIGNAL_RESOLUTION = 8,
     parameter SYMBOL_SEPERATION = 56)(
     input clk,
@@ -12,7 +12,6 @@ module pam_4_encode#(
 
     always @ (posedge clk) begin
         if (!rstn) begin
-            voltage_level_out <= 0;
             voltage_level_out_valid <= 0;
         end else begin
             if (symbol_in_valid) begin
@@ -23,12 +22,14 @@ module pam_4_encode#(
                     2'b11: voltage_level_out <= 'd84;
                 endcase
                 voltage_level_out_valid <= 1;
+            end else begin
+                voltage_level_out_valid <= 0;
             end
         end
     end
 endmodule
 
-module pam_4_decode#(
+module pam_4_decode #(
     parameter SIGNAL_RESOLUTION = 8,
     parameter SYMBOL_SEPERATION = 56)(
     input clk,
@@ -40,17 +41,18 @@ module pam_4_decode#(
 
     always @ (posedge clk) begin
         if (!rstn) begin
-            symbol_out <= 0;
             symbol_out_valid <= 0;
         end else begin
             if (voltage_level_in_valid) begin
                 case(voltage_level_in)
-                    -'d84: symbol_out <= 2'b00;
-                    -'d28: symbol_out <= 2'b01;
-                    'd28: symbol_out <= 2'b10;
-                    'd84: symbol_out <= 2'b11;
+                    'b10101100: symbol_out <= 2'b00;
+                    'b11100100: symbol_out <= 2'b01;
+                    'b00011100: symbol_out <= 2'b10;
+                    'b01010100: symbol_out <= 2'b11;
                 endcase
                 symbol_out_valid <= 1;
+            end else begin
+                symbol_out_valid <= 0;
             end
         end
     end

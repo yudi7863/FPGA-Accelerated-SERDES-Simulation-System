@@ -29,7 +29,7 @@ module prbs_pam_4_tb;
     // Generate voltage levels
     wire [7:0] voltage_level;
     wire voltage_level_valid;
-    pam_4_encode pe (
+    pam_4_encode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pe(
         .clk(clk),
         .rstn(rstn),
         .symbol_in(symbol),
@@ -40,7 +40,7 @@ module prbs_pam_4_tb;
     // Decode voltage levels back to PAM-4 symbols
     wire [1:0] symbol_returned;
     wire symbol_returned_valid;
-    pam_4_decode pd(
+    pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
         .clk(clk),
         .rstn(rstn),
         .voltage_level_in(voltage_level),
