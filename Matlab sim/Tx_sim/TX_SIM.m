@@ -1,14 +1,15 @@
 clc
 clear
 order = 31;
-num_data = 8;
-%SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
-SEED = [1,1,1,1,1,0,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,1,0,1,0,0,0,1,0,1,1]; %reverse???
+num_data = 16;
+SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
+%SEED = [1,1,1,1,1,0,0,0,1,0,1,0,0,1,0,0,1,0,1,1,0,1,0,1,0,0,0,1,0,1,1]; %reverse???
 prbs_length = 31;
 %generating random data
 
-%c_randomdata =zeros(num_data,data_length);
-c_randomdata = prbs(order, num_data,SEED);
+%c_randomdata =zeros(num_data,data_length); -> not the same as verilog,
+%need to figure otu waht is wrong
+c_randomdata = prbs(order,num_data,SEED);
 
 %passing data to grey encoder:
 gray_data = zeros(ceil(double(num_data)/2.0),2);
@@ -40,4 +41,9 @@ end
 c_randomdata
 gray_data
 PAM4_out
+
+%before looping to rx side: make sure that data matches verilog:
+hold_var = to_verilog(PAM4_out,'pam4_output.mem',num_data_half);
+
+%loopback to rx side:
 
