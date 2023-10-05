@@ -48,7 +48,7 @@ module prbs_pam_4_tb;
         .symbol_out(symbol_returned),
         .symbol_out_valid(symbol_returned_valid));
     
-    // Decode PAM-4 symbols back to binary data
+       // Decode PAM-4 symbols back to binary data
     wire binary_data_returned;
     wire binary_data_returned_valid;
     grey_decode gd(
@@ -72,8 +72,22 @@ module prbs_pam_4_tb;
           
     always #10 clk = ~clk;
     
+    //verifying parts with the matlab output file:
+    reg [7:0] matlab_PAM4;
+    reg [48:0] matlab_PAM4_ref [7:0]; //only have 49 lines of bin data for now
+    integer i;
     initial begin
-        #50 
+      $readmemh("../../Matlab_sim/Tx_sim/pam4_output.mem", matlab_PAM4_ref);
+      #50 
+      for (i = 0; i < 50; i = i + 1) begin
+        matlab_PAM4 = matlab_PAM4_ref[i];
+        @(posedge clk);
+      end
+      $finish;
+    end
+    
+    initial begin
+      
         en <= 1;
         rstn <=1;
         #2120

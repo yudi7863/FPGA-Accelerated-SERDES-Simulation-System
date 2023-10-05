@@ -1,0 +1,236 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/wangy/OneDrive/Desktop/ECE496/FPGA-Accelerated-SERDES-Simulation-System/Tx_sim
+vgrey_decode
+Z0 !s110 1696472242
+!i10b 1
+!s100 cJ8c]Jd:P`hc]:GZcAgPf3
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+ITS:k[9M@^9H3H2jh>`c_g0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/wangy/OneDrive/Desktop/ECE496/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Tx_sim
+Z4 w1696470554
+Z5 8grey_code.v
+Z6 Fgrey_code.v
+!i122 13
+L0 61 46
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1696472242.000000
+!s107 prbs_tb.v|prbs.v|pam_4_tb.v|grey_code.v|channel_model.v|
+Z9 !s90 -reportprogress|300|channel_model.v|grey_code.v|pam_4_tb.v|prbs.v|prbs_tb.v|
+!i113 1
+Z10 tCvgOpt 0
+vgrey_encode
+R0
+!i10b 1
+!s100 i^ed0X:adR7QgkZR[zMCX1
+R1
+I5:?7ZKCl<2gZ[PG`<1>Tc0
+R2
+R3
+R4
+R5
+R6
+!i122 13
+L0 3 56
+R7
+r1
+!s85 0
+31
+R8
+Z11 !s107 prbs_tb.v|prbs.v|pam_4_tb.v|grey_code.v|channel_model.v|
+R9
+!i113 1
+R10
+vISI_channel
+R0
+!i10b 1
+!s100 935YQ4`@KkZ4dj9A44KNb0
+R1
+IWMOZIzCMU@I8UWik7ULUQ1
+R2
+R3
+R4
+Z12 8channel_model.v
+Z13 Fchannel_model.v
+!i122 13
+L0 21 17
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+n@i@s@i_channel
+vpam_4_decode
+Z14 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z15 !s110 1696472021
+!i10b 1
+!s100 mgf3f_6lC1<H5>BnRX@:Y3
+R1
+IR<8jIzNYUSTXO5K0BLc<L0
+R2
+S1
+R3
+R4
+Z16 8PAM_4.sv
+Z17 FPAM_4.sv
+!i122 11
+L0 32 28
+R7
+r1
+!s85 0
+31
+Z18 !s108 1696472021.000000
+Z19 !s107 PAM_4.sv|
+Z20 !s90 -reportprogress|300|PAM_4.sv|
+!i113 1
+R10
+vpam_4_encode
+R14
+R15
+!i10b 1
+!s100 CZDK30<98_QRJ_C26UR:Q2
+R1
+IMKbZCn6=AaF:gEeQOT^c70
+R2
+S1
+R3
+R4
+R16
+R17
+!i122 11
+L0 3 28
+R7
+r1
+!s85 0
+31
+R18
+R19
+R20
+!i113 1
+R10
+vprbs31
+R0
+!i10b 1
+!s100 =[3^Sg_?lC8j?_8BY?oQW1
+R1
+Im]7b_MILYL>ZOo=:N[fF41
+R2
+R3
+R4
+Z21 8prbs.v
+Z22 Fprbs.v
+!i122 13
+L0 2 26
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vprbs31_checker
+R0
+!i10b 1
+!s100 2hb^LO8O3;3?zDV[9:EY70
+R1
+Ino@C>1zgAYVcTDzeIz:NC1
+R2
+R3
+R4
+R21
+R22
+!i122 13
+L0 30 31
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vprbs_grey_code_tb
+R0
+!i10b 1
+!s100 2KSH0aL;DnH@_ee2zo9<e2
+R1
+IgTRAjYzaeK5znB5fm19US3
+R2
+R3
+R4
+8prbs_tb.v
+Fprbs_tb.v
+!i122 13
+L0 3 71
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vprbs_pam_4_tb
+R0
+!i10b 1
+!s100 =WEFR3FD];DUFaSTU@MO`2
+R1
+IMBhNgAMW`;L8GO`N4LjAJ3
+R2
+R3
+w1696472238
+8pam_4_tb.v
+Fpam_4_tb.v
+!i122 13
+L0 3 96
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
+vsymbol_to_signal
+R0
+!i10b 1
+!s100 =R1on3:>jNz@O1PS10Sl[0
+R1
+IXN<IGN]TFbz`QURWV1C0]2
+R2
+R3
+R4
+R12
+R13
+!i122 13
+L0 4 15
+R7
+r1
+!s85 0
+31
+R8
+R11
+R9
+!i113 1
+R10
