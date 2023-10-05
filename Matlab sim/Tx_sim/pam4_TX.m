@@ -3,7 +3,7 @@ function out_data = pam4_TX(in_data)
         out_data = -84;
     elseif(in_data == [0,1]) 
         out_data = -28; %[lsb,msb] v: []
-    elseif(in_data == [1,0]) %%have question here!!!!!!!
+    elseif(in_data == [1,0]) 
         out_data = 28;
     elseif(in_data == [1,1])
         out_data = 84;

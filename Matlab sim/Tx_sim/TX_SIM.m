@@ -9,8 +9,8 @@ prbs_length = 31;
 
 %c_randomdata =zeros(num_data,data_length); -> not the same as verilog,
 %need to figure otu waht is wrong
-c_randomdata = prbs(order,num_data,SEED);
-
+%c_randomdata = prbs(order,num_data,SEED);
+ c_randomdata = prbs_gen(SEED,num_data)
 %passing data to grey encoder:
 gray_data = zeros(ceil(double(num_data)/2.0),2);
 num_data_half = ceil(double(num_data)/2.0);
