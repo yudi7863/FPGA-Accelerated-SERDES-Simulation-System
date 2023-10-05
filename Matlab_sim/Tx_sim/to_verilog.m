@@ -18,7 +18,7 @@ function  output_file = to_verilog(in_data,filename,size)
         for j = 1:8
             fprintf(fileID,"%1d", binVal(j));
         end
-        fprintf(fileID,"\n");
+        fprintf(fileID," ");
     end
     output_file = fileID;
 end
