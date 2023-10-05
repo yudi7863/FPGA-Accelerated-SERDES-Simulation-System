@@ -74,20 +74,25 @@ module prbs_pam_4_tb;
     
     //verifying parts with the matlab output file:
     reg [7:0] matlab_PAM4;
-    reg [48:0] matlab_PAM4_ref [7:0]; //only have 49 lines of bin data for now
-    integer i;
-    initial begin
-      $readmemh("../../Matlab_sim/Tx_sim/pam4_output.mem", matlab_PAM4_ref);
-      #50 
-      for (i = 0; i < 50; i = i + 1) begin
-        matlab_PAM4 = matlab_PAM4_ref[i];
-        @(posedge clk);
-      end
-      $finish;
-    end
+    reg [7:0] matlab_PAM4_ref [48:0]; //only have 49 lines of bin data for now
+    reg [7:0] i;
+    reg pam4_verification;
+    assign pam4_verification = (matlab_PAM4 != voltage_level);
     
+    always @ (posedge clk) begin
+        if(!rstn) begin
+            matlab_PAM4 <= 'b0;
+            i <= 'b0;
+        end
+        if (symbol_valid) begin
+            matlab_PAM4 <= matlab_PAM4_ref[i];
+            i <= (i+1)%49;
+        end
+    end
+     
     initial begin
-      
+        $readmemb("../../Matlab_sim/Tx_sim/pam4_output.mem", matlab_PAM4_ref);
+        #50 
         en <= 1;
         rstn <=1;
         #2120
