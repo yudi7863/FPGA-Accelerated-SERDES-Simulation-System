@@ -9,6 +9,14 @@
    categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element PAM_encoder_0
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
    element TX
    {
       datum _originalDeviceFamily
@@ -25,19 +33,11 @@
          type = "int";
       }
    }
-   element gray_decoder_0
-   {
-      datum _sortIndex
-      {
-         value = "3";
-         type = "int";
-      }
-   }
    element gray_encoder_0
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "3";
          type = "int";
       }
    }
@@ -47,6 +47,19 @@
       {
          value = "1";
          type = "int";
+      }
+   }
+   element prbs_0
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
       }
    }
 }
@@ -72,16 +85,6 @@
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
  <interface
-   name="gray_decoder_0_data_out"
-   internal="gray_decoder_0.data_out"
-   type="conduit"
-   dir="end" />
- <interface
-   name="gray_decoder_0_symbol_in"
-   internal="gray_decoder_0.symbol_in"
-   type="conduit"
-   dir="end" />
- <interface
    name="gray_encoder_0_data_in"
    internal="gray_encoder_0.data_in"
    type="conduit"
@@ -96,14 +99,37 @@
    internal="onchip_memory2_0.s1"
    type="avalon"
    dir="end" />
+ <interface
+   name="pam_encoder_0_symbol_in"
+   internal="PAM_encoder_0.symbol_in"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pam_encoder_0_voltage_level_out"
+   internal="PAM_encoder_0.Voltage_level_out"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="prbs_0_data_out"
+   internal="prbs_0.data_out"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="prbs_0_prbs_ctrl"
+   internal="prbs_0.prbs_ctrl"
+   type="conduit"
+   dir="end" />
  <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <module name="PAM_encoder_0" kind="PAM_encoder" version="1.0" enabled="1">
+  <parameter name="SIGNAL_RESOLUTION" value="8" />
+  <parameter name="SYMBOL_SEPERATION" value="56" />
+ </module>
  <module name="clk_0" kind="clock_source" version="22.1" enabled="1">
   <parameter name="clockFrequency" value="50000000" />
   <parameter name="clockFrequencyKnown" value="true" />
   <parameter name="inputClockFrequency" value="0" />
   <parameter name="resetSynchronousEdges" value="NONE" />
  </module>
- <module name="gray_decoder_0" kind="gray_decoder" version="1.0" enabled="1" />
  <module name="gray_encoder_0" kind="gray_encoder" version="1.0" enabled="1" />
  <module
    name="onchip_memory2_0"
@@ -137,6 +163,9 @@
   <parameter name="useShallowMemBlocks" value="false" />
   <parameter name="writable" value="true" />
  </module>
+ <module name="prbs_0" kind="prbs" version="1.0" enabled="1">
+  <parameter name="SEED" value="1756177695" />
+ </module>
  <connection
    kind="clock"
    version="22.1"
@@ -151,7 +180,8 @@
    kind="clock"
    version="22.1"
    start="clk_0.clk"
-   end="gray_decoder_0.clock" />
+   end="PAM_encoder_0.clock" />
+ <connection kind="clock" version="22.1" start="clk_0.clk" end="prbs_0.clock" />
  <connection
    kind="reset"
    version="22.1"
@@ -166,7 +196,8 @@
    kind="reset"
    version="22.1"
    start="clk_0.clk_reset"
-   end="gray_decoder_0.rstn" />
+   end="PAM_encoder_0.rstn" />
+ <connection kind="reset" version="22.1" start="clk_0.clk_reset" end="prbs_0.rstn" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

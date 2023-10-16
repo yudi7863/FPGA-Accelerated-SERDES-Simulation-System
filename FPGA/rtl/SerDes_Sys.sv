@@ -12,19 +12,19 @@ module SerDes_Sys(
     output [6:0] HEX1,
     output [6:0] HEX2,
     output [6:0] HEX3,
-    output [6:0] HEX4,
-    output [6:0] HEX5,
+    //output [6:0] HEX4,
+    //output [6:0] HEX5,
 
     // Pushbuttons
-    input [3:0] KEY,
+    input [3:0] KEY
 	// Note that the KEYs are active low, i.e., they are 1'b1 when not pressed. 
 	// So if you want them to be 1 when pressed, connect them as ~KEY[0].
 
     // LEDs
-    output [9:0] LEDR,
+    //output [9:0] LEDR,
 
     // Slider Switches
-    input [9:0] SW
+    //input [9:0] SW
 );
 		//tx connections
 		logic reset_n;
@@ -36,6 +36,8 @@ module SerDes_Sys(
 		logic [1:0] decoder_in;
 		logic decoder_out;
 		logic decoder_out_valid;
+		logic [7:0] voltage_out;
+		logic voltage_valid;
 		
 		//on-chip-ram connection -> currently cut off:
 		
@@ -47,12 +49,18 @@ module SerDes_Sys(
 		logic [31:0] writedata;
 		logic [3:0] byteenable;
 		
+		
+		//CTRL signals:
+		
+		logic prbs_en;
+		
 		//100MHz clock:
 		logic clock;
 		logic refclk;
+		logic locked;
 		
 		pll G100MHz (
-			.refclk(CLOCK50),
+			.refclk(CLOCK_50),
 			.rst(reset_n),
 			.outclk_0(clock)
 		);
@@ -70,16 +78,40 @@ module SerDes_Sys(
 		.onchip_memory2_0_s1_writedata              (writedata),              //                          .writedata
 		.onchip_memory2_0_s1_byteenable             (byteenable),             //                          .byteenable
 		.reset_reset_n                              (reset_n),                              //                     reset.reset_n
+		
+		
+		//gray_encoder
 		.gray_encoder_0_data_in_data_in             (prbs_data),             //    gray_encoder_0_data_in.data_in
 		.gray_encoder_0_data_in_data_in_valid       (prbs_valid),       //                          .data_in_valid
 		.gray_encoder_0_symbol_out_symbol_out       (encoder_out),       // gray_encoder_0_symbol_out.symbol_out
 		.gray_encoder_0_symbol_out_symbol_out_valid (encoder_valid), //                          .symbol_out_valid
-		.gray_decoder_0_data_out_data_out           (decoder_out),           //   gray_decoder_0_data_out.data_out
-		.gray_decoder_0_data_out_data_out_valid     (decoder_out_valid),     //                          .data_out_valid
-		.gray_decoder_0_symbol_in_symbol_in         (decoder_in),         //  gray_decoder_0_symbol_in.symbol_in
-		.gray_decoder_0_symbol_in_symbol_in_valid   (decoder_valid)    //                          .symbol_in_valid
+		
+		.pam_encoder_0_symbol_in_symbol_in                       (encoder_out),                       //         pam_encoder_0_symbol_in.symbol_in
+		.pam_encoder_0_symbol_in_symbol_in_valid                 (encoder_valid),                 //                                .symbol_in_valid
+		.pam_encoder_0_voltage_level_out_voltage_level_out       (voltage_out),       // pam_encoder_0_voltage_level_out.voltage_level_out
+		.pam_encoder_0_voltage_level_out_voltage_level_out_valid (voltage_valid), //                                .voltage_level_out_valid
+		
+		.prbs_0_data_out_data_out                                (prbs_data),                                //                 prbs_0_data_out.data_out
+		.prbs_0_data_out_data_out_valid                          (prbs_valid),                          //                                .data_out_valid
+		.prbs_0_prbs_ctrl_en                                     (prbs_en)                                    //                prbs_0_prbs_ctrl.en
 		);
-
+		
+		//connecting to button
+		assign prbs_en = ~KEY[0]; //high level when not pressed, low level when pressed.
+		assign reset_n = KEY[1];
+		
+		//connecting rest to hex:
+		hexDisplay display(
+		.clk(clock),
+		.rstn(reset_n),
+		.voltage_level(voltage_out),
+		.voltage_valid (voltage_valid),
+		.ones_digit(HEX0),
+		.tens_digit(HEX1),
+		.hund_digit(HEX2),
+		.neg(HEX3)
+		);
+	
 
 	
 endmodule

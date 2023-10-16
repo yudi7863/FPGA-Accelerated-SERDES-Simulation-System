@@ -1,0 +1,6 @@
+
+State Machine - |SerDes_Sys|TX:u0|grey_encode:gray_encoder_0|bit_idx
+Name bit_idx.00 bit_idx.10 bit_idx.01 
+bit_idx.00 0 0 0 
+bit_idx.01 1 0 1 
+bit_idx.10 1 1 0 

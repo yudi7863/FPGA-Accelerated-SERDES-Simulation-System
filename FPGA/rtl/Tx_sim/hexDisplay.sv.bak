@@ -1,0 +1,7 @@
+module hexDisplay(
+input [1:0] voltage_level,
+output [6:0] hex_value);
+
+
+endmodule
+			

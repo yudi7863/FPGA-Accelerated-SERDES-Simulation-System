@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="a30136465c2475d48533"/>
+  </project>
+  <file_info>
+    <file device="5CSEMA5F31C6" path="SerDes_Sys.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="TX:u0" name="u0">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1697422133"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

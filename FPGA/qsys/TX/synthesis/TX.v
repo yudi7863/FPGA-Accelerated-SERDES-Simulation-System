@@ -4,35 +4,41 @@
 
 `timescale 1 ps / 1 ps
 module TX (
-		input  wire        clk_clk,                                    //                       clk.clk
-		output wire        gray_decoder_0_data_out_data_out,           //   gray_decoder_0_data_out.data_out
-		output wire        gray_decoder_0_data_out_data_out_valid,     //                          .data_out_valid
-		input  wire [1:0]  gray_decoder_0_symbol_in_symbol_in,         //  gray_decoder_0_symbol_in.symbol_in
-		input  wire        gray_decoder_0_symbol_in_symbol_in_valid,   //                          .symbol_in_valid
-		input  wire        gray_encoder_0_data_in_data_in,             //    gray_encoder_0_data_in.data_in
-		input  wire        gray_encoder_0_data_in_data_in_valid,       //                          .data_in_valid
-		output wire [1:0]  gray_encoder_0_symbol_out_symbol_out,       // gray_encoder_0_symbol_out.symbol_out
-		output wire        gray_encoder_0_symbol_out_symbol_out_valid, //                          .symbol_out_valid
-		input  wire [9:0]  onchip_memory2_0_s1_address,                //       onchip_memory2_0_s1.address
-		input  wire        onchip_memory2_0_s1_clken,                  //                          .clken
-		input  wire        onchip_memory2_0_s1_chipselect,             //                          .chipselect
-		input  wire        onchip_memory2_0_s1_write,                  //                          .write
-		output wire [31:0] onchip_memory2_0_s1_readdata,               //                          .readdata
-		input  wire [31:0] onchip_memory2_0_s1_writedata,              //                          .writedata
-		input  wire [3:0]  onchip_memory2_0_s1_byteenable,             //                          .byteenable
-		input  wire        reset_reset_n                               //                     reset.reset_n
+		input  wire        clk_clk,                                                 //                             clk.clk
+		input  wire        gray_encoder_0_data_in_data_in,                          //          gray_encoder_0_data_in.data_in
+		input  wire        gray_encoder_0_data_in_data_in_valid,                    //                                .data_in_valid
+		output wire [1:0]  gray_encoder_0_symbol_out_symbol_out,                    //       gray_encoder_0_symbol_out.symbol_out
+		output wire        gray_encoder_0_symbol_out_symbol_out_valid,              //                                .symbol_out_valid
+		input  wire [9:0]  onchip_memory2_0_s1_address,                             //             onchip_memory2_0_s1.address
+		input  wire        onchip_memory2_0_s1_clken,                               //                                .clken
+		input  wire        onchip_memory2_0_s1_chipselect,                          //                                .chipselect
+		input  wire        onchip_memory2_0_s1_write,                               //                                .write
+		output wire [31:0] onchip_memory2_0_s1_readdata,                            //                                .readdata
+		input  wire [31:0] onchip_memory2_0_s1_writedata,                           //                                .writedata
+		input  wire [3:0]  onchip_memory2_0_s1_byteenable,                          //                                .byteenable
+		input  wire [1:0]  pam_encoder_0_symbol_in_symbol_in,                       //         pam_encoder_0_symbol_in.symbol_in
+		input  wire        pam_encoder_0_symbol_in_symbol_in_valid,                 //                                .symbol_in_valid
+		output wire [7:0]  pam_encoder_0_voltage_level_out_voltage_level_out,       // pam_encoder_0_voltage_level_out.voltage_level_out
+		output wire        pam_encoder_0_voltage_level_out_voltage_level_out_valid, //                                .voltage_level_out_valid
+		output wire        prbs_0_data_out_data_out,                                //                 prbs_0_data_out.data_out
+		output wire        prbs_0_data_out_data_out_valid,                          //                                .data_out_valid
+		input  wire        prbs_0_prbs_ctrl_en,                                     //                prbs_0_prbs_ctrl.en
+		input  wire        reset_reset_n                                            //                           reset.reset_n
 	);
 
-	wire    rst_controller_reset_out_reset;     // rst_controller:reset_out -> [gray_decoder_0:rstn, gray_encoder_0:rstn, onchip_memory2_0:reset]
+	wire    rst_controller_reset_out_reset;     // rst_controller:reset_out -> [PAM_encoder_0:rstn, gray_encoder_0:rstn, onchip_memory2_0:reset, prbs_0:rstn, rst_translator:in_reset]
 	wire    rst_controller_reset_out_reset_req; // rst_controller:reset_req -> [onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 
-	grey_decode gray_decoder_0 (
-		.clk             (clk_clk),                                  //     clock.clk
-		.data_out        (gray_decoder_0_data_out_data_out),         //  data_out.data_out
-		.data_out_valid  (gray_decoder_0_data_out_data_out_valid),   //          .data_out_valid
-		.rstn            (~rst_controller_reset_out_reset),          //      rstn.reset_n
-		.symbol_in       (gray_decoder_0_symbol_in_symbol_in),       // symbol_in.symbol_in
-		.symbol_in_valid (gray_decoder_0_symbol_in_symbol_in_valid)  //          .symbol_in_valid
+	pam_4_encode #(
+		.SIGNAL_RESOLUTION (8),
+		.SYMBOL_SEPERATION (56)
+	) pam_encoder_0 (
+		.clk                     (clk_clk),                                                 //             clock.clk
+		.rstn                    (~rst_controller_reset_out_reset),                         //              rstn.reset_n
+		.symbol_in               (pam_encoder_0_symbol_in_symbol_in),                       //         symbol_in.symbol_in
+		.symbol_in_valid         (pam_encoder_0_symbol_in_symbol_in_valid),                 //                  .symbol_in_valid
+		.voltage_level_out       (pam_encoder_0_voltage_level_out_voltage_level_out),       // Voltage_level_out.voltage_level_out
+		.voltage_level_out_valid (pam_encoder_0_voltage_level_out_voltage_level_out_valid)  //                  .voltage_level_out_valid
 	);
 
 	grey_encode gray_encoder_0 (
@@ -56,6 +62,16 @@ module TX (
 		.reset      (rst_controller_reset_out_reset),     // reset1.reset
 		.reset_req  (rst_controller_reset_out_reset_req), //       .reset_req
 		.freeze     (1'b0)                                // (terminated)
+	);
+
+	prbs31 #(
+		.SEED (33'b001101000101011010010010100011111)
+	) prbs_0 (
+		.clk            (clk_clk),                         //     clock.clk
+		.rstn           (~rst_controller_reset_out_reset), //      rstn.reset_n
+		.data_out       (prbs_0_data_out_data_out),        //  data_out.data_out
+		.data_out_valid (prbs_0_data_out_data_out_valid),  //          .data_out_valid
+		.en             (prbs_0_prbs_ctrl_en)              // prbs_ctrl.en
 	);
 
 	altera_reset_controller #(
