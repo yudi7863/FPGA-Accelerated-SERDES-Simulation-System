@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Oct 16 11:33:48 2023
+Analysis & Synthesis Status : Successful - Mon Oct 16 22:38:18 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : SerDes_Sys
 Top-level Entity Name : SerDes_Sys
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 60
-Total pins : 33
+Total registers : 1580
+Total pins : 43
 Total virtual pins : 0
-Total block memory bits : 0
+Total block memory bits : 42,496
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

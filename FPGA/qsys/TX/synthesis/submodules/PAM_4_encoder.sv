@@ -8,7 +8,7 @@ module pam_4_encode #(
     output reg [SIGNAL_RESOLUTION-1:0] voltage_level_out, //128 to -127 as signed int
     output reg voltage_level_out_valid = 0);
 
-    always @ (posedge clk) begin
+    always @ (posedge clk or negedge rstn) begin
         if (!rstn) begin
             voltage_level_out_valid <= 0;
         end else begin

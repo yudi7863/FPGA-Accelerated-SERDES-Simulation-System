@@ -8,8 +8,8 @@ module pam_4_decode #(
     output reg [1:0] symbol_out,
     output reg symbol_out_valid = 0);
 
-    always @ (posedge clk) begin
-        if (!rstn) begin
+    always @ (posedge clk or negedge rstn ) begin
+        if (!rstn ) begin
             symbol_out_valid <= 0;
         end else begin
             if (voltage_level_in_valid) begin

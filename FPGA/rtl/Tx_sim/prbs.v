@@ -10,7 +10,7 @@ module prbs31 #(parameter SEED = 31'b1101000101011010010010100011111)(
     
     assign sr_in = (sr[30]^sr[27]);
     
-    always @ (posedge clk)
+    always @ (posedge clk )
     if (!rstn) begin
         sr = SEED;
         data_out_valid = 0;

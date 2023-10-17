@@ -16,7 +16,7 @@ module SerDes_Sys(
     //output [6:0] HEX5,
 
     // Pushbuttons
-    input [3:0] KEY
+    input [3:0] KEY,
 	// Note that the KEYs are active low, i.e., they are 1'b1 when not pressed. 
 	// So if you want them to be 1 when pressed, connect them as ~KEY[0].
 
@@ -24,7 +24,7 @@ module SerDes_Sys(
     //output [9:0] LEDR,
 
     // Slider Switches
-    //input [9:0] SW
+    input [9:0] SW
 );
 		//tx connections
 		logic reset_n;
@@ -61,7 +61,7 @@ module SerDes_Sys(
 		
 		pll G100MHz (
 			.refclk(CLOCK_50),
-			.rst(reset_n),
+			.rst(0),
 			.outclk_0(clock)
 		);
 		
@@ -97,8 +97,8 @@ module SerDes_Sys(
 		);
 		
 		//connecting to button
-		assign prbs_en = ~KEY[0]; //high level when not pressed, low level when pressed.
-		assign reset_n = KEY[1];
+		assign prbs_en = SW[1]; //
+		assign reset_n = KEY[0]; //down = logic 0, up: logic 1
 		
 		//connecting rest to hex:
 		hexDisplay display(

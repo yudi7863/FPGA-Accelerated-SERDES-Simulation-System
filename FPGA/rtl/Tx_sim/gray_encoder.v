@@ -15,7 +15,7 @@ module grey_encode(
     reg [1:0] bit_idx = 0;
     
     
-    always @ (posedge clk)
+    always @ (posedge clk  or negedge rstn)
         
         //reset
         if (!rstn) begin

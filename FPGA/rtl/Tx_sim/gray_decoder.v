@@ -14,7 +14,7 @@ module grey_decode(
     
     assign data_out = cur_symbol[bit_idx];
     
-    always @ (posedge clk)
+    always @ (posedge clk  or negedge rstn)
         
         //reset
         if (!rstn) begin

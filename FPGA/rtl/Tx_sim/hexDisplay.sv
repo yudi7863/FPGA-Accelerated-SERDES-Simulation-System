@@ -15,7 +15,7 @@ module hexDisplay(
 				ones_digit <= 'b1111111;
 				tens_digit <= 'b1111111;
 				hund_digit <= 'b1111111;
-				neg <= 'b0;
+				neg <= 'b1111111;
 			end
 			else begin
 				if(voltage_valid == 'b1) begin
@@ -40,16 +40,16 @@ module hexDisplay(
 									
 								end
 						'b01010100: begin //84
-									neg <= 'b1000000;
+									neg <= 'b0000000;
 									hund_digit <= 'b0;
 									tens_digit <= 'b1111111;
 									ones_digit <= 'b1100110;
 								end
 						default: begin
-									ones_digit <= 'b0;
-									tens_digit <= 'b0;
-									hund_digit <= 'b0;
-									neg <= 'b0;
+									ones_digit <= 'b1111111;
+									tens_digit <= 'b1111111;
+									hund_digit <= 'b1111111;
+									neg <= 'b1111111;
 								end
 					endcase
 				end

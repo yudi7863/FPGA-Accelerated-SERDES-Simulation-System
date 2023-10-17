@@ -52,11 +52,35 @@
 					"strict" : false
 				},
 				{
+					"name" : "HEX3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "HEX3[5]",
+					"strict" : false
+				},
+				{
 					"name" : "HEX3[6]",
 					"strict" : false
 				},
 				{
-					"name" : "KEY[1]",
+					"name" : "SW[1]",
 					"strict" : false
 				},
 				{
