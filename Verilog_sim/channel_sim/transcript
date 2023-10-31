@@ -1,0 +1,467 @@
+ls
+# PAM_4.sv
+# channel_model.v
+# grey_code.v
+# pam_4_tb.sv
+# prbs.v
+# prbs_tb.v
+# transcript
+# vsim.wlf
+# wlft1t45nn
+# wlftgy4ack
+# wlfttjjbn6
+# work
+vsim prbs_pam_4_tb
+# vsim prbs_pam_4_tb 
+# Start time: 22:02:45 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+quit -sim
+# End time: 22:02:57 on Oct 04,2023, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 0
+vlog *sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:03:00 on Oct 04,2023
+# vlog -reportprogress 300 PAM_4.sv pam_4_tb.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module prbs_pam_4_tb
+# ** Error: (vlog-13069) pam_4_tb.sv(65): near "checker": syntax error, unexpected checker.
+# ** Error: pam_4_tb.sv(65): (vlog-13205) Syntax error found in the scope following 'prbs31_checker'. Is there a missing '::'?
+# End time: 22:03:01 on Oct 04,2023, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:03:09 on Oct 04,2023
+# vlog -reportprogress 300 PAM_4.sv pam_4_tb.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module prbs_pam_4_tb
+# ** Error: (vlog-13069) pam_4_tb.sv(65): near "checker": syntax error, unexpected checker.
+# ** Error: pam_4_tb.sv(65): (vlog-13205) Syntax error found in the scope following 'prbs31_checker'. Is there a missing '::'?
+# End time: 22:03:09 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:03:51 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_grey_code_tb
+# End time: 22:03:51 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:06:36 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:06:36 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:06:40 on Oct 04,2023
+# vlog -reportprogress 300 PAM_4.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# 
+# Top level modules:
+# 	pam_4_encode
+# 	pam_4_decode
+# End time: 22:06:40 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# vsim prbs_pam_4_tb 
+# Start time: 22:06:54 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: wangy  Hostname: YUDI  ProcessID: 47648
+#           Attempting to use alternate WLF file "./wlftihz06r".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftihz06r
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "../Matlab_sim/pam4_output.mem" in read mode.
+# No such file or directory. (errno = ENOENT)    : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:10:03 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:10:03 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:10:08 on Oct 04,2023
+# vlog -reportprogress 300 PAM_4.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# 
+# Top level modules:
+# 	pam_4_encode
+# 	pam_4_decode
+# End time: 22:10:08 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# End time: 22:10:25 on Oct 04,2023, Elapsed time: 0:03:31
+# Errors: 0, Warnings: 3
+# vsim prbs_pam_4_tb 
+# Start time: 22:10:25 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "../../Matlab_sim/pam4_output.mem" in read mode.
+# No such file or directory. (errno = ENOENT)    : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:12:18 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:12:18 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# End time: 22:12:26 on Oct 04,2023, Elapsed time: 0:02:01
+# Errors: 0, Warnings: 1
+# vsim prbs_pam_4_tb 
+# Start time: 22:12:26 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "/../../Matlab_sim/pam4_output.mem" in read mode.
+# No such file or directory. (errno = ENOENT)    : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:13:36 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:13:36 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:13:41 on Oct 04,2023
+# vlog -reportprogress 300 PAM_4.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# 
+# Top level modules:
+# 	pam_4_encode
+# 	pam_4_decode
+# End time: 22:13:41 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# End time: 22:13:46 on Oct 04,2023, Elapsed time: 0:01:20
+# Errors: 0, Warnings: 1
+# vsim prbs_pam_4_tb 
+# Start time: 22:13:46 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+run -all
+# ** Warning: (vsim-7) Failed to open readmem file "/../../Matlab_sim/Tx_sim/pam4_output.mem" in read mode.
+# No such file or directory. (errno = ENOENT)    : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:14:22 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:14:23 on Oct 04,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# End time: 22:14:25 on Oct 04,2023, Elapsed time: 0:00:39
+# Errors: 0, Warnings: 1
+# vsim prbs_pam_4_tb 
+# Start time: 22:14:26 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+run -all
+# ** Warning: ** UI-Msg: (vsim-8147) Cannot display or load '/prbs_pam_4_tb/matlab_PAM4_ref' as this is an index in an associative array.
+#     : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:17:22 on Oct 04,2023
+# vlog -reportprogress 300 channel_model.v grey_code.v pam_4_tb.v prbs.v prbs_tb.v 
+# -- Compiling module symbol_to_signal
+# -- Compiling module ISI_channel
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs_pam_4_tb
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module prbs_grey_code_tb
+# 
+# Top level modules:
+# 	symbol_to_signal
+# 	ISI_channel
+# 	prbs_pam_4_tb
+# 	prbs_grey_code_tb
+# End time: 22:17:22 on Oct 04,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim prbs_pam_4_tb
+# End time: 22:17:27 on Oct 04,2023, Elapsed time: 0:03:01
+# Errors: 0, Warnings: 1
+# vsim prbs_pam_4_tb 
+# Start time: 22:17:27 on Oct 04,2023
+# Loading work.prbs_pam_4_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+add wave -position insertpoint  \
+sim:/prbs_pam_4_tb/clk \
+sim:/prbs_pam_4_tb/en \
+sim:/prbs_pam_4_tb/rstn \
+sim:/prbs_pam_4_tb/binary_data \
+sim:/prbs_pam_4_tb/binary_data_valid \
+sim:/prbs_pam_4_tb/symbol \
+sim:/prbs_pam_4_tb/symbol_valid \
+sim:/prbs_pam_4_tb/voltage_level \
+sim:/prbs_pam_4_tb/voltage_level_valid \
+sim:/prbs_pam_4_tb/symbol_returned \
+sim:/prbs_pam_4_tb/symbol_returned_valid \
+sim:/prbs_pam_4_tb/binary_data_returned \
+sim:/prbs_pam_4_tb/binary_data_returned_valid \
+sim:/prbs_pam_4_tb/total_bits \
+sim:/prbs_pam_4_tb/total_bit_errors \
+sim:/prbs_pam_4_tb/matlab_PAM4 \
+sim:/prbs_pam_4_tb/matlab_PAM4_ref \
+sim:/prbs_pam_4_tb/i
+run -all
+# ** Warning: (vsim-PLI-3406) Too many digits (8) in data on line 1 of file "../../Matlab_sim/Tx_sim/pam4_output.mem". (Max is 2.)    : pam_4_tb.v(80)
+#    Time: 0 ps  Iteration: 0  Instance: /prbs_pam_4_tb
+# ** Note: $finish    : pam_4_tb.v(86)
+#    Time: 1030 ns  Iteration: 1  Instance: /prbs_pam_4_tb
+# 1
+# Break in Module prbs_pam_4_tb at pam_4_tb.v line 86
