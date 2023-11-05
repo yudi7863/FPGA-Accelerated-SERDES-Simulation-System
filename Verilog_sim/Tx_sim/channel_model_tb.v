@@ -38,14 +38,5 @@ module channel_model_tb;
         .voltage_level_out(voltage_level),
         .voltage_level_out_valid(voltage_level_valid));
 
-    wire [7:0] voltage_level_isi;
-    wire signal_valid;
-    channel_model #(.PULSE_RESPONSE_LENGTH(2).SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pe (
-        .clk(clk),
-        .rstn(rstn),
-        .signal_in(voltage_level),
-        .signal_in_valid(voltage_level_valid),
-        .signal_out(voltage_level_isi),
-        .signal_out_valid(signal_valid));
-
+ 
 endmodule

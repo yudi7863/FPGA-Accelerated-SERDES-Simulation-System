@@ -40,12 +40,26 @@ module channel_model_tb;
 
     wire [7:0] voltage_level_isi;
     wire signal_valid;
-    channel_model #(.PULSE_RESPONSE_LENGTH(2).SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pe (
+    ISI_channel PRBS_channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
         .signal_in_valid(voltage_level_valid),
         .signal_out(voltage_level_isi),
         .signal_out_valid(signal_valid));
+    //setting clock:
+    always #10 clk = ~clk;
+    //starting simulation:
+    initial begin
+        
+        #50 
+        en <= 1;
+        rstn <=1;
+        #2120
+        
+        $finish;
+
+        
+    end
 
 endmodule
