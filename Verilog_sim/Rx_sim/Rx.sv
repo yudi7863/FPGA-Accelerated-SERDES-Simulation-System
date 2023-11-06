@@ -1,8 +1,8 @@
 //assumptions: I know about the h functions and I know about the length of the h functions
-Module DFE #(
+module DFE #(
 parameter PULSE_RESPONSE_LENGTH = 2,
 parameter SIGNAL_RESOLUTION = 8,
-parameter SYMBOL_SEPERATION = 56) {
+parameter SYMBOL_SEPERATION = 56) (
 input clk,
 input rstn,
 input signed [SIGNAL_RESOLUTION-1:0] signal_in,
@@ -13,7 +13,7 @@ input signed [SIGNAL_RESOLUTION-1:0] train_data,
 input train_data_valid,
 
 output reg signed [SIGNAL_RESOLUTION-1:0] signal_out,
-output reg signal_out_valid};
+output reg signal_out_valid);
 
 //assuming values for h function:2 d array
 logic [PULSE_RESPONSE_LENGTH-1:0] h_function_vals [7:0];
@@ -29,7 +29,9 @@ decision_maker DM (
     .clk(clk), 
     .rstn(rstn), 
     .estimation(estimation), 
-    .feedback_value(feedback_value)
+    .feedback_value(feedback_value),
+    .e_valid(signal_in_valid),
+    .f_valid(signal_out_valid)
     );
 
 always_ff @ (posedge clk) begin
@@ -39,10 +41,11 @@ always_ff @ (posedge clk) begin
 			signal_out_valid <= 'b0;
     end
 	else begin
-        if(signal_in_valid == 'b1){
+        if(signal_in_valid == 'b1) begin
             subtract_result <= signal_in - feedback_value;
             estimation <= subtract_result; //currently h0_1 = 1, which does nothing
-        }
+            signal_out <= feedback_value;
+        end
     end
 end
 endmodule
@@ -50,12 +53,12 @@ endmodule
 module decision_maker #(
     parameter SIGNAL_RESOLUTION = 8,
     parameter SYMBOL_SEPERATION = 56) 
-{   input clk,
+(   input clk,
     input rstn,
     input [SIGNAL_RESOLUTION-1:0] estimation, 
     input e_valid,
-    output [SIGNAL_RESOLUTION-1:0] feedback_value,
-    output f_valid};
+    output logic [SIGNAL_RESOLUTION-1:0] feedback_value,
+    output logic f_valid);
     //the four values that we want
     logic [SIGNAL_RESOLUTION-1:0] value [3:0];
     logic [SIGNAL_RESOLUTION-1:0] difference [3:0];
@@ -66,28 +69,28 @@ module decision_maker #(
     //constants
     assign value[0] = SYMBOL_SEPERATION >> 1;
     assign value[1] = - (SYMBOL_SEPERATION >> 1);
-    assign value[2] = SYMBOL_SEPERATION >> 1 + SYMBOL_SEPARATION;
-    assign value[3] = - (SYMBOL_SEPERATION >> 1 + SYMBOL_SEPARATION);
+    assign value[2] = SYMBOL_SEPERATION >> 1 + SYMBOL_SEPERATION;
+    assign value[3] = - (SYMBOL_SEPERATION >> 1 + SYMBOL_SEPERATION);
 always_ff @ (posedge clk) begin
 	if(!rstn) begin
 		//reset all the output signals
 		feedback_value <= 'b0;
         best_difference <= 'hFFFFFFFF;
         best_value <= 'b0;
-        count <= 'b0;
+        //count <= 'b0;
     end
 	else begin
         //calculate the difference:
         if(e_valid)begin
-            differece[0] <= estimation-value[0];
-            differece[1] <= estimation-value[1];
-            differece[2] <= estimation-value[2];
-            differece[3] <= estimation-value[3];
+            difference[0] <= estimation-value[0];
+            difference[1] <= estimation-value[1];
+            difference[2] <= estimation-value[2];
+            difference[3] <= estimation-value[3];
 
-            if(differece[0][SIGNAL_RESOLUTION-1] == 1'b1) difference[0] = ~differece[0];
-            if(differece[1][SIGNAL_RESOLUTION-1] == 1'b1) differece[1] = ~differece[1];
-            if(differece[2][SIGNAL_RESOLUTION-1] == 1'b1) differece[2] = ~differece[2];
-            if(differece[3][SIGNAL_RESOLUTION-1] == 1'b1)  differece[3] = ~differece[3];
+            if(difference[0][SIGNAL_RESOLUTION-1] == 1'b1) difference[0] = ~difference[0];
+            if(difference[1][SIGNAL_RESOLUTION-1] == 1'b1) difference[1] = ~difference[1];
+            if(difference[2][SIGNAL_RESOLUTION-1] == 1'b1) difference[2] = ~difference[2];
+            if(difference[3][SIGNAL_RESOLUTION-1] == 1'b1)  difference[3] = ~difference[3];
             //making the decision
             /*for(i = 0; i < 4; i++)begin
                 if(difference[i] < best_difference) begin
@@ -102,10 +105,22 @@ always_ff @ (posedge clk) begin
             end*/
 
              //really dumb way, can optimize later:
-             if(difference[0] < difference[1] && difference[0] < difference[2] && difference[0] < difference[3]) feedback_value <= value[0];
-             if(difference[1] < difference[0] && difference[1] < difference[2] && difference[1] < difference[3]) feedback_value <= value[1];
-             if(difference[2] < difference[1] && difference[2] < difference[0] && difference[2] < difference[3]) feedback_value <= value[2];
-             if(difference[3] < difference[1] && difference[3] < difference[2] && difference[3] < difference[0]) feedback_value <= value[3];
+             if(difference[0] < difference[1] && difference[0] < difference[2] && difference[0] < difference[3]) begin
+                feedback_value <= value[0];
+                f_valid <= 1'b1;
+             end
+             if(difference[1] < difference[0] && difference[1] < difference[2] && difference[1] < difference[3]) begin
+                feedback_value <= value[1];
+                f_valid <= 1'b1;
+             end
+             if(difference[2] < difference[1] && difference[2] < difference[0] && difference[2] < difference[3]) begin 
+                feedback_value <= value[2];
+                f_valid <= 1'b1;
+             end
+             if(difference[3] < difference[1] && difference[3] < difference[2] && difference[3] < difference[0]) begin
+                feedback_value <= value[3];
+                f_valid <= 1'b1;
+             end
         end
     end
 end
