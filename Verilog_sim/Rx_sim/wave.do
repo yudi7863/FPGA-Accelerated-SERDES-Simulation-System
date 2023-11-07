@@ -11,14 +11,13 @@ add wave -noupdate /rx_standalone_tb/no_isi
 add wave -noupdate /rx_standalone_tb/no_isi_valid
 add wave -noupdate /rx_standalone_tb/shift_data
 add wave -noupdate /rx_standalone_tb/count
-add wave -noupdate /rx_standalone_tb/rstn
 add wave -noupdate -divider channel
 add wave -noupdate /rx_standalone_tb/channel/signal_in
 add wave -noupdate /rx_standalone_tb/channel/signal_in_valid
 add wave -noupdate /rx_standalone_tb/channel/signal_out
 add wave -noupdate /rx_standalone_tb/channel/signal_out_valid
-add wave -noupdate /rx_standalone_tb/channel/convolution_result
-add wave -noupdate /rx_standalone_tb/channel/isi_result
+add wave -noupdate -radix decimal /rx_standalone_tb/channel/convolution_result
+add wave -noupdate -radix decimal /rx_standalone_tb/channel/isi_result
 add wave -noupdate /rx_standalone_tb/channel/shift_reg
 add wave -noupdate -divider DFE
 add wave -noupdate /rx_standalone_tb/DecisionFeedback/signal_in
@@ -29,13 +28,22 @@ add wave -noupdate /rx_standalone_tb/DecisionFeedback/train_data_valid
 add wave -noupdate /rx_standalone_tb/DecisionFeedback/signal_out
 add wave -noupdate /rx_standalone_tb/DecisionFeedback/signal_out_valid
 add wave -noupdate /rx_standalone_tb/DecisionFeedback/h_function_vals
-add wave -noupdate /rx_standalone_tb/DecisionFeedback/feedback_value
-add wave -noupdate /rx_standalone_tb/DecisionFeedback/subtract_result
-add wave -noupdate /rx_standalone_tb/DecisionFeedback/estimation
+add wave -noupdate -radix decimal /rx_standalone_tb/DecisionFeedback/feedback_value
+add wave -noupdate -radix decimal /rx_standalone_tb/DecisionFeedback/subtract_result
+add wave -noupdate -radix decimal /rx_standalone_tb/DecisionFeedback/estimation
+add wave -noupdate -divider DM
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/estimation
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/e_valid
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/feedback_value
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/f_valid
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/value
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/difference
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/best_value
+add wave -noupdate /rx_standalone_tb/DecisionFeedback/DM/best_difference
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 1} {270000 ps} 0}
+WaveRestoreCursors {{Cursor 1} {322850 ps} 0}
 quietly wave cursor active 1
-configure wave -namecolwidth 281
+configure wave -namecolwidth 333
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left
 configure wave -signalnamewidth 0
@@ -49,4 +57,4 @@ configure wave -griddelta 40
 configure wave -timeline 0
 configure wave -timelineunits ns
 update
-WaveRestoreZoom {0 ps} {721079 ps}
+WaveRestoreZoom {0 ps} {741702 ps}

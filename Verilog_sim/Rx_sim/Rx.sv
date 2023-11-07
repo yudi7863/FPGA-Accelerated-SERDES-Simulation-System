@@ -43,7 +43,7 @@ always_ff @ (posedge clk) begin
 	else begin
         if(signal_in_valid == 'b1) begin
             subtract_result <= signal_in - feedback_value;
-            estimation <= subtract_result; //currently h0_1 = 1, which does nothing
+            estimation <= subtract_result/h_function_vals[0]; //currently h0_1 = 1, which does nothing
             signal_out <= feedback_value;
         end
     end
@@ -69,8 +69,8 @@ module decision_maker #(
     //constants
     assign value[0] = SYMBOL_SEPERATION >> 1;
     assign value[1] = - (SYMBOL_SEPERATION >> 1);
-    assign value[2] = SYMBOL_SEPERATION >> 1 + SYMBOL_SEPERATION;
-    assign value[3] = - (SYMBOL_SEPERATION >> 1 + SYMBOL_SEPERATION);
+    assign value[2] = value[0] + SYMBOL_SEPERATION;
+    assign value[3] = value[1] - SYMBOL_SEPERATION;
 always_ff @ (posedge clk) begin
 	if(!rstn) begin
 		//reset all the output signals
@@ -92,17 +92,6 @@ always_ff @ (posedge clk) begin
             if(difference[2][SIGNAL_RESOLUTION-1] == 1'b1) difference[2] = ~difference[2];
             if(difference[3][SIGNAL_RESOLUTION-1] == 1'b1)  difference[3] = ~difference[3];
             //making the decision
-            /*for(i = 0; i < 4; i++)begin
-                if(difference[i] < best_difference) begin
-                    best_difference <= difference[i];
-                    best_value <= value[i];
-                    count <= count + 'b1;
-                end
-            end
-            if(count == 'b11) begin
-                f_valid <= 'b1;
-                feedback_value <= 
-            end*/
 
              //really dumb way, can optimize later:
              if(difference[0] < difference[1] && difference[0] < difference[2] && difference[0] < difference[3]) begin
