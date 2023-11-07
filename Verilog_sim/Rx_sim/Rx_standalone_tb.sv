@@ -28,16 +28,17 @@ module rx_standalone_tb ();
             count <= 'b0;
         end
         else begin
-            voltage_level <= {random_data[count],random_data[count+1]};
-            count <= count + 2;
-            if(count > 'd455) count <= 'b0;
+            voltage_level <= random_data[count*8 +: 8];
+            voltage_level_valid <= ~voltage_level_valid;
+            count <= count + 1;
+            if(count > 'd56) count <= 'b0;
         end
     end
 
     //connections
     ISI_channel channel(
         .clk(clk),
-        .rstn(rstn),
+        .rstn(resetn),
         .signal_in(voltage_level),
         .signal_in_valid(voltage_level_valid),
         .signal_out(voltage_level_isi),
@@ -45,7 +46,7 @@ module rx_standalone_tb ();
 
     DFE DecisionFeedback(
         .clk(clk),
-        .rstn(rstn),
+        .rstn(resetn),
         .signal_in(voltage_level_isi),
         .signal_in_valid(signal_valid),
         .signal_out(no_isi),

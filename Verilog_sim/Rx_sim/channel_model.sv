@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 
 //outputs the convolution of the input signal with a pulse response of arbitrary length
 module ISI_channel#(
@@ -37,7 +36,7 @@ module ISI_channel#(
             if(signal_in_valid) begin
                 //place the 1*signal_in in upper 8 bits, 0.5*signal_in in lower 8 bits
                 convolution_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION] <= signal_in;
-                convolution_result[SIGNAL_RESOLUTION-1:0] <= signal_in >> 1; //divide by 2
+                convolution_result[SIGNAL_RESOLUTION-1:0] <= signal_in >> 2; //divide by 2
                 //add results to isi_results
                 isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION] <= isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION]+convolution_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION];
                 isi_result[SIGNAL_RESOLUTION-1:0] <= isi_result[SIGNAL_RESOLUTION-1:0]+convolution_result[SIGNAL_RESOLUTION-1:0];
@@ -55,5 +54,3 @@ module ISI_channel#(
     end
 
 endmodule
-    
-
