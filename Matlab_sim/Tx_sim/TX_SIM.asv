@@ -42,9 +42,8 @@ c_randomdata
 gray_data
 PAM4_out
 
-%pass through channel
-h = [1, 0.5];
-channal_output = conv(PAM4_out, h);
+%go through channel
+h=h = [1 0.5];
 
 %before looping to rx side: make sure that data matches verilog:
 hold_var = to_verilog(PAM4_out,'pam4_output.mem',num_data_half);
