@@ -42,12 +42,10 @@ always_ff @ (posedge clk) begin
 			signal_out_valid <= 'b0;
             division <='b0;
             subtract_result <='b0;
-            buffer <='b0;
             feedback_value <= 'b0;
     end
 	else begin
         if(signal_in_valid == 'b1) begin
-            buffer <= signal_in;
             //estimation <= subtract_result; //currently h0_1 = 1, which does nothing
             subtract_result <= signal_in - (feedback_value >>> h_function_vals[1]);
             signal_out <= feedback_value;
@@ -75,7 +73,6 @@ module decision_maker #(
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] best_value;
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] best_difference;
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value_i;
-    logic [1:0] test;
     assign feedback_value = feedback_value_i;
     //logic [1:0] count;
    // integer i;
@@ -92,7 +89,6 @@ always_ff @ (posedge clk) begin
         difference[1] <= 'b0;
         difference[2] <= 'b0;
         difference[3] <= 'b0;
-        //count <= 'b0;
     end
 	else begin
         //calculate the difference:
@@ -101,13 +97,6 @@ always_ff @ (posedge clk) begin
             difference[1] <= ((estimation - value[1]) >= 0) ? (estimation - value[1]) : ~(estimation - value[1]);
             difference[2] <= ((estimation - value[2]) >= 0) ? (estimation - value[2]) : ~(estimation - value[2]);
             difference[3] <= ((estimation - value[3]) >= 0) ? (estimation - value[3]) : ~(estimation - value[3]);
-
-            //if(difference[0] < 0) difference[0] <= ~difference[0];
-           // if(difference[1] < 0) difference[1] <= ~difference[1];
-           // if(difference[2]< 0) difference[2] <= ~difference[2];
-           // if(difference[3] < 0)  difference[3] <= ~difference[3];
-
-            //making the decision
         end
     end
 end
@@ -117,22 +106,18 @@ always_comb begin
     //really dumb way, can optimize later:
     if((difference[0] < difference[1]) && (difference[0] < difference[2]) && (difference[0] < difference[3])) begin
     feedback_value_i = value[0];
-    test = 'b0;
     f_valid = 1'b1;
     end
     if((difference[1] < difference[0]) && (difference[1] < difference[2]) && (difference[1] < difference[3])) begin
     feedback_value_i = value[1];
-    test = 'b1;
     f_valid = 1'b1;
     end
     if((difference[2] < difference[1]) && (difference[2] < difference[0]) &&(difference[2] < difference[3])) begin 
     feedback_value_i = value[2];
-    test = 'd2;
     f_valid = 1'b1;
     end
     if((difference[3] < difference[1]) && (difference[3] < difference[2]) && (difference[3] < difference[0])) begin
     feedback_value_i = value[3];
-    test = 'd3;
     f_valid = 1'b1;
     end
     
