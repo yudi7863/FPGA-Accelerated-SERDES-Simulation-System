@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 
 //outputs the convolution of the input signal with a pulse response of arbitrary length
 module ISI_channel#(
@@ -13,44 +14,22 @@ module ISI_channel#(
     input signal_in_valid,
     output reg signed [SIGNAL_RESOLUTION-1:0] signal_out,
     output reg signal_out_valid =0);
-       
     
-    logic [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] convolution_result;
-    logic [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] isi_result;
-    //shift register that shifts 8 bits of data 
-    logic  [SIGNAL_RESOLUTION-1:0] shift_reg;
-
-    /*initial begin
-        isi_result = {({SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH{1'b0}})}; // Initialize to all zeros
-        convolution_result = {({SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH{1'b0}})};
-    end*/
-
+    logic [SIGNAL_RESOLUTION*(PULSE_RESPONSE_LENGTH-1)-1:0] isi_effect;
 
     //take signal_in, multiply
     always @ (posedge clk) begin
         if (!rstn) begin
             signal_out_valid <= 0;
-            isi_result <= {({SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH{1'b0}})}; // Initialize to all zeros
-            convolution_result <= {({SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH{1'b0}})};
+            isi_effect <= {({SIGNAL_RESOLUTION*(PULSE_RESPONSE_LENGTH-1){1'b0}})}; // Initialize to all zeros
         end else begin
             if(signal_in_valid) begin
-                //place the 1*signal_in in upper 8 bits, 0.5*signal_in in lower 8 bits
-                convolution_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION] <= signal_in;
-                convolution_result[SIGNAL_RESOLUTION-1:0] <= signal_in >> 2; //divide by 2
-                //add results to isi_results
-                isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION] <= isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION]+convolution_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION];
-                isi_result[SIGNAL_RESOLUTION-1:0] <= isi_result[SIGNAL_RESOLUTION-1:0]+convolution_result[SIGNAL_RESOLUTION-1:0];
-                //shift the upper 8 bits to output
-                signal_out <= isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION];
-                shift_reg <= {isi_result[SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:SIGNAL_RESOLUTION], shift_reg[SIGNAL_RESOLUTION-1:0]};
-                //enable signal_out_valid
+                signal_out <= signal_in + isi_effect;
+                isi_effect <= signal_in >>> 1;
                 signal_out_valid <= 1;
             end else begin
                 signal_out_valid <= 0;
             end
-
         end
-
     end
-
 endmodule

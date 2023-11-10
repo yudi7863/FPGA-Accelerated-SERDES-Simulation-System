@@ -11,24 +11,24 @@ cModel Technology
 Z0 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1699381081
+Z2 !s110 1699589351
 !i10b 1
-!s100 AbTCaf`P`b]f01>bIB5mX1
+!s100 LPZV1Y0oTO5B0Q2An1FNZ0
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IDO<V[U[HUbk3cl_k9KI_n2
+Igb7mSBfWUaQi7hodoJIa52
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1699381057
+Z5 w1699589347
 Z6 8Rx.sv
 Z7 FRx.sv
-!i122 42
-L0 53 65
+!i122 119
+L0 61 83
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1699381081.000000
+Z9 !s108 1699589351.000000
 !s107 channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|
 !i113 1
@@ -37,17 +37,17 @@ vDFE
 R1
 R2
 !i10b 1
-!s100 3zYKHJ>[8[W1^HzK^o?:[2
+!s100 6MIJa?JG[6HHeTPLf6LA_1
 R3
-IeFZ5`k_^[ALY3Y;SDLDlV0
+IV:4ZkX7cNfe>1I<Ym9NnC3
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 42
-L0 2 50
+!i122 119
+L0 2 58
 R8
 r1
 !s85 0
@@ -62,17 +62,17 @@ vISI_channel
 R1
 R2
 !i10b 1
-!s100 ]ei]`J^F3M]XeC^]=32VE1
+!s100 nPJZlUGP>TnO[9g8da^[R0
 R3
-I41e2zfXhhoD^?aS?d][dO1
+I<;^Y2=h3oae2V5bK?Bg522
 R4
 S1
 R0
-w1699378057
+w1699571681
 8channel_model.sv
 Fchannel_model.sv
-!i122 42
-L0 3 54
+!i122 119
+L0 4 32
 R8
 r1
 !s85 0
@@ -96,7 +96,7 @@ R0
 Z13 w1699043380
 Z14 8PAM_4.sv
 Z15 FPAM_4.sv
-!i122 42
+!i122 119
 L0 32 28
 R8
 r1
@@ -120,7 +120,7 @@ R0
 R13
 R14
 R15
-!i122 42
+!i122 119
 L0 3 28
 R8
 r1
@@ -144,7 +144,7 @@ R0
 w1699375056
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 42
+!i122 119
 L0 2 67
 R8
 r1
