@@ -1,0 +1,14 @@
+	component RX is
+		port (
+			clk_clk                           : in  std_logic                    := 'X';             -- clk
+			dfe_0_dfe_in_signal_in            : in  std_logic_vector(7 downto 0) := (others => 'X'); -- signal_in
+			dfe_0_dfe_in_signal_in_valid      : in  std_logic                    := 'X';             -- signal_in_valid
+			dfe_0_dfe_out_signal_out          : out std_logic_vector(7 downto 0);                    -- signal_out
+			dfe_0_dfe_out_signal_out_valid    : out std_logic;                                       -- signal_out_valid
+			dfe_0_noise_noise                 : in  std_logic_vector(7 downto 0) := (others => 'X'); -- noise
+			dfe_0_train_data_train_data       : in  std_logic_vector(7 downto 0) := (others => 'X'); -- train_data
+			dfe_0_train_data_train_data_valid : in  std_logic                    := 'X';             -- train_data_valid
+			reset_reset_n                     : in  std_logic                    := 'X'              -- reset_n
+		);
+	end component RX;
+

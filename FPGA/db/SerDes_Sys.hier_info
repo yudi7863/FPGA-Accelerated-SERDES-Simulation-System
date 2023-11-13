@@ -28,7 +28,7 @@ HEX3[3] <= hexDisplay:display.neg
 HEX3[4] <= hexDisplay:display.neg
 HEX3[5] <= hexDisplay:display.neg
 HEX3[6] <= hexDisplay:display.neg
-KEY[0] => reset_n.IN2
+KEY[0] => reset_n.IN3
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
 KEY[3] => ~NO_FANOUT~
@@ -1265,6 +1265,164 @@ reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SerDes_Sys|TX:u0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
+clk => altera_reset_synchronizer_int_chain_out.CLK
+clk => altera_reset_synchronizer_int_chain[0].CLK
+clk => altera_reset_synchronizer_int_chain[1].CLK
+reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|channel:u1
+channel_module_0_channel_input_signal_in[0] => channel_module_0_channel_input_signal_in[0].IN1
+channel_module_0_channel_input_signal_in[1] => channel_module_0_channel_input_signal_in[1].IN1
+channel_module_0_channel_input_signal_in[2] => channel_module_0_channel_input_signal_in[2].IN1
+channel_module_0_channel_input_signal_in[3] => channel_module_0_channel_input_signal_in[3].IN1
+channel_module_0_channel_input_signal_in[4] => channel_module_0_channel_input_signal_in[4].IN1
+channel_module_0_channel_input_signal_in[5] => channel_module_0_channel_input_signal_in[5].IN1
+channel_module_0_channel_input_signal_in[6] => channel_module_0_channel_input_signal_in[6].IN1
+channel_module_0_channel_input_signal_in[7] => channel_module_0_channel_input_signal_in[7].IN1
+channel_module_0_channel_input_signal_in_valid => channel_module_0_channel_input_signal_in_valid.IN1
+channel_module_0_channel_output_signal_out[0] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[1] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[2] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[3] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[4] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[5] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[6] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out[7] <= ISI_channel:channel_module_0.signal_out
+channel_module_0_channel_output_signal_out_valid <= ISI_channel:channel_module_0.signal_out_valid
+clk_clk => clk_clk.IN2
+reset_reset_n => _.IN1
+
+
+|SerDes_Sys|channel:u1|ISI_channel:channel_module_0
+clk => signal_out[0]~reg0.CLK
+clk => signal_out[1]~reg0.CLK
+clk => signal_out[2]~reg0.CLK
+clk => signal_out[3]~reg0.CLK
+clk => signal_out[4]~reg0.CLK
+clk => signal_out[5]~reg0.CLK
+clk => signal_out[6]~reg0.CLK
+clk => signal_out[7]~reg0.CLK
+clk => isi_effect[0].CLK
+clk => isi_effect[1].CLK
+clk => isi_effect[2].CLK
+clk => isi_effect[3].CLK
+clk => isi_effect[4].CLK
+clk => isi_effect[5].CLK
+clk => isi_effect[6].CLK
+clk => isi_effect[7].CLK
+clk => signal_out_valid~reg0.CLK
+rstn => signal_out_valid.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => isi_effect.OUTPUTSELECT
+rstn => signal_out[0]~reg0.ENA
+rstn => signal_out[1]~reg0.ENA
+rstn => signal_out[2]~reg0.ENA
+rstn => signal_out[3]~reg0.ENA
+rstn => signal_out[4]~reg0.ENA
+rstn => signal_out[5]~reg0.ENA
+rstn => signal_out[6]~reg0.ENA
+rstn => signal_out[7]~reg0.ENA
+signal_in[0] => Add0.IN8
+signal_in[1] => Add0.IN7
+signal_in[1] => isi_effect.DATAB
+signal_in[2] => Add0.IN6
+signal_in[2] => isi_effect.DATAB
+signal_in[3] => Add0.IN5
+signal_in[3] => isi_effect.DATAB
+signal_in[4] => Add0.IN4
+signal_in[4] => isi_effect.DATAB
+signal_in[5] => Add0.IN3
+signal_in[5] => isi_effect.DATAB
+signal_in[6] => Add0.IN2
+signal_in[6] => isi_effect.DATAB
+signal_in[7] => Add0.IN1
+signal_in[7] => isi_effect.DATAB
+signal_in[7] => isi_effect.DATAB
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => isi_effect.OUTPUTSELECT
+signal_in_valid => signal_out_valid.DATAA
+signal_out[0] <= signal_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[1] <= signal_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[2] <= signal_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[3] <= signal_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[4] <= signal_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[5] <= signal_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[6] <= signal_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[7] <= signal_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out_valid <= signal_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller
+reset_in0 => merged_reset.IN0
+reset_in1 => merged_reset.IN1
+reset_in2 => merged_reset.IN1
+reset_in3 => merged_reset.IN1
+reset_in4 => merged_reset.IN1
+reset_in5 => merged_reset.IN1
+reset_in6 => merged_reset.IN1
+reset_in7 => merged_reset.IN1
+reset_in8 => merged_reset.IN1
+reset_in9 => merged_reset.IN1
+reset_in10 => merged_reset.IN1
+reset_in11 => merged_reset.IN1
+reset_in12 => merged_reset.IN1
+reset_in13 => merged_reset.IN1
+reset_in14 => merged_reset.IN1
+reset_in15 => merged_reset.IN1
+reset_req_in0 => ~NO_FANOUT~
+reset_req_in1 => ~NO_FANOUT~
+reset_req_in2 => ~NO_FANOUT~
+reset_req_in3 => ~NO_FANOUT~
+reset_req_in4 => ~NO_FANOUT~
+reset_req_in5 => ~NO_FANOUT~
+reset_req_in6 => ~NO_FANOUT~
+reset_req_in7 => ~NO_FANOUT~
+reset_req_in8 => ~NO_FANOUT~
+reset_req_in9 => ~NO_FANOUT~
+reset_req_in10 => ~NO_FANOUT~
+reset_req_in11 => ~NO_FANOUT~
+reset_req_in12 => ~NO_FANOUT~
+reset_req_in13 => ~NO_FANOUT~
+reset_req_in14 => ~NO_FANOUT~
+reset_req_in15 => ~NO_FANOUT~
+clk => clk.IN2
+reset_out <= altera_reset_synchronizer:alt_rst_sync_uq1.reset_out
+reset_req <= altera_reset_synchronizer:alt_rst_req_sync_uq1.reset_out
+
+
+|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+reset_in => altera_reset_synchronizer_int_chain_out.PRESET
+reset_in => altera_reset_synchronizer_int_chain[0].PRESET
+reset_in => altera_reset_synchronizer_int_chain[1].PRESET
+clk => altera_reset_synchronizer_int_chain_out.CLK
+clk => altera_reset_synchronizer_int_chain[0].CLK
+clk => altera_reset_synchronizer_int_chain[1].CLK
+reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK

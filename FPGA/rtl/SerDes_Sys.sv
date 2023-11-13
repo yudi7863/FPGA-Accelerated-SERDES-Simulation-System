@@ -38,6 +38,10 @@ module SerDes_Sys(
 		logic decoder_out_valid;
 		logic [7:0] voltage_out;
 		logic voltage_valid;
+		logic [7:0] voltage_out_channel;
+		logic voltage_channel_valid;
+		logic [7:0] voltage_out_dfe;
+		logic voltage_dfe_valid;
 		
 		//on-chip-ram connection -> currently cut off:
 		
@@ -68,7 +72,7 @@ module SerDes_Sys(
 		
 		
 		/////////////////////////////////////TX instatiation /////////////////////////////////////////////
-		TX u0 (
+		TX transmitter (
 		.clk_clk                                    (clock),                                    //                       clk.clk
 		.onchip_memory2_0_s1_address                (address),                //       onchip_memory2_0_s1.address
 		.onchip_memory2_0_s1_clken                  (clken),                  //                          .clken
@@ -94,6 +98,27 @@ module SerDes_Sys(
 		.prbs_0_data_out_data_out                                (prbs_data),                                //                 prbs_0_data_out.data_out
 		.prbs_0_data_out_data_out_valid                          (prbs_valid),                          //                                .data_out_valid
 		.prbs_0_prbs_ctrl_en                                     (prbs_en)                                    //                prbs_0_prbs_ctrl.en
+		);
+		
+		channel channel_model (
+		.clk_clk                                          (clock),                                          //                             clk.clk
+		.reset_reset_n                                    (reset_n),                                    //                           reset.reset_n
+		.channel_module_0_channel_input_signal_in         (voltage_out),         //  channel_module_0_channel_input.signal_in
+		.channel_module_0_channel_input_signal_in_valid   (voltage_valid),   //                                .signal_in_valid
+		.channel_module_0_channel_output_signal_out       (voltage_out_channel),       // channel_module_0_channel_output.signal_out
+		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
+	   );
+		
+		RX receiver (
+		.clk_clk                           (clock),                           //              clk.clk
+		.reset_reset_n                     (reset_n),                     //            reset.reset_n
+		.dfe_0_dfe_in_signal_in            (voltage_out_channel),            //     dfe_0_dfe_in.signal_in
+		.dfe_0_dfe_in_signal_in_valid      (voltage_channel_valid),      //                 .signal_in_valid
+		.dfe_0_dfe_out_signal_out          (voltage_out_dfe),          //    dfe_0_dfe_out.signal_out
+		.dfe_0_dfe_out_signal_out_valid    (voltage_dfe_valid),    //                 .signal_out_valid
+		.dfe_0_noise_noise                 (),                 //      dfe_0_noise.noise
+		.dfe_0_train_data_train_data       (),       // dfe_0_train_data.train_data
+		.dfe_0_train_data_train_data_valid ()  //                 .train_data_valid
 		);
 		
 		//connecting to button
