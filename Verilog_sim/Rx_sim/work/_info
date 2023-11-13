@@ -11,24 +11,24 @@ cModel Technology
 Z0 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1699589351
+Z2 !s110 1699845366
 !i10b 1
-!s100 LPZV1Y0oTO5B0Q2An1FNZ0
+!s100 a^<WAD@?mcjH@X1mHChz[2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Igb7mSBfWUaQi7hodoJIa52
+IVm=E7^OZP]S3bO^1_Va6m3
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
 R0
-Z5 w1699589347
+Z5 w1699845330
 Z6 8Rx.sv
 Z7 FRx.sv
-!i122 119
-L0 61 83
+!i122 129
+L0 59 76
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1699589351.000000
+Z9 !s108 1699845366.000000
 !s107 channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|
 !i113 1
@@ -37,17 +37,17 @@ vDFE
 R1
 R2
 !i10b 1
-!s100 6MIJa?JG[6HHeTPLf6LA_1
+!s100 1]a06KSQkmg`kDkmVm=9h2
 R3
-IV:4ZkX7cNfe>1I<Ym9NnC3
+IbzT`38D7BSGc0FZao>NJb1
 R4
 S1
 R0
 R5
 R6
 R7
-!i122 119
-L0 2 58
+!i122 129
+L0 2 56
 R8
 r1
 !s85 0
@@ -58,6 +58,72 @@ R10
 !i113 1
 R11
 n@d@f@e
+vdfe_tb
+Z13 !s110 1699845342
+!i10b 1
+!s100 B?1^oLk]9G]VPUDQMEOen3
+R3
+Io:eOVzj>QN2JlkJb?F^gJ2
+R4
+R0
+w1699840786
+8rx_tb.v
+Frx_tb.v
+!i122 128
+L0 3 72
+R8
+r1
+!s85 0
+31
+Z14 !s108 1699845342.000000
+Z15 !s107 rx_tb.v|prbs.v|grey_code.v|
+Z16 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
+!i113 1
+R11
+vgrey_decode
+R13
+!i10b 1
+!s100 cJ8c]Jd:P`hc]:GZcAgPf3
+R3
+ITS:k[9M@^9H3H2jh>`c_g0
+R4
+R0
+Z17 w1699043380
+Z18 8grey_code.v
+Z19 Fgrey_code.v
+!i122 128
+L0 61 46
+R8
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 1
+R11
+vgrey_encode
+R13
+!i10b 1
+!s100 i^ed0X:adR7QgkZR[zMCX1
+R3
+I5:?7ZKCl<2gZ[PG`<1>Tc0
+R4
+R0
+R17
+R18
+R19
+!i122 128
+L0 3 56
+R8
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 1
+R11
 vISI_channel
 R1
 R2
@@ -71,7 +137,7 @@ R0
 w1699571681
 8channel_model.sv
 Fchannel_model.sv
-!i122 119
+!i122 129
 L0 4 32
 R8
 r1
@@ -93,10 +159,10 @@ IR<8jIzNYUSTXO5K0BLc<L0
 R4
 S1
 R0
-Z13 w1699043380
-Z14 8PAM_4.sv
-Z15 FPAM_4.sv
-!i122 119
+R17
+Z20 8PAM_4.sv
+Z21 FPAM_4.sv
+!i122 129
 L0 32 28
 R8
 r1
@@ -117,10 +183,10 @@ IMKbZCn6=AaF:gEeQOT^c70
 R4
 S1
 R0
-R13
-R14
-R15
-!i122 119
+R17
+R20
+R21
+!i122 129
 L0 3 28
 R8
 r1
@@ -129,6 +195,50 @@ r1
 R9
 R12
 R10
+!i113 1
+R11
+vprbs31
+R13
+!i10b 1
+!s100 =[3^Sg_?lC8j?_8BY?oQW1
+R3
+Im]7b_MILYL>ZOo=:N[fF41
+R4
+R0
+R17
+Z22 8prbs.v
+Z23 Fprbs.v
+!i122 128
+L0 2 26
+R8
+r1
+!s85 0
+31
+R14
+R15
+R16
+!i113 1
+R11
+vprbs31_checker
+R13
+!i10b 1
+!s100 2hb^LO8O3;3?zDV[9:EY70
+R3
+Ino@C>1zgAYVcTDzeIz:NC1
+R4
+R0
+R17
+R22
+R23
+!i122 128
+L0 30 31
+R8
+r1
+!s85 0
+31
+R14
+R15
+R16
 !i113 1
 R11
 vrx_standalone_tb
@@ -144,7 +254,7 @@ R0
 w1699375056
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 119
+!i122 129
 L0 2 67
 R8
 r1
