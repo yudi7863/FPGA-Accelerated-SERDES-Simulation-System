@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at prbs.v(13): always construct contains both blocking and non-blocking assignments File: C:/Users/13083/Desktop/zqq/FPGA-Accelerated-SERDES-Simulation-System-main/FPGA/qsys/TX/synthesis/submodules/prbs.v Line: 13
+Warning (10268): Verilog HDL information at prbs.v(13): always construct contains both blocking and non-blocking assignments File: C:/ECE496_FPGA/FPGA_demo_branch/FPGA-Accelerated-SERDES-Simulation-System/FPGA/qsys/TX/synthesis/submodules/prbs.v Line: 13

@@ -1,5 +1,5 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-main\FPGA\qsys\RX.qsys --block-symbol-file --output-directory=C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-main\FPGA\qsys\RX --family="Cyclone V" --part=5CSEMA5F31C6
+Info: qsys-generate C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX.qsys --block-symbol-file --output-directory=C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading qsys/RX.qsys
 Progress: Reading input file
 Progress: Adding clk_0 [clock_source 22.1]
@@ -10,13 +10,11 @@ Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
-Warning: RX.dfe_0: dfe_0.noise must be exported, or connected to a matching conduit.
-Warning: RX.dfe_0: dfe_0.train_data must be exported, or connected to a matching conduit.
 Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-main\FPGA\qsys\RX.qsys --synthesis=VERILOG --output-directory=C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-main\FPGA\qsys\RX\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Info: qsys-generate C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX.qsys --synthesis=VERILOG --output-directory=C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading qsys/RX.qsys
 Progress: Reading input file
 Progress: Adding clk_0 [clock_source 22.1]
@@ -27,8 +25,6 @@ Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
-Warning: RX.dfe_0: dfe_0.noise must be exported, or connected to a matching conduit.
-Warning: RX.dfe_0: dfe_0.train_data must be exported, or connected to a matching conduit.
 Info: RX: Generating RX "RX" for QUARTUS_SYNTH
 Info: dfe_0: "RX" instantiated dfe "dfe_0"
 Info: rst_controller: "RX" instantiated altera_reset_controller "rst_controller"

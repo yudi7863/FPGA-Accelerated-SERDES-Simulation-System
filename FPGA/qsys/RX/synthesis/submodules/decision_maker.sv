@@ -31,6 +31,7 @@ always_ff @ (posedge clk) begin
         difference[1] <= 'b0;
         difference[2] <= 'b0;
         difference[3] <= 'b0;
+        
     end
 	else begin
         //calculate the difference:
@@ -50,18 +51,23 @@ always_comb begin
     feedback_value_i = value[0];
     f_valid = 1'b1;
     end
-    if((difference[1] < difference[0]) && (difference[1] < difference[2]) && (difference[1] < difference[3])) begin
+    else if((difference[1] < difference[0]) && (difference[1] < difference[2]) && (difference[1] < difference[3])) begin
     feedback_value_i = value[1];
     f_valid = 1'b1;
     end
-    if((difference[2] < difference[1]) && (difference[2] < difference[0]) &&(difference[2] < difference[3])) begin 
+    else if((difference[2] < difference[1]) && (difference[2] < difference[0]) &&(difference[2] < difference[3])) begin 
     feedback_value_i = value[2];
     f_valid = 1'b1;
     end
-    if((difference[3] < difference[1]) && (difference[3] < difference[2]) && (difference[3] < difference[0])) begin
+    else if((difference[3] < difference[1]) && (difference[3] < difference[2]) && (difference[3] < difference[0])) begin
     feedback_value_i = value[3];
     f_valid = 1'b1;
     end
+    else begin
+    feedback_value_i = 'b0;
+    f_valid = 1'b0;
+    end
+
     
 
 

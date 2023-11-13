@@ -42,7 +42,7 @@ always_ff @ (posedge clk) begin
 			signal_out_valid <= 'b0;
             division <='b0;
             subtract_result <='b0;
-            feedback_value <= 'b0;
+            //feedback_value <= 'b0;
     end
 	else begin
         if(signal_in_valid == 'b1) begin

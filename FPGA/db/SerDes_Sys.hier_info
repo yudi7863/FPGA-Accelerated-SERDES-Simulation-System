@@ -28,7 +28,7 @@ HEX3[3] <= hexDisplay:display.neg
 HEX3[4] <= hexDisplay:display.neg
 HEX3[5] <= hexDisplay:display.neg
 HEX3[6] <= hexDisplay:display.neg
-KEY[0] => reset_n.IN3
+KEY[0] => reset_n.IN4
 KEY[1] => ~NO_FANOUT~
 KEY[2] => ~NO_FANOUT~
 KEY[3] => ~NO_FANOUT~
@@ -229,7 +229,7 @@ cascade_out[0] <= <GND>
 zdbfbclk <> <GND>
 
 
-|SerDes_Sys|TX:u0
+|SerDes_Sys|TX:transmitter
 clk_clk => clk_clk.IN5
 gray_encoder_0_data_in_data_in => gray_encoder_0_data_in_data_in.IN1
 gray_encoder_0_data_in_data_in_valid => gray_encoder_0_data_in_data_in_valid.IN1
@@ -335,7 +335,7 @@ prbs_0_prbs_ctrl_en => prbs_0_prbs_ctrl_en.IN1
 reset_reset_n => _.IN1
 
 
-|SerDes_Sys|TX:u0|pam_4_encode:pam_encoder_0
+|SerDes_Sys|TX:transmitter|pam_4_encode:pam_encoder_0
 clk => voltage_level_out[0]~reg0.CLK
 clk => voltage_level_out[1]~reg0.CLK
 clk => voltage_level_out[2]~reg0.CLK
@@ -379,7 +379,7 @@ voltage_level_out[7] <= voltage_level_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 voltage_level_out_valid <= voltage_level_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|TX:u0|grey_encode:gray_encoder_0
+|SerDes_Sys|TX:transmitter|grey_encode:gray_encoder_0
 clk => symbol_out[0]~reg0.CLK
 clk => symbol_out[1]~reg0.CLK
 clk => sr[0].CLK
@@ -406,7 +406,7 @@ symbol_out[1] <= symbol_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 symbol_out_valid <= symbol_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|TX:u0|TX_onchip_memory2_0:onchip_memory2_0
+|SerDes_Sys|TX:transmitter|TX_onchip_memory2_0:onchip_memory2_0
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -494,7 +494,7 @@ readdata[30] <= altsyncram:the_altsyncram.q_a
 readdata[31] <= altsyncram:the_altsyncram.q_a
 
 
-|SerDes_Sys|TX:u0|TX_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram
+|SerDes_Sys|TX:transmitter|TX_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram
 wren_a => altsyncram_2rm1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -596,7 +596,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|SerDes_Sys|TX:u0|TX_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_2rm1:auto_generated
+|SerDes_Sys|TX:transmitter|TX_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_2rm1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -1112,7 +1112,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|SerDes_Sys|TX:u0|prbs31:prbs_0
+|SerDes_Sys|TX:transmitter|prbs31:prbs_0
 clk => data_out~reg0.CLK
 clk => data_out_valid~reg0.CLK
 clk => sr[0].CLK
@@ -1216,7 +1216,7 @@ data_out <= data_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 data_out_valid <= data_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|TX:u0|altera_reset_controller:rst_controller
+|SerDes_Sys|TX:transmitter|altera_reset_controller:rst_controller
 reset_in0 => merged_reset.IN0
 reset_in1 => merged_reset.IN1
 reset_in2 => merged_reset.IN1
@@ -1254,7 +1254,7 @@ reset_out <= r_sync_rst.DB_MAX_OUTPUT_PORT_TYPE
 reset_req <= r_early_rst.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|TX:u0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+|SerDes_Sys|TX:transmitter|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain_out.PRESET
 reset_in => altera_reset_synchronizer_int_chain[0].PRESET
 reset_in => altera_reset_synchronizer_int_chain[1].PRESET
@@ -1264,7 +1264,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|TX:u0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+|SerDes_Sys|TX:transmitter|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK
@@ -1272,7 +1272,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|channel:u1
+|SerDes_Sys|channel:channel_model
 channel_module_0_channel_input_signal_in[0] => channel_module_0_channel_input_signal_in[0].IN1
 channel_module_0_channel_input_signal_in[1] => channel_module_0_channel_input_signal_in[1].IN1
 channel_module_0_channel_input_signal_in[2] => channel_module_0_channel_input_signal_in[2].IN1
@@ -1295,7 +1295,7 @@ clk_clk => clk_clk.IN2
 reset_reset_n => _.IN1
 
 
-|SerDes_Sys|channel:u1|ISI_channel:channel_module_0
+|SerDes_Sys|channel:channel_model|ISI_channel:channel_module_0
 clk => signal_out[0]~reg0.CLK
 clk => signal_out[1]~reg0.CLK
 clk => signal_out[2]~reg0.CLK
@@ -1374,7 +1374,7 @@ signal_out[7] <= signal_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 signal_out_valid <= signal_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller
+|SerDes_Sys|channel:channel_model|altera_reset_controller:rst_controller
 reset_in0 => merged_reset.IN0
 reset_in1 => merged_reset.IN1
 reset_in2 => merged_reset.IN1
@@ -1412,7 +1412,7 @@ reset_out <= altera_reset_synchronizer:alt_rst_sync_uq1.reset_out
 reset_req <= altera_reset_synchronizer:alt_rst_req_sync_uq1.reset_out
 
 
-|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+|SerDes_Sys|channel:channel_model|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain_out.PRESET
 reset_in => altera_reset_synchronizer_int_chain[0].PRESET
 reset_in => altera_reset_synchronizer_int_chain[1].PRESET
@@ -1422,7 +1422,579 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|channel:u1|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+|SerDes_Sys|channel:channel_model|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
+clk => altera_reset_synchronizer_int_chain_out.CLK
+clk => altera_reset_synchronizer_int_chain[0].CLK
+clk => altera_reset_synchronizer_int_chain[1].CLK
+reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver
+clk_clk => clk_clk.IN2
+dfe_0_dfe_in_signal_in[0] => dfe_0_dfe_in_signal_in[0].IN1
+dfe_0_dfe_in_signal_in[1] => dfe_0_dfe_in_signal_in[1].IN1
+dfe_0_dfe_in_signal_in[2] => dfe_0_dfe_in_signal_in[2].IN1
+dfe_0_dfe_in_signal_in[3] => dfe_0_dfe_in_signal_in[3].IN1
+dfe_0_dfe_in_signal_in[4] => dfe_0_dfe_in_signal_in[4].IN1
+dfe_0_dfe_in_signal_in[5] => dfe_0_dfe_in_signal_in[5].IN1
+dfe_0_dfe_in_signal_in[6] => dfe_0_dfe_in_signal_in[6].IN1
+dfe_0_dfe_in_signal_in[7] => dfe_0_dfe_in_signal_in[7].IN1
+dfe_0_dfe_in_signal_in_valid => dfe_0_dfe_in_signal_in_valid.IN1
+dfe_0_dfe_out_signal_out[0] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[1] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[2] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[3] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[4] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[5] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[6] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out[7] <= DFE:dfe_0.signal_out
+dfe_0_dfe_out_signal_out_valid <= DFE:dfe_0.signal_out_valid
+dfe_0_noise_noise[0] => dfe_0_noise_noise[0].IN1
+dfe_0_noise_noise[1] => dfe_0_noise_noise[1].IN1
+dfe_0_noise_noise[2] => dfe_0_noise_noise[2].IN1
+dfe_0_noise_noise[3] => dfe_0_noise_noise[3].IN1
+dfe_0_noise_noise[4] => dfe_0_noise_noise[4].IN1
+dfe_0_noise_noise[5] => dfe_0_noise_noise[5].IN1
+dfe_0_noise_noise[6] => dfe_0_noise_noise[6].IN1
+dfe_0_noise_noise[7] => dfe_0_noise_noise[7].IN1
+dfe_0_train_data_train_data[0] => dfe_0_train_data_train_data[0].IN1
+dfe_0_train_data_train_data[1] => dfe_0_train_data_train_data[1].IN1
+dfe_0_train_data_train_data[2] => dfe_0_train_data_train_data[2].IN1
+dfe_0_train_data_train_data[3] => dfe_0_train_data_train_data[3].IN1
+dfe_0_train_data_train_data[4] => dfe_0_train_data_train_data[4].IN1
+dfe_0_train_data_train_data[5] => dfe_0_train_data_train_data[5].IN1
+dfe_0_train_data_train_data[6] => dfe_0_train_data_train_data[6].IN1
+dfe_0_train_data_train_data[7] => dfe_0_train_data_train_data[7].IN1
+dfe_0_train_data_train_data_valid => dfe_0_train_data_train_data_valid.IN1
+reset_reset_n => _.IN1
+
+
+|SerDes_Sys|RX:receiver|DFE:dfe_0
+clk => clk.IN1
+rstn => rstn.IN1
+signal_in[0] => Add0.IN32
+signal_in[1] => Add0.IN31
+signal_in[2] => Add0.IN30
+signal_in[3] => Add0.IN29
+signal_in[4] => Add0.IN28
+signal_in[5] => Add0.IN27
+signal_in[6] => Add0.IN26
+signal_in[7] => Add0.IN17
+signal_in[7] => Add0.IN18
+signal_in[7] => Add0.IN19
+signal_in[7] => Add0.IN20
+signal_in[7] => Add0.IN21
+signal_in[7] => Add0.IN22
+signal_in[7] => Add0.IN23
+signal_in[7] => Add0.IN24
+signal_in[7] => Add0.IN25
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => subtract_result.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out.OUTPUTSELECT
+signal_in_valid => signal_out_valid.DATAA
+noise[0] => ~NO_FANOUT~
+noise[1] => ~NO_FANOUT~
+noise[2] => ~NO_FANOUT~
+noise[3] => ~NO_FANOUT~
+noise[4] => ~NO_FANOUT~
+noise[5] => ~NO_FANOUT~
+noise[6] => ~NO_FANOUT~
+noise[7] => ~NO_FANOUT~
+train_data[0] => ~NO_FANOUT~
+train_data[1] => ~NO_FANOUT~
+train_data[2] => ~NO_FANOUT~
+train_data[3] => ~NO_FANOUT~
+train_data[4] => ~NO_FANOUT~
+train_data[5] => ~NO_FANOUT~
+train_data[6] => ~NO_FANOUT~
+train_data[7] => ~NO_FANOUT~
+train_data_valid => ~NO_FANOUT~
+signal_out[0] <= signal_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[1] <= signal_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[2] <= signal_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[3] <= signal_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[4] <= signal_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[5] <= signal_out[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[6] <= signal_out[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out[7] <= signal_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+signal_out_valid <= signal_out_valid.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver|DFE:dfe_0|decision_maker:DM
+clk => difference[0][0].CLK
+clk => difference[0][1].CLK
+clk => difference[0][2].CLK
+clk => difference[0][3].CLK
+clk => difference[0][4].CLK
+clk => difference[0][5].CLK
+clk => difference[0][6].CLK
+clk => difference[0][7].CLK
+clk => difference[0][8].CLK
+clk => difference[0][9].CLK
+clk => difference[0][10].CLK
+clk => difference[0][11].CLK
+clk => difference[0][12].CLK
+clk => difference[0][13].CLK
+clk => difference[0][14].CLK
+clk => difference[0][15].CLK
+clk => difference[1][0].CLK
+clk => difference[1][1].CLK
+clk => difference[1][2].CLK
+clk => difference[1][3].CLK
+clk => difference[1][4].CLK
+clk => difference[1][5].CLK
+clk => difference[1][6].CLK
+clk => difference[1][7].CLK
+clk => difference[1][8].CLK
+clk => difference[1][9].CLK
+clk => difference[1][10].CLK
+clk => difference[1][11].CLK
+clk => difference[1][12].CLK
+clk => difference[1][13].CLK
+clk => difference[1][14].CLK
+clk => difference[1][15].CLK
+clk => difference[2][0].CLK
+clk => difference[2][1].CLK
+clk => difference[2][2].CLK
+clk => difference[2][3].CLK
+clk => difference[2][4].CLK
+clk => difference[2][5].CLK
+clk => difference[2][6].CLK
+clk => difference[2][7].CLK
+clk => difference[2][8].CLK
+clk => difference[2][9].CLK
+clk => difference[2][10].CLK
+clk => difference[2][11].CLK
+clk => difference[2][12].CLK
+clk => difference[2][13].CLK
+clk => difference[2][14].CLK
+clk => difference[2][15].CLK
+clk => difference[3][0].CLK
+clk => difference[3][1].CLK
+clk => difference[3][2].CLK
+clk => difference[3][3].CLK
+clk => difference[3][4].CLK
+clk => difference[3][5].CLK
+clk => difference[3][6].CLK
+clk => difference[3][7].CLK
+clk => difference[3][8].CLK
+clk => difference[3][9].CLK
+clk => difference[3][10].CLK
+clk => difference[3][11].CLK
+clk => difference[3][12].CLK
+clk => difference[3][13].CLK
+clk => difference[3][14].CLK
+clk => difference[3][15].CLK
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+rstn => difference.OUTPUTSELECT
+estimation[0] => Add2.IN64
+estimation[0] => Add3.IN32
+estimation[0] => Add4.IN64
+estimation[0] => Add5.IN32
+estimation[0] => Add6.IN64
+estimation[0] => Add7.IN32
+estimation[0] => Add8.IN64
+estimation[0] => Add9.IN32
+estimation[1] => Add2.IN63
+estimation[1] => Add3.IN31
+estimation[1] => Add4.IN63
+estimation[1] => Add5.IN31
+estimation[1] => Add6.IN63
+estimation[1] => Add7.IN31
+estimation[1] => Add8.IN63
+estimation[1] => Add9.IN31
+estimation[2] => Add2.IN62
+estimation[2] => Add3.IN30
+estimation[2] => Add4.IN62
+estimation[2] => Add5.IN30
+estimation[2] => Add6.IN62
+estimation[2] => Add7.IN30
+estimation[2] => Add8.IN62
+estimation[2] => Add9.IN30
+estimation[3] => Add2.IN61
+estimation[3] => Add3.IN29
+estimation[3] => Add4.IN61
+estimation[3] => Add5.IN29
+estimation[3] => Add6.IN61
+estimation[3] => Add7.IN29
+estimation[3] => Add8.IN61
+estimation[3] => Add9.IN29
+estimation[4] => Add2.IN60
+estimation[4] => Add3.IN28
+estimation[4] => Add4.IN60
+estimation[4] => Add5.IN28
+estimation[4] => Add6.IN60
+estimation[4] => Add7.IN28
+estimation[4] => Add8.IN60
+estimation[4] => Add9.IN28
+estimation[5] => Add2.IN59
+estimation[5] => Add3.IN27
+estimation[5] => Add4.IN59
+estimation[5] => Add5.IN27
+estimation[5] => Add6.IN59
+estimation[5] => Add7.IN27
+estimation[5] => Add8.IN59
+estimation[5] => Add9.IN27
+estimation[6] => Add2.IN58
+estimation[6] => Add3.IN26
+estimation[6] => Add4.IN58
+estimation[6] => Add5.IN26
+estimation[6] => Add6.IN58
+estimation[6] => Add7.IN26
+estimation[6] => Add8.IN58
+estimation[6] => Add9.IN26
+estimation[7] => Add2.IN57
+estimation[7] => Add3.IN25
+estimation[7] => Add4.IN57
+estimation[7] => Add5.IN25
+estimation[7] => Add6.IN57
+estimation[7] => Add7.IN25
+estimation[7] => Add8.IN57
+estimation[7] => Add9.IN25
+estimation[8] => Add2.IN56
+estimation[8] => Add3.IN24
+estimation[8] => Add4.IN56
+estimation[8] => Add5.IN24
+estimation[8] => Add6.IN56
+estimation[8] => Add7.IN24
+estimation[8] => Add8.IN56
+estimation[8] => Add9.IN24
+estimation[9] => Add2.IN55
+estimation[9] => Add3.IN23
+estimation[9] => Add4.IN55
+estimation[9] => Add5.IN23
+estimation[9] => Add6.IN55
+estimation[9] => Add7.IN23
+estimation[9] => Add8.IN55
+estimation[9] => Add9.IN23
+estimation[10] => Add2.IN54
+estimation[10] => Add3.IN22
+estimation[10] => Add4.IN54
+estimation[10] => Add5.IN22
+estimation[10] => Add6.IN54
+estimation[10] => Add7.IN22
+estimation[10] => Add8.IN54
+estimation[10] => Add9.IN22
+estimation[11] => Add2.IN53
+estimation[11] => Add3.IN21
+estimation[11] => Add4.IN53
+estimation[11] => Add5.IN21
+estimation[11] => Add6.IN53
+estimation[11] => Add7.IN21
+estimation[11] => Add8.IN53
+estimation[11] => Add9.IN21
+estimation[12] => Add2.IN52
+estimation[12] => Add3.IN20
+estimation[12] => Add4.IN52
+estimation[12] => Add5.IN20
+estimation[12] => Add6.IN52
+estimation[12] => Add7.IN20
+estimation[12] => Add8.IN52
+estimation[12] => Add9.IN20
+estimation[13] => Add2.IN51
+estimation[13] => Add3.IN19
+estimation[13] => Add4.IN51
+estimation[13] => Add5.IN19
+estimation[13] => Add6.IN51
+estimation[13] => Add7.IN19
+estimation[13] => Add8.IN51
+estimation[13] => Add9.IN19
+estimation[14] => Add2.IN50
+estimation[14] => Add3.IN18
+estimation[14] => Add4.IN50
+estimation[14] => Add5.IN18
+estimation[14] => Add6.IN50
+estimation[14] => Add7.IN18
+estimation[14] => Add8.IN50
+estimation[14] => Add9.IN18
+estimation[15] => Add2.IN33
+estimation[15] => Add2.IN34
+estimation[15] => Add2.IN35
+estimation[15] => Add2.IN36
+estimation[15] => Add2.IN37
+estimation[15] => Add2.IN38
+estimation[15] => Add2.IN39
+estimation[15] => Add2.IN40
+estimation[15] => Add2.IN41
+estimation[15] => Add2.IN42
+estimation[15] => Add2.IN43
+estimation[15] => Add2.IN44
+estimation[15] => Add2.IN45
+estimation[15] => Add2.IN46
+estimation[15] => Add2.IN47
+estimation[15] => Add2.IN48
+estimation[15] => Add2.IN49
+estimation[15] => Add3.IN17
+estimation[15] => Add4.IN33
+estimation[15] => Add4.IN34
+estimation[15] => Add4.IN35
+estimation[15] => Add4.IN36
+estimation[15] => Add4.IN37
+estimation[15] => Add4.IN38
+estimation[15] => Add4.IN39
+estimation[15] => Add4.IN40
+estimation[15] => Add4.IN41
+estimation[15] => Add4.IN42
+estimation[15] => Add4.IN43
+estimation[15] => Add4.IN44
+estimation[15] => Add4.IN45
+estimation[15] => Add4.IN46
+estimation[15] => Add4.IN47
+estimation[15] => Add4.IN48
+estimation[15] => Add4.IN49
+estimation[15] => Add5.IN17
+estimation[15] => Add6.IN33
+estimation[15] => Add6.IN34
+estimation[15] => Add6.IN35
+estimation[15] => Add6.IN36
+estimation[15] => Add6.IN37
+estimation[15] => Add6.IN38
+estimation[15] => Add6.IN39
+estimation[15] => Add6.IN40
+estimation[15] => Add6.IN41
+estimation[15] => Add6.IN42
+estimation[15] => Add6.IN43
+estimation[15] => Add6.IN44
+estimation[15] => Add6.IN45
+estimation[15] => Add6.IN46
+estimation[15] => Add6.IN47
+estimation[15] => Add6.IN48
+estimation[15] => Add6.IN49
+estimation[15] => Add7.IN17
+estimation[15] => Add8.IN33
+estimation[15] => Add8.IN34
+estimation[15] => Add8.IN35
+estimation[15] => Add8.IN36
+estimation[15] => Add8.IN37
+estimation[15] => Add8.IN38
+estimation[15] => Add8.IN39
+estimation[15] => Add8.IN40
+estimation[15] => Add8.IN41
+estimation[15] => Add8.IN42
+estimation[15] => Add8.IN43
+estimation[15] => Add8.IN44
+estimation[15] => Add8.IN45
+estimation[15] => Add8.IN46
+estimation[15] => Add8.IN47
+estimation[15] => Add8.IN48
+estimation[15] => Add8.IN49
+estimation[15] => Add9.IN17
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+e_valid => difference.OUTPUTSELECT
+feedback_value[0] <= <GND>
+feedback_value[1] <= <GND>
+feedback_value[2] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[3] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[4] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[5] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[6] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[7] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[8] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[9] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[10] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[11] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[12] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[13] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[14] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+feedback_value[15] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
+f_valid <= f_valid.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver|altera_reset_controller:rst_controller
+reset_in0 => merged_reset.IN0
+reset_in1 => merged_reset.IN1
+reset_in2 => merged_reset.IN1
+reset_in3 => merged_reset.IN1
+reset_in4 => merged_reset.IN1
+reset_in5 => merged_reset.IN1
+reset_in6 => merged_reset.IN1
+reset_in7 => merged_reset.IN1
+reset_in8 => merged_reset.IN1
+reset_in9 => merged_reset.IN1
+reset_in10 => merged_reset.IN1
+reset_in11 => merged_reset.IN1
+reset_in12 => merged_reset.IN1
+reset_in13 => merged_reset.IN1
+reset_in14 => merged_reset.IN1
+reset_in15 => merged_reset.IN1
+reset_req_in0 => ~NO_FANOUT~
+reset_req_in1 => ~NO_FANOUT~
+reset_req_in2 => ~NO_FANOUT~
+reset_req_in3 => ~NO_FANOUT~
+reset_req_in4 => ~NO_FANOUT~
+reset_req_in5 => ~NO_FANOUT~
+reset_req_in6 => ~NO_FANOUT~
+reset_req_in7 => ~NO_FANOUT~
+reset_req_in8 => ~NO_FANOUT~
+reset_req_in9 => ~NO_FANOUT~
+reset_req_in10 => ~NO_FANOUT~
+reset_req_in11 => ~NO_FANOUT~
+reset_req_in12 => ~NO_FANOUT~
+reset_req_in13 => ~NO_FANOUT~
+reset_req_in14 => ~NO_FANOUT~
+reset_req_in15 => ~NO_FANOUT~
+clk => clk.IN2
+reset_out <= altera_reset_synchronizer:alt_rst_sync_uq1.reset_out
+reset_req <= altera_reset_synchronizer:alt_rst_req_sync_uq1.reset_out
+
+
+|SerDes_Sys|RX:receiver|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+reset_in => altera_reset_synchronizer_int_chain_out.PRESET
+reset_in => altera_reset_synchronizer_int_chain[0].PRESET
+reset_in => altera_reset_synchronizer_int_chain[1].PRESET
+clk => altera_reset_synchronizer_int_chain_out.CLK
+clk => altera_reset_synchronizer_int_chain[0].CLK
+clk => altera_reset_synchronizer_int_chain[1].CLK
+reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK
