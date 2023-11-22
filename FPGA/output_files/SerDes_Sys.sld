@@ -2,7 +2,7 @@
   <sld_infos>
     <sld_info hpath="RX:receiver" name="receiver">
       <assignment_values>
-        <assignment_value text="QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1699849914"/>
+        <assignment_value text="QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700676893"/>
       </assignment_values>
     </sld_info>
     <sld_info hpath="TX:transmitter" name="transmitter">

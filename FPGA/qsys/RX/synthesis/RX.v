@@ -4,18 +4,26 @@
 
 `timescale 1 ps / 1 ps
 module RX (
-		input  wire       clk_clk,                           //              clk.clk
-		input  wire [7:0] dfe_0_dfe_in_signal_in,            //     dfe_0_dfe_in.signal_in
-		input  wire       dfe_0_dfe_in_signal_in_valid,      //                 .signal_in_valid
-		output wire [7:0] dfe_0_dfe_out_signal_out,          //    dfe_0_dfe_out.signal_out
-		output wire       dfe_0_dfe_out_signal_out_valid,    //                 .signal_out_valid
-		input  wire [7:0] dfe_0_noise_noise,                 //      dfe_0_noise.noise
-		input  wire [7:0] dfe_0_train_data_train_data,       // dfe_0_train_data.train_data
-		input  wire       dfe_0_train_data_train_data_valid, //                 .train_data_valid
-		input  wire       reset_reset_n                      //            reset.reset_n
+		input  wire       clk_clk,                                             //                           clk.clk
+		input  wire [7:0] dfe_0_dfe_in_signal_in,                              //                  dfe_0_dfe_in.signal_in
+		input  wire       dfe_0_dfe_in_signal_in_valid,                        //                              .signal_in_valid
+		output wire [7:0] dfe_0_dfe_out_signal_out,                            //                 dfe_0_dfe_out.signal_out
+		output wire       dfe_0_dfe_out_signal_out_valid,                      //                              .signal_out_valid
+		input  wire [7:0] dfe_0_noise_noise,                                   //                   dfe_0_noise.noise
+		input  wire [7:0] dfe_0_train_data_train_data,                         //              dfe_0_train_data.train_data
+		input  wire       dfe_0_train_data_train_data_valid,                   //                              .train_data_valid
+		output wire       gray_decoder_0_data_out_data_out,                    //       gray_decoder_0_data_out.data_out
+		output wire       gray_decoder_0_data_out_data_out_valid,              //                              .data_out_valid
+		input  wire [1:0] gray_decoder_0_symbol_in_symbol_in,                  //      gray_decoder_0_symbol_in.symbol_in
+		input  wire       gray_decoder_0_symbol_in_symbol_in_valid,            //                              .symbol_in_valid
+		input  wire [7:0] pam4_decoder_0_rx_pam4_input_voltage_level_in,       //  pam4_decoder_0_rx_pam4_input.voltage_level_in
+		input  wire       pam4_decoder_0_rx_pam4_input_voltage_level_in_valid, //                              .voltage_level_in_valid
+		output wire [1:0] pam4_decoder_0_rx_pam4_output_symbol_out,            // pam4_decoder_0_rx_pam4_output.symbol_out
+		output wire       pam4_decoder_0_rx_pam4_output_symbol_out_valid,      //                              .symbol_out_valid
+		input  wire       reset_reset_n                                        //                         reset.reset_n
 	);
 
-	wire    rst_controller_reset_out_reset; // rst_controller:reset_out -> dfe_0:rstn
+	wire    rst_controller_reset_out_reset; // rst_controller:reset_out -> [dfe_0:rstn, gray_decoder_0:rstn, pam4_decoder_0:rstn]
 
 	DFE #(
 		.PULSE_RESPONSE_LENGTH (2),
@@ -31,6 +39,27 @@ module RX (
 		.signal_in_valid  (dfe_0_dfe_in_signal_in_valid),      //           .signal_in_valid
 		.signal_out       (dfe_0_dfe_out_signal_out),          //    dfe_out.signal_out
 		.signal_out_valid (dfe_0_dfe_out_signal_out_valid)     //           .signal_out_valid
+	);
+
+	grey_decode gray_decoder_0 (
+		.clk             (clk_clk),                                  //     clock.clk
+		.data_out        (gray_decoder_0_data_out_data_out),         //  data_out.data_out
+		.data_out_valid  (gray_decoder_0_data_out_data_out_valid),   //          .data_out_valid
+		.rstn            (~rst_controller_reset_out_reset),          //      rstn.reset_n
+		.symbol_in       (gray_decoder_0_symbol_in_symbol_in),       // symbol_in.symbol_in
+		.symbol_in_valid (gray_decoder_0_symbol_in_symbol_in_valid)  //          .symbol_in_valid
+	);
+
+	pam_4_decode #(
+		.SIGNAL_RESOLUTION (8),
+		.SYMBOL_SEPERATION (56)
+	) pam4_decoder_0 (
+		.clk                    (clk_clk),                                             //          clock.clk
+		.rstn                   (~rst_controller_reset_out_reset),                     //        reset_n.reset_n
+		.voltage_level_in       (pam4_decoder_0_rx_pam4_input_voltage_level_in),       //  rx_pam4_input.voltage_level_in
+		.voltage_level_in_valid (pam4_decoder_0_rx_pam4_input_voltage_level_in_valid), //               .voltage_level_in_valid
+		.symbol_out             (pam4_decoder_0_rx_pam4_output_symbol_out),            // rx_pam4_output.symbol_out
+		.symbol_out_valid       (pam4_decoder_0_rx_pam4_output_symbol_out_valid)       //               .symbol_out_valid
 	);
 
 	altera_reset_controller #(
