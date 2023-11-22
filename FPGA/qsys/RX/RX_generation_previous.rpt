@@ -1,11 +1,15 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX.qsys --block-symbol-file --output-directory=C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX --family="Cyclone V" --part=5CSEMA5F31C6
+Info: qsys-generate C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-demo\FPGA\qsys\RX.qsys --block-symbol-file --output-directory=C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-demo\FPGA\qsys\RX --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading qsys/RX.qsys
 Progress: Reading input file
 Progress: Adding clk_0 [clock_source 22.1]
 Progress: Parameterizing module clk_0
 Progress: Adding dfe_0 [dfe 1.0]
 Progress: Parameterizing module dfe_0
+Progress: Adding gray_decoder_0 [gray_decoder 1.0]
+Progress: Parameterizing module gray_decoder_0
+Progress: Adding pam4_decoder_0 [pam4_decoder 1.0]
+Progress: Parameterizing module pam4_decoder_0
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
@@ -14,20 +18,26 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX.qsys --synthesis=VERILOG --output-directory=C:\ECE496_FPGA\FPGA_demo_branch\FPGA-Accelerated-SERDES-Simulation-System\FPGA\qsys\RX\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Info: qsys-generate C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-demo\FPGA\qsys\RX.qsys --synthesis=VERILOG --output-directory=C:\Users\13083\Desktop\zqq\FPGA-Accelerated-SERDES-Simulation-System-demo\FPGA\qsys\RX\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
 Progress: Loading qsys/RX.qsys
 Progress: Reading input file
 Progress: Adding clk_0 [clock_source 22.1]
 Progress: Parameterizing module clk_0
 Progress: Adding dfe_0 [dfe 1.0]
 Progress: Parameterizing module dfe_0
+Progress: Adding gray_decoder_0 [gray_decoder 1.0]
+Progress: Parameterizing module gray_decoder_0
+Progress: Adding pam4_decoder_0 [pam4_decoder 1.0]
+Progress: Parameterizing module pam4_decoder_0
 Progress: Building connections
 Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
 Info: RX: Generating RX "RX" for QUARTUS_SYNTH
 Info: dfe_0: "RX" instantiated dfe "dfe_0"
+Info: gray_decoder_0: "RX" instantiated gray_decoder "gray_decoder_0"
+Info: pam4_decoder_0: "RX" instantiated pam4_decoder "pam4_decoder_0"
 Info: rst_controller: "RX" instantiated altera_reset_controller "rst_controller"
-Info: RX: Done "RX" with 3 modules, 6 files
+Info: RX: Done "RX" with 5 modules, 8 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

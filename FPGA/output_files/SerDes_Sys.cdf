@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSEMA5F31) Path("C:/Users/13083/Desktop/zqq/FPGA-Accelerated-SERDES-Simulation-System-demo/FPGA/output_files/") File("SerDes_Sys.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSEMA5F31) Path("C:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/FPGA/output_files/") File("SerDes_Sys.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

@@ -1,5 +1,5 @@
 Flow report for SerDes_Sys
-Wed Nov 22 13:33:46 2023
+Wed Nov 22 17:09:06 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Wed Nov 22 13:33:46 2023          ;
+; Flow Status                     ; Successful - Wed Nov 22 17:09:06 2023          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; SerDes_Sys                                     ;
 ; Top-level Entity Name           ; SerDes_Sys                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 695 / 32,070 ( 2 % )                           ;
-; Total registers                 ; 1684                                           ;
+; Logic utilization (in ALMs)     ; 698 / 32,070 ( 2 % )                           ;
+; Total registers                 ; 1681                                           ;
 ; Total pins                      ; 43 / 457 ( 9 % )                               ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 11,904 / 4,065,280 ( < 1 % )                   ;
+; Total block memory bits         ; 11,776 / 4,065,280 ( < 1 % )                   ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/22/2023 13:30:56 ;
+; Start date & time ; 11/22/2023 17:05:48 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SerDes_Sys          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                                               ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 53671035210324.170067785604516                                                      ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 53671035210324.170069074807464                                                      ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -111,7 +111,7 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_FILE                            ; qsys/channel/synthesis/channel.debuginfo                                            ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; qsys/TX/synthesis/TX.debuginfo                                                      ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; db/channel_rx_verification_auto_stripped.stp                                        ; --            ; --          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700676893                                ; --            ; RX          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700690008                                ; --            ; RX          ; --                                ;
 ; SLD_INFO                            ; QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1697508305                                ; --            ; TX          ; --                                ;
 ; SLD_INFO                            ; QSYS_NAME channel HAS_SOPCINFO 1 GENERATION_ID 1699844736                           ; --            ; channel     ; --                                ;
 ; SLD_NODE_CREATOR_ID                 ; 110                                                                                 ; --            ; --          ; channel_rx_verification           ;
@@ -137,10 +137,10 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                              ; --            ; --          ; channel_rx_verification           ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                        ; --            ; --          ; channel_rx_verification           ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                                       ; --            ; --          ; channel_rx_verification           ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=93                                                                    ; --            ; --          ; channel_rx_verification           ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=93                                                                 ; --            ; --          ; channel_rx_verification           ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=93                                                       ; --            ; --          ; channel_rx_verification           ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_channel_rx_verification_1_6a0a, ; --            ; --          ; channel_rx_verification           ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=92                                                                    ; --            ; --          ; channel_rx_verification           ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=92                                                                 ; --            ; --          ; channel_rx_verification           ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=92                                                       ; --            ; --          ; channel_rx_verification           ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_channel_rx_verification_1_e0b6, ; --            ; --          ; channel_rx_verification           ;
 ; SOPCINFO_FILE                       ; qsys/RX/synthesis/../../RX.sopcinfo                                                 ; --            ; --          ; --                                ;
 ; SOPCINFO_FILE                       ; qsys/channel/synthesis/../../channel.sopcinfo                                       ; --            ; --          ; --                                ;
 ; SOPCINFO_FILE                       ; qsys/TX/synthesis/../../TX.sopcinfo                                                 ; --            ; --          ; --                                ;
@@ -158,12 +158,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 5035 MB             ; 00:00:18                           ;
-; Fitter               ; 00:02:10     ; 1.1                     ; 7960 MB             ; 00:02:40                           ;
-; Assembler            ; 00:00:05     ; 1.0                     ; 4886 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:11     ; 1.5                     ; 5401 MB             ; 00:00:11                           ;
-; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4872 MB             ; 00:00:02                           ;
-; Total                ; 00:02:46     ; --                      ; --                  ; 00:03:16                           ;
+; Analysis & Synthesis ; 00:00:17     ; 1.0                     ; 5051 MB             ; 00:00:19                           ;
+; Fitter               ; 00:02:39     ; 1.1                     ; 7900 MB             ; 00:03:01                           ;
+; Assembler            ; 00:00:05     ; 1.0                     ; 4887 MB             ; 00:00:05                           ;
+; Timing Analyzer      ; 00:00:10     ; 1.5                     ; 5392 MB             ; 00:00:10                           ;
+; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4869 MB             ; 00:00:02                           ;
+; Total                ; 00:03:13     ; --                      ; --                  ; 00:03:37                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
