@@ -8,46 +8,46 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
-Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1699589351
+Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z1 !s110 1700685854
 !i10b 1
-!s100 LPZV1Y0oTO5B0Q2An1FNZ0
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-Igb7mSBfWUaQi7hodoJIa52
-Z4 VDg1SIo80bB@j0V0VzS_@n1
+!s100 8N1iQ<b:h4JSO[f[D0zCc2
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IObi_aBDf3KOY4];fF`UP@2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
-R0
-Z5 w1699589347
+Z4 dC:/ECE496_FPGA/FPGA_demo_branch/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+Z5 w1700685823
 Z6 8Rx.sv
 Z7 FRx.sv
-!i122 119
-L0 61 83
+!i122 167
+L0 67 74
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1699589351.000000
+Z9 !s108 1700685854.000000
 !s107 channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|
 !i113 1
 Z11 tCvgOpt 0
 vDFE
-R1
-R2
-!i10b 1
-!s100 6MIJa?JG[6HHeTPLf6LA_1
-R3
-IV:4ZkX7cNfe>1I<Ym9NnC3
-R4
-S1
 R0
+R1
+!i10b 1
+!s100 6E=55]3efOjfhblBIFGo>3
+R2
+I5Jf_PeQEZZSGkB`cb1R;30
+R3
+S1
+R4
 R5
 R6
 R7
-!i122 119
-L0 2 58
+!i122 167
+L0 2 64
 R8
 r1
 !s85 0
@@ -58,20 +58,86 @@ R10
 !i113 1
 R11
 n@d@f@e
-vISI_channel
-R1
+vdfe_tb
+Z13 !s110 1700675918
+!i10b 1
+!s100 B?1^oLk]9G]VPUDQMEOen3
 R2
+Io:eOVzj>QN2JlkJb?F^gJ2
+R3
+R4
+Z14 w1699847150
+8rx_tb.v
+Frx_tb.v
+!i122 139
+L0 3 72
+R8
+r1
+!s85 0
+31
+Z15 !s108 1700675918.000000
+Z16 !s107 rx_tb.v|prbs.v|grey_code.v|
+Z17 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
+!i113 1
+R11
+vgrey_decode
+R13
+!i10b 1
+!s100 cJ8c]Jd:P`hc]:GZcAgPf3
+R2
+ITS:k[9M@^9H3H2jh>`c_g0
+R3
+R4
+R14
+Z18 8grey_code.v
+Z19 Fgrey_code.v
+!i122 139
+L0 61 46
+R8
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R11
+vgrey_encode
+R13
+!i10b 1
+!s100 i^ed0X:adR7QgkZR[zMCX1
+R2
+I5:?7ZKCl<2gZ[PG`<1>Tc0
+R3
+R4
+R14
+R18
+R19
+!i122 139
+L0 3 56
+R8
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R11
+vISI_channel
+R0
+R1
 !i10b 1
 !s100 nPJZlUGP>TnO[9g8da^[R0
-R3
+R2
 I<;^Y2=h3oae2V5bK?Bg522
-R4
+R3
 S1
-R0
-w1699571681
+R4
+R14
 8channel_model.sv
 Fchannel_model.sv
-!i122 119
+!i122 167
 L0 4 32
 R8
 r1
@@ -84,19 +150,19 @@ R10
 R11
 n@i@s@i_channel
 vpam_4_decode
+R0
 R1
-R2
 !i10b 1
 !s100 mgf3f_6lC1<H5>BnRX@:Y3
-R3
+R2
 IR<8jIzNYUSTXO5K0BLc<L0
-R4
+R3
 S1
-R0
-Z13 w1699043380
-Z14 8PAM_4.sv
-Z15 FPAM_4.sv
-!i122 119
+R4
+R14
+Z20 8PAM_4.sv
+Z21 FPAM_4.sv
+!i122 167
 L0 32 28
 R8
 r1
@@ -108,19 +174,19 @@ R10
 !i113 1
 R11
 vpam_4_encode
+R0
 R1
-R2
 !i10b 1
 !s100 CZDK30<98_QRJ_C26UR:Q2
-R3
+R2
 IMKbZCn6=AaF:gEeQOT^c70
-R4
+R3
 S1
-R0
-R13
+R4
 R14
-R15
-!i122 119
+R20
+R21
+!i122 167
 L0 3 28
 R8
 r1
@@ -131,20 +197,64 @@ R12
 R10
 !i113 1
 R11
-vrx_standalone_tb
-R1
+vprbs31
+R13
+!i10b 1
+!s100 =[3^Sg_?lC8j?_8BY?oQW1
 R2
+Im]7b_MILYL>ZOo=:N[fF41
+R3
+R4
+R14
+Z22 8prbs.v
+Z23 Fprbs.v
+!i122 139
+L0 2 26
+R8
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R11
+vprbs31_checker
+R13
+!i10b 1
+!s100 2hb^LO8O3;3?zDV[9:EY70
+R2
+Ino@C>1zgAYVcTDzeIz:NC1
+R3
+R4
+R14
+R22
+R23
+!i122 139
+L0 30 31
+R8
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 1
+R11
+vrx_standalone_tb
+R0
+R1
 !i10b 1
 !s100 4_z[HKSS=USL9[cGk5:Fj1
-R3
+R2
 IE=CT07V4LKF[PSA1PQecV2
-R4
+R3
 S1
-R0
-w1699375056
+R4
+R14
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 119
+!i122 167
 L0 2 67
 R8
 r1
