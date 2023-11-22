@@ -29,11 +29,11 @@ HEX3[4] <= hexDisplay:display.neg
 HEX3[5] <= hexDisplay:display.neg
 HEX3[6] <= hexDisplay:display.neg
 KEY[0] => reset_n.IN4
-KEY[1] => ~NO_FANOUT~
+KEY[1] => prbs_en.IN1
 KEY[2] => ~NO_FANOUT~
 KEY[3] => ~NO_FANOUT~
 SW[0] => ~NO_FANOUT~
-SW[1] => prbs_en.IN1
+SW[1] => ~NO_FANOUT~
 SW[2] => ~NO_FANOUT~
 SW[3] => ~NO_FANOUT~
 SW[4] => ~NO_FANOUT~
@@ -1431,7 +1431,7 @@ reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SerDes_Sys|RX:receiver
-clk_clk => clk_clk.IN2
+clk_clk => clk_clk.IN4
 dfe_0_dfe_in_signal_in[0] => dfe_0_dfe_in_signal_in[0].IN1
 dfe_0_dfe_in_signal_in[1] => dfe_0_dfe_in_signal_in[1].IN1
 dfe_0_dfe_in_signal_in[2] => dfe_0_dfe_in_signal_in[2].IN1
@@ -1467,6 +1467,23 @@ dfe_0_train_data_train_data[5] => dfe_0_train_data_train_data[5].IN1
 dfe_0_train_data_train_data[6] => dfe_0_train_data_train_data[6].IN1
 dfe_0_train_data_train_data[7] => dfe_0_train_data_train_data[7].IN1
 dfe_0_train_data_train_data_valid => dfe_0_train_data_train_data_valid.IN1
+gray_decoder_0_data_out_data_out <= grey_decode:gray_decoder_0.data_out
+gray_decoder_0_data_out_data_out_valid <= grey_decode:gray_decoder_0.data_out_valid
+gray_decoder_0_symbol_in_symbol_in[0] => gray_decoder_0_symbol_in_symbol_in[0].IN1
+gray_decoder_0_symbol_in_symbol_in[1] => gray_decoder_0_symbol_in_symbol_in[1].IN1
+gray_decoder_0_symbol_in_symbol_in_valid => gray_decoder_0_symbol_in_symbol_in_valid.IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[0] => pam4_decoder_0_rx_pam4_input_voltage_level_in[0].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[1] => pam4_decoder_0_rx_pam4_input_voltage_level_in[1].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[2] => pam4_decoder_0_rx_pam4_input_voltage_level_in[2].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[3] => pam4_decoder_0_rx_pam4_input_voltage_level_in[3].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[4] => pam4_decoder_0_rx_pam4_input_voltage_level_in[4].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[5] => pam4_decoder_0_rx_pam4_input_voltage_level_in[5].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[6] => pam4_decoder_0_rx_pam4_input_voltage_level_in[6].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in[7] => pam4_decoder_0_rx_pam4_input_voltage_level_in[7].IN1
+pam4_decoder_0_rx_pam4_input_voltage_level_in_valid => pam4_decoder_0_rx_pam4_input_voltage_level_in_valid.IN1
+pam4_decoder_0_rx_pam4_output_symbol_out[0] <= pam_4_decode:pam4_decoder_0.symbol_out
+pam4_decoder_0_rx_pam4_output_symbol_out[1] <= pam_4_decode:pam4_decoder_0.symbol_out
+pam4_decoder_0_rx_pam4_output_symbol_out_valid <= pam_4_decode:pam4_decoder_0.symbol_out_valid
 reset_reset_n => _.IN1
 
 
@@ -1944,6 +1961,49 @@ feedback_value[13] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
 feedback_value[14] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
 feedback_value[15] <= feedback_value_i.DB_MAX_OUTPUT_PORT_TYPE
 f_valid <= f_valid.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver|grey_decode:gray_decoder_0
+clk => cur_symbol[0].CLK
+clk => cur_symbol[1].CLK
+clk => bit_idx.CLK
+clk => data_out_valid~reg0.CLK
+rstn => bit_idx.ACLR
+rstn => data_out_valid~reg0.ACLR
+rstn => cur_symbol[0].ENA
+rstn => cur_symbol[1].ENA
+symbol_in[0] => Decoder1.IN1
+symbol_in[1] => Decoder1.IN0
+symbol_in[1] => cur_symbol.DATAB
+symbol_in_valid => cur_symbol.OUTPUTSELECT
+symbol_in_valid => cur_symbol.OUTPUTSELECT
+symbol_in_valid => data_out_valid.OUTPUTSELECT
+symbol_in_valid => bit_idx.DATAIN
+data_out <= data_out.DB_MAX_OUTPUT_PORT_TYPE
+data_out_valid <= data_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|SerDes_Sys|RX:receiver|pam_4_decode:pam4_decoder_0
+clk => symbol_out[0]~reg0.CLK
+clk => symbol_out[1]~reg0.CLK
+clk => symbol_out_valid~reg0.CLK
+rstn => symbol_out_valid~reg0.ACLR
+rstn => symbol_out[0]~reg0.ENA
+rstn => symbol_out[1]~reg0.ENA
+voltage_level_in[0] => Decoder0.IN7
+voltage_level_in[1] => Decoder0.IN6
+voltage_level_in[2] => Decoder0.IN5
+voltage_level_in[3] => Decoder0.IN4
+voltage_level_in[4] => Decoder0.IN3
+voltage_level_in[5] => Decoder0.IN2
+voltage_level_in[6] => Decoder0.IN1
+voltage_level_in[7] => Decoder0.IN0
+voltage_level_in_valid => symbol_out.OUTPUTSELECT
+voltage_level_in_valid => symbol_out.OUTPUTSELECT
+voltage_level_in_valid => symbol_out_valid~reg0.DATAIN
+symbol_out[0] <= symbol_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+symbol_out[1] <= symbol_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+symbol_out_valid <= symbol_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |SerDes_Sys|RX:receiver|altera_reset_controller:rst_controller

@@ -2,7 +2,7 @@ set_global_assignment -entity "RX" -library "RX" -name IP_TOOL_NAME "Qsys"
 set_global_assignment -entity "RX" -library "RX" -name IP_TOOL_VERSION "22.1"
 set_global_assignment -entity "RX" -library "RX" -name IP_TOOL_ENV "Qsys"
 set_global_assignment -library "RX" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../RX.sopcinfo"]
-set_global_assignment -entity "RX" -library "RX" -name SLD_INFO "QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1699849914"
+set_global_assignment -entity "RX" -library "RX" -name SLD_INFO "QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700676893"
 set_global_assignment -library "RX" -name MISC_FILE [file join $::quartus(qip_path) "../RX.cmp"]
 set_global_assignment -library "RX" -name SLD_FILE [file join $::quartus(qip_path) "RX.debuginfo"]
 set_global_assignment -entity "RX" -library "RX" -name IP_TARGETED_DEVICE_FAMILY "Cyclone V"
@@ -15,7 +15,7 @@ set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_DISPLAY_NAME
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_REPORT_HIERARCHY "On"
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_INTERNAL "Off"
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_VERSION "MS4w"
-set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTY5OTg0OTkxNA==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTcwMDY3Njg5Mw==::QXV0byBHRU5FUkFUSU9OX0lE"
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNTRU1BNUYzMUM2::QXV0byBERVZJQ0U="
 set_global_assignment -entity "RX" -library "RX" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Ng==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
@@ -54,6 +54,18 @@ set_global_assignment -entity "altera_reset_controller" -library "RX" -name IP_C
 set_global_assignment -entity "altera_reset_controller" -library "RX" -name IP_COMPONENT_PARAMETER "VVNFX1JFU0VUX1JFUVVFU1RfSU4xNQ==::MA==::RW5hYmxlIHJlc2V0X3JlcSBmb3IgcG9ydCByZXNldF9pbjE1"
 set_global_assignment -entity "altera_reset_controller" -library "RX" -name IP_COMPONENT_PARAMETER "VVNFX1JFU0VUX1JFUVVFU1RfSU5QVVQ=::MA==::RW5hYmxlIHJlc2V0X3JlcSBmb3IgcmVzZXRfaW5wdXRz"
 set_global_assignment -entity "altera_reset_controller" -library "RX" -name IP_COMPONENT_PARAMETER "QURBUFRfUkVTRVRfUkVRVUVTVA==::MA==::T25seSBhZGFwdCBvbmx5IHJlc2V0IHJlcXVlc3Q="
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_NAME "cGFtXzRfZGVjb2Rl"
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_DISPLAY_NAME "cGFtNF9kZWNvZGVy"
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_PARAMETER "U0lHTkFMX1JFU09MVVRJT04=::OA==::U0lHTkFMX1JFU09MVVRJT04="
+set_global_assignment -entity "pam_4_decode" -library "RX" -name IP_COMPONENT_PARAMETER "U1lNQk9MX1NFUEVSQVRJT04=::NTY=::U1lNQk9MX1NFUEVSQVRJT04="
+set_global_assignment -entity "grey_decode" -library "RX" -name IP_COMPONENT_NAME "Z3JleV9kZWNvZGU="
+set_global_assignment -entity "grey_decode" -library "RX" -name IP_COMPONENT_DISPLAY_NAME "Z3JheV9kZWNvZGVy"
+set_global_assignment -entity "grey_decode" -library "RX" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "grey_decode" -library "RX" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "grey_decode" -library "RX" -name IP_COMPONENT_VERSION "MS4w"
 set_global_assignment -entity "DFE" -library "RX" -name IP_COMPONENT_NAME "REZF"
 set_global_assignment -entity "DFE" -library "RX" -name IP_COMPONENT_DISPLAY_NAME "ZGZl"
 set_global_assignment -entity "DFE" -library "RX" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
@@ -67,6 +79,8 @@ set_global_assignment -library "RX" -name VERILOG_FILE [file join $::quartus(qip
 set_global_assignment -library "RX" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.v"]
 set_global_assignment -library "RX" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_reset_synchronizer.v"]
 set_global_assignment -library "RX" -name SDC_FILE [file join $::quartus(qip_path) "submodules/altera_reset_controller.sdc"]
+set_global_assignment -library "RX" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/PAM_4_decoder.sv"]
+set_global_assignment -library "RX" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/gray_decoder.v"]
 set_global_assignment -library "RX" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/decision_maker.sv"]
 set_global_assignment -library "RX" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "submodules/dfe.sv"]
 

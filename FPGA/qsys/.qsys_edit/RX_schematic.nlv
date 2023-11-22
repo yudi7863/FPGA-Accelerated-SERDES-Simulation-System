@@ -1,8 +1,15 @@
 # # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
 # 
-preplace inst unsaved.clk_0 -pg 1 -lvl 1 -y 30
-preplace inst unsaved -pg 1 -lvl 1 -y 40 -regy -20
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)unsaved.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
-preplace netloc EXPORT<net_container>unsaved</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)unsaved.reset) 1 0 1 NJ
-levelinfo -pg 1 0 50 270
-levelinfo -hier unsaved 60 90 260
+preplace inst RX -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst RX.clk_0 -pg 1 -lvl 1 -y 70
+preplace inst RX.dfe_0 -pg 1 -lvl 2 -y 30
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.train_data,(SLAVE)RX.dfe_0_train_data) 1 0 2 NJ 160 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.dfe_in,(SLAVE)RX.dfe_0_dfe_in) 1 0 2 NJ 40 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)clk_0.clk_in,(SLAVE)RX.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.dfe_0_dfe_out,(SLAVE)dfe_0.dfe_out) 1 0 2 NJ 60 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.noise,(SLAVE)RX.dfe_0_noise) 1 0 2 NJ 140 NJ
+preplace netloc POINT_TO_POINT<net_container>RX</net_container>(MASTER)clk_0.clk_reset,(SLAVE)dfe_0.reset_n) 1 1 1 320
+preplace netloc POINT_TO_POINT<net_container>RX</net_container>(MASTER)clk_0.clk,(SLAVE)dfe_0.clock) 1 1 1 360
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)RX.reset) 1 0 1 NJ
+levelinfo -pg 1 0 110 500
+levelinfo -hier RX 120 150 390 490
