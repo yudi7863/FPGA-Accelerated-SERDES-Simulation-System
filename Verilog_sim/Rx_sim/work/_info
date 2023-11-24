@@ -11,24 +11,24 @@ cModel Technology
 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
 Z0 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z1 !s110 1700685854
+Z1 !s110 1700795947
 !i10b 1
 !s100 8N1iQ<b:h4JSO[f[D0zCc2
 Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
 IObi_aBDf3KOY4];fF`UP@2
 Z3 VDg1SIo80bB@j0V0VzS_@n1
 S1
-Z4 dC:/ECE496_FPGA/FPGA_demo_branch/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
-Z5 w1700685823
+Z4 dC:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+Z5 w1700691179
 Z6 8Rx.sv
 Z7 FRx.sv
-!i122 167
+!i122 171
 L0 67 74
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1700685854.000000
+Z9 !s108 1700795947.000000
 !s107 channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|
 !i113 1
@@ -46,7 +46,7 @@ R4
 R5
 R6
 R7
-!i122 167
+!i122 171
 L0 2 64
 R8
 r1
@@ -59,25 +59,25 @@ R10
 R11
 n@d@f@e
 vdfe_tb
-Z13 !s110 1700675918
+Z13 !s110 1700795942
 !i10b 1
-!s100 B?1^oLk]9G]VPUDQMEOen3
+!s100 QC:fiI7V^S>f5T9eTnGfG0
 R2
-Io:eOVzj>QN2JlkJb?F^gJ2
+IK:5`edj8Q:FG_2Y22CBI>2
 R3
 R4
-Z14 w1699847150
+w1700795925
 8rx_tb.v
 Frx_tb.v
-!i122 139
-L0 3 72
+!i122 170
+L0 3 92
 R8
 r1
 !s85 0
 31
-Z15 !s108 1700675918.000000
-Z16 !s107 rx_tb.v|prbs.v|grey_code.v|
-Z17 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
+Z14 !s108 1700795942.000000
+Z15 !s107 rx_tb.v|prbs.v|grey_code.v|
+Z16 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
 !i113 1
 R11
 vgrey_decode
@@ -88,18 +88,18 @@ R2
 ITS:k[9M@^9H3H2jh>`c_g0
 R3
 R4
-R14
+Z17 w1700674381
 Z18 8grey_code.v
 Z19 Fgrey_code.v
-!i122 139
+!i122 170
 L0 61 46
 R8
 r1
 !s85 0
 31
+R14
 R15
 R16
-R17
 !i113 1
 R11
 vgrey_encode
@@ -110,18 +110,18 @@ R2
 I5:?7ZKCl<2gZ[PG`<1>Tc0
 R3
 R4
-R14
+R17
 R18
 R19
-!i122 139
+!i122 170
 L0 3 56
 R8
 r1
 !s85 0
 31
+R14
 R15
 R16
-R17
 !i113 1
 R11
 vISI_channel
@@ -134,10 +134,10 @@ I<;^Y2=h3oae2V5bK?Bg522
 R3
 S1
 R4
-R14
+R17
 8channel_model.sv
 Fchannel_model.sv
-!i122 167
+!i122 171
 L0 4 32
 R8
 r1
@@ -159,10 +159,10 @@ IR<8jIzNYUSTXO5K0BLc<L0
 R3
 S1
 R4
-R14
+R17
 Z20 8PAM_4.sv
 Z21 FPAM_4.sv
-!i122 167
+!i122 171
 L0 32 28
 R8
 r1
@@ -183,10 +183,10 @@ IMKbZCn6=AaF:gEeQOT^c70
 R3
 S1
 R4
-R14
+R17
 R20
 R21
-!i122 167
+!i122 171
 L0 3 28
 R8
 r1
@@ -205,18 +205,18 @@ R2
 Im]7b_MILYL>ZOo=:N[fF41
 R3
 R4
-R14
+R17
 Z22 8prbs.v
 Z23 Fprbs.v
-!i122 139
+!i122 170
 L0 2 26
 R8
 r1
 !s85 0
 31
+R14
 R15
 R16
-R17
 !i113 1
 R11
 vprbs31_checker
@@ -227,18 +227,18 @@ R2
 Ino@C>1zgAYVcTDzeIz:NC1
 R3
 R4
-R14
+R17
 R22
 R23
-!i122 139
+!i122 170
 L0 30 31
 R8
 r1
 !s85 0
 31
+R14
 R15
 R16
-R17
 !i113 1
 R11
 vrx_standalone_tb
@@ -251,10 +251,10 @@ IE=CT07V4LKF[PSA1PQecV2
 R3
 S1
 R4
-R14
+R17
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 167
+!i122 171
 L0 2 67
 R8
 r1
