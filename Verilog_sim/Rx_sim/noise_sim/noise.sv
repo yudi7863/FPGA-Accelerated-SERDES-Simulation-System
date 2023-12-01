@@ -31,22 +31,26 @@ always @ (posedge clk) begin
         noise_out <= 8'b0;
     end
     else
-        if (random < possibilities[0]) begin
-            noise_out <= 0;
-            noise_out_valid <= 1'b1;
+        if(en)begin
+            if (random < possibilities[0]) begin
+                noise_out <= 0;
+                noise_out_valid <= 1'b1;
+            end
+            else if ((random >= possibilities[0]) && (random < possibilities[1])) begin
+                noise_out <= 1;
+                noise_out_valid <= 1'b1;
+            end
+            else if ((random >= possibilities[1]) && (random < possibilities[2])) begin
+                noise_out <= -1;
+                noise_out_valid <= 1'b1;
+            end 
+            else begin
+                noise_out_valid <= 1'b0;
+            end
         end
-        else if ((random >= possibilities[0]) && (random < possibilities[1])) begin
-            noise_out <= 1;
-            noise_out_valid <= 1'b1;
-        end
-        else if ((random >= possibilities[1]) && (random < possibilities[2])) begin
-            noise_out <= -1;
-            noise_out_valid <= 1'b1;
-        end 
         else begin
             noise_out_valid <= 1'b0;
         end
-        
 
 end
 
