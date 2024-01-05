@@ -23,7 +23,8 @@ module noise_tb;
         rstn <=1;
         en<=1;
         #2120
-        
+        //$display("\nBits Transmitted:%d", total_bits);
+        $display("Noise out:%d",noise);
         $finish;
     end
 

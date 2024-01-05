@@ -1,0 +1,161 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/fourth_year/ECE496/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim/noise_sim
+T_opt
+!s110 1701383706
+V8lPn0N5@=]9W[ZGIlPEMG3
+04 10 4 work urng_64_tb fast 0
+=1-dc215cdf8bf8-65690e19-363-9298
+o-quiet -auto_acc_if_foreign -work work
+Z1 tCvgOpt 0
+n@_opt
+OL;O;10.6d;65
+R0
+vnoise
+Z2 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z3 !s110 1704419621
+!i10b 1
+!s100 D6LIP8[i[kRMzgYPY@3iT0
+Z4 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IKKP^ZKS<8nP<Vej1TAK8Q3
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1704419595
+8noise.sv
+Fnoise.sv
+!i122 52
+L0 3 70
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z7 !s108 1704419621.000000
+!s107 urng_64_tb.sv|urng_64.sv|noise_tb.sv|noise.sv|
+Z8 !s90 -reportprogress|300|noise.sv|noise_tb.sv|urng_64.sv|urng_64_tb.sv|
+!i113 1
+R1
+vnoise_tb
+R2
+R3
+!i10b 1
+!s100 JIaOJ51MeOjBI5@[Q0LDY0
+R4
+IT3i`R]5O6Bf1QHo^G2eS_3
+R5
+S1
+R0
+w1704250883
+8noise_tb.sv
+Fnoise_tb.sv
+!i122 52
+L0 3 30
+R6
+r1
+!s85 0
+31
+R7
+Z9 !s107 urng_64_tb.sv|urng_64.sv|noise_tb.sv|noise.sv|
+R8
+!i113 1
+R1
+vurng
+Z10 !s110 1704419616
+!i10b 1
+!s100 RSHn:l_GloY]cMQU?>10^2
+R4
+I29EEEBD:Y?fK3C=4gmm1^3
+R5
+R0
+w1701286519
+8urng.v
+Furng.v
+!i122 51
+L0 3 37
+R6
+r1
+!s85 0
+31
+Z11 !s108 1704419616.000000
+Z12 !s107 urng_tb.v|urng.v|
+Z13 !s90 -reportprogress|300|urng.v|urng_tb.v|
+!i113 1
+R1
+vurng_64
+R2
+R3
+!i10b 1
+!s100 KYaG_>]]Ff9C:2HPiL96J1
+R4
+ILTP8dfjEo93NH<I`z`l<n3
+R5
+S1
+R0
+w1701382497
+8urng_64.sv
+Furng_64.sv
+!i122 52
+L0 3 59
+R6
+r1
+!s85 0
+31
+R7
+R9
+R8
+!i113 1
+R1
+vurng_64_tb
+R2
+R3
+!i10b 1
+!s100 _RWA0LEPgLff5z6C[5hNX0
+R4
+I@HjkBe@@5Cji;;A4?DN7X0
+R5
+S1
+R0
+w1701382749
+8urng_64_tb.sv
+Furng_64_tb.sv
+!i122 52
+L0 4 28
+R6
+r1
+!s85 0
+31
+R7
+R9
+R8
+!i113 1
+R1
+vurng_tb
+R10
+!i10b 1
+!s100 R2>JI7z9>;AJlIk1V?>e`2
+R4
+I>RDImX0=@4ShjzDja81DY2
+R5
+R0
+w1701286600
+8urng_tb.v
+Furng_tb.v
+!i122 51
+L0 3 29
+R6
+r1
+!s85 0
+31
+R11
+R12
+R13
+!i113 1
+R1

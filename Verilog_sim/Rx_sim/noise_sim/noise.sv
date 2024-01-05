@@ -14,44 +14,59 @@ wire random_valid;
 
 urng_64 dut (
         .clk(clk),
-        .en(en),
         .rstn(rstn),
+        .en(en),
         .data_out(random),
         .valid(random_valid));
 
 //array to store comparison information
-logic [63:0] possibilities[2:0];
-assign possibilities[0]=1 << 64 >> 1;
-assign possibilities[1]=(1 << 64 >> 1) + (1 << 64 >> 2);
-assign possibilities[2]=1 << 64;
+reg [63:0] possibilities[2:0];
 
-always @ (posedge clk) begin
+initial begin
+    possibilities[0] = 2 ** 63-1;
+    possibilities[1] = (2 ** 63-1) + (2 ** 62);
+    possibilities[2] = 2 ** 64 -1;
+end
+
+always @(posedge clk or negedge rstn) begin
     if (!rstn) begin
-        noise_out_valid <=0;
+        noise_out_valid <= 0;
         noise_out <= 8'b0;
     end
-    else
-        if(en)begin
-            if (random < possibilities[0]) begin
-                noise_out <= 0;
-                noise_out_valid <= 1'b1;
-            end
-            else if ((random >= possibilities[0]) && (random < possibilities[1])) begin
-                noise_out <= 1;
-                noise_out_valid <= 1'b1;
-            end
-            else if ((random >= possibilities[1]) && (random < possibilities[2])) begin
-                noise_out <= -1;
-                noise_out_valid <= 1'b1;
-            end 
-            else begin
-                noise_out_valid <= 1'b0;
-            end
+    else if (en) begin
+        if (random < possibilities[0]) begin
+            noise_out <= 8'b0;
+            noise_out_valid <= 1'b1;
+            $display("Condition 1: random=%h", random);
+            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
         end
+        else if ((random >= possibilities[0]) && (random < possibilities[1])) begin
+            noise_out <= 8'b1;
+            noise_out_valid <= 1'b1;
+            $display("Condition 2: random=%h", random);
+            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+        end
+        else if ((random >= possibilities[1]) && (random < possibilities[2])) begin
+            noise_out <= -8'b1;
+            noise_out_valid <= 1'b1;
+            $display("Condition 3: random=%h", random);
+            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+            $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
+        end 
         else begin
             noise_out_valid <= 1'b0;
+            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+            $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
+            $display("No Condition Matched: random=%h", random);
         end
-
+    end
+    else begin
+        noise_out_valid <= 1'b0;
+    end
 end
+
 
 endmodule
