@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="System" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element clk_0
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element dfe_0
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element gray_decoder_0
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element pam4_decoder_0
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="5CSEMA5F31C6" />
+ <parameter name="deviceFamily" value="Cyclone V" />
+ <parameter name="deviceSpeedGrade" value="6" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="hideFromIPCatalog" value="false" />
+ <parameter name="lockedInterfaceDefinition" value="" />
+ <parameter name="maxAdditionalLatency" value="1" />
+ <parameter name="projectName" value="" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="0" />
+ <parameter name="testBenchDutName" value="" />
+ <parameter name="timeStamp" value="0" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface name="clk" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface name="dfe_0_dfe_in" internal="dfe_0.dfe_in" type="conduit" dir="end" />
+ <interface
+   name="dfe_0_dfe_out"
+   internal="dfe_0.dfe_out"
+   type="conduit"
+   dir="end" />
+ <interface name="dfe_0_noise" internal="dfe_0.noise" type="conduit" dir="end" />
+ <interface
+   name="dfe_0_train_data"
+   internal="dfe_0.train_data"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="gray_decoder_0_data_out"
+   internal="gray_decoder_0.data_out"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="gray_decoder_0_symbol_in"
+   internal="gray_decoder_0.symbol_in"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pam4_decoder_0_rx_pam4_input"
+   internal="pam4_decoder_0.rx_pam4_input"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="pam4_decoder_0_rx_pam4_output"
+   internal="pam4_decoder_0.rx_pam4_output"
+   type="conduit"
+   dir="end" />
+ <interface name="reset" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <module name="clk_0" kind="clock_source" version="22.1" enabled="1">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module name="dfe_0" kind="dfe" version="1.0" enabled="1">
+  <parameter name="PULSE_RESPONSE_LENGTH" value="2" />
+  <parameter name="SIGNAL_RESOLUTION" value="8" />
+  <parameter name="SYMBOL_SEPERATION" value="56" />
+ </module>
+ <module name="gray_decoder_0" kind="gray_decoder" version="1.0" enabled="1" />
+ <module name="pam4_decoder_0" kind="pam4_decoder" version="1.0" enabled="1">
+  <parameter name="SIGNAL_RESOLUTION" value="8" />
+  <parameter name="SYMBOL_SEPERATION" value="56" />
+ </module>
+ <connection kind="clock" version="22.1" start="clk_0.clk" end="dfe_0.clock" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="clk_0.clk"
+   end="pam4_decoder_0.clock" />
+ <connection
+   kind="clock"
+   version="22.1"
+   start="clk_0.clk"
+   end="gray_decoder_0.clock" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="clk_0.clk_reset"
+   end="dfe_0.reset_n" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="clk_0.clk_reset"
+   end="pam4_decoder_0.reset_n" />
+ <connection
+   kind="reset"
+   version="22.1"
+   start="clk_0.clk_reset"
+   end="gray_decoder_0.rstn" />
+ <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
+ <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />
+ <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
+</system>

@@ -30,14 +30,24 @@ module SerDes_Sys(
 		logic reset_n;
 		logic prbs_data;
 		logic prbs_valid;
-		logic encoder_valid;
-		logic decoder_valid;
 		logic [1:0] encoder_out;
-		logic [1:0] decoder_in;
-		logic decoder_out;
-		logic decoder_out_valid;
+		logic encoder_valid;
 		logic [7:0] voltage_out;
 		logic voltage_valid;
+		
+		//channel connections
+		logic [7:0] voltage_out_channel;
+		logic voltage_channel_valid;
+		
+		//rx connections
+		logic [7:0] voltage_out_dfe;
+		logic voltage_dfe_valid;
+		logic [1:0] decoder_in;
+		logic decoder_valid;
+		logic decoder_out;
+		logic decoder_out_valid;
+		
+		
 		
 		//on-chip-ram connection -> currently cut off:
 		
@@ -68,7 +78,7 @@ module SerDes_Sys(
 		
 		
 		/////////////////////////////////////TX instatiation /////////////////////////////////////////////
-		TX u0 (
+		TX transmitter (
 		.clk_clk                                    (clock),                                    //                       clk.clk
 		.onchip_memory2_0_s1_address                (address),                //       onchip_memory2_0_s1.address
 		.onchip_memory2_0_s1_clken                  (clken),                  //                          .clken
@@ -96,8 +106,37 @@ module SerDes_Sys(
 		.prbs_0_prbs_ctrl_en                                     (prbs_en)                                    //                prbs_0_prbs_ctrl.en
 		);
 		
+		channel channel_model (
+		.clk_clk                                          (clock),                                          //                             clk.clk
+		.reset_reset_n                                    (reset_n),                                    //                           reset.reset_n
+		.channel_module_0_channel_input_signal_in         (voltage_out),         //  channel_module_0_channel_input.signal_in
+		.channel_module_0_channel_input_signal_in_valid   (voltage_valid),   //                                .signal_in_valid
+		.channel_module_0_channel_output_signal_out       (voltage_out_channel),       // channel_module_0_channel_output.signal_out
+		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
+	   );
+		
+		RX receiver (
+		.clk_clk                                             (clock),                                             //                           clk.clk
+		.dfe_0_dfe_in_signal_in                              (voltage_out_channel),                              //                  dfe_0_dfe_in.signal_in
+		.dfe_0_dfe_in_signal_in_valid                        (voltage_channel_valid),                        //                              .signal_in_valid
+		.dfe_0_dfe_out_signal_out                            (voltage_out_dfe),                            //                 dfe_0_dfe_out.signal_out
+		.dfe_0_dfe_out_signal_out_valid                      (voltage_dfe_valid),                      //                              .signal_out_valid
+		.dfe_0_noise_noise                                   (),                                   //                   dfe_0_noise.noise
+		.dfe_0_train_data_train_data                         (),                         //              dfe_0_train_data.train_data
+		.dfe_0_train_data_train_data_valid                   (),                   //                              .train_data_valid
+		.reset_reset_n                                       (reset_n),                                       //                         reset.reset_n
+		.pam4_decoder_0_rx_pam4_input_voltage_level_in       (voltage_out_dfe),       //  pam4_decoder_0_rx_pam4_input.voltage_level_in
+		.pam4_decoder_0_rx_pam4_input_voltage_level_in_valid (voltage_dfe_valid), //                              .voltage_level_in_valid
+		.pam4_decoder_0_rx_pam4_output_symbol_out            (decoder_in),            // pam4_decoder_0_rx_pam4_output.symbol_out
+		.pam4_decoder_0_rx_pam4_output_symbol_out_valid      (decoder_valid),      //                              .symbol_out_valid
+		.gray_decoder_0_data_out_data_out                    (decoder_out),                    //       gray_decoder_0_data_out.data_out
+		.gray_decoder_0_data_out_data_out_valid              (decoder_out_valid),              //                              .data_out_valid
+		.gray_decoder_0_symbol_in_symbol_in                  (decoder_in),                  //      gray_decoder_0_symbol_in.symbol_in
+		.gray_decoder_0_symbol_in_symbol_in_valid            (decoder_valid)             //                              .symbol_in_valid
+	   );
+		
 		//connecting to button
-		assign prbs_en = SW[1]; //
+		assign prbs_en = ~KEY[1]; //
 		assign reset_n = KEY[0]; //down = logic 0, up: logic 1
 		
 		//connecting rest to hex:

@@ -58,6 +58,26 @@ module dfe_tb;
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
 
+    wire [1:0] symbol_rx;
+    wire symbol_rx_valid;
+    pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
+        .clk(clk),
+        .rstn(rstn),
+        .voltage_level_in(voltage_level_dfe),
+	    .voltage_level_in_valid(voltage_level_dfe_valid),
+        .symbol_out(symbol_rx),
+        .symbol_out_valid(symbol_rx_valid));
+
+    wire binary_data_rx;
+    wire binary_data_rx_valid;
+    grey_decode gd(
+        .clk(clk),
+        .rstn(rstn),
+        .symbol_in(symbol_rx),
+	    .symbol_in_valid(symbol_rx_valid),
+        .data_out(binary_data_rx),
+        .data_out_valid(binary_data_rx_valid));
+
     
     //setting clock:
     always #10 clk = ~clk;

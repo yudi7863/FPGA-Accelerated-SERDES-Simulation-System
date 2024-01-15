@@ -1,0 +1,98 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 640 256)
+	(text "channel" (rect 298 -1 327 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 240 20 252)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "channel_module_0_channel_input_signal_in[7..0]" (rect 0 0 192 12)(font "Arial" (font_size 8)))
+		(text "channel_module_0_channel_input_signal_in[7..0]" (rect 4 61 280 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 272 72)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "channel_module_0_channel_input_signal_in_valid" (rect 0 0 195 12)(font "Arial" (font_size 8)))
+		(text "channel_module_0_channel_input_signal_in_valid" (rect 4 77 280 88)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 272 88)(line_width 1))
+	)
+	(port
+		(pt 0 184)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 173 46 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 272 184)(line_width 1))
+	)
+	(port
+		(pt 0 224)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 213 82 224)(font "Arial" (font_size 8)))
+		(line (pt 0 224)(pt 272 224)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(output)
+		(text "channel_module_0_channel_output_signal_out[7..0]" (rect 0 0 204 12)(font "Arial" (font_size 8)))
+		(text "channel_module_0_channel_output_signal_out[7..0]" (rect 4 117 292 128)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 272 128)(line_width 3))
+	)
+	(port
+		(pt 0 144)
+		(output)
+		(text "channel_module_0_channel_output_signal_out_valid" (rect 0 0 207 12)(font "Arial" (font_size 8)))
+		(text "channel_module_0_channel_output_signal_out_valid" (rect 4 133 292 144)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 272 144)(line_width 1))
+	)
+	(drawing
+		(text "channel_module_0_channel_input" (rect 76 43 332 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "signal_in" (rect 277 67 608 144)(font "Arial" (color 0 0 0)))
+		(text "signal_in_valid" (rect 277 83 644 176)(font "Arial" (color 0 0 0)))
+		(text "channel_module_0_channel_output" (rect 68 99 322 211)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "signal_out" (rect 277 123 614 256)(font "Arial" (color 0 0 0)))
+		(text "signal_out_valid" (rect 277 139 650 288)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 257 155 532 323)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 277 179 572 368)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 243 195 516 403)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 277 219 596 448)(font "Arial" (color 0 0 0)))
+		(text " channel " (rect 605 240 1264 490)(font "Arial" ))
+		(line (pt 272 32)(pt 368 32)(line_width 1))
+		(line (pt 368 32)(pt 368 240)(line_width 1))
+		(line (pt 272 240)(pt 368 240)(line_width 1))
+		(line (pt 272 32)(pt 272 240)(line_width 1))
+		(line (pt 273 52)(pt 273 92)(line_width 1))
+		(line (pt 274 52)(pt 274 92)(line_width 1))
+		(line (pt 273 108)(pt 273 148)(line_width 1))
+		(line (pt 274 108)(pt 274 148)(line_width 1))
+		(line (pt 273 164)(pt 273 188)(line_width 1))
+		(line (pt 274 164)(pt 274 188)(line_width 1))
+		(line (pt 273 204)(pt 273 228)(line_width 1))
+		(line (pt 274 204)(pt 274 228)(line_width 1))
+		(line (pt 0 0)(pt 640 0)(line_width 1))
+		(line (pt 640 0)(pt 640 256)(line_width 1))
+		(line (pt 0 256)(pt 640 256)(line_width 1))
+		(line (pt 0 0)(pt 0 256)(line_width 1))
+	)
+)

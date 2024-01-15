@@ -1,0 +1,11 @@
+	component channel is
+		port (
+			channel_module_0_channel_input_signal_in         : in  std_logic_vector(7 downto 0) := (others => 'X'); -- signal_in
+			channel_module_0_channel_input_signal_in_valid   : in  std_logic                    := 'X';             -- signal_in_valid
+			channel_module_0_channel_output_signal_out       : out std_logic_vector(7 downto 0);                    -- signal_out
+			channel_module_0_channel_output_signal_out_valid : out std_logic;                                       -- signal_out_valid
+			clk_clk                                          : in  std_logic                    := 'X';             -- clk
+			reset_reset_n                                    : in  std_logic                    := 'X'              -- reset_n
+		);
+	end component channel;
+

@@ -5,12 +5,10 @@
   <columns>
    <connections preferredWidth="63" />
    <irq preferredWidth="34" />
-   <name preferredWidth="521" />
-   <opcodeName preferredWidth="1299" />
-   <export preferredWidth="765" />
-   <description preferredWidth="669" />
+   <name preferredWidth="313" />
   </columns>
  </systemtable>
- <library expandedCategories="Project,Library" />
- <window width="3866" height="2090" x="5107" y="-13" />
+ <library expandedCategories="Library,Project" />
+ <window width="3866" height="2090" x="-13" y="-13" />
+ <generation path="_PROJECT_NAME_" />
 </preferences>
