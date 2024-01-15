@@ -1,0 +1,192 @@
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:13:10 on Nov 12,2023
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_standalone_tb.sv channel_model.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# 
+# Top level modules:
+# 	pam_4_encode
+# 	pam_4_decode
+# 	rx_standalone_tb
+# End time: 22:13:10 on Nov 12,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:13:16 on Nov 12,2023
+# vlog -reportprogress 300 grey_code.v prbs.v rx_tb.v 
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module dfe_tb
+# 
+# Top level modules:
+# 	grey_decode
+# 	prbs31_checker
+# 	dfe_tb
+# End time: 22:13:16 on Nov 12,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim dfe_tb
+# vsim dfe_tb 
+# Start time: 22:13:28 on Nov 12,2023
+# Loading work.dfe_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.ISI_channel
+# Loading work.DFE
+# Loading work.decision_maker
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'rx'.  Expected 9, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /dfe_tb/rx File: rx_tb.v Line: 53
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'noise'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data_valid'.
+add wave -position insertpoint  \
+sim:/dfe_tb/clk \
+sim:/dfe_tb/en \
+sim:/dfe_tb/rstn \
+sim:/dfe_tb/binary_data \
+sim:/dfe_tb/binary_data_valid \
+sim:/dfe_tb/symbol \
+sim:/dfe_tb/symbol_valid \
+sim:/dfe_tb/voltage_level \
+sim:/dfe_tb/voltage_level_valid \
+sim:/dfe_tb/voltage_level_isi \
+sim:/dfe_tb/voltage_level_isi_valid \
+sim:/dfe_tb/voltage_level_dfe \
+sim:/dfe_tb/voltage_level_dfe_valid
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: wangy  Hostname: YUDI  ProcessID: 27132
+#           Attempting to use alternate WLF file "./wlftcfdzcg".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftcfdzcg
+add wave -position insertpoint  \
+sim:/dfe_tb/rx/signal_in \
+sim:/dfe_tb/rx/signal_in_valid \
+sim:/dfe_tb/rx/noise \
+sim:/dfe_tb/rx/train_data \
+sim:/dfe_tb/rx/train_data_valid \
+sim:/dfe_tb/rx/signal_out \
+sim:/dfe_tb/rx/signal_out_valid \
+sim:/dfe_tb/rx/h_function_vals \
+sim:/dfe_tb/rx/feedback_value \
+sim:/dfe_tb/rx/division \
+sim:/dfe_tb/rx/subtract_result \
+sim:/dfe_tb/rx/buffer \
+sim:/dfe_tb/rx/f_valid
+add wave -position insertpoint  \
+sim:/dfe_tb/rx/DM/estimation \
+sim:/dfe_tb/rx/DM/e_valid \
+sim:/dfe_tb/rx/DM/feedback_value \
+sim:/dfe_tb/rx/DM/f_valid \
+sim:/dfe_tb/rx/DM/value \
+sim:/dfe_tb/rx/DM/difference \
+sim:/dfe_tb/rx/DM/best_value \
+sim:/dfe_tb/rx/DM/best_difference \
+sim:/dfe_tb/rx/DM/feedback_value_i
+run -all
+# ** Note: $finish    : rx_tb.v(72)
+#    Time: 2170 ns  Iteration: 0  Instance: /dfe_tb
+# 1
+# Break in Module dfe_tb at rx_tb.v line 72
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:15:42 on Nov 12,2023
+# vlog -reportprogress 300 grey_code.v prbs.v rx_tb.v 
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module dfe_tb
+# 
+# Top level modules:
+# 	grey_decode
+# 	prbs31_checker
+# 	dfe_tb
+# End time: 22:15:42 on Nov 12,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim dfe_tb
+# End time: 22:15:50 on Nov 12,2023, Elapsed time: 0:02:22
+# Errors: 0, Warnings: 6
+# vsim dfe_tb 
+# Start time: 22:15:50 on Nov 12,2023
+# Loading work.dfe_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.ISI_channel
+# Loading work.DFE
+# Loading work.decision_maker
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'rx'.  Expected 9, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /dfe_tb/rx File: rx_tb.v Line: 53
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'noise'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data_valid'.
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 22:16:06 on Nov 12,2023
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_standalone_tb.sv channel_model.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# 
+# Top level modules:
+# 	pam_4_encode
+# 	pam_4_decode
+# 	rx_standalone_tb
+# End time: 22:16:06 on Nov 12,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim dfe_tb
+# End time: 22:16:10 on Nov 12,2023, Elapsed time: 0:00:20
+# Errors: 0, Warnings: 4
+# vsim dfe_tb 
+# Start time: 22:16:10 on Nov 12,2023
+# Loading work.dfe_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading sv_std.std
+# Loading work.pam_4_encode
+# Loading work.ISI_channel
+# Loading work.DFE
+# Loading work.decision_maker
+# ** Warning: (vsim-2685) [TFMPC] - Too few port connections for 'rx'.  Expected 9, found 6.
+#    Time: 0 ps  Iteration: 0  Instance: /dfe_tb/rx File: rx_tb.v Line: 53
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'noise'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data'.
+# ** Warning: (vsim-3722) rx_tb.v(53): [TFMPC] - Missing connection for port 'train_data_valid'.
+add wave -position insertpoint  \
+sim:/dfe_tb/clk \
+sim:/dfe_tb/en \
+sim:/dfe_tb/rstn \
+sim:/dfe_tb/binary_data \
+sim:/dfe_tb/binary_data_valid \
+sim:/dfe_tb/symbol \
+sim:/dfe_tb/symbol_valid \
+sim:/dfe_tb/voltage_level \
+sim:/dfe_tb/voltage_level_valid \
+sim:/dfe_tb/voltage_level_isi \
+sim:/dfe_tb/voltage_level_isi_valid \
+sim:/dfe_tb/voltage_level_dfe \
+sim:/dfe_tb/voltage_level_dfe_valid
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: wangy  Hostname: YUDI  ProcessID: 27132
+#           Attempting to use alternate WLF file "./wlft2gnkv3".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft2gnkv3
+run -all
+# ** Note: $finish    : rx_tb.v(72)
+#    Time: 2170 ns  Iteration: 0  Instance: /dfe_tb
+# 1
+# Break in Module dfe_tb at rx_tb.v line 72
+# End time: 22:16:41 on Nov 12,2023, Elapsed time: 0:00:31
+# Errors: 0, Warnings: 6
