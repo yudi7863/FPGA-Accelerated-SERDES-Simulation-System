@@ -37,30 +37,30 @@ always @(posedge clk or negedge rstn) begin
         if (random < possibilities[0]) begin
             noise_out <= 8'b0;
             noise_out_valid <= 1'b1;
-            $display("Condition 1: random=%h", random);
-            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            // $display("Condition 1: random=%h", random);
+            // $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
         end
         else if ((random >= possibilities[0]) && (random < possibilities[1])) begin
             noise_out <= 8'b1;
             noise_out_valid <= 1'b1;
-            $display("Condition 2: random=%h", random);
-            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
-            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+            // $display("Condition 2: random=%h", random);
+            // $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            // $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
         end
         else if ((random >= possibilities[1]) && (random < possibilities[2])) begin
             noise_out <= -8'b1;
             noise_out_valid <= 1'b1;
-            $display("Condition 3: random=%h", random);
-            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
-            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
-            $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
+            // $display("Condition 3: random=%h", random);
+            // $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            // $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+            // $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
         end 
         else begin
             noise_out_valid <= 1'b0;
-            $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
-            $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
-            $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
-            $display("No Condition Matched: random=%h", random);
+            // $display("possibilities[0]: possibilities[0]=%h", possibilities[0]);
+            // $display("possibilities[1]: possibilities[1]=%h", possibilities[1]);
+            // $display("possibilities[2]: possibilities[2]=%h", possibilities[2]);
+            // $display("No Condition Matched: random=%h", random);
         end
     end
     else begin
