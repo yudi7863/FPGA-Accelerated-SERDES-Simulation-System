@@ -1,5 +1,5 @@
 Flow report for SerDes_Sys
-Thu Nov 23 21:42:25 2023
+Wed Jan 17 22:49:41 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu Nov 23 21:42:25 2023          ;
+; Flow Status                     ; Successful - Wed Jan 17 22:49:41 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; SerDes_Sys                                     ;
 ; Top-level Entity Name           ; SerDes_Sys                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 486 / 32,070 ( 2 % )                           ;
-; Total registers                 ; 1026                                           ;
+; Logic utilization (in ALMs)     ; 607 / 32,070 ( 2 % )                           ;
+; Total registers                 ; 1275                                           ;
 ; Total pins                      ; 43 / 457 ( 9 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 4,992 / 4,065,280 ( < 1 % )                    ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/23/2023 21:39:30 ;
+; Start date & time ; 01/17/2024 22:46:24 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SerDes_Sys          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                                               ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+-------------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 53671035210324.170079357010548                                                      ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 1096190267477.170554958326188                                                       ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                                 ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -158,12 +158,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 5023 MB             ; 00:00:19                           ;
-; Fitter               ; 00:02:16     ; 1.1                     ; 7910 MB             ; 00:02:41                           ;
-; Assembler            ; 00:00:06     ; 1.0                     ; 4895 MB             ; 00:00:05                           ;
-; Timing Analyzer      ; 00:00:07     ; 1.5                     ; 5402 MB             ; 00:00:07                           ;
-; EDA Netlist Writer   ; 00:00:02     ; 1.0                     ; 4866 MB             ; 00:00:02                           ;
-; Total                ; 00:02:49     ; --                      ; --                  ; 00:03:14                           ;
+; Analysis & Synthesis ; 00:00:18     ; 1.0                     ; 4987 MB             ; 00:00:18                           ;
+; Fitter               ; 00:02:34     ; 1.1                     ; 7917 MB             ; 00:04:11                           ;
+; Assembler            ; 00:00:09     ; 1.0                     ; 4884 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:07     ; 1.6                     ; 5378 MB             ; 00:00:06                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4866 MB             ; 00:00:01                           ;
+; Total                ; 00:03:11     ; --                      ; --                  ; 00:04:39                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -172,11 +172,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; Re1nA            ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; Re1nA            ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; Re1nA            ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; Re1nA            ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; Re1nA            ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

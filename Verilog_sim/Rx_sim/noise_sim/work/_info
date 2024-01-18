@@ -21,31 +21,31 @@ OL;O;10.6d;65
 R0
 vnoise
 Z2 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z3 !s110 1705437360
+Z3 !s110 1705547611
 !i10b 1
 !s100 _@:>UWnLbY=I3h0Ki^^8i2
 Z4 !s11b Dg1SIo80bB@j0V0VzS_@n1
 I?7fG39MY0P9QGXoLImKG43
 Z5 VDg1SIo80bB@j0V0VzS_@n1
 S1
-R0
-w1704676789
+Z6 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim/noise_sim
+Z7 w1705538534
 8noise.sv
 Fnoise.sv
-!i122 55
+!i122 57
 L0 3 70
-Z6 OV;L;2020.1;71
+Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z7 !s108 1705437360.000000
-!s107 urng_64_tb.sv|urng_64.sv|noise_tb.sv|noise_128.sv|noise.sv|
-Z8 !s90 -reportprogress|300|noise.sv|noise_128.sv|noise_tb.sv|urng_64.sv|urng_64_tb.sv|
+Z9 !s108 1705547611.000000
+Z10 !s107 urng_64_tb.sv|urng_64.sv|noise_tb.sv|noise_128.sv|noise.sv|
+Z11 !s90 -reportprogress|300|noise.sv|noise_128.sv|noise_tb.sv|urng_64.sv|urng_64_tb.sv|
 !i113 1
 R1
 vnoise_128
 R2
-R3
+!s110 1705437360
 !i10b 1
 !s100 @n2XK6D<X[kUMEkmB3?P92
 R4
@@ -58,41 +58,41 @@ w1705437325
 Fnoise_128.sv
 !i122 55
 L0 3 53
-R6
+R8
 r1
 !s85 0
 31
-R7
-Z9 !s107 urng_64_tb.sv|urng_64.sv|noise_tb.sv|noise_128.sv|noise.sv|
-R8
+!s108 1705437360.000000
+R10
+R11
 !i113 1
 R1
 vnoise_tb
 R2
 R3
 !i10b 1
-!s100 cN_mH`56l[NEH5BPA1W2C1
+!s100 JIaOJ51MeOjBI5@[Q0LDY0
 R4
-If1Z^`a@;_GFao2o8QYBCY2
+IT3i`R]5O6Bf1QHo^G2eS_3
 R5
 S1
-R0
-w1705430848
+R6
+R7
 8noise_tb.sv
 Fnoise_tb.sv
-!i122 55
+!i122 57
 L0 3 30
-R6
+R8
 r1
 !s85 0
 31
-R7
 R9
-R8
+R10
+R11
 !i113 1
 R1
 vurng
-Z10 !s110 1705431322
+Z12 !s110 1705431322
 !i10b 1
 !s100 RSHn:l_GloY]cMQU?>10^2
 R4
@@ -104,13 +104,13 @@ w1701286519
 Furng.v
 !i122 54
 L0 3 37
-R6
+R8
 r1
 !s85 0
 31
-Z11 !s108 1705431322.000000
-Z12 !s107 urng_tb.v|urng.v|
-Z13 !s90 -reportprogress|300|urng.v|urng_tb.v|
+Z13 !s108 1705431322.000000
+Z14 !s107 urng_tb.v|urng.v|
+Z15 !s90 -reportprogress|300|urng.v|urng_tb.v|
 !i113 1
 R1
 vurng_64
@@ -122,19 +122,19 @@ R4
 ILTP8dfjEo93NH<I`z`l<n3
 R5
 S1
-R0
-w1701382497
+R6
+R7
 8urng_64.sv
 Furng_64.sv
-!i122 55
+!i122 57
 L0 3 59
-R6
+R8
 r1
 !s85 0
 31
-R7
 R9
-R8
+R10
+R11
 !i113 1
 R1
 vurng_64_tb
@@ -146,23 +146,23 @@ R4
 I@HjkBe@@5Cji;;A4?DN7X0
 R5
 S1
-R0
-w1701382749
+R6
+R7
 8urng_64_tb.sv
 Furng_64_tb.sv
-!i122 55
+!i122 57
 L0 4 28
-R6
+R8
 r1
 !s85 0
 31
-R7
 R9
-R8
+R10
+R11
 !i113 1
 R1
 vurng_tb
-R10
+R12
 !i10b 1
 !s100 R2>JI7z9>;AJlIk1V?>e`2
 R4
@@ -174,12 +174,12 @@ w1701286600
 Furng_tb.v
 !i122 54
 L0 3 29
-R6
+R8
 r1
 !s85 0
 31
-R11
-R12
 R13
+R14
+R15
 !i113 1
 R1

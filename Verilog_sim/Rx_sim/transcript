@@ -1,0 +1,58 @@
+ls
+# PAM_4.sv
+# Rx.sv
+# Rx_standalone_tb.sv
+# channel_model.sv
+# grey_code.v
+# noise.sv
+# noise_feedback_tb.sv
+# noise_sim
+# noise_wave.do
+# prbs.v
+# rx_tb.v
+# transcript
+# urng_64.sv
+# vsim.wlf
+# wave.do
+# wlft7rxya0
+# work
+cd noise
+# couldn't change working directory to "noise": no such file or directory
+ls
+# PAM_4.sv
+# Rx.sv
+# Rx_standalone_tb.sv
+# channel_model.sv
+# grey_code.v
+# noise.sv
+# noise_feedback_tb.sv
+# noise_sim
+# noise_wave.do
+# prbs.v
+# rx_tb.v
+# transcript
+# urng_64.sv
+# vsim.wlf
+# wave.do
+# wlft7rxya0
+# work
+pwd
+# C:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+cd noise
+# couldn't change working directory to "noise": no such file or directory
+cd noise_sim
+cd noise_sim
+# couldn't change working directory to "noise_sim": no such file or directory
+ls
+# noise.sv
+# noise_128.sv
+# noise_tb.sv
+# transcript
+# urng.v
+# urng_64.sv
+# urng_64_tb.sv
+# urng_tb.v
+# vsim.wlf
+# wlft0k9bgw
+# wlftgnjaea
+# work

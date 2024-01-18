@@ -115,10 +115,24 @@ module SerDes_Sys(
 		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
 	   );
 		
+		
+		///////////////////////////////////////////////////////////noise instantiation////////////////////////////////////////////////////////////
+		logic [7:0] noise_output;
+      logic noise_valid;
+		noise_wrapper noise_wrapper_noise (
+            .clk(clock),
+            .en(prbs_en), //yudi: need to change this later
+            .rstn(reset_n),
+            .noise_in(voltage_out_channel),
+            .noise_out(noise_output),
+            .noise_out_valid(noise_valid)
+    );
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		RX receiver (
 		.clk_clk                                             (clock),                                             //                           clk.clk
-		.dfe_0_dfe_in_signal_in                              (voltage_out_channel),                              //                  dfe_0_dfe_in.signal_in
-		.dfe_0_dfe_in_signal_in_valid                        (voltage_channel_valid),                        //                              .signal_in_valid
+		.dfe_0_dfe_in_signal_in                              (noise_output),                              //                  dfe_0_dfe_in.signal_in
+		.dfe_0_dfe_in_signal_in_valid                        (noise_valid),                        //                              .signal_in_valid
 		.dfe_0_dfe_out_signal_out                            (voltage_out_dfe),                            //                 dfe_0_dfe_out.signal_out
 		.dfe_0_dfe_out_signal_out_valid                      (voltage_dfe_valid),                      //                              .signal_out_valid
 		.dfe_0_noise_noise                                   (),                                   //                   dfe_0_noise.noise
