@@ -11,7 +11,7 @@ cModel Technology
 Z0 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1705548875
+Z2 !s110 1706019825
 !i10b 1
 !s100 8N1iQ<b:h4JSO[f[D0zCc2
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -22,17 +22,17 @@ R0
 Z5 w1705538534
 Z6 8Rx.sv
 Z7 FRx.sv
-!i122 183
+!i122 200
 L0 67 74
 Z8 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1705548875.000000
-Z10 !s107 urng_64.sv|noise_feedback_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
-Z11 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_feedback_tb.sv|urng_64.sv|
+Z9 !s108 1706019825.000000
+!s107 urng_64.sv|noise_feedback_tb.sv|noise_128_test.sv|noise_128_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
+Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_128_tb.sv|noise_128_test.sv|noise_feedback_tb.sv|urng_64.sv|
 !i113 1
-Z12 tCvgOpt 0
+Z11 tCvgOpt 0
 vDFE
 R1
 R2
@@ -46,17 +46,17 @@ R0
 R5
 R6
 R7
-!i122 183
+!i122 200
 L0 2 64
 R8
 r1
 !s85 0
 31
 R9
+Z12 !s107 urng_64.sv|noise_feedback_tb.sv|noise_128_test.sv|noise_128_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 R10
-R11
 !i113 1
-R12
+R11
 n@d@f@e
 vdfe_tb
 Z13 !s110 1700795942
@@ -79,7 +79,7 @@ Z15 !s108 1700795942.000000
 Z16 !s107 rx_tb.v|prbs.v|grey_code.v|
 Z17 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
 !i113 1
-R12
+R11
 vgrey_decode
 R13
 !i10b 1
@@ -101,7 +101,7 @@ R15
 R16
 R17
 !i113 1
-R12
+R11
 vgrey_encode
 R13
 !i10b 1
@@ -123,7 +123,7 @@ R15
 R16
 R17
 !i113 1
-R12
+R11
 vISI_channel
 R1
 R2
@@ -137,66 +137,90 @@ R0
 w1699571681
 8channel_model.sv
 Fchannel_model.sv
-!i122 183
+!i122 200
 L0 4 32
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 n@i@s@i_channel
 vnoise
 R1
 R2
 !i10b 1
-!s100 iVM6Q3]4FE8Fd<PSl=0Sj1
+!s100 2e2U:Y2oza3j[kX6an:331
 R3
-IHQ7R``lIca_44zNeRNNX71
+IN?I6RLKoNKCMZZ_cWZT@f3
 R4
 S1
 R0
-Z21 w1705548863
+Z21 w1706019816
 Z22 8noise.sv
 Z23 Fnoise.sv
-!i122 183
-L0 31 70
+!i122 200
+L0 43 70
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
+vnoise_128_tb
+R1
+R2
+!i10b 1
+!s100 h5O2=jOj4]TBbB>4IM:cV3
+R3
+I5Qb^JJkRSVn6@[>R`FdlM3
+R4
+S1
+R0
+w1705893528
+8noise_128_tb.sv
+Fnoise_128_tb.sv
+!i122 200
+L0 1 37
+R8
+r1
+!s85 0
+31
+R9
+R12
+R10
+!i113 1
+R11
 vnoise_feedback_tb
 R1
 R2
 !i10b 1
-!s100 zYMP:AfJ23<3TUO9am55e3
+!s100 NHTkzF4m=V[^hKn:i23j32
 R3
-I@n]9UmSaal:7HJ?A;]LJG1
+IJ>14^d]9:H>oFPnij^WA;0
 R4
 S1
 R0
-w1705548704
+w1706019646
 8noise_feedback_tb.sv
 Fnoise_feedback_tb.sv
-!i122 183
-L0 2 109
+!i122 200
+L0 2 119
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 Xnoise_sv_unit
 R1
 !s110 1705547688
@@ -217,34 +241,34 @@ L0 23 0
 R8
 31
 !s108 1705547688.000000
-R10
-R11
+!s107 urng_64.sv|noise_feedback_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
+!s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_feedback_tb.sv|urng_64.sv|
 !i113 1
-R12
+R11
 vnoise_wrapper
 R1
 R2
 !i10b 1
-!s100 naO=XM<8aaLLkGQ2UJgE71
+!s100 WY3QX_cUNR@<_LdlQ7;j92
 R3
-IOi8LIRbL;eLlZaR60fU?<2
+IoEn:1M2B@B:`]Sek>SlOJ1
 R4
 S1
 R0
 R21
 R22
 R23
-!i122 183
-L0 1 29
+!i122 200
+L0 1 41
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vpam_4_decode
 R1
 R2
@@ -258,17 +282,17 @@ R0
 Z24 w1699043380
 Z25 8PAM_4.sv
 Z26 FPAM_4.sv
-!i122 183
+!i122 200
 L0 32 28
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vpam_4_encode
 R1
 R2
@@ -282,17 +306,17 @@ R0
 R24
 R25
 R26
-!i122 183
+!i122 200
 L0 3 28
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vprbs31
 R13
 !i10b 1
@@ -314,7 +338,7 @@ R15
 R16
 R17
 !i113 1
-R12
+R11
 vprbs31_checker
 R13
 !i10b 1
@@ -336,7 +360,7 @@ R15
 R16
 R17
 !i113 1
-R12
+R11
 vrx_standalone_tb
 R1
 R2
@@ -350,17 +374,17 @@ R0
 w1699375056
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 183
+!i122 200
 L0 2 67
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11
 vurng_64
 R1
 R2
@@ -374,14 +398,14 @@ R0
 R5
 8urng_64.sv
 Furng_64.sv
-!i122 183
+!i122 200
 L0 3 59
 R8
 r1
 !s85 0
 31
 R9
-R10
-R11
-!i113 1
 R12
+R10
+!i113 1
+R11

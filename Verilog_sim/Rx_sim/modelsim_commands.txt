@@ -1,0 +1,7 @@
+//////////ocm + noise:
+//setting up altera libraries for sim:
+
+
+
+//modulesim procedure:
+vlog *.sv

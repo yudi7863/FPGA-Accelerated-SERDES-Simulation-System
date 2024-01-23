@@ -57,6 +57,7 @@ module noise_feedback_tb;
             .en(en),
             .rstn(rstn),
             .noise_in(voltage_level_isi),
+            .noise_in_valid(voltage_level_isi_valid),
             .noise_out(noise_output),
             .noise_out_valid(noise_valid)
     );
@@ -95,6 +96,15 @@ module noise_feedback_tb;
         .data_out_valid(binary_data_rx_valid));
 
     
+
+     /*prbs31_checker checker (
+        .clk(clk),
+        .rstn(rstn),
+        .data_in(binary_data_r),
+        .data_in_valid(binary_data_r_valid),
+        .total_bits(total_bits),
+        .total_bit_errors(total_bit_errors));*/
+           
     //setting clock:
     always #10 clk = ~clk;
     //starting simulation:
