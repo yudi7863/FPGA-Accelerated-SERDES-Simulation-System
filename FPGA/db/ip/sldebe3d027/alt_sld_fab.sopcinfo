@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="alt_sld_fab" kind="alt_sld_fab" version="1.0" fabric="QSYS">
  <!-- Format version 22.1 922 (Future versions may contain additional information.) -->
- <!-- 2024.01.21.21:36:06 -->
+ <!-- 2024.01.23.10:36:56 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
@@ -56,7 +56,7 @@
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>f4d2e3bff5214595204b</value>
+   <value>be804e2999727d5581ef</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -104,7 +104,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="EP_INFOS">
    <type>java.lang.String</type>
-   <value>{hpath {NIOS_UART:u0|NIOS_UART_nios2_gen2_0:nios2_gen2_0|NIOS_UART_nios2_gen2_0_cpu:cpu|NIOS_UART_nios2_gen2_0_cpu_nios2_oci:the_NIOS_UART_nios2_gen2_0_cpu_nios2_oci|NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper:the_NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:NIOS_UART_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {sld_signaltap:auto_signaltap_0} } </value>
+   <value>{hpath {NIOS_UART:u0|NIOS_UART_nios2_gen2_0:nios2_gen2_0|NIOS_UART_nios2_gen2_0_cpu:cpu|NIOS_UART_nios2_gen2_0_cpu_nios2_oci:the_NIOS_UART_nios2_gen2_0_cpu_nios2_oci|NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper:the_NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:NIOS_UART_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {sld_signaltap:channel_rx_verification} } </value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -2181,7 +2181,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>f4d2e3bff5214595204b</value>
+   <value>be804e2999727d5581ef</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

@@ -129,6 +129,7 @@ module SerDes_Sys(
             .en(prbs_en), //yudi: need to change this later
             .rstn(reset_n),
             .noise_in(voltage_out_channel),
+				.noise_in_valid(voltage_channel_valid),
             .noise_out(noise_output),
             .noise_out_valid(noise_valid)
     );
@@ -188,7 +189,7 @@ module SerDes_Sys(
 
 		
 		//connecting rest to hex:
-		hexDisplay display(
+		/*hexDisplay display(
 		.clk(clock),
 		.rstn(reset_n),
 		.voltage_level(voltage_out),
@@ -197,7 +198,7 @@ module SerDes_Sys(
 		.tens_digit(HEX1),
 		.hund_digit(HEX2),
 		.neg(HEX3)
-		);
+		);*/
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	

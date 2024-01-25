@@ -5,10 +5,10 @@
   <columns>
    <connections preferredWidth="143" />
    <irq preferredWidth="34" />
-   <name preferredWidth="284" />
+   <name preferredWidth="371" />
   </columns>
  </systemtable>
  <library expandedCategories="Project,Library" />
- <window width="2586" height="1530" x="-13" y="-13" />
+ <window width="2560" height="1504" x="0" y="0" />
  <generation simulation="NONE" />
 </preferences>
