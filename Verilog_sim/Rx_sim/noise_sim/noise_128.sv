@@ -44,7 +44,7 @@ always @(posedge clk or negedge rstn) begin
         // Iterate through possibilities
         for (int i = 0; i < 128; i = i + 1) begin
         if (random < possibilities[i]) begin
-            noise_out <=  ; // Set noise_out based on the index
+            noise_out <= i ; // Set noise_out based on the index
             noise_out_valid <= 1'b1;
             // You can add additional actions here if needed
         end
