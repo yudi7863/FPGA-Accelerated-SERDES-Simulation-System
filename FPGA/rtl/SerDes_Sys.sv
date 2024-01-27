@@ -24,7 +24,10 @@ module SerDes_Sys(
     //output [9:0] LEDR,
 
     // Slider Switches
-    input [9:0] SW
+    input [9:0] SW,
+	 //uart
+	 input HPS_UART_RX, //assigned pin and generated qsys
+	 output HPS_UART_TX
 );
 		//tx connections
 		logic reset_n;
@@ -60,8 +63,10 @@ module SerDes_Sys(
 		logic [3:0] byteenable;
 		
 		
-		//CTRL signals:
 		
+		//CTRL signals:
+		logic uart_rx;
+		logic uart_tx;
 		logic prbs_en;
 		
 		//100MHz clock:
@@ -115,10 +120,25 @@ module SerDes_Sys(
 		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
 	   );
 		
+		
+		///////////////////////////////////////////////////////////noise instantiation////////////////////////////////////////////////////////////
+		logic [7:0] noise_output;
+      logic noise_valid;
+		noise_wrapper noise_wrapper_noise (
+            .clk(clock),
+            .en(prbs_en), //yudi: need to change this later
+            .rstn(reset_n),
+            .noise_in(voltage_out_channel),
+				.noise_in_valid(voltage_channel_valid),
+            .noise_out(noise_output),
+            .noise_out_valid(noise_valid)
+    );
+		
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		RX receiver (
 		.clk_clk                                             (clock),                                             //                           clk.clk
-		.dfe_0_dfe_in_signal_in                              (voltage_out_channel),                              //                  dfe_0_dfe_in.signal_in
-		.dfe_0_dfe_in_signal_in_valid                        (voltage_channel_valid),                        //                              .signal_in_valid
+		.dfe_0_dfe_in_signal_in                              (noise_output),                              //                  dfe_0_dfe_in.signal_in
+		.dfe_0_dfe_in_signal_in_valid                        (noise_valid),                        //                              .signal_in_valid
 		.dfe_0_dfe_out_signal_out                            (voltage_out_dfe),                            //                 dfe_0_dfe_out.signal_out
 		.dfe_0_dfe_out_signal_out_valid                      (voltage_dfe_valid),                      //                              .signal_out_valid
 		.dfe_0_noise_noise                                   (),                                   //                   dfe_0_noise.noise
@@ -135,12 +155,41 @@ module SerDes_Sys(
 		.gray_decoder_0_symbol_in_symbol_in_valid            (decoder_valid)             //                              .symbol_in_valid
 	   );
 		
+		
+		
+		
+		///////////////////////////////////////////////////////////////////control signals////////////////////////////////////////////////////////////
+		
 		//connecting to button
 		assign prbs_en = ~KEY[1]; //
 		assign reset_n = KEY[0]; //down = logic 0, up: logic 1
 		
+		
+		
+		////////////////////////////////////////////////////////////////////controls to PC////////////////////////////////////////////////////
+		
+		assign uart_rx = HPS_UART_RX;
+		assign HPS_UART_TX = uart_tx;
+		NIOS_UART u0 (
+		.clk_clk                        (clock),                        //                        clk.clk
+		.reset_reset_n                  (reset_n),                  //                      reset.reset_n
+		.uart_0_external_connection_rxd (uart_rx), // uart_0_external_connection.rxd
+		.uart_0_external_connection_txd (uart_tx),  //                           .txd
+		//connection to noise
+		.on_chip_mem_reset2_reset       (),       //         on_chip_mem_reset2.reset
+		.on_chip_mem_reset2_reset_req   (),   //                           .reset_req
+		.on_chip_mem_s2_address         (),         //             on_chip_mem_s2.address
+		.on_chip_mem_s2_chipselect      (),      //                           .chipselect
+		.on_chip_mem_s2_clken           (),           //                           .clken
+		.on_chip_mem_s2_write           (),           //                           .write
+		.on_chip_mem_s2_readdata        (),        //                           .readdata
+		.on_chip_mem_s2_writedata       (),       //                           .writedata
+		.on_chip_mem_s2_byteenable      ()       //                           .byteenable
+		);
+
+		
 		//connecting rest to hex:
-		hexDisplay display(
+		/*hexDisplay display(
 		.clk(clock),
 		.rstn(reset_n),
 		.voltage_level(voltage_out),
@@ -149,8 +198,8 @@ module SerDes_Sys(
 		.tens_digit(HEX1),
 		.hund_digit(HEX2),
 		.neg(HEX3)
-		);
-	
+		);*/
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	
 endmodule

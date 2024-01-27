@@ -49,13 +49,13 @@ module prbs_grey_code_tb;
     wire [31:0] total_bits;
     wire [31:0] total_bit_errors;
     
-    prbs31_checker checker (
+   /* prbs31_checker checker (
         .clk(clk),
         .rstn(rstn),
         .data_in(binary_data_r),
         .data_in_valid(binary_data_r_valid),
         .total_bits(total_bits),
-        .total_bit_errors(total_bit_errors));
+        .total_bit_errors(total_bit_errors));*/
            
 	           
     always #10 clk = ~clk;
@@ -65,8 +65,8 @@ module prbs_grey_code_tb;
         en <= 1;
         rstn <=1;
         #2120
-        $display("\nBits Transmitted:%d", total_bits);
-        $display("\nBit Errors:%d", total_bit_errors);
+        //$display("\nBits Transmitted:%d", total_bits);
+        //$display("\nBit Errors:%d", total_bit_errors);
         $finish;
     end
 

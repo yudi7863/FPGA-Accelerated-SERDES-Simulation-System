@@ -76,7 +76,7 @@ module prbs_pam_4_tb;
     reg [7:0] matlab_PAM4;
     reg [7:0] matlab_PAM4_ref [48:0]; //only have 49 lines of bin data for now
     reg [7:0] i;
-    reg pam4_verification;
+    wire pam4_verification;
     assign pam4_verification = (matlab_PAM4 != voltage_level);
     
     always @ (posedge clk) begin

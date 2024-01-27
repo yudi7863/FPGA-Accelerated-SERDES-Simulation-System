@@ -1,0 +1,44 @@
+ls
+# noise.sv
+# noise_128.sv
+# noise_tb.sv
+# transcript
+# urng.v
+# urng_64.sv
+# urng_64_tb.sv
+# urng_tb.v
+# vsim.wlf
+# wlft0k9bgw
+# wlftgnjaea
+# wlftqvzna6
+# work
+vsim
+# Load canceled
+vsim noise_tb
+# vsim noise_tb 
+# Start time: 08:44:00 on Jan 18,2024
+# Loading sv_std.std
+# Loading work.noise_tb
+# Loading work.noise
+# Loading work.urng_64
+add wave -position insertpoint  \
+sim:/noise_tb/clk \
+sim:/noise_tb/en \
+sim:/noise_tb/rstn \
+sim:/noise_tb/noise \
+sim:/noise_tb/noise_valid
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: cynth  Hostname: DESKTOP-UI41J6D  ProcessID: 23640
+#           Attempting to use alternate WLF file "./wlftk3hv05".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftk3hv05
+RUN -ALL
+# invalid command name "RUN"
+run -all
+# Noise out:  0
+# ** Note: $finish    : noise_tb.sv(28)
+#    Time: 2170 ns  Iteration: 0  Instance: /noise_tb
+# 1
+# Break in Module noise_tb at noise_tb.sv line 28
+# End time: 10:41:11 on Jan 18,2024, Elapsed time: 1:57:11
+# Errors: 0, Warnings: 2

@@ -1,0 +1,18 @@
+	component NIOS_UART is
+		port (
+			clk_clk                        : in  std_logic                     := 'X';             -- clk
+			on_chip_mem_reset2_reset       : in  std_logic                     := 'X';             -- reset
+			on_chip_mem_reset2_reset_req   : in  std_logic                     := 'X';             -- reset_req
+			on_chip_mem_s2_address         : in  std_logic_vector(14 downto 0) := (others => 'X'); -- address
+			on_chip_mem_s2_chipselect      : in  std_logic                     := 'X';             -- chipselect
+			on_chip_mem_s2_clken           : in  std_logic                     := 'X';             -- clken
+			on_chip_mem_s2_write           : in  std_logic                     := 'X';             -- write
+			on_chip_mem_s2_readdata        : out std_logic_vector(31 downto 0);                    -- readdata
+			on_chip_mem_s2_writedata       : in  std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
+			on_chip_mem_s2_byteenable      : in  std_logic_vector(3 downto 0)  := (others => 'X'); -- byteenable
+			reset_reset_n                  : in  std_logic                     := 'X';             -- reset_n
+			uart_0_external_connection_rxd : in  std_logic                     := 'X';             -- rxd
+			uart_0_external_connection_txd : out std_logic                                         -- txd
+		);
+	end component NIOS_UART;
+
