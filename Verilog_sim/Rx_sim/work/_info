@@ -11,256 +11,260 @@ cModel Technology
 Z0 dC:/ECE496_FPGA/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
 vdecision_maker
 Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1706019825
+Z2 !s110 1706785281
 !i10b 1
-!s100 8N1iQ<b:h4JSO[f[D0zCc2
+!s100 jjmzA;D=6bH9NPEZi?S7h3
 Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IObi_aBDf3KOY4];fF`UP@2
+ICUU]3g?l1B_TH:RFh2QYT1
 Z4 VDg1SIo80bB@j0V0VzS_@n1
 S1
-R0
-Z5 w1705538534
-Z6 8Rx.sv
-Z7 FRx.sv
-!i122 200
-L0 67 74
-Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
-Z2 !s110 1699845366
-!i10b 1
-!s100 a^<WAD@?mcjH@X1mHChz[2
-Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IVm=E7^OZP]S3bO^1_Va6m3
-Z4 VDg1SIo80bB@j0V0VzS_@n1
-S1
-R0
-Z5 w1699845330
-Z6 8Rx.sv
-Z7 FRx.sv
-!i122 129
-L0 59 76
-Z8 OV;L;2020.1;71
+Z5 dC:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+Z6 w1706750284
+Z7 8Rx.sv
+Z8 FRx.sv
+!i122 228
+L0 67 76
+Z9 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z9 !s108 1706019825.000000
-!s107 urng_64.sv|noise_feedback_tb.sv|noise_128_test.sv|noise_128_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
-Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_128_tb.sv|noise_128_test.sv|noise_feedback_tb.sv|urng_64.sv|
+Z10 !s108 1706785280.000000
+Z11 !s107 urng_64.sv|noise_feedback_tb.sv|noise_128_test.sv|noise_128_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
+Z12 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_128_tb.sv|noise_128_test.sv|noise_feedback_tb.sv|urng_64.sv|
 !i113 1
-Z11 tCvgOpt 0
+Z13 tCvgOpt 0
 vDFE
-!s107 channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
-Z10 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|
-!i113 1
-Z11 tCvgOpt 0
-vDFE
-R0
 R1
-R2
+Z14 !s110 1706785155
 !i10b 1
-!s100 6E=55]3efOjfhblBIFGo>3
+Z15 !s100 6E=55]3efOjfhblBIFGo>3
 R3
-I5Jf_PeQEZZSGkB`cb1R;30
+Z16 I5Jf_PeQEZZSGkB`cb1R;30
 R4
 S1
-R0
 R5
 R6
 R7
-!i122 200
-L0 2 64
 R8
-r1
-!s85 0
-31
+!i122 227
+Z17 L0 2 64
 R9
-Z12 !s107 urng_64.sv|noise_feedback_tb.sv|noise_128_test.sv|noise_128_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
-R10
-!i113 1
+r1
+!s85 0
+31
+Z18 !s108 1706785155.000000
 R11
+R12
+!i113 1
+R13
 n@d@f@e
-vdfe_tb
-Z13 !s110 1700795942
-!i10b 1
-!s100 QC:fiI7V^S>f5T9eTnGfG0
-Z13 !s110 1699845342
-!i10b 1
-!s100 B?1^oLk]9G]VPUDQMEOen3
-R3
-Io:eOVzj>QN2JlkJb?F^gJ2
-R4
-R0
-w1699840786
-8rx_tb.v
-Frx_tb.v
-!i122 128
-L0 3 72
-R8
-r1
-!s85 0
-31
-Z14 !s108 1699845342.000000
-Z15 !s107 rx_tb.v|prbs.v|grey_code.v|
-Z16 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
-!i113 1
-R11
-vgrey_decode
-R13
-!i10b 1
-!s100 cJ8c]Jd:P`hc]:GZcAgPf3
-R3
-ITS:k[9M@^9H3H2jh>`c_g0
-R4
-R0
-Z17 w1699043380
-Z18 8grey_code.v
-Z19 Fgrey_code.v
-!i122 128
-L0 61 46
-R8
-r1
-!s85 0
-31
-R14
-R15
-R16
-!i113 1
-R11
-vgrey_encode
-R13
-!i10b 1
-!s100 i^ed0X:adR7QgkZR[zMCX1
-R3
-I5:?7ZKCl<2gZ[PG`<1>Tc0
-R4
-R0
-R17
-R18
-R19
-!i122 128
-L0 3 56
-R8
-r1
-!s85 0
-31
-R14
-R15
-R16
-!i113 1
-R11
-vISI_channel
+vDFE
 R1
 R2
+!i10b 1
+R15
+R3
+R16
+R4
+S1
+R5
+R6
+R7
+R8
+!i122 228
+R17
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
+vdfe_tb
+Z19 !s110 1706785285
+!i10b 1
+!s100 QC:fiI7V^S>f5T9eTnGfG0
 R3
 IK:5`edj8Q:FG_2Y22CBI>2
 R4
-Z14 dC:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
-w1700795925
+R5
+Z20 w1706749744
 8rx_tb.v
 Frx_tb.v
-!i122 170
+!i122 229
 L0 3 92
-R8
+R9
 r1
 !s85 0
 31
-Z15 !s108 1700795942.000000
-Z16 !s107 rx_tb.v|prbs.v|grey_code.v|
-Z17 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
+Z21 !s108 1706785285.000000
+Z22 !s107 rx_tb.v|prbs.v|grey_code.v|
+Z23 !s90 -reportprogress|300|grey_code.v|prbs.v|rx_tb.v|
 !i113 1
-R11
+R13
 vgrey_decode
-R13
-!i10b 1
-!s100 cJ8c]Jd:P`hc]:GZcAgPf3
-R3
-ITS:k[9M@^9H3H2jh>`c_g0
-R4
-R14
-Z18 w1700674381
-Z19 8grey_code.v
-Z20 Fgrey_code.v
-!i122 170
-L0 61 46
-R8
-r1
-!s85 0
-31
-R15
-R16
-R17
-!i113 1
-R11
-vgrey_encode
-R13
-!i10b 1
-!s100 i^ed0X:adR7QgkZR[zMCX1
-R3
-I5:?7ZKCl<2gZ[PG`<1>Tc0
-R4
-R14
-R18
 R19
+!i10b 1
+Z24 !s100 cJ8c]Jd:P`hc]:GZcAgPf3
+R3
+Z25 ITS:k[9M@^9H3H2jh>`c_g0
+R4
+R5
 R20
-!i122 170
-L0 3 56
-R8
+Z26 8grey_code.v
+Z27 Fgrey_code.v
+!i122 229
+Z28 L0 61 46
+R9
 r1
 !s85 0
 31
-R15
-R16
-R17
+R21
+R22
+R23
 !i113 1
+R13
+vgrey_decode
+Z29 !s110 1706785153
+!i10b 1
+R24
+R3
+R25
+R4
+R5
+R20
+R26
+R27
+!i122 226
+R28
+R9
+r1
+!s85 0
+31
+Z30 !s108 1706785153.000000
+R22
+R23
+!i113 1
+R13
+vgrey_encode
+R19
+!i10b 1
+Z31 !s100 i^ed0X:adR7QgkZR[zMCX1
+R3
+Z32 I5:?7ZKCl<2gZ[PG`<1>Tc0
+R4
+R5
+R20
+R26
+R27
+!i122 229
+Z33 L0 3 56
+R9
+r1
+!s85 0
+31
+R21
+R22
+R23
+!i113 1
+R13
+vgrey_encode
+R29
+!i10b 1
+R31
+R3
+R32
+R4
+R5
+R20
+R26
+R27
+!i122 226
+R33
+R9
+r1
+!s85 0
+31
+R30
+R22
+R23
+!i113 1
+R13
+vISI_channel
+R1
+R14
+!i10b 1
+Z34 !s100 nPJZlUGP>TnO[9g8da^[R0
+R3
+Z35 I<;^Y2=h3oae2V5bK?Bg522
+R4
+S1
+R5
+R20
+Z36 8channel_model.sv
+Z37 Fchannel_model.sv
+!i122 227
+Z38 L0 4 32
+R9
+r1
+!s85 0
+31
+R18
 R11
+R12
+!i113 1
+R13
+n@i@s@i_channel
 vISI_channel
 R1
 R2
 !i10b 1
-!s100 nPJZlUGP>TnO[9g8da^[R0
+R34
 R3
-I<;^Y2=h3oae2V5bK?Bg522
+R35
 R4
 S1
-R0
-w1699571681
-8channel_model.sv
-Fchannel_model.sv
-!i122 200
-L0 4 32
-R8
+R5
+R20
+R36
+R37
+!i122 228
+R38
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
-n@i@s@i_channel
+R12
+!i113 1
+R13
 vnoise
 R1
 R2
 !i10b 1
-!s100 2e2U:Y2oza3j[kX6an:331
+!s100 @d:_<SjH>1hg4dJfio?Rj1
 R3
-IN?I6RLKoNKCMZZ_cWZT@f3
+IXKjGQ8^PakX2kdc<DGZL11
 R4
 S1
-R0
-Z21 w1706019816
-Z22 8noise.sv
-Z23 Fnoise.sv
-!i122 200
-L0 43 70
-R8
+R5
+Z39 w1706784924
+Z40 8noise.sv
+Z41 Fnoise.sv
+!i122 228
+L0 44 70
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
 vnoise_128_tb
 R1
 R2
@@ -270,45 +274,69 @@ R3
 I5Qb^JJkRSVn6@[>R`FdlM3
 R4
 S1
-R0
-w1705893528
+R5
+R20
 8noise_128_tb.sv
 Fnoise_128_tb.sv
-!i122 200
+!i122 228
 L0 1 37
-R8
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
+vnoise_128_test
+R1
+R2
+!i10b 1
+!s100 GH`T7YK8T0oz3=<[nWhYa3
+R3
+IXi2XhoP^a^?=Xc3UAF>Fa2
+R4
+S1
+R5
+w1706785275
+8noise_128_test.sv
+Fnoise_128_test.sv
+!i122 228
+L0 1 56
+R9
+r1
+!s85 0
+31
+R10
+R11
+R12
+!i113 1
+R13
 vnoise_feedback_tb
 R1
 R2
 !i10b 1
-!s100 NHTkzF4m=V[^hKn:i23j32
+!s100 MRf:lNkbTa=O8V6ONoVZ00
 R3
-IJ>14^d]9:H>oFPnij^WA;0
+IMLIW`nRoh]h;olDRzWeXW0
 R4
 S1
-R0
-w1706019646
+R5
+w1706751716
 8noise_feedback_tb.sv
 Fnoise_feedback_tb.sv
-!i122 200
-L0 2 119
-R8
+!i122 228
+L0 2 120
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
 Xnoise_sv_unit
 R1
 !s110 1705547688
@@ -322,41 +350,41 @@ I6a<]OQRV7DkY]oI<WV7DY3
 S1
 R0
 w1705547655
-R22
-R23
+R40
+R41
 !i122 173
 L0 23 0
-R8
+R9
 31
 !s108 1705547688.000000
 !s107 urng_64.sv|noise_feedback_tb.sv|noise.sv|channel_model.sv|Rx_standalone_tb.sv|Rx.sv|PAM_4.sv|
 !s90 -reportprogress|300|PAM_4.sv|Rx.sv|Rx_standalone_tb.sv|channel_model.sv|noise.sv|noise_feedback_tb.sv|urng_64.sv|
 !i113 1
-R11
+R13
 vnoise_wrapper
 R1
 R2
 !i10b 1
-!s100 WY3QX_cUNR@<_LdlQ7;j92
+!s100 nO:d71Fjeb4lBVWDi0d6_0
 R3
-IoEn:1M2B@B:`]Sek>SlOJ1
+IG8Z5J<@?SZ:l>6labO9JU3
 R4
 S1
-R0
-R21
-R22
-R23
-!i122 200
-L0 1 41
-R8
+R5
+R39
+R40
+R41
+!i122 228
+L0 1 42
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
 vpam_4_decode
 R1
 R2
@@ -366,21 +394,21 @@ R3
 IR<8jIzNYUSTXO5K0BLc<L0
 R4
 S1
-R0
-Z24 w1699043380
-Z25 8PAM_4.sv
-Z26 FPAM_4.sv
-!i122 200
+R5
+R20
+Z42 8PAM_4.sv
+Z43 FPAM_4.sv
+!i122 228
 L0 32 28
-R8
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
 vpam_4_encode
 R1
 R2
@@ -390,132 +418,135 @@ R3
 IMKbZCn6=AaF:gEeQOT^c70
 R4
 S1
-R0
-R24
-R25
-R26
-!i122 200
-S1
+R5
+R20
+R42
+R43
+!i122 228
 L0 3 28
-R8
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
-vprbs31
+R12
+!i113 1
 R13
+vprbs31
+R19
 !i10b 1
 !s100 =[3^Sg_?lC8j?_8BY?oQW1
 R3
 Im]7b_MILYL>ZOo=:N[fF41
 R4
-R0
-R17
-Z22 8prbs.v
-Z23 Fprbs.v
-!i122 128
+R5
+R20
+Z44 8prbs.v
+Z45 Fprbs.v
+!i122 229
 L0 2 26
-R8
+R9
 r1
 !s85 0
 31
-R14
-R15
-R16
-!i113 1
-R11
-vprbs31_checker
-R13
-!i10b 1
-!s100 2hb^LO8O3;3?zDV[9:EY70
-R3
-Ino@C>1zgAYVcTDzeIz:NC1
-R4
-R0
-R17
+R21
 R22
 R23
-!i122 128
-L0 30 31
-R8
+!i113 1
+R13
+vprbs31_checker
+R19
+!i10b 1
+Z46 !s100 2hb^LO8O3;3?zDV[9:EY70
+R3
+Z47 Ino@C>1zgAYVcTDzeIz:NC1
+R4
+R5
+R20
+R44
+R45
+!i122 229
+Z48 L0 30 31
+R9
 r1
 !s85 0
 31
-R14
-R15
-R16
+R21
+R22
+R23
 !i113 1
-R11
+R13
+vprbs31_checker
+R29
+!i10b 1
+R46
+R3
+R47
+R4
+R5
+R20
+R44
+R45
+!i122 226
+R48
+R9
+r1
+!s85 0
+31
+R30
+R22
+R23
+!i113 1
+R13
 vrx_standalone_tb
 R1
-Im]7b_MILYL>ZOo=:N[fF41
-R4
 R14
-R18
-Z27 8prbs.v
-Z28 Fprbs.v
-!i122 170
-L0 2 26
-R8
-r1
-!s85 0
-31
-R15
-R16
-R17
-!i113 1
-R11
-vprbs31_checker
-R13
 !i10b 1
-!s100 2hb^LO8O3;3?zDV[9:EY70
+Z49 !s100 4_z[HKSS=USL9[cGk5:Fj1
 R3
-Ino@C>1zgAYVcTDzeIz:NC1
+Z50 IE=CT07V4LKF[PSA1PQecV2
 R4
-R14
-R18
-R27
-R28
-!i122 170
-L0 30 31
-R8
+S1
+R5
+R20
+Z51 8Rx_standalone_tb.sv
+Z52 FRx_standalone_tb.sv
+!i122 227
+Z53 L0 2 67
+R9
 r1
 !s85 0
 31
-R15
-R16
-R17
-!i113 1
+R18
 R11
+R12
+!i113 1
+R13
 vrx_standalone_tb
 R1
 R2
 !i10b 1
-!s100 4_z[HKSS=USL9[cGk5:Fj1
+R49
 R3
-IE=CT07V4LKF[PSA1PQecV2
+R50
 R4
 S1
-R0
-w1699375056
-8Rx_standalone_tb.sv
-FRx_standalone_tb.sv
-!i122 200
-!i122 129
-L0 2 67
-R8
+R5
+R20
+R51
+R52
+!i122 228
+R53
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13
 vurng_64
 R1
 R2
@@ -525,18 +556,18 @@ R3
 ILTP8dfjEo93NH<I`z`l<n3
 R4
 S1
-R0
 R5
+R20
 8urng_64.sv
 Furng_64.sv
-!i122 200
+!i122 228
 L0 3 59
-R8
+R9
 r1
 !s85 0
 31
-R9
-R12
 R10
-!i113 1
 R11
+R12
+!i113 1
+R13

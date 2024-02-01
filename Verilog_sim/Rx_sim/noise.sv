@@ -20,7 +20,8 @@ module noise_wrapper (
         else begin
             temp <= temp_i;
             if(noise_in_valid && simple_noise_out_valid) begin
-                noise_out <= temp_i + noise_in*28;
+                noise_out <= temp_i*28 + noise_in;
+                //noise_out <= temp_i + noise_in;
                 noise_out_valid <= 'b1;
             end
             else begin

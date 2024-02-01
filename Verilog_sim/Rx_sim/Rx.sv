@@ -131,14 +131,9 @@ always_comb begin
     end
     else begin
     feedback_value_i = 'b0;
-<<<<<<< HEAD
-    f_valid = 'b0;
-    end
-=======
     f_valid = 1'b0;
     end
 
->>>>>>> main
     
 
 
