@@ -20,16 +20,35 @@ urng_64 dut (
 
 //array to store comparison information
 reg [63:0] possibilities[127:0];
-
+reg signed [7:0] noise_value[127:0];
 //for loop to initialize the array;
+
 initial begin
-    for(int i=0; i<128;i++)begin
-        if (i==0)begin
-            possibilities[i]= i >> 2 * (2**64-1);
-        end
-        else begin
-            possibilities[i]= i >> 2 * (2**64-1) + possibilities[i-1];
-        end
+    static string possibilities_file = "E:/fourth_year/ECE496/FPGA-Accelerated-SERDES-Simulation-System/Matlab_sim/Tx_sim/probability_verilog_helper.mem";
+    // //open file for reading
+    // static int fileID = $fopen(possibilities_file, "r");
+    // if (fileID ==0) begin
+    //     $display("Error: Could not open file '%s'", possibilities_file);
+    //     $finish;
+    // end
+
+    // for(int i=0; i<128;i=i+1)begin
+    //    if ($feof(fileID)) begin
+    //         $display("Warning: Reached end of file before reading all values.");
+    //         break;
+    //     end
+
+    //     $readmemb(possibilities_file, possibilities[i]);
+    //     $display("possibility value:%d",possibilities[i]);
+    // end
+    $readmemb(possibilities_file, possibilities);
+end
+
+initial begin
+    for(int i=0; i<128;i=i+1)begin
+        noise_value[i]=i-63;       
+        $display("noise value:%d",noise_value[i]); 
+        $display("possibility value:%d",possibilities[i]);
     end
 end
 
@@ -43,11 +62,19 @@ always @(posedge clk or negedge rstn) begin
 
         // Iterate through possibilities
         for (int i = 0; i < 128; i = i + 1) begin
-        if (random < possibilities[i]) begin
-            noise_out <= i ; // Set noise_out based on the index
-            noise_out_valid <= 1'b1;
-            // You can add additional actions here if needed
-        end
+            if (i==0)begin
+                if (random < possibilities[i]) begin
+                    noise_out <= noise_value[i] ; // Set noise_out based on the index
+                    noise_out_valid <= 1'b1;
+                end
+            end
+            else begin
+                //if ((random >= possibilities[0]) && (random < possibilities[1]))
+                if((random >= possibilities[i-1])&&(random < possibilities[i]))begin
+                    noise_out <= noise_value[i] ; // Set noise_out based on the index
+                    noise_out_valid <= 1'b1;
+                end
+            end
         end
     end
 end

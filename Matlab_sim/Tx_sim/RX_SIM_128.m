@@ -54,9 +54,25 @@ end
 for i = 1:length(probability)
     probability(i) = probability(i)/total_probability;
 end
+possibilities = zeros(1, length(probability), 'int64');
+for i = 1:length(probability)
+    if i == 1
+        probability_verilog_helper(i) = probability(i)*(2^64-1)+0;
+    else
+        probability_verilog_helper(i) = probability(i)*(2^64-1)+probability_verilog_helper(i-1);
+    end
+    var=dec2bin(probability_verilog_helper(i),64);
+    display(var);
+end
+probability
+%sprintf('%d is noise output.',noise_output(i));
+
+length(probability_verilog_helper)
+probability_verilog_helper_var = noise_to_verilog(probability_verilog_helper,'probability_verilog_helper.mem',length(probability),64);
 
 % With noise
 % Generate random integer within range 0 to 1
+noise_value_array = zeros(1,num_data_half+1);
 noise_output = zeros(1,num_data_half+1);
 for i = 1:length(channel_output)
     noise = 0;
@@ -72,10 +88,13 @@ for i = 1:length(channel_output)
         end
         total_prob = total_prob + probability(j);
     end
+    noise_value_array(i)=noise;
     noise_output(i) = channel_output(i) + noise;
     Y = sprintf('%d is noise output.',noise_output(i));
     disp(Y)
 end
+noise_value_array
+noise_var=noise_to_verilog(noise_value_array,'noise.mem',num_data_half+1,8);
 noise_output
 
 % DFE
