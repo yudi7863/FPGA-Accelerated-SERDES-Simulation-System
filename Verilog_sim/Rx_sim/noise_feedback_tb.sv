@@ -52,7 +52,17 @@ module noise_feedback_tb;
     ///////////////noise///////////////
     wire [7:0] noise_output;
     wire noise_valid;
-    noise_wrapper noise_wrapper_noise (
+    // noise_wrapper noise_wrapper_noise (
+    //         .clk(clk),
+    //         .en(en),
+    //         .rstn(rstn),
+    //         .noise_in(voltage_level_isi),
+    //         .noise_in_valid(voltage_level_isi_valid),
+    //         .noise_out(noise_output),
+    //         .noise_out_valid(noise_valid)
+    // );
+
+    noise_128_wrapper noise_wrapper_noise (
             .clk(clk),
             .en(en),
             .rstn(rstn),
