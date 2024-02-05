@@ -64,25 +64,9 @@ reg [63:0] possibilities[127:0];
 reg signed [7:0] noise_value[127:0];
 //for loop to initialize the array;
 
-initial begin
-    static string possibilities_file = "E:/fourth_year/ECE496/FPGA-Accelerated-SERDES-Simulation-System/Matlab_sim/Tx_sim/probability_verilog_helper.mem";
-    // //open file for reading
-    // static int fileID = $fopen(possibilities_file, "r");
-    // if (fileID ==0) begin
-    //     $display("Error: Could not open file '%s'", possibilities_file);
-    //     $finish;
-    // end
-
-    // for(int i=0; i<128;i=i+1)begin
-    //    if ($feof(fileID)) begin
-    //         $display("Warning: Reached end of file before reading all values.");
-    //         break;
-    //     end
-
-    //     $readmemb(possibilities_file, possibilities[i]);
-    //     $display("possibility value:%d",possibilities[i]);
-    // end
-    $readmemb(possibilities_file, possibilities);
+initial begin//relative path:
+    //static string possibilities_file = "../../Matlab_sim/noise_prob//probability_verilog_helper.mem";
+    $readmemb("../../Matlab_sim/noise_prob//probability_verilog_helper.mem", possibilities);
 end
 
 initial begin
