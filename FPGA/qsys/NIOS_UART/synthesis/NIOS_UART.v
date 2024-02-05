@@ -7,13 +7,13 @@ module NIOS_UART (
 		input  wire        clk_clk,                        //                        clk.clk
 		input  wire        on_chip_mem_reset2_reset,       //         on_chip_mem_reset2.reset
 		input  wire        on_chip_mem_reset2_reset_req,   //                           .reset_req
-		input  wire [14:0] on_chip_mem_s2_address,         //             on_chip_mem_s2.address
+		input  wire [13:0] on_chip_mem_s2_address,         //             on_chip_mem_s2.address
 		input  wire        on_chip_mem_s2_chipselect,      //                           .chipselect
 		input  wire        on_chip_mem_s2_clken,           //                           .clken
 		input  wire        on_chip_mem_s2_write,           //                           .write
-		output wire [31:0] on_chip_mem_s2_readdata,        //                           .readdata
-		input  wire [31:0] on_chip_mem_s2_writedata,       //                           .writedata
-		input  wire [3:0]  on_chip_mem_s2_byteenable,      //                           .byteenable
+		output wire [63:0] on_chip_mem_s2_readdata,        //                           .readdata
+		input  wire [63:0] on_chip_mem_s2_writedata,       //                           .writedata
+		input  wire [7:0]  on_chip_mem_s2_byteenable,      //                           .byteenable
 		input  wire        reset_reset_n,                  //                      reset.reset_n
 		input  wire        uart_0_external_connection_rxd, // uart_0_external_connection.rxd
 		output wire        uart_0_external_connection_txd  //                           .txd

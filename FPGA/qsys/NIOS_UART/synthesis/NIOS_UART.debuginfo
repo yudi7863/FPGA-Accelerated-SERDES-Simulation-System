@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="NIOS_UART" kind="system" version="22.1" fabric="QSYS">
  <!-- Format version 22.1 922 (Future versions may contain additional information.) -->
- <!-- 2024.01.21.21:35:38 -->
+ <!-- 2024.02.05.10:11:31 -->
  <!-- A collection of modules and connections -->
  <parameter name="clockCrossingAdapter">
   <type>com.altera.sopcmodel.ensemble.EClockAdapter</type>
@@ -53,7 +53,7 @@
  </parameter>
  <parameter name="generationId">
   <type>int</type>
-  <value>1705890923</value>
+  <value>1707145881</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>true</visible>
@@ -3820,10 +3820,10 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="dataWidth2">
    <type>int</type>
-   <value>32</value>
+   <value>64</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>false</visible>
+   <visible>true</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="dualPort">
@@ -3836,7 +3836,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="enableDiffWidth">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -3844,7 +3844,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="derived_enableDiffWidth">
    <type>boolean</type>
-   <value>false</value>
+   <value>true</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -4031,7 +4031,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="derived_set_addr_width2">
    <type>int</type>
-   <value>15</value>
+   <value>14</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -4047,7 +4047,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="derived_set_data_width2">
    <type>int</type>
-   <value>32</value>
+   <value>64</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>false</visible>
@@ -4895,7 +4895,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>address2</name>
     <direction>Input</direction>
-    <width>15</width>
+    <width>14</width>
     <role>address</role>
    </port>
    <port>
@@ -4919,19 +4919,19 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>readdata2</name>
     <direction>Output</direction>
-    <width>32</width>
+    <width>64</width>
     <role>readdata</role>
    </port>
    <port>
     <name>writedata2</name>
     <direction>Input</direction>
-    <width>32</width>
+    <width>64</width>
     <role>writedata</role>
    </port>
    <port>
     <name>byteenable2</name>
     <direction>Input</direction>
-    <width>4</width>
+    <width>8</width>
     <role>byteenable</role>
    </port>
   </interface>
@@ -10497,5 +10497,5 @@ parameters are a RESULT of the module parameters. -->
   <version>22.1</version>
  </plugin>
  <reportVersion>22.1 922</reportVersion>
- <uniqueIdentifier>BEF4D4E207650000018D2F05D0A0</uniqueIdentifier>
+ <uniqueIdentifier>BEF4D4E207650000018D79D2EF22</uniqueIdentifier>
 </EnsembleReport>

@@ -1432,7 +1432,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|noise_wrapper:noise_wrapper_noise
+|SerDes_Sys|noise_128_wrapper:noise_wrapper_noise
 clk => clk.IN1
 en => en.IN1
 rstn => rstn.IN1
@@ -1456,7 +1456,7 @@ noise_out[7] <= noise_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 noise_out_valid <= noise_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|noise_wrapper:noise_wrapper_noise|noise:simple_noise
+|SerDes_Sys|noise_128_wrapper:noise_wrapper_noise|noise_128:noise_128
 clk => clk.IN1
 en => en.IN1
 rstn => rstn.IN1
@@ -1471,7 +1471,7 @@ noise_out[7] <= noise_out[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 noise_out_valid <= noise_out_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|SerDes_Sys|noise_wrapper:noise_wrapper_noise|noise:simple_noise|urng_64:dut
+|SerDes_Sys|noise_128_wrapper:noise_wrapper_noise|noise_128:noise_128|urng_64:dut
 clk => data_out[0]~reg0.CLK
 clk => data_out[1]~reg0.CLK
 clk => data_out[2]~reg0.CLK

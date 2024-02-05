@@ -28,7 +28,7 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         NIOS_UART_mm_interconnect_0_cmd_demux
-//   ST_DATA_W:           88
+//   ST_DATA_W:           93
 //   ST_CHANNEL_W:        3
 //   NUM_OUTPUTS:         3
 //   VALID_WIDTH:         1
@@ -46,7 +46,7 @@ module NIOS_UART_mm_interconnect_0_cmd_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [88-1    : 0]   sink_data, // ST_DATA_W=88
+    input  [93-1    : 0]   sink_data, // ST_DATA_W=93
     input  [3-1 : 0]   sink_channel, // ST_CHANNEL_W=3
     input                         sink_startofpacket,
     input                         sink_endofpacket,
@@ -56,21 +56,21 @@ module NIOS_UART_mm_interconnect_0_cmd_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [88-1    : 0] src0_data, // ST_DATA_W=88
+    output reg [93-1    : 0] src0_data, // ST_DATA_W=93
     output reg [3-1 : 0] src0_channel, // ST_CHANNEL_W=3
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,
 
     output reg                      src1_valid,
-    output reg [88-1    : 0] src1_data, // ST_DATA_W=88
+    output reg [93-1    : 0] src1_data, // ST_DATA_W=93
     output reg [3-1 : 0] src1_channel, // ST_CHANNEL_W=3
     output reg                      src1_startofpacket,
     output reg                      src1_endofpacket,
     input                           src1_ready,
 
     output reg                      src2_valid,
-    output reg [88-1    : 0] src2_data, // ST_DATA_W=88
+    output reg [93-1    : 0] src2_data, // ST_DATA_W=93
     output reg [3-1 : 0] src2_channel, // ST_CHANNEL_W=3
     output reg                      src2_startofpacket,
     output reg                      src2_endofpacket,

@@ -1,4 +1,4 @@
-module noise_wrapper (
+module noise_128_wrapper (
     input clk,
     input en,
     input rstn,
@@ -20,7 +20,8 @@ module noise_wrapper (
         else begin
             temp <= temp_i;
             if(noise_in_valid && simple_noise_out_valid) begin
-                noise_out <= temp_i + noise_in;//*28;
+                noise_out <= temp_i+ noise_in;
+                //noise_out <= temp_i + noise_in;
                 noise_out_valid <= 'b1;
             end
             else begin
@@ -30,12 +31,11 @@ module noise_wrapper (
         end
     end
     
-    noise simple_noise(
+    noise_128 noise_128(
             .clk(clk),
             .en(en),
             .rstn(rstn),
             .noise_out(temp_i),
             .noise_out_valid(simple_noise_out_valid)
         );
-
 endmodule

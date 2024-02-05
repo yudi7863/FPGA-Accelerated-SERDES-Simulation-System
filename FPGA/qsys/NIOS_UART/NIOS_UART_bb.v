@@ -17,13 +17,13 @@ module NIOS_UART (
 	input		clk_clk;
 	input		on_chip_mem_reset2_reset;
 	input		on_chip_mem_reset2_reset_req;
-	input	[14:0]	on_chip_mem_s2_address;
+	input	[13:0]	on_chip_mem_s2_address;
 	input		on_chip_mem_s2_chipselect;
 	input		on_chip_mem_s2_clken;
 	input		on_chip_mem_s2_write;
-	output	[31:0]	on_chip_mem_s2_readdata;
-	input	[31:0]	on_chip_mem_s2_writedata;
-	input	[3:0]	on_chip_mem_s2_byteenable;
+	output	[63:0]	on_chip_mem_s2_readdata;
+	input	[63:0]	on_chip_mem_s2_writedata;
+	input	[7:0]	on_chip_mem_s2_byteenable;
 	input		reset_reset_n;
 	input		uart_0_external_connection_rxd;
 	output		uart_0_external_connection_txd;

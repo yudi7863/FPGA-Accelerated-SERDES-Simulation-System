@@ -48,8 +48,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 168)
 		(input)
-		(text "on_chip_mem_s2_address[14..0]" (rect 0 0 135 12)(font "Arial" (font_size 8)))
-		(text "on_chip_mem_s2_address[14..0]" (rect 4 157 178 168)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_address[13..0]" (rect 0 0 134 12)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_address[13..0]" (rect 4 157 178 168)(font "Arial" (font_size 8)))
 		(line (pt 0 168)(pt 192 168)(line_width 3))
 	)
 	(port
@@ -76,15 +76,15 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 248)
 		(input)
-		(text "on_chip_mem_s2_writedata[31..0]" (rect 0 0 136 12)(font "Arial" (font_size 8)))
-		(text "on_chip_mem_s2_writedata[31..0]" (rect 4 237 190 248)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_writedata[63..0]" (rect 0 0 138 12)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_writedata[63..0]" (rect 4 237 190 248)(font "Arial" (font_size 8)))
 		(line (pt 0 248)(pt 192 248)(line_width 3))
 	)
 	(port
 		(pt 0 264)
 		(input)
-		(text "on_chip_mem_s2_byteenable[3..0]" (rect 0 0 141 12)(font "Arial" (font_size 8)))
-		(text "on_chip_mem_s2_byteenable[3..0]" (rect 4 253 190 264)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_byteenable[7..0]" (rect 0 0 141 12)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_byteenable[7..0]" (rect 4 253 190 264)(font "Arial" (font_size 8)))
 		(line (pt 0 264)(pt 192 264)(line_width 3))
 	)
 	(port
@@ -104,8 +104,8 @@ https://fpgasoftware.intel.com/eula.
 	(port
 		(pt 0 232)
 		(output)
-		(text "on_chip_mem_s2_readdata[31..0]" (rect 0 0 136 12)(font "Arial" (font_size 8)))
-		(text "on_chip_mem_s2_readdata[31..0]" (rect 4 221 184 232)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_readdata[63..0]" (rect 0 0 138 12)(font "Arial" (font_size 8)))
+		(text "on_chip_mem_s2_readdata[63..0]" (rect 4 221 184 232)(font "Arial" (font_size 8)))
 		(line (pt 0 232)(pt 192 232)(line_width 3))
 	)
 	(port

@@ -1,12 +1,12 @@
-# system info NIOS_UART on 2024.01.21.18:07:48
+# system info NIOS_UART on 2024.02.05.10:11:18
 system_info:
 name,value
 DEVICE,5CSEMA5F31C6
 DEVICE_FAMILY,Cyclone V
-GENERATION_ID,1705878456
+GENERATION_ID,1707145867
 #
 #
-# Files generated for NIOS_UART on 2024.01.21.18:07:48
+# Files generated for NIOS_UART on 2024.02.05.10:11:18
 files:
 filepath,kind,attributes,module,is_top
 simulation/NIOS_UART.v,VERILOG,,NIOS_UART,true

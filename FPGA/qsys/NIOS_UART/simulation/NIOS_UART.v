@@ -4,23 +4,32 @@
 
 `timescale 1 ps / 1 ps
 module NIOS_UART (
-		input  wire  clk_clk,                        //                        clk.clk
-		input  wire  reset_reset_n,                  //                      reset.reset_n
-		input  wire  uart_0_external_connection_rxd, // uart_0_external_connection.rxd
-		output wire  uart_0_external_connection_txd  //                           .txd
+		input  wire        clk_clk,                        //                        clk.clk
+		input  wire        on_chip_mem_reset2_reset,       //         on_chip_mem_reset2.reset
+		input  wire        on_chip_mem_reset2_reset_req,   //                           .reset_req
+		input  wire [13:0] on_chip_mem_s2_address,         //             on_chip_mem_s2.address
+		input  wire        on_chip_mem_s2_chipselect,      //                           .chipselect
+		input  wire        on_chip_mem_s2_clken,           //                           .clken
+		input  wire        on_chip_mem_s2_write,           //                           .write
+		output wire [63:0] on_chip_mem_s2_readdata,        //                           .readdata
+		input  wire [63:0] on_chip_mem_s2_writedata,       //                           .writedata
+		input  wire [7:0]  on_chip_mem_s2_byteenable,      //                           .byteenable
+		input  wire        reset_reset_n,                  //                      reset.reset_n
+		input  wire        uart_0_external_connection_rxd, // uart_0_external_connection.rxd
+		output wire        uart_0_external_connection_txd  //                           .txd
 	);
 
 	wire  [31:0] nios2_gen2_0_data_master_readdata;                          // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire         nios2_gen2_0_data_master_waitrequest;                       // mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire         nios2_gen2_0_data_master_debugaccess;                       // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
-	wire  [13:0] nios2_gen2_0_data_master_address;                           // nios2_gen2_0:d_address -> mm_interconnect_0:nios2_gen2_0_data_master_address
+	wire  [18:0] nios2_gen2_0_data_master_address;                           // nios2_gen2_0:d_address -> mm_interconnect_0:nios2_gen2_0_data_master_address
 	wire   [3:0] nios2_gen2_0_data_master_byteenable;                        // nios2_gen2_0:d_byteenable -> mm_interconnect_0:nios2_gen2_0_data_master_byteenable
 	wire         nios2_gen2_0_data_master_read;                              // nios2_gen2_0:d_read -> mm_interconnect_0:nios2_gen2_0_data_master_read
 	wire         nios2_gen2_0_data_master_write;                             // nios2_gen2_0:d_write -> mm_interconnect_0:nios2_gen2_0_data_master_write
 	wire  [31:0] nios2_gen2_0_data_master_writedata;                         // nios2_gen2_0:d_writedata -> mm_interconnect_0:nios2_gen2_0_data_master_writedata
 	wire  [31:0] nios2_gen2_0_instruction_master_readdata;                   // mm_interconnect_0:nios2_gen2_0_instruction_master_readdata -> nios2_gen2_0:i_readdata
 	wire         nios2_gen2_0_instruction_master_waitrequest;                // mm_interconnect_0:nios2_gen2_0_instruction_master_waitrequest -> nios2_gen2_0:i_waitrequest
-	wire  [13:0] nios2_gen2_0_instruction_master_address;                    // nios2_gen2_0:i_address -> mm_interconnect_0:nios2_gen2_0_instruction_master_address
+	wire  [18:0] nios2_gen2_0_instruction_master_address;                    // nios2_gen2_0:i_address -> mm_interconnect_0:nios2_gen2_0_instruction_master_address
 	wire         nios2_gen2_0_instruction_master_read;                       // nios2_gen2_0:i_read -> mm_interconnect_0:nios2_gen2_0_instruction_master_read
 	wire  [31:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_readdata;    // nios2_gen2_0:debug_mem_slave_readdata -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_readdata
 	wire         mm_interconnect_0_nios2_gen2_0_debug_mem_slave_waitrequest; // nios2_gen2_0:debug_mem_slave_waitrequest -> mm_interconnect_0:nios2_gen2_0_debug_mem_slave_waitrequest
@@ -39,7 +48,7 @@ module NIOS_UART (
 	wire  [15:0] mm_interconnect_0_uart_0_s1_writedata;                      // mm_interconnect_0:uart_0_s1_writedata -> uart_0:writedata
 	wire         mm_interconnect_0_on_chip_mem_s1_chipselect;                // mm_interconnect_0:on_chip_mem_s1_chipselect -> on_chip_mem:chipselect
 	wire  [31:0] mm_interconnect_0_on_chip_mem_s1_readdata;                  // on_chip_mem:readdata -> mm_interconnect_0:on_chip_mem_s1_readdata
-	wire   [9:0] mm_interconnect_0_on_chip_mem_s1_address;                   // mm_interconnect_0:on_chip_mem_s1_address -> on_chip_mem:address
+	wire  [14:0] mm_interconnect_0_on_chip_mem_s1_address;                   // mm_interconnect_0:on_chip_mem_s1_address -> on_chip_mem:address
 	wire   [3:0] mm_interconnect_0_on_chip_mem_s1_byteenable;                // mm_interconnect_0:on_chip_mem_s1_byteenable -> on_chip_mem:byteenable
 	wire         mm_interconnect_0_on_chip_mem_s1_write;                     // mm_interconnect_0:on_chip_mem_s1_write -> on_chip_mem:write
 	wire  [31:0] mm_interconnect_0_on_chip_mem_s1_writedata;                 // mm_interconnect_0:on_chip_mem_s1_writedata -> on_chip_mem:writedata
@@ -82,17 +91,27 @@ module NIOS_UART (
 	);
 
 	NIOS_UART_on_chip_mem on_chip_mem (
-		.clk        (clk_clk),                                     //   clk1.clk
-		.address    (mm_interconnect_0_on_chip_mem_s1_address),    //     s1.address
-		.clken      (mm_interconnect_0_on_chip_mem_s1_clken),      //       .clken
-		.chipselect (mm_interconnect_0_on_chip_mem_s1_chipselect), //       .chipselect
-		.write      (mm_interconnect_0_on_chip_mem_s1_write),      //       .write
-		.readdata   (mm_interconnect_0_on_chip_mem_s1_readdata),   //       .readdata
-		.writedata  (mm_interconnect_0_on_chip_mem_s1_writedata),  //       .writedata
-		.byteenable (mm_interconnect_0_on_chip_mem_s1_byteenable), //       .byteenable
-		.reset      (rst_controller_001_reset_out_reset),          // reset1.reset
-		.reset_req  (rst_controller_001_reset_out_reset_req),      //       .reset_req
-		.freeze     (1'b0)                                         // (terminated)
+		.clk         (clk_clk),                                     //   clk1.clk
+		.address     (mm_interconnect_0_on_chip_mem_s1_address),    //     s1.address
+		.clken       (mm_interconnect_0_on_chip_mem_s1_clken),      //       .clken
+		.chipselect  (mm_interconnect_0_on_chip_mem_s1_chipselect), //       .chipselect
+		.write       (mm_interconnect_0_on_chip_mem_s1_write),      //       .write
+		.readdata    (mm_interconnect_0_on_chip_mem_s1_readdata),   //       .readdata
+		.writedata   (mm_interconnect_0_on_chip_mem_s1_writedata),  //       .writedata
+		.byteenable  (mm_interconnect_0_on_chip_mem_s1_byteenable), //       .byteenable
+		.reset       (rst_controller_001_reset_out_reset),          // reset1.reset
+		.reset_req   (rst_controller_001_reset_out_reset_req),      //       .reset_req
+		.address2    (on_chip_mem_s2_address),                      //     s2.address
+		.chipselect2 (on_chip_mem_s2_chipselect),                   //       .chipselect
+		.clken2      (on_chip_mem_s2_clken),                        //       .clken
+		.write2      (on_chip_mem_s2_write),                        //       .write
+		.readdata2   (on_chip_mem_s2_readdata),                     //       .readdata
+		.writedata2  (on_chip_mem_s2_writedata),                    //       .writedata
+		.byteenable2 (on_chip_mem_s2_byteenable),                   //       .byteenable
+		.clk2        (clk_clk),                                     //   clk2.clk
+		.reset2      (on_chip_mem_reset2_reset),                    // reset2.reset
+		.reset_req2  (on_chip_mem_reset2_reset_req),                //       .reset_req
+		.freeze      (1'b0)                                         // (terminated)
 	);
 
 	NIOS_UART_uart_0 uart_0 (

@@ -124,7 +124,7 @@ module SerDes_Sys(
 		///////////////////////////////////////////////////////////noise instantiation////////////////////////////////////////////////////////////
 		logic [7:0] noise_output;
       logic noise_valid;
-		noise_wrapper noise_wrapper_noise (
+		noise_128_wrapper noise_wrapper_noise (
             .clk(clock),
             .en(prbs_en), //yudi: need to change this later
             .rstn(reset_n),
