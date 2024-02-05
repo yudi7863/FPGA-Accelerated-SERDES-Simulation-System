@@ -1,0 +1,12 @@
+//////////ocm + noise:
+//setting up altera libraries for sim:
+
+vsim -L altera_mf_ver -L lpm_ver -L cycloneiii_ver -L cycloneii_ver work.ocm_tb 
+
+//??
+
+exec vmake work > Makefile 
+
+
+//modulesim procedure: make; restart -f; run -all
+vlog *.sv
