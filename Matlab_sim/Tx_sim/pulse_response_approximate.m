@@ -1,6 +1,6 @@
 clc
 clear
-h = [0.6, 0.625,0.4];
+h = [1, 0.5];
 approximation = zeros(length(h),2);
 %y_best=0;
 for i=1:length(h)
@@ -29,7 +29,7 @@ for j= 1:length(h)
     binVal_x = dec2bin(typecast(int8(approximation(j,1)), 'uint8'),8);
     binVal_y = dec2bin(typecast(int8(approximation(j,2)), 'uint8'),8);
 
-    fprintf(fileID, '%s %s\n',binVal_x,binVal_y);
+    fprintf(fileID, '%s%s\n',binVal_x,binVal_y);
 end
 
 fclose(fileID);

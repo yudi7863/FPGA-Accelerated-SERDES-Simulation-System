@@ -20,6 +20,11 @@ module ISI_channel_prl#(
     integer row_ptr;
     integer row;
     reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1] [0:PULSE_RESPONSE_LENGTH-1];
+    //reg [SIGNAL_RESOLUTION*2-1:0] isi [0:1];
+
+    initial begin 
+        $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem",);
+    end
 
     //take signal_in, multiply
     always @ (posedge clk) begin
