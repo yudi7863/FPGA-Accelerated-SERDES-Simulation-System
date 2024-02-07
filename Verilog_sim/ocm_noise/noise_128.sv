@@ -86,8 +86,8 @@ end
 initial begin
     for(int i=0; i<128;i=i+1)begin
         noise_value[i]=i-63;       
-        $display("noise value:%d",noise_value[i]); 
-        $display("possibility value:%d",possibilities[i]);
+        //$display("noise value:%d",noise_value[i]); 
+        //$display("possibility value:%d",possibilities[i]);
     end
 end 
 //loading from mem:
@@ -106,7 +106,7 @@ always @(posedge clk or negedge rstn) begin
             possibilities[i] <= mem_data;
             count <= count + 'b1;
         end
-        if(count == 'd127) begin
+        if(count == 'd129) begin //two cycles late...
             //load_mem <= 'b0; this needs to be controlled outside..
             done_wait = 'b1;
         end
