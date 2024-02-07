@@ -25,7 +25,7 @@ module noise_128_wrapper (
         end
         else begin
             temp <= temp_i;
-            if(noise_in_valid && simple_noise_out_valid && !load_mem) begin
+            if(noise_in_valid && simple_noise_out_valid && !load_mem && done_wait) begin
                 noise_out <= temp_i+ noise_in;
                 //noise_out <= temp_i + noise_in;
                 noise_out_valid <= 'b1;
@@ -42,7 +42,7 @@ module noise_128_wrapper (
             .en(en),
             .rstn(rstn),
             .noise_out(temp_i),
-            .noise_out_valid(simple_noise_out_valid)
+            .noise_out_valid(simple_noise_out_valid),
             .done_wait(done_wait),
             .mem_data(mem_data),
             .location(location),
@@ -82,17 +82,17 @@ reg signed [7:0] noise_value[127:0];
     //static string possibilities_file = "../../Matlab_sim/noise_prob//probability_verilog_helper.mem";
     $readmemb("../../Matlab_sim/noise_prob//probability_verilog_helper.mem", possibilities);
 end
-
+*/
 initial begin
     for(int i=0; i<128;i=i+1)begin
         noise_value[i]=i-63;       
         $display("noise value:%d",noise_value[i]); 
         $display("possibility value:%d",possibilities[i]);
     end
-end */
+end 
 //loading from mem:
 integer i;
-logic count;
+logic [7:0] count;
 always @(posedge clk or negedge rstn) begin
     if(!rstn) begin 
         done_wait <= 'b0;
@@ -107,7 +107,7 @@ always @(posedge clk or negedge rstn) begin
             count <= count + 'b1;
         end
         if(count == 'd127) begin
-            load_mem <= 'b0;
+            //load_mem <= 'b0; this needs to be controlled outside..
             done_wait = 'b1;
         end
     end
@@ -118,7 +118,7 @@ always @(posedge clk or negedge rstn) begin
         noise_out_valid <= 0;
         noise_out <= 8'b0;
     end
-    else if (en && !load_mem) begin
+    else if (en && !load_mem && done_wait) begin
         noise_out_valid <= 1'b0; // Default value
 
         // Iterate through possibilities
