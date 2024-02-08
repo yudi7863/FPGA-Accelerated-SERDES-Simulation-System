@@ -19,7 +19,9 @@ module ISI_channel_prl#(
     integer row; 
     reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1] [0:PULSE_RESPONSE_LENGTH-1];
     logic [SIGNAL_RESOLUTION-1:0] total_isi;
-    reg [SIGNAL_RESOLUTION*2-1:0] [0:PULSE_RESPONSE_LENGTH-1] pulse_response;
+    reg [SIGNAL_RESOLUTION*2-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1] ;
+    logic [SIGNAL_RESOLUTION-1:0] multiply;
+    logic [SIGNAL_RESOLUTION-1:0] divide;
 
     initial begin 
         $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem", pulse_response);
@@ -54,7 +56,9 @@ module ISI_channel_prl#(
 
                 // Record ISI terms
                 for (int k = 0; k < PULSE_RESPONSE_LENGTH; k++) begin
-                    isi[row_ptr][k] <= signal_in * pulse_response[SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION] >>> pulse_response[SIGNAL_RESOLUTION-1:0]; // Read memory and modify
+                    multiply = pulse_response[k][PULSE_RESPONSE_LENGTH*2-1:PULSE_RESPONSE_LENGTH];
+                    divide = pulse_response[k][PULSE_RESPONSE_LENGTH-1:0];
+                    isi[row_ptr][k] <= signal_in >>> divide * multiply; // Read memory and modify
                 end
 
                 // will this work?

@@ -39,7 +39,7 @@ module noise_feedback_tb;
 
     wire [7:0] voltage_level_isi;
     wire voltage_level_isi_valid;
-    ISI_channel channel (
+    ISI_channel_prl channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
