@@ -50,10 +50,11 @@ module noise_ocm_tb;
         addr <= 'b0;
         end
         else begin
-            if(en2) begin
+            if(en2 && !done_wait) begin
                 addr2 <= addr2 + 4;
                 //if(addr2 == 'h1ff) addr2 <= 'h000;
             end
+            else addr2 <= addr2;
         end
     end
     ///////////////////////////modules////////////////////
@@ -101,6 +102,38 @@ module noise_ocm_tb;
         .readdata2(readdata2)
 
     );
+    /////////methods of verifying the probabilities of the occurences of the values:
+    //since noise_in <= 'b0, noise_out = noise
+    //register to store all the noise_out value, recording the occurences:
+    logic [7:0] store_value_pos [63:0];
+    logic [7:0] store_value_neg [63:0];
+    
+
+    genvar i;
+    logic [7:0] temp;
+    logic [7:0] test;
+    generate 
+        for (i = 0; i < 64; i++) begin
+            always_ff @(posedge clk) begin
+                if (!rstn) begin
+                    store_value_pos[i] <= 'b0;
+                    store_value_neg[i] <= 'b0;
+                end
+                else begin
+                    if (valid) begin
+                        temp <= noise_out;
+                        test <= i;
+                        if(noise_out[7] == 1'b1 && test == (-temp)) begin //this condition is important
+                            store_value_neg[i] <= store_value_neg[i] + 1;
+                        end
+                        else if (noise_out[7] == 1'b0 && test == temp) begin
+                            store_value_pos[i] <= store_value_pos[i] + 1;
+                        end
+                    end
+                end
+            end
+        end
+    endgenerate
     
     initial begin
             //control mem to write
@@ -121,7 +154,7 @@ module noise_ocm_tb;
         wait(done_wait);
         load_mem <= 0;
         en <= 'b1;
-        valid <= 1;
+        nvalid <= 1;
         #2000;
         $finish();
 
