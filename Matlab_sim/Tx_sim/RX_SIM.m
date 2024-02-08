@@ -38,7 +38,29 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.5];
+h = [1, 0.6];
+approximation = zeros(length(h),2);
+%y_best=0;
+for i=1:length(h)
+    for y=0:7
+        if mod(h(i),2.^((-1)*y))==0
+            approximation(i,2)=y;
+            approximation(i,1)=h(i)/2.^((-1)*y);
+            break;
+        else
+            x=floor(h(i)/2.^((-1)*y));
+            h_appro=x*2.^((-1)*y);
+            if h(i)-h_appro <=0.01
+                approximation(i,2)=y;
+                approximation(i,1)=x;
+                break;
+            end
+        end
+    end
+end
+h(1) = approximation(1, 1) * 2 ^ (-approximation(1, 2));
+h(2) = approximation(2, 1) * 2 ^ (-approximation(2, 2));
+h
 channel_output = conv(PAM4_out, h);
 channel_output
 

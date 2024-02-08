@@ -1,6 +1,6 @@
 clc
 clear
-h = [1, 0.5];
+h = [1, 0.6];
 approximation = zeros(length(h),2);
 %y_best=0;
 for i=1:length(h)

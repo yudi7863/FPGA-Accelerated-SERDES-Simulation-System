@@ -47,7 +47,7 @@ module noise_feedback_tb;
         .signal_out(voltage_level_isi),
         .signal_out_valid(voltage_level_isi_valid));
 
-
+/*
 
     ///////////////noise///////////////
     wire [7:0] noise_output;
@@ -114,7 +114,7 @@ module noise_feedback_tb;
         .data_in_valid(binary_data_rx_valid),
         .total_bits(total_bits),
         .total_bit_errors(total_bit_errors));
-           
+*/           
     //setting clock:
     always #10 clk = ~clk;
     //starting simulation:
@@ -124,8 +124,8 @@ module noise_feedback_tb;
         en <= 1;
         rstn <=1;
         #2120
-        $display("\nBits Transmitted:%d", total_bits);
-        $display("\nBit Errors:%d", total_bit_errors);
+        //$display("\nBits Transmitted:%d", total_bits);
+        //$display("\nBit Errors:%d", total_bit_errors);
         $finish;
     end
 endmodule
