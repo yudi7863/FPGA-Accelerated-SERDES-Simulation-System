@@ -38,7 +38,7 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.6];
+h = [0.8, 0.3, 0.6];
 approximation = zeros(length(h),2);
 %y_best=0;
 for i=1:length(h)
