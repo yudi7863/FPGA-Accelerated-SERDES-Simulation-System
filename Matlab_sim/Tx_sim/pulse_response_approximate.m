@@ -1,34 +1,41 @@
 clc
 clear
-h = [0.8, 0.3, 0.6];
+h = [0.8, 0.3, 0.2];
 approximation = zeros(length(h),2);
-%y_best=0;
+
+%%%
+%for i=1:length(h)
+%    for y=0:7
+%        if mod(h(i),2.^((-1)*y))==0
+%            approximation(i,2)=y;
+%            approximation(i,1)=h(i)/2.^((-1)*y);
+%            break;
+%        else
+%            x=floor(h(i)/2.^((-1)*y));
+%            h_appro=x*2.^((-1)*y);
+%            if h(i)-h_appro <=0.01
+%                approximation(i,2)=y;
+%                approximation(i,1)=x;
+%                break;
+%            end
+%        end
+%    end
+%end
+
+y = 8;
 for i=1:length(h)
-    for y=0:7
-        if mod(h(i),2.^((-1)*y))==0
-            approximation(i,2)=y;
-            approximation(i,1)=h(i)/2.^((-1)*y);
-            break;
-        else
-            x=floor(h(i)/2.^((-1)*y));
-            h_appro=x*2.^((-1)*y);
-            if h(i)-h_appro <=0.01
-                approximation(i,2)=y;
-                approximation(i,1)=x;
-                break;
-            end
-        end
-    end
-end 
+    x=round(h(i)/2.^((-1)*y));
+    approximation(i,2)=y;
+    approximation(i,1)=x;
+end
 approximation
 
 filename = 'pulse_resp_appro.mem';
 fileID = fopen(filename,'w');
 
 for j= 1:length(h)
-    binVal_x = dec2bin(typecast(int8(approximation(j,1)), 'uint8'),8);
-    binVal_y = dec2bin(typecast(int8(approximation(j,2)), 'uint8'),8);
-
+    binVal_x = dec2bin(approximation(j,1),8);
+    binVal_y = dec2bin(approximation(j,2),8);
     fprintf(fileID, '%s%s\n',binVal_x,binVal_y);
 end
 

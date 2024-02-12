@@ -19,7 +19,7 @@ module ISI_channel_prl#(
     reg [SIGNAL_RESOLUTION*2-1:0] individual_isi [0:PULSE_RESPONSE_LENGTH-1];
     // Sum of ISI terms
     reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1];
-    // First 8 bit stores x in x*2^y, last 8 bits stores y in x*2^y
+    // First 8 bit stores m in m*2^y, last 8 bits stores y in m*2^y
     reg [SIGNAL_RESOLUTION*2-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1];
 
     initial begin 
@@ -36,17 +36,18 @@ module ISI_channel_prl#(
             end
         end else begin
             if(signal_in_valid) begin
-                // Stores ISI from an individual voltage level using blocking statement
+                // Calculates ISI from an individual voltage level using blocking statement
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (!signal_in[SIGNAL_RESOLUTION-1]) begin
                         individual_isi[i] = signal_in * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION] >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
                     end
                     else begin
+                        // modify this concatenation
                         individual_isi[i] = $signed({8'b11111111, signal_in} * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION]) >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
                     end
                 end
 
-                // Update sum of ISI terms
+                // Updates the sum of ISI terms
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (i == PULSE_RESPONSE_LENGTH-1) begin
                         isi[i] <= individual_isi[i][SIGNAL_RESOLUTION-1:0];
