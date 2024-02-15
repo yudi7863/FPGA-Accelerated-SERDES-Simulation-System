@@ -3,7 +3,7 @@
 //outputs the convolution of the input signal with a pulse response of arbitrary length
 module ISI_channel_prl#(
     //length of pulse response (UI) eg: if the pulse response is h = [1 0.5], PULSE_RESPONSE_LENGTH = 2
-    parameter PULSE_RESPONSE_LENGTH = 2,
+    parameter PULSE_RESPONSE_LENGTH = 3,
     //bit-resolution of output signal
     parameter SIGNAL_RESOLUTION = 8,
     //speration between symbols. eg: if SYMBOL seperation = 32, the pam-4 symbol set {0,1,2,3} should be mapped to {-48,-16,16,48}
@@ -15,56 +15,50 @@ module ISI_channel_prl#(
     output reg signed [SIGNAL_RESOLUTION-1:0] signal_out,
     output reg signal_out_valid =0);
     
-    logic [SIGNAL_RESOLUTION-1:0] isi_effect;
-
-    integer row_ptr;
-    integer row;
-    reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1] [0:PULSE_RESPONSE_LENGTH-1];
-    //reg [SIGNAL_RESOLUTION*2-1:0] isi [0:1];
+    // Stores input voltage * h
+    reg [SIGNAL_RESOLUTION*2-1:0] individual_isi [0:PULSE_RESPONSE_LENGTH-1];
+    // Sum of ISI terms
+    reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1];
+    // First 8 bit stores m in m*2^y, last 8 bits stores y in m*2^y
+    reg [SIGNAL_RESOLUTION*2-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1];
 
     initial begin 
-        $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem",);
+        $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem", pulse_response);
     end
 
-    //take signal_in, multiply
     always @ (posedge clk) begin
         if (!rstn) begin
             signal_out_valid <= 0;
-            row_ptr <= 0;
-            row <= 0;
-            isi_effect <= 'b0;
-            // Initialize to all zeros
+            // Initialize to zeros
             for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
-                for (int j = 0; j < PULSE_RESPONSE_LENGTH; j++) begin
-                    isi[i][j] <= 'b0;
-                end
+                individual_isi[i] <='b0;
+                isi[i] <= 'b0;
             end
         end else begin
             if(signal_in_valid) begin
-                // Prepare output
-                for (int ptr = 0; ptr < PULSE_RESPONSE_LENGTH; ptr++) begin
-                    if (row == PULSE_RESPONSE_LENGTH - 1) begin
-                        row <= 0;
+                // Calculates ISI from an individual voltage level using blocking statement
+                for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
+                    if (!signal_in[SIGNAL_RESOLUTION-1]) begin
+                        individual_isi[i] = signal_in * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION] >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
                     end
                     else begin
-                        row <= row_ptr + ptr + 1;
+                        // modify this concatenation
+                        individual_isi[i] = $signed({8'b11111111, signal_in} * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION]) >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
                     end
-                    isi_effect <= isi_effect + isi[row][PULSE_RESPONSE_LENGTH - 1 - ptr];
-                end
-                signal_out <= signal_in + isi_effect;
-
-                // Record ISI terms
-                for (int k = 0; k < PULSE_RESPONSE_LENGTH; k++) begin
-                    isi[row_ptr][k] <= signal_in >>> 1; // Read memory and modify
                 end
 
-                // will this work?
-                if (row_ptr == PULSE_RESPONSE_LENGTH - 1) begin
-                    row_ptr <= 0;
-                end 
-                else begin
-                row_ptr <= row_ptr + 1;
+                // Updates the sum of ISI terms
+                for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
+                    if (i == PULSE_RESPONSE_LENGTH-1) begin
+                        isi[i] <= individual_isi[i][SIGNAL_RESOLUTION-1:0];
+                    end
+                    else begin
+                        isi[i] <= isi[i+1] + individual_isi[i][SIGNAL_RESOLUTION-1:0];
+                    end
                 end
+
+                // Output 
+                signal_out <= isi[1] + individual_isi[0][SIGNAL_RESOLUTION-1:0];
                 signal_out_valid <= 1;
             end else begin
                 signal_out_valid <= 0;
