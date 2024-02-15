@@ -36,7 +36,7 @@ module OCM (
                              )
 ;
 
-  parameter INIT_FILE = "onchip_mem_2.hex";
+  parameter INIT_FILE = "OCM_config/onchip_mem_3.hex";
 
 
   output  [ 31: 0] readdata;

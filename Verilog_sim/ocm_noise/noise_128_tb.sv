@@ -83,7 +83,7 @@ module noise_128_tb;
         en <= 'b0;
         #20
         rstn <= 'b1;
-        en <= 'b1;
+        en <= 'b0;
         #40
         load_mem <= 'b1;
         //wait:
@@ -91,6 +91,7 @@ module noise_128_tb;
             @ (posedge clk);
             if(done_wait == 'b1) begin //done waiting, can start noise generation
                 load_mem <='b0;
+                en <= 'b1;
                 nvalid <= 'b1;
                 #2000
                 $finish();

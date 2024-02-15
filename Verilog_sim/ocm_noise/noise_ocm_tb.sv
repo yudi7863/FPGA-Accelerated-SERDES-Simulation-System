@@ -135,6 +135,20 @@ module noise_ocm_tb;
         end
     endgenerate
     
+    logic load_mem_pressed;
+    always_ff @(posedge clk) begin
+        if(!rstn) begin 
+            load_mem <= 'b0;
+        end
+        else begin
+            if (load_mem_pressed == 'b1) begin
+                load_mem <= 'b1;
+            end
+            else if(done_wait == 'b1) load_mem <= 'b0;
+           // else load_mem <= load_mem;
+            
+        end
+    end
     initial begin
             //control mem to write
             //wait for done_wait to be asserted
@@ -143,16 +157,23 @@ module noise_ocm_tb;
         rstn <= 'b0;
         noise_in <= 'b0;
         nvalid <= 'b0;
-        load_mem <= 'b0;
+        load_mem_pressed <= 'b0;
         en <= 'b0;
         wen = 'b0;
         wen2 = 'b0;
         #20
         rstn <= 1;
+        //load_mem_pressed <= 'b1;
         en2 = 'b1;
-        load_mem <= 1;
+        #20
+        load_mem_pressed <= 'b1;
+         #20
+         load_mem_pressed <= 'b0;
+        //rstn <= 1;
+        //en2 = 'b1;
+       // load_mem <= 1;
         wait(done_wait);
-        load_mem <= 0;
+        //load_mem <= 0;
         en <= 'b1;
         nvalid <= 1;
         #2000;
