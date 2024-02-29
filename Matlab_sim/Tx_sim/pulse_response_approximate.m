@@ -1,6 +1,6 @@
 clc
 clear
-h = [0.8, 0.3, 0.2];
+h = [-1.3, 0.1];
 approximation = zeros(length(h),2);
 
 %%%
@@ -34,8 +34,8 @@ filename = 'pulse_resp_appro.mem';
 fileID = fopen(filename,'w');
 
 for j= 1:length(h)
-    binVal_x = dec2bin(approximation(j,1),8);
-    binVal_y = dec2bin(approximation(j,2),8);
+    binVal_x = dec2bin(approximation(j,1),16);
+    binVal_y = dec2bin(approximation(j,2),16);
     fprintf(fileID, '%s%s\n',binVal_x,binVal_y);
 end
 
