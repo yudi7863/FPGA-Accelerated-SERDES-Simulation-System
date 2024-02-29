@@ -77,14 +77,14 @@ module noise_feedback_tb;
 
     wire [7:0] voltage_level_dfe;
     wire voltage_level_dfe_valid;
-    DFE_prl #(.PULSE_RESPONSE_LENGTH(2), .SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) rx(
+    DFE_prl rx(
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level_isi),
         .signal_in_valid(voltage_level_isi_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
-/*
+
     wire [1:0] symbol_rx;
     wire symbol_rx_valid;
     pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
@@ -114,7 +114,7 @@ module noise_feedback_tb;
         .data_in_valid(binary_data_rx_valid),
         .total_bits(total_bits),
         .total_bit_errors(total_bit_errors));
-*/           
+        
     //setting clock:
     always #10 clk = ~clk;
     //starting simulation:
@@ -124,8 +124,8 @@ module noise_feedback_tb;
         en <= 1;
         rstn <=1;
         #2120
-        //$display("\nBits Transmitted:%d", total_bits);
-        //$display("\nBit Errors:%d", total_bit_errors);
+        $display("\nBits Transmitted:%d", total_bits);
+        $display("\nBit Errors:%d", total_bit_errors);
         $finish;
     end
 endmodule

@@ -1,71 +1,78 @@
-//assumptions: I know about the h functions and I know about the length of the h functions
+`timescale 1ns / 1ps
+
 module DFE_prl #(
-parameter PULSE_RESPONSE_LENGTH = 2,
-parameter SIGNAL_RESOLUTION = 8,
-parameter SYMBOL_SEPERATION = 56) (
-input clk,
-input rstn,
-input signed [SIGNAL_RESOLUTION-1:0] signal_in,
-input signal_in_valid,
+    parameter PULSE_RESPONSE_LENGTH = 5,
+    parameter SIGNAL_RESOLUTION = 8,
+    parameter SYMBOL_SEPERATION = 56)(
+    input clk,
+    input rstn,
+    input signed [SIGNAL_RESOLUTION-1:0] signal_in,
+    input signal_in_valid,
+    output reg signed [SIGNAL_RESOLUTION-1:0] signal_out,
+    output reg signal_out_valid =0);
 
-input [7:0] noise, //not sure what length to set for this one
-input signed [SIGNAL_RESOLUTION-1:0] train_data,
-input train_data_valid,
+    // Sum of ISI terms
+    reg signed [SIGNAL_RESOLUTION*2:0] isi [0:PULSE_RESPONSE_LENGTH-1];
+    // First 8 bit stores m in m*2^y, last 8 bits stores y in m*2^y
+    reg signed [SIGNAL_RESOLUTION*4-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1];
 
-output reg signed [SIGNAL_RESOLUTION-1:0] signal_out,
-output logic signal_out_valid);
-
-//assuming values for h function:2 d array
-logic [PULSE_RESPONSE_LENGTH-1:0] h_function_vals [7:0];
-//for now assume PULSE_RESPONSE_LENGTH = 2
-assign h_function_vals[0] = 'h1;
-assign h_function_vals[1] = 'h1; //how to represent this lol
-//shift register:
-logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value;
-logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] division;
-logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] subtract_result;
-logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] buffer;
-logic f_valid;
-assign signal_out = buffer;
-logic e_valid;
-logic temp;
-decision_maker DM (
-    .clk(clk), 
-    .rstn(rstn), 
-    .estimation(subtract_result),//estimation), 
-    .feedback_value(feedback_value),
-    .e_valid(e_valid),
-    .f_valid(f_valid)
+    //shift register
+    logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] subtract_result;
+    logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value;
+    logic f_valid;
+    logic e_valid;
+    decision_maker_prl DM (
+        .clk(clk), 
+        .rstn(rstn), 
+        .estimation(subtract_result),
+        .feedback_value(feedback_value),
+        .e_valid(e_valid),
+        .f_valid(f_valid)
     );
 
-always_ff @ (posedge clk) begin
-	if(!rstn) begin
-			e_valid <= 'b0;
-            division <='b0;
+    initial begin
+        $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem", pulse_response);
+    end
+
+    always_ff @ (posedge clk) begin
+        if(!rstn) begin
+            e_valid <= 'b0;
             subtract_result <='b0;
+            feedback_value <='b0;
             signal_out_valid <= 'b0;
-            buffer <= 'b0;
+            signal_out <= 'b0;
+            for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
+                isi[i] <= 'b0;
+            end
+        end
+        else begin
+            if(signal_in_valid == 'b1) begin
+                signal_out <= feedback_value;
+                for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
+                    if (i == PULSE_RESPONSE_LENGTH-1) begin
+                        isi[i] = feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                    end
+                    else begin
+                        isi[i] = isi[i+1] + feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                    end
+                end
+                subtract_result <= ((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                e_valid <= 'b1;
+            end
+            else begin 
+                e_valid <='b0;
+            end
+
+            // change this
+            if(f_valid == 'b1) begin
+                signal_out_valid <= ~signal_out_valid;
+            end
+        end
     end
-	else begin
-        if(signal_in_valid == 'b1) begin
-            //estimation <= subtract_result; //currently h0_1 = 1, which does nothing
-            buffer <= feedback_value;
-            subtract_result <= signal_in - (feedback_value >>> h_function_vals[1]);
-            e_valid <= 'b1;
-        end
-        else begin 
-            e_valid <='b0;
-        end
-        if(f_valid == 'b1) begin
-            signal_out_valid <= ~signal_out_valid;
-        end
-       
-    end
-end
 endmodule
 
-module decision_maker #(
-    parameter PULSE_RESPONSE_LENGTH = 2,
+module decision_maker_prl #(
+    parameter PULSE_RESPONSE_LENGTH = 5,
     parameter SIGNAL_RESOLUTION = 8,
     parameter SYMBOL_SEPERATION = 56) 
 (   input clk,
