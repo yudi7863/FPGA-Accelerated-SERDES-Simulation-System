@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage.defaultLocation=C\:\\ECE496_FPGA\\git_version\\FPGA-Accelerated-SERDES-Simulation-System\\Software_workspace\\software\\UART_ocm_mem_test
+newSoftwareExampleWizardPage.sopcinfoFile=C\:\\ECE496_FPGA\\git_version\\FPGA-Accelerated-SERDES-Simulation-System\\Software_workspace\\NIOS_UART.sopcinfo
+newSoftwareExampleWizardPage2.newBspLocation=C\:\\ECE496_FPGA\\git_version\\FPGA-Accelerated-SERDES-Simulation-System\\Software_workspace\\software\\UART_ocm_mem_test_bsp

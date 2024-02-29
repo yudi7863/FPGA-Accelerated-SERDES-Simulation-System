@@ -1,0 +1,6 @@
+04:30:16 **** Build of configuration Nios II for project UART_ocm_mem_test_bsp ****
+wsl make all 
+[BSP build complete]
+
+04:30:17 Build Finished (took 1s.493ms)
+
