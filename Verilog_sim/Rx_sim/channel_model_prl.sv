@@ -18,7 +18,7 @@ module ISI_channel_prl#(
     // Stores input voltage * h
     reg [SIGNAL_RESOLUTION*2-1:0] individual_isi [0:PULSE_RESPONSE_LENGTH-1];
     // Sum of ISI terms
-    reg [SIGNAL_RESOLUTION-1:0] isi [0:PULSE_RESPONSE_LENGTH-1];
+    reg [SIGNAL_RESOLUTION*2-1:0] isi [0:PULSE_RESPONSE_LENGTH-1];
     // First 8 bit stores m in m*2^y, last 8 bits stores y in m*2^y
     reg [SIGNAL_RESOLUTION*2-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1];
 
@@ -39,26 +39,26 @@ module ISI_channel_prl#(
                 // Calculates ISI from an individual voltage level using blocking statement
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (!signal_in[SIGNAL_RESOLUTION-1]) begin
-                        individual_isi[i] = signal_in * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION] >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
+                        individual_isi[i] = signal_in * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION];
                     end
                     else begin
                         // modify this concatenation
-                        individual_isi[i] = $signed({8'b11111111, signal_in} * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION]) >>> pulse_response[i][SIGNAL_RESOLUTION-1:0];
+                        individual_isi[i] = $signed({8'b11111111, signal_in} * pulse_response[i][SIGNAL_RESOLUTION*2-1:SIGNAL_RESOLUTION]);
                     end
                 end
 
                 // Updates the sum of ISI terms
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (i == PULSE_RESPONSE_LENGTH-1) begin
-                        isi[i] <= individual_isi[i][SIGNAL_RESOLUTION-1:0];
+                        isi[i] <= individual_isi[i];
                     end
                     else begin
-                        isi[i] <= isi[i+1] + individual_isi[i][SIGNAL_RESOLUTION-1:0];
+                        isi[i] <= isi[i+1] + individual_isi[i];
                     end
                 end
 
                 // Output 
-                signal_out <= isi[1] + individual_isi[0][SIGNAL_RESOLUTION-1:0];
+                signal_out <= (isi[1] + individual_isi[0]) >>> pulse_response[0][SIGNAL_RESOLUTION-1:0]; // This is the isi[1] from the previous clock cycle
                 signal_out_valid <= 1;
             end else begin
                 signal_out_valid <= 0;
