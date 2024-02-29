@@ -72,19 +72,19 @@ module noise_feedback_tb;
             .noise_out_valid(noise_valid)
     );
     //////////////////////////////////////
-
+*/
 
 
     wire [7:0] voltage_level_dfe;
     wire voltage_level_dfe_valid;
-    DFE #(.PULSE_RESPONSE_LENGTH(2), .SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) rx(
+    DFE_prl #(.PULSE_RESPONSE_LENGTH(2), .SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) rx(
         .clk(clk),
         .rstn(rstn),
-        .signal_in(noise_output),
-        .signal_in_valid(noise_valid),
+        .signal_in(voltage_level_isi),
+        .signal_in_valid(voltage_level_isi_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
-
+/*
     wire [1:0] symbol_rx;
     wire symbol_rx_valid;
     pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
