@@ -21,3 +21,8 @@ cov*/
 transcript*
 sc_dpiheader.h
 vsim.dbg
+Verilog_sim/Rx_sim/noise_counter.xlsx
+
+Matlab_sim/Tx_sim/noise.asv
+
+Matlab_sim/Tx_sim/RX_SIM_128.asv

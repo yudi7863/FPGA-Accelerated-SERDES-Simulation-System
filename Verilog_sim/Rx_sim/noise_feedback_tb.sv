@@ -51,6 +51,7 @@ module noise_feedback_tb;
 
     ///////////////noise///////////////
     wire [7:0] noise_output;
+    wire [7:0] noise_counter[127:0];
     wire noise_valid;
     // noise_wrapper noise_wrapper_noise (
     //         .clk(clk),
@@ -69,6 +70,7 @@ module noise_feedback_tb;
             .noise_in(voltage_level_isi),
             .noise_in_valid(voltage_level_isi_valid),
             .noise_out(noise_output),
+            .noise_counter(noise_counter),
             .noise_out_valid(noise_valid)
     );
     //////////////////////////////////////
@@ -114,7 +116,9 @@ module noise_feedback_tb;
         .data_in_valid(binary_data_rx_valid),
         .total_bits(total_bits),
         .total_bit_errors(total_bit_errors));
-        
+
+    
+
     //setting clock:
     always #10 clk = ~clk;
     //starting simulation:
@@ -126,6 +130,10 @@ module noise_feedback_tb;
         #10000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
+
+        for (int i = 0; i < 128; i = i + 1) begin
+            $display("noise_counter[%0d] = %d", i, noise_counter[i]);
+        end
         $finish;
     end
 endmodule
