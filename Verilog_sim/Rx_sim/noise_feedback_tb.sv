@@ -47,7 +47,7 @@ module noise_feedback_tb;
         .signal_out(voltage_level_isi),
         .signal_out_valid(voltage_level_isi_valid));
 
-/*
+
 
     ///////////////noise///////////////
     wire [7:0] noise_output;
@@ -72,7 +72,7 @@ module noise_feedback_tb;
             .noise_out_valid(noise_valid)
     );
     //////////////////////////////////////
-*/
+
 
 
     wire [7:0] voltage_level_dfe;
@@ -80,8 +80,8 @@ module noise_feedback_tb;
     DFE_prl rx(
         .clk(clk),
         .rstn(rstn),
-        .signal_in(voltage_level_isi),
-        .signal_in_valid(voltage_level_isi_valid),
+        .signal_in(noise_output),
+        .signal_in_valid(noise_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
 
@@ -123,7 +123,7 @@ module noise_feedback_tb;
         #50 
         en <= 1;
         rstn <=1;
-        #2120
+        #10000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
         $finish;

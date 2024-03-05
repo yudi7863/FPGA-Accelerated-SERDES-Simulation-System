@@ -9,8 +9,8 @@ module noise_128_wrapper (
     output reg noise_out_valid =0
 );
 
-    logic [7:0] temp;
-    logic [7:0] temp_i;
+    reg [7:0] temp;
+    reg [7:0] temp_i;
     logic simple_noise_out_valid;
    // assign noise_out = temp + noise_in;
     always @(posedge clk or negedge rstn) begin
@@ -65,8 +65,8 @@ reg signed [7:0] noise_value[127:0];
 //for loop to initialize the array;
 
 initial begin//relative path:
-    //static string possibilities_file = "../../Matlab_sim/noise_prob//probability_verilog_helper.mem";
-    $readmemb("../../Matlab_sim/noise_prob//probability_verilog_helper.mem", possibilities);
+    //static string possibilities_file = "../../Matlab_sim/noise_prob//probability_verilog_helper.mem";C:\Users\13083\Documents\GitHub\FPGA-Accelerated-SERDES-Simulation-System\Matlab_sim\Tx_sim
+    $readmemb("../../Matlab_sim/Tx_sim/probability_verilog_helper.mem", possibilities);
 end
 
 initial begin
@@ -91,6 +91,8 @@ always @(posedge clk or negedge rstn) begin
                 if (random < possibilities[i]) begin
                     noise_out <= noise_value[i] ; // Set noise_out based on the index
                     noise_out_valid <= 1'b1;
+                    $display("initial random number:%d",random); 
+                    $display("initial possibility value:%d",possibilities[i]);
                 end
             end
             else begin
@@ -98,6 +100,8 @@ always @(posedge clk or negedge rstn) begin
                 if((random >= possibilities[i-1])&&(random < possibilities[i]))begin
                     noise_out <= noise_value[i] ; // Set noise_out based on the index
                     noise_out_valid <= 1'b1;
+                    $display("random number:%d",random); 
+                    $display("possibility value:%d",possibilities[i]);
                 end
             end
         end

@@ -1,7 +1,7 @@
 clc
 clear
 order = 31;
-num_data = 98;
+num_data = 487;
 SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
 prbs_length = 31;
 % Generating random data
@@ -38,14 +38,14 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.5];
+h = [0.3, 0.4, 0.1, 0.1, 0.2];
 channel_output = conv(PAM4_out, h);
 channel_output
 
 % Noise
 noise_array = [-63:64];
 mu = 0;
-sigma = 40;
+sigma = 10;
 probability = pdf('Normal', noise_array, mu, sigma);
 total_probability = 0;
 for i = 1:length(probability)
@@ -54,21 +54,22 @@ end
 for i = 1:length(probability)
     probability(i) = probability(i)/total_probability;
 end
-possibilities = zeros(1, length(probability), 'int64');
+possibilities = zeros(1, length(probability));
 for i = 1:length(probability)
     if i == 1
-        probability_verilog_helper(i) = probability(i)*(2^64-1)+0;
+        possibilities(i) = probability(i)*(2^64-1)+0;
     else
-        probability_verilog_helper(i) = probability(i)*(2^64-1)+probability_verilog_helper(i-1);
+        possibilities(i) = probability(i)*(2^64-1)+possibilities(i-1);
     end
     %var=dec2bin(probability_verilog_helper(i),64);
     %display(var);
 end
 probability
+possibilities
+total_probability
 %sprintf('%d is noise output.',noise_output(i));
 
-length(probability_verilog_helper)
-%probability_verilog_helper_var = noise_to_verilog(probability_verilog_helper,'probability_verilog_helper.mem',length(probability),64);
+probability_verilog_helper_var = noise_to_verilog(possibilities,'probability_verilog_helper.mem',length(probability),64);
 
 % With noise
 % Generate random integer within range 0 to 1
