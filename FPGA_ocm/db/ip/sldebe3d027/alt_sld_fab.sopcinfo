@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="alt_sld_fab" kind="alt_sld_fab" version="1.0" fabric="QSYS">
  <!-- Format version 22.1 922 (Future versions may contain additional information.) -->
- <!-- 2024.02.15.02:58:13 -->
+ <!-- 2024.03.05.02:51:30 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
@@ -56,7 +56,7 @@
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>4e0310e48b218fcff464</value>
+   <value>50b9c960c4e8eca0b03d</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -80,7 +80,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="SETTINGS">
    <type>java.lang.String</type>
-   <value>{fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 psig 9b67919e} {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 psig 9b67919e} {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 psig 9b67919e} </value>
+   <value>{fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 psig 9b67919e} {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 psig 9b67919e} {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 psig 9b67919e} </value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -104,7 +104,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="EP_INFOS">
    <type>java.lang.String</type>
-   <value>{hpath {NIOS_UART:u0|NIOS_UART_nios2_gen2_0:nios2_gen2_0|NIOS_UART_nios2_gen2_0_cpu:cpu|NIOS_UART_nios2_gen2_0_cpu_nios2_oci:the_NIOS_UART_nios2_gen2_0_cpu_nios2_oci|NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper:the_NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:NIOS_UART_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {sld_signaltap:auto_signaltap_0} } {hpath {sld_signaltap:auto_signaltap_1} } </value>
+   <value>{hpath {NIOS_UART:u0|NIOS_UART_nios2_gen2_0:nios2_gen2_0|NIOS_UART_nios2_gen2_0_cpu:cpu|NIOS_UART_nios2_gen2_0_cpu_nios2_oci:the_NIOS_UART_nios2_gen2_0_cpu_nios2_oci|NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper:the_NIOS_UART_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:NIOS_UART_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst} } {hpath {sld_signaltap:data_flow} } {hpath {sld_signaltap:mem_init} } </value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -128,7 +128,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="COMPOSED_SETTINGS">
    <type>java.lang.String</type>
-   <value>{fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 bridge_agent 0 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 bridge_agent 0 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 bridge_agent 0 prefer_host {} } </value>
+   <value>{fabric sld dir agent mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 bridge_agent 0 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 bridge_agent 0 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 bridge_agent 0 prefer_host {} } </value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1598,7 +1598,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="SETTINGS">
    <type>java.lang.String</type>
-   <value>{mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 bridge_agent 0 prefer_host {} } {mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 bridge_agent 0 prefer_host {} } {mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 bridge_agent 0 prefer_host {} } </value>
+   <value>{mfr_code 70 type_code 34 version 3 instance 0 ir_width 2 bridge_agent 0 prefer_host {} } {mfr_code 110 type_code 0 version 6 instance 1 ir_width 10 bridge_agent 0 prefer_host {} } {mfr_code 110 type_code 0 version 6 instance 0 ir_width 10 bridge_agent 0 prefer_host {} } </value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -1630,7 +1630,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="NODE_INFO">
    <type>java.lang.String</type>
-   <value>001100000000000001101110000000010011000000000000011011100000000000011001000100000100011000000000</value>
+   <value>001100000000000001101110000000000011000000000000011011100000000100011001000100000100011000000000</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -2189,7 +2189,7 @@ parameters are a RESULT of the module parameters. -->
    </assignment>
    <assignment>
     <name>debug.encodedSldId</name>
-    <value>805334528</value>
+    <value>805334529</value>
    </assignment>
    <assignment>
     <name>debug.providesServices</name>
@@ -2471,7 +2471,7 @@ parameters are a RESULT of the module parameters. -->
    </assignment>
    <assignment>
     <name>debug.encodedSldId</name>
-    <value>805334529</value>
+    <value>805334528</value>
    </assignment>
    <assignment>
     <name>debug.providesServices</name>
@@ -2735,7 +2735,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <parameter name="DESIGN_HASH">
    <type>java.lang.String</type>
-   <value>4e0310e48b218fcff464</value>
+   <value>50b9c960c4e8eca0b03d</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>

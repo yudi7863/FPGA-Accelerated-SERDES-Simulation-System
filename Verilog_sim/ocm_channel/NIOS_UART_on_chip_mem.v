@@ -46,7 +46,7 @@ module NIOS_UART_on_chip_mem (
                              )
 ;
 
-  parameter INIT_FILE = "OCM_config/onchip_mem_3.hex";
+  parameter INIT_FILE = "OCM_config/channel_ocm_hex.hex";
 
 
   output  [ 63: 0] readdata;

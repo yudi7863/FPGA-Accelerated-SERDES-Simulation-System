@@ -46,7 +46,7 @@ module NIOS_UART_on_chip_mem (
                              )
 ;
 
-  parameter INIT_FILE = "rtl/noise_prob/onchip_mem_3.hex";
+  parameter INIT_FILE = "rtl/mem_prob/noise_channel_hex.hex";
 
 
   output  [ 31: 0] readdata;

@@ -10,7 +10,8 @@ module urng_64 #(
     input rstn,                 
 
     // Data interface
-    input en,                   
+    input en,
+    input start_control,                     
     output reg valid,       
     output reg [63:0] data_out   
     );
@@ -47,7 +48,7 @@ module urng_64 #(
         if (!rstn)
             valid <= 1'b0;
         else
-            valid <= en;
+            valid <= start_control;
     end
     
     always @ (posedge clk) begin

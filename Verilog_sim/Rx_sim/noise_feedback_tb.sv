@@ -127,7 +127,7 @@ module noise_feedback_tb;
         #50 
         en <= 1;
         rstn <=1;
-        #10000
+        #1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 

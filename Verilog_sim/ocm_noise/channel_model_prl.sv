@@ -3,7 +3,7 @@
 //outputs the convolution of the input signal with a pulse response of arbitrary length
 module ISI_channel_prl#(
     //length of pulse response (UI) eg: if the pulse response is h = [1 0.5], PULSE_RESPONSE_LENGTH = 2
-    parameter PULSE_RESPONSE_LENGTH = 3,
+    parameter PULSE_RESPONSE_LENGTH = 5,
     //bit-resolution of output signal
     parameter SIGNAL_RESOLUTION = 8,
     //speration between symbols. eg: if SYMBOL seperation = 32, the pam-4 symbol set {0,1,2,3} should be mapped to {-48,-16,16,48}

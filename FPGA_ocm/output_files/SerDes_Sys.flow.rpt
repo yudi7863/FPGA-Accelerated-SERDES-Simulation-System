@@ -1,5 +1,5 @@
 Flow report for SerDes_Sys
-Thu Feb 15 03:12:38 2024
+Tue Mar  5 03:16:19 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,19 +41,19 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu Feb 15 03:12:38 2024          ;
+; Flow Status                     ; Successful - Tue Mar  5 03:16:19 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; SerDes_Sys                                     ;
 ; Top-level Entity Name           ; SerDes_Sys                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 10,766 / 32,070 ( 34 % )                       ;
-; Total registers                 ; 14575                                          ;
+; Logic utilization (in ALMs)     ; 11,084 / 32,070 ( 35 % )                       ;
+; Total registers                 ; 15542                                          ;
 ; Total pins                      ; 27 / 457 ( 6 % )                               ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 1,282,048 / 4,065,280 ( 32 % )                 ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                                 ;
+; Total block memory bits         ; 1,193,984 / 4,065,280 ( 29 % )                 ;
+; Total DSP Blocks                ; 5 / 87 ( 6 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -68,122 +68,122 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/15/2024 02:57:53 ;
+; Start date & time ; 03/05/2024 02:51:04 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SerDes_Sys          ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                                     ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; Assignment Name                     ; Value                                                                        ; Default Value ; Entity Name ; Section Id                        ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 1096190267477.170798387333252                                                ; --            ; --          ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                          ; --            ; --          ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                          ; --            ; --          ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                          ; --            ; --          ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                          ; --            ; --          ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                                  ; --            ; --          ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; ModelSim (Verilog)                                                           ; <None>        ; --          ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                                                         ; --            ; --          ; eda_simulation                    ;
-; ENABLE_SIGNALTAP                    ; On                                                                           ; --            ; --          ; --                                ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                                           ; --            ; --          ; --                                ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                                            ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../NIOS_UART.cmp                                    ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../../NIOS_UART.qsys                                ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/RX/synthesis/../RX.cmp                                                  ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/RX/synthesis/../../RX.qsys                                              ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/channel/synthesis/../channel.cmp                                        ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/channel/synthesis/../../channel.qsys                                    ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/TX/synthesis/../TX.cmp                                                  ; --            ; --          ; --                                ;
-; MISC_FILE                           ; qsys/TX/synthesis/../../TX.qsys                                              ; --            ; --          ; --                                ;
-; MISC_FILE                           ; ips/pll.cmp                                                                  ; --            ; --          ; --                                ;
-; MISC_FILE                           ; ips/pll_sim/pll.vo                                                           ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                       ; --            ; --          ; Top                               ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                       ; --            ; de1soc_top  ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                       ; --            ; --          ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                       ; --            ; de1soc_top  ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                       ; --            ; --          ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                       ; --            ; de1soc_top  ; Top                               ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                          ; --            ; --          ; --                                ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                        ; --            ; --          ; --                                ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                                 ; --            ; --          ; --                                ;
-; SLD_FILE                            ; qsys/NIOS_UART/synthesis/NIOS_UART.debuginfo                                 ; --            ; --          ; --                                ;
-; SLD_FILE                            ; qsys/RX/synthesis/RX.debuginfo                                               ; --            ; --          ; --                                ;
-; SLD_FILE                            ; qsys/channel/synthesis/channel.debuginfo                                     ; --            ; --          ; --                                ;
-; SLD_FILE                            ; qsys/TX/synthesis/TX.debuginfo                                               ; --            ; --          ; --                                ;
-; SLD_FILE                            ; db/noise_ocm_auto_stripped.stp                                               ; --            ; --          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1707362067                  ; --            ; NIOS_UART   ; --                                ;
-; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700690008                         ; --            ; RX          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1707362845                         ; --            ; TX          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME channel HAS_SOPCINFO 1 GENERATION_ID 1699844736                    ; --            ; channel     ; --                                ;
-; SLD_NODE_CREATOR_ID                 ; 110                                                                          ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_CREATOR_ID                 ; 110                                                                          ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                                ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                      ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=54                                                             ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=54                                                          ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=54                                                ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334529                                                      ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                       ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=0000000000000000000000000                                 ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=25                                                 ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=2048                                                        ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                   ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                               ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                            ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                       ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                 ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                                    ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                          ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=2048                                                        ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                     ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                           ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_auto_signaltap_1_1_9687, ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                 ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                                ; --            ; --          ; auto_signaltap_1                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                                      ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                                      ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                       ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                                ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=2048                                                        ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                                   ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                               ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                            ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                       ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                                 ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                                    ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                          ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=2048                                                        ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                                     ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                           ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                       ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                                 ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=0000000000000000000000000                                 ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=25                                                 ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                                ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=287                                               ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=287                                                            ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=287                                                         ; --            ; --          ; auto_signaltap_0                  ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_auto_signaltap_0_1_ccdb, ; --            ; --          ; auto_signaltap_0                  ;
-; SOPCINFO_FILE                       ; qsys/NIOS_UART/synthesis/../../NIOS_UART.sopcinfo                            ; --            ; --          ; --                                ;
-; SOPCINFO_FILE                       ; qsys/RX/synthesis/../../RX.sopcinfo                                          ; --            ; --          ; --                                ;
-; SOPCINFO_FILE                       ; qsys/channel/synthesis/../../channel.sopcinfo                                ; --            ; --          ; --                                ;
-; SOPCINFO_FILE                       ; qsys/TX/synthesis/../../TX.sopcinfo                                          ; --            ; --          ; --                                ;
-; SPD_FILE                            ; ips/pll.spd                                                                  ; --            ; --          ; --                                ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                           ; --            ; --          ; --                                ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                           ; --            ; --          ; --                                ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                           ; --            ; --          ; --                                ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                           ; --            ; --          ; --                                ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                           ; --            ; --          ; --                                ;
-; USE_SIGNALTAP_FILE                  ; stp/noise_ocm.stp                                                            ; --            ; --          ; --                                ;
-+-------------------------------------+------------------------------------------------------------------------------+---------------+-------------+-----------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                              ;
++-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
+; Assignment Name                     ; Value                                                                 ; Default Value ; Entity Name ; Section Id                        ;
++-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 1096190267477.170962506300380                                         ; --            ; --          ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                           ; --            ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; ModelSim (Verilog)                                                    ; <None>        ; --          ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                                                  ; --            ; --          ; eda_simulation                    ;
+; ENABLE_SIGNALTAP                    ; On                                                                    ; --            ; --          ; --                                ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                                    ; --            ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                                     ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../NIOS_UART.cmp                             ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../../NIOS_UART.qsys                         ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/RX/synthesis/../RX.cmp                                           ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/RX/synthesis/../../RX.qsys                                       ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/channel/synthesis/../channel.cmp                                 ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/channel/synthesis/../../channel.qsys                             ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/TX/synthesis/../TX.cmp                                           ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/TX/synthesis/../../TX.qsys                                       ; --            ; --          ; --                                ;
+; MISC_FILE                           ; ips/pll.cmp                                                           ; --            ; --          ; --                                ;
+; MISC_FILE                           ; ips/pll_sim/pll.vo                                                    ; --            ; --          ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                ; --            ; --          ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                                ; --            ; de1soc_top  ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                ; --            ; --          ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                                ; --            ; de1soc_top  ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                ; --            ; --          ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                                ; --            ; de1soc_top  ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                   ; --            ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                 ; --            ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                          ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/NIOS_UART/synthesis/NIOS_UART.debuginfo                          ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/RX/synthesis/RX.debuginfo                                        ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/channel/synthesis/channel.debuginfo                              ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/TX/synthesis/TX.debuginfo                                        ; --            ; --          ; --                                ;
+; SLD_FILE                            ; db/channel_noise_ocm_auto_stripped.stp                                ; --            ; --          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1709621713           ; --            ; NIOS_UART   ; --                                ;
+; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1700690008                  ; --            ; RX          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1707362845                  ; --            ; TX          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME channel HAS_SOPCINFO 1 GENERATION_ID 1699844736             ; --            ; channel     ; --                                ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                                   ; --            ; --          ; mem_init                          ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                                   ; --            ; --          ; data_flow                         ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                         ; --            ; --          ; mem_init                          ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                               ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                               ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=000000000000000000000000                           ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=24                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                         ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=1024                                                 ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                            ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                        ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                     ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                             ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                   ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=1024                                                 ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                              ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                    ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                         ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=360                                                     ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=360                                                  ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=360                                        ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_mem_init_1_20c2,  ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                               ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=59                                                      ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=59                                                   ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=59                                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334529                                               ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                            ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                        ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                     ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                          ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                             ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                   ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                              ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                    ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_data_flow_1_7385, ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                          ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=00000000000000000000000000                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=26                                          ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=4096                                                 ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=4096                                                 ; --            ; --          ; data_flow                         ;
+; SOPCINFO_FILE                       ; qsys/NIOS_UART/synthesis/../../NIOS_UART.sopcinfo                     ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/RX/synthesis/../../RX.sopcinfo                                   ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/channel/synthesis/../../channel.sopcinfo                         ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/TX/synthesis/../../TX.sopcinfo                                   ; --            ; --          ; --                                ;
+; SPD_FILE                            ; ips/pll.spd                                                           ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                    ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                    ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                    ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                    ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                    ; --            ; --          ; --                                ;
+; USE_SIGNALTAP_FILE                  ; stp/channel_noise_ocm.stp                                             ; --            ; --          ; --                                ;
++-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -191,12 +191,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:00     ; 2.5                     ; 5273 MB             ; 00:01:35                           ;
-; Fitter               ; 00:11:55     ; 1.3                     ; 8266 MB             ; 00:28:43                           ;
-; Assembler            ; 00:00:12     ; 1.0                     ; 5054 MB             ; 00:00:10                           ;
-; Timing Analyzer      ; 00:01:17     ; 1.9                     ; 5694 MB             ; 00:01:58                           ;
-; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 5050 MB             ; 00:00:05                           ;
-; Total                ; 00:14:30     ; --                      ; --                  ; 00:32:31                           ;
+; Analysis & Synthesis ; 00:01:17     ; 2.7                     ; 5337 MB             ; 00:01:32                           ;
+; Fitter               ; 00:22:57     ; 1.2                     ; 8262 MB             ; 00:35:17                           ;
+; Assembler            ; 00:00:14     ; 1.0                     ; 5062 MB             ; 00:00:11                           ;
+; Timing Analyzer      ; 00:00:22     ; 5.5                     ; 5703 MB             ; 00:01:16                           ;
+; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 5066 MB             ; 00:00:05                           ;
+; Total                ; 00:24:56     ; --                      ; --                  ; 00:38:21                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

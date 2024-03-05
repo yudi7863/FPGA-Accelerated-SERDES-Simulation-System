@@ -8,10 +8,14 @@ module whole_sys_tb;
     logic signed [7:0] noise_in;
     logic nvalid;
     logic valid;
-    //controls:
-    logic done_wait;
-    logic [7:0] location;
-    logic  load_mem;
+    //controls for noise:
+    logic done_wait_n;
+    logic [7:0] location_n;
+    logic  load_mem_n;
+    //controls for channel
+     logic done_wait_c;
+    logic [7:0] location_c;
+    logic  load_mem_c;
     //clk:
     always #10 clk = ~clk;
 
@@ -28,16 +32,22 @@ module whole_sys_tb;
 
     //others:
     logic en2;
+    logic [1:0] noise_state, channel_state;
+	logic load_mem_pressed, channel_mem_triggered;
     ///////////////////////////////////control logic//////////////////////////////////
     
     
     always_ff @(posedge clk) begin
         if(!rstn) begin 
-            location <= 'b0;
+            location_n <= 'b0;
+            location_c <= 'b0;
         end
         else begin
-            if (load_mem && !wen2) begin
-                location <= location + 1;
+            if (load_mem_n && !wen2) begin
+                location_n <= location_n + 1;
+            end
+            if (load_mem_c && !wen2) begin
+                location_c <= location_c + 1;
             end
         end
     end
@@ -48,9 +58,13 @@ module whole_sys_tb;
         addr <= 'b0;
         end
         else begin
-            if(en2 && !done_wait) begin
-                addr2 <= addr2 + 4;
-                //if(addr2 == 'h1ff) addr2 <= 'h000;
+            if(en2 && !done_wait_n && load_mem_n) begin
+                if(addr2 == 'h1fc) addr2 <= 'h1fc;
+                else addr2 <= addr2 + 4;
+            end
+            else if(en2 && !done_wait_c && channel_mem_triggered) begin
+                if(addr2 == 'h210) addr <= 'h210;
+                else addr2 <= addr2 + 4;
             end
             else addr2 <= addr2;
         end
@@ -88,14 +102,15 @@ module whole_sys_tb;
         .voltage_level_out(voltage_level),
         .voltage_level_out_valid(voltage_level_valid));
     logic [7:0] voltage_out_channel;
-    ISI_channel channel (
+    logic voltage_channel_valid;
+    //modified channel:
+    /*ISI_channel channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
         .signal_in_valid(voltage_level_valid),
         .signal_out(voltage_out_channel),
-        .signal_out_valid(voltage_channel_valid));
-
+        .signal_out_valid(voltage_channel_valid));*/
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -103,72 +118,104 @@ module whole_sys_tb;
 		logic signed [7:0] noise_output;
         logic noise_valid;
 		
-		always_ff @(posedge clk) begin
-        if(!rstn) begin 
-            location <= 'b0;
-        end
-        else begin
-            if (load_mem && !wen2) begin
-                location <= location + 1;
-            end
-        end
-		end
-		
-		always_ff @(posedge clk) begin
-        if(!rstn) addr2 <= 'b0;
-      
-        else begin
-            if(!done_wait) begin
-                addr2 <= addr2 + 4;
-                //if(addr2 == 'h204) addr2 <= 'h000; //value got from modelsim
-            end
-            else addr2 <= addr2;
-        end
-      end
-		
-		
+		//need to modify this for the reading and writing into the ocm:
 		
 		logic noise_enable;
 		logic noise_in_valid_i;
 		logic noise_in_valid;
 		
 		parameter WAIT_MEM = 2'b00, LOAD_MEM = 2'b01, DONE_WAIT = 2'b10;
-		logic [1:0] ctrl_state;
-		logic load_mem_pressed;
+
 		always_ff @(posedge clk) begin
 			if(!rstn) begin
-				ctrl_state = WAIT_MEM;
+				noise_state = WAIT_MEM;
 				noise_enable <= 'b0;
 				noise_in_valid_i <= 'b0;
+                channel_mem_triggered <= 'b0;
 			end
 			else begin
-				case(ctrl_state)
+				case(noise_state)
 					WAIT_MEM: begin if (load_mem_pressed) begin
-										load_mem <= 'b1;
-										ctrl_state <= LOAD_MEM;
+										load_mem_n <= 'b1;
+										noise_state <= LOAD_MEM;
 								 end
 								 else begin
-									load_mem <= 1'b0;
-									ctrl_state <= WAIT_MEM;
+									load_mem_n <= 1'b0;
+									noise_state <= WAIT_MEM;
 								end
 								end
-					LOAD_MEM: begin if(done_wait) begin
-										load_mem <= 'b0;
-										noise_enable <= en;
+					LOAD_MEM: begin if(done_wait_n) begin
+										load_mem_n <= 'b0;
+										noise_enable <= en; //en should be prbs enable?
 										noise_in_valid_i <= voltage_channel_valid;
-										ctrl_state <= DONE_WAIT;
+										noise_state <= DONE_WAIT;
 								end
-								else ctrl_state <= LOAD_MEM;
+								else noise_state <= LOAD_MEM;
 								end
-					DONE_WAIT: begin ctrl_state <= DONE_WAIT; //can technically put prbs_en here
+					DONE_WAIT: begin noise_state <= DONE_WAIT; //triggers the load_mem for channel:
 								   noise_enable <= en;
 									noise_in_valid_i <= voltage_channel_valid;
+                                    channel_mem_triggered <= 'b1;
 									end
-					default: ctrl_state <= WAIT_MEM;
+					default: noise_state <= noise_state;
 				endcase
 			end
 		end
-		
+
+
+        ////////////////////fsm for channel
+        //connective signals:
+        logic channel_enable;
+        logic channel_in_valid;
+		always_ff @(posedge clk) begin
+			if(!rstn) begin
+				channel_enable <= 'b0;
+                channel_in_valid <= 'b0;
+			end
+			else begin
+				case(channel_state)
+					WAIT_MEM: begin if (channel_mem_triggered) begin
+										load_mem_c <= 'b1;
+                                        //channel_mem_triggered <= 'b0;
+										channel_state <= LOAD_MEM;
+								 end
+								 else begin
+									load_mem_c <= 1'b0;
+									channel_state <= WAIT_MEM;
+								end
+								end
+					LOAD_MEM: begin if(done_wait_c) begin
+										load_mem_c <= 'b0;
+										channel_enable <= en;
+                                        channel_in_valid <= voltage_level_valid; //from the PAM-4
+										channel_state <= DONE_WAIT;
+								end
+								else channel_state <= LOAD_MEM;
+								end
+					DONE_WAIT: begin channel_state <= DONE_WAIT; //triggers the load_mem for channel:
+                                     channel_enable <= en;
+                                     channel_in_valid <= voltage_level_valid; //from the PAM-4
+									end
+					default: channel_state <= WAIT_MEM;
+				endcase
+			end
+		end
+
+
+        //connecting valid signals for noise and for channel:
+        //channel
+       /* logic channel_in_valid;
+        always_ff @ (posedge clk) begin
+			if(!rstn) channel_in_valid <= 'b0;
+			else begin
+				if(channel_in_valid_i) begin
+					channel_in_valid <= 'b1;
+				end
+				else channel_in_valid <= channel_in_valid;
+			end
+		end*/
+
+        //noise
 		always_ff @ (posedge clk) begin
 			if(!rstn) noise_in_valid <= 'b0;
 			else begin
@@ -179,21 +226,39 @@ module whole_sys_tb;
 			end
 		end
 		///probablemattic readdata2: inverted ??
-		logic [63:0] noise_data;
+		logic [63:0] mem_data;
+
+
+        ISI_channel_ocm channel (
+        .clk(clk),
+        .rstn(rstn),
+        .signal_in(voltage_level),
+        .signal_in_valid(voltage_level_valid),
+        .signal_out(voltage_out_channel),
+        .signal_out_valid(voltage_channel_valid),
+         //added control ports:
+        .load_mem(load_mem_c),
+        .done_wait(done_wait_c),
+        .location(location_c),
+        .mem_data(mem_data)); //this needs to be changed
+
+        wire [7:0] noise_counter[127:0];
 		//assign noise_data = {readdata2[31:0],readdata2[63:32]};
 		noise_128_wrapper noise_wrapper_noise (
             .clk(clk),
             .en(en), //yudi: need to change this later
             .rstn(rstn),
             .noise_in(voltage_out_channel),
-			.noise_in_valid(noise_in_valid),
+			.noise_in_valid(voltage_channel_valid),
             .noise_out(noise_output),
             .noise_out_valid(noise_valid),
-			.done_wait(done_wait), //////for loading signals
-			.mem_data(noise_data),
-			.location(location),
-			.load_mem(load_mem)
+			.done_wait(done_wait_n), //////for loading signals
+			.mem_data(mem_data),
+			.location(location_n),
+			.load_mem(load_mem_n),
+            .noise_counter(noise_counter)
     );
+
 
      //dut:
     NIOS_UART_on_chip_mem ocm(
@@ -222,7 +287,7 @@ module whole_sys_tb;
 
         // outputs:
         .readdata(readdata),
-        .readdata2(noise_data)
+        .readdata2(mem_data)
 
     );
     
@@ -292,11 +357,18 @@ module whole_sys_tb;
         //rstn <= 1;
         //en2 = 'b1;
        // load_mem <= 1;
-        wait(done_wait);
+        wait(done_wait_c);
         //load_mem <= 0;
         en <= 'b1;
         nvalid <= 1;
-        #2000;
+        #1000000
+
+        $display("\nBits Transmitted:%d", total_bits);
+        $display("\nBit Errors:%d", total_bit_errors);
+
+        for (int i = 0; i < 128; i = i + 1) begin
+            $display("noise_counter[%0d] = %d", i, noise_counter[i]);
+        end
         $finish();
 
     end

@@ -71,17 +71,17 @@ module ocm_tb;
 
     end*/
     always_ff @(posedge clk) begin
-        if(restn) begin addr2 <= 'b0;
-        addr <= 'b0;
+        if(restn) begin addr2 <= 'h200;
+        addr <= 'h200;
         end
         else begin
             if(en2) begin
                 addr2 <= addr2 + 2;
-                if(addr2 == 'h1ff) addr2 <= 'h000;
+                if(addr2 == 'h218) addr2 <= 'h000;
             end
             else if (en) begin
                 addr <= addr + 2;
-                if(addr == 'h1ff) addr <= 'h000;
+                if(addr == 'h218) addr <= 'h000;
             end
         end
     end
@@ -96,7 +96,7 @@ module ocm_tb;
         en = 'b0;
         #20
         restn = 0;
-        repeat(24) @ (posedge clk);
+        repeat(300) @ (posedge clk);
         restn = 1;
         en2 = 'b0;
         en = 'b1;

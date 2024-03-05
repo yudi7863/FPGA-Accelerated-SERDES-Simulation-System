@@ -102,38 +102,42 @@ module noise_ocm_tb;
         .readdata2(readdata2)
 
     );
+    //confirming the occurence of the noise 
+
     /////////methods of verifying the probabilities of the occurences of the values:
     //since noise_in <= 'b0, noise_out = noise
     //register to store all the noise_out value, recording the occurences:
-    logic [7:0] store_value_pos [63:0];
+    /*logic [7:0] store_value_pos [63:0];
     logic [7:0] store_value_neg [63:0];
     
 
-    genvar i;
-    logic [7:0] temp;
-    logic [7:0] test;
-    generate 
-        for (i = 0; i < 64; i++) begin
-            always_ff @(posedge clk) begin
-                if (!rstn) begin
-                    store_value_pos[i] <= 'b0;
-                    store_value_neg[i] <= 'b0;
-                end
-                else begin
-                    if (valid) begin
-                        temp <= noise_out;
-                        test <= i;
-                        if(noise_out[7] == 1'b1 && test == (-temp)) begin //this condition is important
-                            store_value_neg[i] <= store_value_neg[i] + 1;
-                        end
-                        else if (noise_out[7] == 1'b0 && test == temp) begin
-                            store_value_pos[i] <= store_value_pos[i] + 1;
-                        end
+
+    logic signed [7:0] temp;
+    logic signed [7:0] test;
+    logic signed [7:0] neg_temp;
+    always @(posedge clk) begin
+        if (!rstn) begin
+            for(int i = 0; i < 64; i++) begin
+                store_value_pos[i] <= 'b0;
+                store_value_neg[i] <= 'b0;
+            end
+        end
+        else begin
+            for (int i = 0; i < 64; i++) begin
+                if (valid) begin
+                    temp <= noise_out;
+                    //test <= i;
+                    if(noise_out[7] == 1'b1 && i == (-temp)) begin //this condition is important
+                        store_value_neg[i] <= store_value_neg[i] + 1;
+                    end
+                    else if (noise_out[7] == 1'b0 && i == temp) begin
+                        store_value_pos[i] <= store_value_pos[i] + 1;
                     end
                 end
             end
         end
-    endgenerate
+    end*/
+    
     
     logic load_mem_pressed;
     always_ff @(posedge clk) begin
@@ -176,7 +180,13 @@ module noise_ocm_tb;
         //load_mem <= 0;
         en <= 'b1;
         nvalid <= 1;
-        #2000;
+        #20000; //run for a very long time
+
+        //display the result
+        for (int i = 0; i < 64; i++)begin
+            $display("pos value at [%d]: %d", i, store_value_pos[i]);
+            $display("neg value at [-%d]: %d", i, store_value_neg[i]);
+        end
         $finish();
 
     end

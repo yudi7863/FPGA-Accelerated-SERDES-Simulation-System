@@ -80,6 +80,7 @@ def main(argv):
             z = 16 - len(data)
             for i in range(z):
                 data = "0" + data
+        print(data)
         new_line += data
         cur_address = cur_address + address_increnment
 
@@ -91,7 +92,9 @@ def main(argv):
         hex_sum = sum(hex_sum) ^ 0xff
         chksum = (hex_sum+1 ) & 0xff 
         chksum = str(hex(chksum))
-        chksum = chksum[2:] 
+        chksum = chksum[2:]
+        if(len(chksum) == 1):
+            chksum = "0"+chksum 
         new_line += chksum
         new_line += "\n"
         new_line = ":" + new_line

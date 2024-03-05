@@ -48,10 +48,16 @@ module SerDes_Sys(
 		
 		
 		//noise control signals:
-		logic done_wait;
-		logic [7:0] location;
-		logic  load_mem;
+		logic done_wait_n;
+		logic [7:0] location_n;
+		logic  load_mem_n;
 		logic load_mem_pressed;
+		 //controls for channel
+		 logic done_wait_c;
+		 logic [7:0] location_c;
+		 logic load_mem_c;
+		 logic channel_mem_triggered;
+		
 		//on-chip-ram connection -> connect to UART:
 		 logic [13:0] addr2;
 		 logic wen2;
@@ -99,8 +105,8 @@ module SerDes_Sys(
 		.prbs_0_data_out_data_out_valid                          (prbs_valid),                          //                                .data_out_valid
 		.prbs_0_prbs_ctrl_en                                     (prbs_en)                                    //                prbs_0_prbs_ctrl.en
 		);
-		
-		channel channel_model (
+		////////////////////////////////////////////////////////////////channel///////////////////////////////////////////////////////////////////
+		/*channel channel_model (
 		.clk_clk                                          (clock),                                          //                             clk.clk
 		.reset_reset_n                                    (reset_n),                                    //                           reset.reset_n
 		.channel_module_0_channel_input_signal_in         (voltage_out),         //  channel_module_0_channel_input.signal_in
@@ -108,31 +114,94 @@ module SerDes_Sys(
 		.channel_module_0_channel_output_signal_out       (voltage_out_channel),       // channel_module_0_channel_output.signal_out
 		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
 	   );
-		
+		*/
+			//channel related control signals and fsm:
+		logic [1:0] channel_state;
+		logic channel_enable;
+		logic channel_in_valid;
+		always_ff @(posedge clock) begin
+			if(!reset_n) begin
+				channel_enable <= 'b0;
+            channel_in_valid <= 'b0;
+			end
+			else begin
+				case(channel_state)
+					WAIT_MEM: begin if (channel_mem_triggered) begin
+										load_mem_c <= 'b1;
+                              //channel_mem_triggered <= 'b0;
+										channel_state <= LOAD_MEM;
+								 end
+								 else begin
+									load_mem_c <= 1'b0;
+									channel_state <= WAIT_MEM;
+								end
+								end
+					LOAD_MEM: begin if(done_wait_c) begin
+										load_mem_c <= 'b0;
+										channel_enable <= prbs_en;
+                              channel_in_valid <= voltage_valid; //from the PAM-4
+										channel_state <= DONE_WAIT;
+								end
+								else channel_state <= LOAD_MEM;
+								end
+					DONE_WAIT: begin channel_state <= DONE_WAIT; //triggers the load_mem for channel:
+									 channel_enable <= prbs_en;
+									 channel_in_valid <= voltage_valid; //from the PAM-4
+									end
+					default: channel_state <= WAIT_MEM;
+				endcase
+			end
+		end
+			
+			
+		logic [63:0] pulse_data;
+		assign pulse_data = {readdata2[31:0],readdata2[63:32]};
+		 ISI_channel_ocm channel (
+        .clk(clock),
+        .rstn(reset_n),
+		  //inputs
+        .signal_in(voltage_out),
+        .signal_in_valid(voltage_valid),
+		  //outputs
+        .signal_out(voltage_out_channel),
+        .signal_out_valid(voltage_channel_valid),
+         //added control ports:
+        .load_mem(load_mem_c),
+        .done_wait(done_wait_c),
+        .location(location_c),
+        .mem_data(pulse_data)); //this needs to be changed
 		
 		///////////////////////////////////////////////////////////noise instantiation////////////////////////////////////////////////////////////
 		logic [7:0] noise_output;
       logic noise_valid;
-		
+		//control signal reset for all (?)
 		always_ff @(posedge clock) begin
         if(!reset_n) begin 
-            location <= 'b0;
+            location_n <= 'b0;
+            location_c <= 'b0;
         end
         else begin
-            if (load_mem && !wen2 && !done_wait) begin
-                location <= location + 1;
+            if (load_mem_n && !wen2) begin
+                location_n <= location_n + 1;
             end
-				else location <= location;
+            if (load_mem_c && !wen2) begin
+                location_c <= location_c + 1;
+            end
         end
-		end
+    end
 		
 		always_ff @(posedge clock) begin
         if(!reset_n) addr2 <= 'b0;
       
         else begin
-            if(!done_wait && load_mem) begin
-                addr2 <= addr2 + 2;
+            if(!done_wait_n && load_mem_n) begin
+					if(addr2 == 'h100) addr2 <= 'h100;
+               else addr2 <= addr2 + 2;
             end
+				else if (!done_wait_c && load_mem_c) begin
+					//if(addr2 == 'h104) addr2 <= 'h104;
+               /*else*/ addr2 <= addr2 + 2;
+				end
             else addr2 <= addr2;
         end
       end
@@ -157,38 +226,40 @@ module SerDes_Sys(
 		end*/
 		
 		parameter WAIT_MEM = 2'b00, LOAD_MEM = 2'b01, DONE_WAIT = 2'b10;
-		logic [1:0] ctrl_state;
+		logic [1:0] noise_state;
 		
 		always_ff @(posedge clock) begin
 			if(!reset_n) begin
-				ctrl_state = WAIT_MEM;
+				noise_state = WAIT_MEM;
 				noise_enable <= 'b0;
 				noise_in_valid_i <= 'b0;
+				channel_mem_triggered <= 'b0; 
 			end
 			else begin
-				case(ctrl_state)
+				case(noise_state)
 					WAIT_MEM: begin if (load_mem_pressed) begin
-										load_mem <= 'b1;
-										ctrl_state <= LOAD_MEM;
+										load_mem_n <= 'b1;
+										noise_state <= LOAD_MEM;
 								 end
 								 else begin
-									load_mem <= 1'b0;
-									ctrl_state <= WAIT_MEM;
+									load_mem_n <= 1'b0;
+									noise_state <= WAIT_MEM;
 								end
 								end
-					LOAD_MEM: begin if(done_wait) begin
-										load_mem <= 'b0;
+					LOAD_MEM: begin if(done_wait_n) begin
+										load_mem_n <= 'b0;
 										noise_enable <= prbs_en;
 										noise_in_valid_i <= voltage_channel_valid;
-										ctrl_state <= DONE_WAIT;
+										noise_state <= DONE_WAIT;
 								end
-								else ctrl_state <= LOAD_MEM;
+								else noise_state <= LOAD_MEM;
 								end
-					DONE_WAIT: begin ctrl_state <= DONE_WAIT; //can technically put prbs_en here
+					DONE_WAIT: begin noise_state <= DONE_WAIT; //can technically put prbs_en here
 								   noise_enable <= prbs_en;
 									noise_in_valid_i <= voltage_channel_valid;
+									channel_mem_triggered <= 'b1;
 									end
-					default: ctrl_state <= WAIT_MEM;
+					default: noise_state <= WAIT_MEM;
 				endcase
 			end
 		end
@@ -205,18 +276,19 @@ module SerDes_Sys(
 		///probablemattic readdata2: inverted ??
 		logic [63:0] noise_data;
 		assign noise_data = {readdata2[31:0],readdata2[63:32]};
+		
 		noise_128_wrapper noise_wrapper_noise (
             .clk(clock),
             .en(noise_enable), //yudi: need to change this later
             .rstn(reset_n),
             .noise_in(voltage_out_channel),
-				.noise_in_valid(noise_in_valid),
+				.noise_in_valid(voltage_channel_valid),//noise_in_valid),
             .noise_out(noise_output),
             .noise_out_valid(noise_valid),
-				.done_wait(done_wait), //////for loading signals
+				.done_wait(done_wait_n), //////for loading signals
 			   .mem_data(noise_data),
-			   .location(location),
-			   .load_mem(load_mem)
+			   .location(location_n),
+			   .load_mem(load_mem_n)
     );
 		
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -249,7 +321,7 @@ module SerDes_Sys(
 		assign prbs_en = ~KEY[1]; //
 		assign reset_n = KEY[0]; //down = logic 0, up: logic 1
 		assign load_mem_pressed = ~KEY[2];
-		assign LEDR[0] = done_wait;
+		assign LEDR[0] = done_wait_c;
 		
 		//tying off signals:
 		assign wen2 = 'b0;

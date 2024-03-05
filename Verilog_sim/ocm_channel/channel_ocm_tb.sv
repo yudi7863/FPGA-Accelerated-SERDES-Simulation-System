@@ -89,11 +89,12 @@ module channel_ocm_tb;
 
 
     always_ff @(posedge clk) begin
-        if(!rstn) begin addr2 <= 'b0;
+        if(!rstn) begin addr2 <= 'h200;
         addr <= 'b0;
         end
         else begin
-            if(en2 && !done_wait) begin
+            if(en2 && !done_wait) begin //need to determine where the address is for the channel here
+            //hardcoded value
                 addr2 <= addr2 + 4;
                 //if(addr2 == 'h1ff) addr2 <= 'h000;
             end
