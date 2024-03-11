@@ -1,7 +1,7 @@
 clc
 clear
 order = 31;
-num_data = 487;
+num_data = 500000;
 SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
 prbs_length = 31;
 % Generating random data
@@ -102,11 +102,18 @@ noise_output
 % Define length
 DFE_output = zeros(1,num_data_half);
 for i = 1:num_data_half
-    if (i == 1)
-        DFE_output(i) = noise_output(i);
-    else
-        DFE_output(i) = noise_output(i) - 0.5 * DFE_output(i-1);
+    %if (i == 1)
+    %    DFE_output(i) = noise_output(i);
+    %else
+    %    DFE_output(i) = noise_output(i) - 0.5 * DFE_output(i-1);
+    %end
+    DFE_output(i) = noise_output(i);
+    for j = 1:(length(h)-1)
+        if (j < i)
+            DFE_output(i) = DFE_output(i) - h(j+1) * DFE_output(i-j);
+        end
     end
+    DFE_output(i) = DFE_output(i) / h(1);
     % Make decision
     if(DFE_output(i) >= 56)
         DFE_output(i) = 84;
