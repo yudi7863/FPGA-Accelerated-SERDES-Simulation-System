@@ -1,0 +1,22 @@
+
+
+c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf
+
+Oct 16 10PM:06:34>: MegaWizard Plug-In Manager does not recognize c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf as a wizard-generated
+custom megafunction variation.
+
+Do you want to use a wizard to overwrite it?
+
+c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf
+
+Oct 16 10PM:06:37>: MegaWizard Plug-In Manager does not recognize c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf as a wizard-generated
+custom megafunction variation.
+
+Do you want to use a wizard to overwrite it?
+
+c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf
+
+Oct 16 10PM:06:38>: MegaWizard Plug-In Manager does not recognize c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_shiftreg.tdf as a wizard-generated
+custom megafunction variation.
+
+Do you want to use a wizard to overwrite it?

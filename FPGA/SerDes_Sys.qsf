@@ -274,26 +274,6 @@ set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA -to SW[1]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 16MA -to SW[0]
 set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE stp/channel_rx_verification.stp
-set_global_assignment -name SOURCE_FILE rtl/noise_prob/probability_verilog_helper.mem
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise_128.sv
-set_global_assignment -name QIP_FILE qsys/NIOS_UART/synthesis/NIOS_UART.qip
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/urng_64.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise_wrapper.sv
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise.sv
-set_global_assignment -name QIP_FILE qsys/RX/synthesis/RX.qip
-set_global_assignment -name QIP_FILE qsys/channel/synthesis/channel.qip
-set_global_assignment -name SDC_FILE documents/de1soc.sdc
-set_global_assignment -name QIP_FILE qsys/TX/synthesis/TX.qip
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/SerDes_Sys.sv
-set_global_assignment -name QIP_FILE ips/pll.qip
-set_global_assignment -name SIP_FILE ips/pll.sip
-set_global_assignment -name SYSTEMVERILOG_FILE rtl/Tx_sim/hexDisplay.sv
-set_global_assignment -name SIGNALTAP_FILE stp/TX_waveform.stp
-set_global_assignment -name TEXT_FILE stp/TX_waveform_data_out.txt
-set_global_assignment -name SIGNALTAP_FILE stp/channel_rx_verification.stp
-set_global_assignment -name SIGNALTAP_FILE stp/UART_TEST.stp
-set_global_assignment -name SIGNALTAP_FILE output_files/noise_ver.stp
-set_global_assignment -name SIGNALTAP_FILE stp/noise_ver.stp
 set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id channel_rx_verification
 set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id channel_rx_verification
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "RX:receiver|clk_clk" -section_id channel_rx_verification
@@ -448,5 +428,26 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_COUNTER_PIPELINE=
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_channel_rx_verification_1_cbae," -section_id channel_rx_verification
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id channel_rx_verification
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=1" -section_id channel_rx_verification
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/changed_ver/channel_model_prl.sv
+set_global_assignment -name SOURCE_FILE rtl/noise_prob/probability_verilog_helper.mem
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise_128.sv
+set_global_assignment -name QIP_FILE qsys/NIOS_UART/synthesis/NIOS_UART.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/urng_64.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise_wrapper.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/noise/noise.sv
+set_global_assignment -name QIP_FILE qsys/RX/synthesis/RX.qip
+set_global_assignment -name QIP_FILE qsys/channel/synthesis/channel.qip
+set_global_assignment -name SDC_FILE documents/de1soc.sdc
+set_global_assignment -name QIP_FILE qsys/TX/synthesis/TX.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/SerDes_Sys.sv
+set_global_assignment -name QIP_FILE ips/pll.qip
+set_global_assignment -name SIP_FILE ips/pll.sip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/Tx_sim/hexDisplay.sv
+set_global_assignment -name SIGNALTAP_FILE stp/TX_waveform.stp
+set_global_assignment -name TEXT_FILE stp/TX_waveform_data_out.txt
+set_global_assignment -name SIGNALTAP_FILE stp/channel_rx_verification.stp
+set_global_assignment -name SIGNALTAP_FILE stp/UART_TEST.stp
+set_global_assignment -name SIGNALTAP_FILE output_files/noise_ver.stp
+set_global_assignment -name SIGNALTAP_FILE stp/noise_ver.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/channel_rx_verification_auto_stripped.stp

@@ -59,7 +59,7 @@ module SerDes_Sys(
 		 logic channel_mem_triggered;
 		
 		//on-chip-ram connection -> connect to UART:
-		 logic [13:0] addr2;
+		 logic [13:0] addr2 /*synthesis preserve*/;
 		 logic wen2;
 		 logic [63:0] writedata2;
 		 logic [63:0] readdata2;
@@ -75,14 +75,36 @@ module SerDes_Sys(
 		logic clock;
 		logic refclk;
 		logic locked;
-		
+		/*
 		pll G100MHz (
 			.refclk(CLOCK_50),
 			.rst(0),
 			.outclk_0(clock)
 		);
+		*/
+		assign clock = CLOCK_50;
 		
+		//counter for number of symbols:
+		assign LEDR[6] = (counter_samples >= 'h2faf0800);
+		logic [70:0] counter_samples;
+		always_ff @ (posedge clock) begin
+			if(!reset_n) counter_samples <= 'b0;
+			else begin
+				if(encoder_valid) begin
+					if(counter_samples < 'h2faf0800) begin
+						counter_samples <= counter_samples + 'd2;
+						LEDR[4] <= 'b1;
+					end
+				end
+				if (counter_samples >= 'h2faf0800) begin
+					LEDR[2] <= 'b1;
+					LEDR[4] <= 'b0;
+				end
+			
+			
+			end	
 		
+		end
 		
 		/////////////////////////////////////TX instatiation /////////////////////////////////////////////
 		TX transmitter (
@@ -177,30 +199,30 @@ module SerDes_Sys(
 		//control signal reset for all (?)
 		always_ff @(posedge clock) begin
         if(!reset_n) begin 
-            location_n <= 'b0;
-            location_c <= 'b0;
+            location_n <= 7'b0;
+            location_c <= 7'b0;
         end
         else begin
             if (load_mem_n && !wen2) begin
-                location_n <= location_n + 1;
+                location_n <= location_n + 7'b1;
             end
             if (load_mem_c && !wen2) begin
-                location_c <= location_c + 1;
+                location_c <= location_c + 7'b1;
             end
         end
     end
 		
 		always_ff @(posedge clock) begin
-        if(!reset_n) addr2 <= 'b0;
+        if(!reset_n) addr2 <= 14'b0;
       
         else begin
             if(!done_wait_n && load_mem_n) begin
-					if(addr2 == 'h100) addr2 <= 'h100;
-               else addr2 <= addr2 + 2;
+					if(addr2 == 'h100) addr2 <= 14'h100;
+               else addr2 <= addr2 + 14'd2;
             end
 				else if (!done_wait_c && load_mem_c) begin
 					//if(addr2 == 'h104) addr2 <= 'h104;
-               /*else*/ addr2 <= addr2 + 2;
+               /*else*/ addr2 <= addr2 + 14'd2;
 				end
             else addr2 <= addr2;
         end
@@ -276,10 +298,10 @@ module SerDes_Sys(
 		///probablemattic readdata2: inverted ??
 		logic [63:0] noise_data;
 		assign noise_data = {readdata2[31:0],readdata2[63:32]};
-		
+		logic [7:0] noise_out_hex;
 		noise_128_wrapper noise_wrapper_noise (
             .clk(clock),
-            .en(noise_enable), //yudi: need to change this later
+            .en(prbs_en && !load_mem_n), //yudi: need to change this later
             .rstn(reset_n),
             .noise_in(voltage_out_channel),
 				.noise_in_valid(voltage_channel_valid),//noise_in_valid),
@@ -290,31 +312,72 @@ module SerDes_Sys(
 			   .location(location_n),
 			   .load_mem(load_mem_n)
     );
+	 
+	 		/*noise_128_wrapper_mem noise_wrapper_noise_mem (
+            .clk(clock),
+            .en(prbs_en), //yudi: need to change this later
+            .rstn(reset_n),
+            .noise_in(voltage_out_channel),
+				.noise_in_valid(voltage_channel_valid),//noise_in_valid),
+            .noise_out(noise_output),
+            .noise_out_valid(noise_valid)
+    );*/
+		logic done_wait_d;
+		DFE_prl DFE(
+		.done_wait                           (done_wait_d),                           //               dfe_0_done_wait.done_wait
+		.load_mem                             (load_mem_c),                             //                dfe_0_load_mem.load_mem
+		.mem_data                             (pulse_data),                             //                dfe_0_mem_data.mem_data
+		.location                             (location_c),                             //                dfe_0_location.location
+		.signal_in                           (noise_output),                           //               dfe_0_signal_in.signal_in
+		.signal_in_valid                     (noise_valid),                     //                              .signal_in_valid
+		.signal_out                         (voltage_out_dfe),                         //              dfe_0_signal_out.signal_out
+		.signal_out_valid                   (voltage_dfe_valid),
+		.clk(clock),
+		.rstn(reset_n));                  //                              .signal_out_valid
+		
+		
+		logic data_out;
+		logic data_out_valid;
 		
 		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		RX receiver (
-		.clk_clk                                             (clock),                                             //                           clk.clk
-		.dfe_0_dfe_in_signal_in                              (noise_output),                              //                  dfe_0_dfe_in.signal_in
-		.dfe_0_dfe_in_signal_in_valid                        (noise_valid),                        //                              .signal_in_valid
-		.dfe_0_dfe_out_signal_out                            (voltage_out_dfe),                            //                 dfe_0_dfe_out.signal_out
-		.dfe_0_dfe_out_signal_out_valid                      (voltage_dfe_valid),                      //                              .signal_out_valid
-		.dfe_0_noise_noise                                   (),                                   //                   dfe_0_noise.noise
-		.dfe_0_train_data_train_data                         (),                         //              dfe_0_train_data.train_data
-		.dfe_0_train_data_train_data_valid                   (),                   //                              .train_data_valid
+		/*RX receiver (
+		.clk_clk                                             (clock),                                             //                           clk.clk                    //                              .signal_out_valid
+		//                              .train_data_valid
 		.reset_reset_n                                       (reset_n),                                       //                         reset.reset_n
 		.pam4_decoder_0_rx_pam4_input_voltage_level_in       (voltage_out_dfe),       //  pam4_decoder_0_rx_pam4_input.voltage_level_in
 		.pam4_decoder_0_rx_pam4_input_voltage_level_in_valid (voltage_dfe_valid), //                              .voltage_level_in_valid
 		.pam4_decoder_0_rx_pam4_output_symbol_out            (decoder_in),            // pam4_decoder_0_rx_pam4_output.symbol_out
 		.pam4_decoder_0_rx_pam4_output_symbol_out_valid      (decoder_valid),      //                              .symbol_out_valid
-		.gray_decoder_0_data_out_data_out                    (decoder_out),                    //       gray_decoder_0_data_out.data_out
-		.gray_decoder_0_data_out_data_out_valid              (decoder_out_valid),              //                              .data_out_valid
+		.gray_decoder_0_data_out_data_out                    (data_out),                    //       gray_decoder_0_data_out.data_out
+		.gray_decoder_0_data_out_data_out_valid              (data_out_valid),              //                              .data_out_valid
 		.gray_decoder_0_symbol_in_symbol_in                  (decoder_in),                  //      gray_decoder_0_symbol_in.symbol_in
 		.gray_decoder_0_symbol_in_symbol_in_valid            (decoder_valid)             //                              .symbol_in_valid
-	   );
+	   );*/
 		
+		pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
+        .clk(clock),
+        .rstn(reset_n),
+        .voltage_level_in(voltage_out_dfe),
+	    .voltage_level_in_valid(voltage_dfe_valid),
+        .symbol_out(decoder_in),
+        .symbol_out_valid(decoder_valid));
+
+    
+		grey_decode gd(
+        .clk(clock),
+        .rstn(reset_n),
+        .symbol_in(decoder_in),
+	    .symbol_in_valid(decoder_valid),
+        .data_out(data_out),
+        .data_out_valid(data_out_valid));
 		
-		
-		
+	/*	grad_decoder grey_decode(
+    .clk(clock),
+    .rstn(reset_n),
+    .symbol_in(),
+    .symbol_in_valid(),
+    .data_out(),
+    .data_out_valid());*/
 		///////////////////////////////////////////////////////////////////control signals to the board////////////////////////////////////////////////////////////
 		
 		//connecting to button

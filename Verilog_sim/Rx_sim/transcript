@@ -1,6 +1,6 @@
 vlog *.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 00:08:06 on Mar 05,2024
+# Start time: 01:33:52 on Mar 12,2024
 # vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
 # -- Compiling module pam_4_encode
 # -- Compiling module pam_4_decode
@@ -24,22 +24,11 @@ vlog *.sv
 # 	noise_wrapper
 # 	noise_128_test
 # 	noise_feedback_tb
-# End time: 00:08:07 on Mar 05,2024, Elapsed time: 0:00:01
+# End time: 01:33:52 on Mar 12,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vsim noise_feedback_tb
-# vsim noise_feedback_tb 
-# Start time: 00:08:22 on Mar 05,2024
-# Loading sv_std.std
-# Loading work.noise_feedback_tb
-# doVOpenFlatFile(): INTERNAL ERROR: page load failed for file C:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim/work/prbs31/verilog.psm (114:114 1:1 9077 0 0 8664 0x0:0x65e69ee1)
-# ** Error: (vsim-3171) Could not find machine code for 'C:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim/work.prbs31'.
-# Result too large. (errno = ERANGE)
-# Error loading design
-# End time: 00:08:22 on Mar 05,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
 vlog *.v
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 00:08:44 on Mar 05,2024
+# Start time: 01:33:55 on Mar 12,2024
 # vlog -reportprogress 300 grey_code.v prbs.v rx_tb.v 
 # -- Compiling module grey_encode
 # -- Compiling module grey_decode
@@ -50,11 +39,11 @@ vlog *.v
 # Top level modules:
 # 	prbs31_checker
 # 	dfe_tb
-# End time: 00:08:44 on Mar 05,2024, Elapsed time: 0:00:00
+# End time: 01:33:55 on Mar 12,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim noise_feedback_tb
 # vsim noise_feedback_tb 
-# Start time: 00:08:47 on Mar 05,2024
+# Start time: 01:34:06 on Mar 12,2024
 # Loading sv_std.std
 # Loading work.noise_feedback_tb
 # Loading work.prbs31
@@ -94,14 +83,14 @@ sim:/noise_feedback_tb/binary_data_rx \
 sim:/noise_feedback_tb/binary_data
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 #           File in use by: 13083  Hostname: RE1NA  ProcessID: 7396
-#           Attempting to use alternate WLF file "./wlftx9xxya".
+#           Attempting to use alternate WLF file "./wlftakvkxh".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
-#           Using alternate file: ./wlftx9xxya
+#           Using alternate file: ./wlftakvkxh
 run -all
 # 
-# Bits Transmitted:       487
+# Bits Transmitted:     49987
 # 
-# Bit Errors:       167
+# Bit Errors:     16507
 # noise_counter[0] =   1
 # noise_counter[1] =   0
 # noise_counter[2] =   0
@@ -126,92 +115,92 @@ run -all
 # noise_counter[21] =   0
 # noise_counter[22] =   0
 # noise_counter[23] =   0
-# noise_counter[24] =   0
+# noise_counter[24] =   1
 # noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
 # noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
 # noise_counter[104] =   0
-# noise_counter[105] =   0
+# noise_counter[105] =   1
 # noise_counter[106] =   0
 # noise_counter[107] =   0
 # noise_counter[108] =   0
-# noise_counter[109] =   0
+# noise_counter[109] =   1
 # noise_counter[110] =   0
 # noise_counter[111] =   0
 # noise_counter[112] =   0
@@ -231,9 +220,11 @@ run -all
 # noise_counter[126] =   0
 # noise_counter[127] =   0
 # ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
 # 1
 # Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities
 add wave -position insertpoint  \
 sim:/noise_feedback_tb/channel/pulse_response
 restart -f
@@ -243,9 +234,9 @@ run -all
 # 
 # 
 # 
-# Bits Transmitted:       487
+# Bits Transmitted:     49987
 # 
-# Bit Errors:       167
+# Bit Errors:     16507
 # noise_counter[0] =   1
 # noise_counter[1] =   0
 # noise_counter[2] =   0
@@ -270,92 +261,92 @@ run -all
 # noise_counter[21] =   0
 # noise_counter[22] =   0
 # noise_counter[23] =   0
-# noise_counter[24] =   0
+# noise_counter[24] =   1
 # noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
 # noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
 # noise_counter[104] =   0
-# noise_counter[105] =   0
+# noise_counter[105] =   1
 # noise_counter[106] =   0
 # noise_counter[107] =   0
 # noise_counter[108] =   0
-# noise_counter[109] =   0
+# noise_counter[109] =   1
 # noise_counter[110] =   0
 # noise_counter[111] =   0
 # noise_counter[112] =   0
@@ -375,584 +366,14 @@ run -all
 # noise_counter[126] =   0
 # noise_counter[127] =   0
 # ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
 # 1
 # Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
 add wave -position insertpoint  \
 sim:/noise_feedback_tb/channel/isi
-restart -f
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# 
-# Bits Transmitted:       487
-# 
-# Bit Errors:       167
-# noise_counter[0] =   1
-# noise_counter[1] =   0
-# noise_counter[2] =   0
-# noise_counter[3] =   0
-# noise_counter[4] =   0
-# noise_counter[5] =   0
-# noise_counter[6] =   0
-# noise_counter[7] =   0
-# noise_counter[8] =   0
-# noise_counter[9] =   0
-# noise_counter[10] =   0
-# noise_counter[11] =   0
-# noise_counter[12] =   0
-# noise_counter[13] =   0
-# noise_counter[14] =   0
-# noise_counter[15] =   0
-# noise_counter[16] =   0
-# noise_counter[17] =   0
-# noise_counter[18] =   0
-# noise_counter[19] =   0
-# noise_counter[20] =   0
-# noise_counter[21] =   0
-# noise_counter[22] =   0
-# noise_counter[23] =   0
-# noise_counter[24] =   0
-# noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
-# noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
-# noise_counter[104] =   0
-# noise_counter[105] =   0
-# noise_counter[106] =   0
-# noise_counter[107] =   0
-# noise_counter[108] =   0
-# noise_counter[109] =   0
-# noise_counter[110] =   0
-# noise_counter[111] =   0
-# noise_counter[112] =   0
-# noise_counter[113] =   0
-# noise_counter[114] =   0
-# noise_counter[115] =   0
-# noise_counter[116] =   0
-# noise_counter[117] =   0
-# noise_counter[118] =   0
-# noise_counter[119] =   0
-# noise_counter[120] =   0
-# noise_counter[121] =   0
-# noise_counter[122] =   0
-# noise_counter[123] =   0
-# noise_counter[124] =   0
-# noise_counter[125] =   0
-# noise_counter[126] =   0
-# noise_counter[127] =   0
-# ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
-# 1
-# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
-add wave -position insertpoint  \
-sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities
-restart -f
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# 
-# Bits Transmitted:       487
-# 
-# Bit Errors:       167
-# noise_counter[0] =   1
-# noise_counter[1] =   0
-# noise_counter[2] =   0
-# noise_counter[3] =   0
-# noise_counter[4] =   0
-# noise_counter[5] =   0
-# noise_counter[6] =   0
-# noise_counter[7] =   0
-# noise_counter[8] =   0
-# noise_counter[9] =   0
-# noise_counter[10] =   0
-# noise_counter[11] =   0
-# noise_counter[12] =   0
-# noise_counter[13] =   0
-# noise_counter[14] =   0
-# noise_counter[15] =   0
-# noise_counter[16] =   0
-# noise_counter[17] =   0
-# noise_counter[18] =   0
-# noise_counter[19] =   0
-# noise_counter[20] =   0
-# noise_counter[21] =   0
-# noise_counter[22] =   0
-# noise_counter[23] =   0
-# noise_counter[24] =   0
-# noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
-# noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
-# noise_counter[104] =   0
-# noise_counter[105] =   0
-# noise_counter[106] =   0
-# noise_counter[107] =   0
-# noise_counter[108] =   0
-# noise_counter[109] =   0
-# noise_counter[110] =   0
-# noise_counter[111] =   0
-# noise_counter[112] =   0
-# noise_counter[113] =   0
-# noise_counter[114] =   0
-# noise_counter[115] =   0
-# noise_counter[116] =   0
-# noise_counter[117] =   0
-# noise_counter[118] =   0
-# noise_counter[119] =   0
-# noise_counter[120] =   0
-# noise_counter[121] =   0
-# noise_counter[122] =   0
-# noise_counter[123] =   0
-# noise_counter[124] =   0
-# noise_counter[125] =   0
-# noise_counter[126] =   0
-# noise_counter[127] =   0
-# ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
-# 1
-# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
-add wave -position insertpoint  \
-sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/random
-restart -f
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# 
-# Bits Transmitted:       487
-# 
-# Bit Errors:       167
-# noise_counter[0] =   1
-# noise_counter[1] =   0
-# noise_counter[2] =   0
-# noise_counter[3] =   0
-# noise_counter[4] =   0
-# noise_counter[5] =   0
-# noise_counter[6] =   0
-# noise_counter[7] =   0
-# noise_counter[8] =   0
-# noise_counter[9] =   0
-# noise_counter[10] =   0
-# noise_counter[11] =   0
-# noise_counter[12] =   0
-# noise_counter[13] =   0
-# noise_counter[14] =   0
-# noise_counter[15] =   0
-# noise_counter[16] =   0
-# noise_counter[17] =   0
-# noise_counter[18] =   0
-# noise_counter[19] =   0
-# noise_counter[20] =   0
-# noise_counter[21] =   0
-# noise_counter[22] =   0
-# noise_counter[23] =   0
-# noise_counter[24] =   0
-# noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
-# noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
-# noise_counter[104] =   0
-# noise_counter[105] =   0
-# noise_counter[106] =   0
-# noise_counter[107] =   0
-# noise_counter[108] =   0
-# noise_counter[109] =   0
-# noise_counter[110] =   0
-# noise_counter[111] =   0
-# noise_counter[112] =   0
-# noise_counter[113] =   0
-# noise_counter[114] =   0
-# noise_counter[115] =   0
-# noise_counter[116] =   0
-# noise_counter[117] =   0
-# noise_counter[118] =   0
-# noise_counter[119] =   0
-# noise_counter[120] =   0
-# noise_counter[121] =   0
-# noise_counter[122] =   0
-# noise_counter[123] =   0
-# noise_counter[124] =   0
-# noise_counter[125] =   0
-# noise_counter[126] =   0
-# noise_counter[127] =   0
-# ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
-# 1
-# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
-add wave -position insertpoint  \
-sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/gen_dut_start
-restart -f
-run -all
-# GetModuleFileName: The specified module could not be found.
-# 
-# 
-# 
-# Bits Transmitted:       487
-# 
-# Bit Errors:       167
-# noise_counter[0] =   1
-# noise_counter[1] =   0
-# noise_counter[2] =   0
-# noise_counter[3] =   0
-# noise_counter[4] =   0
-# noise_counter[5] =   0
-# noise_counter[6] =   0
-# noise_counter[7] =   0
-# noise_counter[8] =   0
-# noise_counter[9] =   0
-# noise_counter[10] =   0
-# noise_counter[11] =   0
-# noise_counter[12] =   0
-# noise_counter[13] =   0
-# noise_counter[14] =   0
-# noise_counter[15] =   0
-# noise_counter[16] =   0
-# noise_counter[17] =   0
-# noise_counter[18] =   0
-# noise_counter[19] =   0
-# noise_counter[20] =   0
-# noise_counter[21] =   0
-# noise_counter[22] =   0
-# noise_counter[23] =   0
-# noise_counter[24] =   0
-# noise_counter[25] =   0
-# noise_counter[26] =   0
-# noise_counter[27] =   0
-# noise_counter[28] =   0
-# noise_counter[29] =   0
-# noise_counter[30] =   0
-# noise_counter[31] =   0
-# noise_counter[32] =   1
-# noise_counter[33] =   0
-# noise_counter[34] =   0
-# noise_counter[35] =   0
-# noise_counter[36] =   0
-# noise_counter[37] =   0
-# noise_counter[38] =   2
-# noise_counter[39] =   2
-# noise_counter[40] =   3
-# noise_counter[41] =   4
-# noise_counter[42] =   1
-# noise_counter[43] =   1
-# noise_counter[44] =   2
-# noise_counter[45] =   2
-# noise_counter[46] =   8
-# noise_counter[47] =   4
-# noise_counter[48] =   7
-# noise_counter[49] =  10
-# noise_counter[50] =   4
-# noise_counter[51] =  12
-# noise_counter[52] =  13
-# noise_counter[53] =  13
-# noise_counter[54] =  11
-# noise_counter[55] =  17
-# noise_counter[56] =  16
-# noise_counter[57] =  16
-# noise_counter[58] =  21
-# noise_counter[59] =  22
-# noise_counter[60] =  21
-# noise_counter[61] =  21
-# noise_counter[62] =  25
-# noise_counter[63] =  20
-# noise_counter[64] =  13
-# noise_counter[65] =  21
-# noise_counter[66] =  13
-# noise_counter[67] =  26
-# noise_counter[68] =   7
-# noise_counter[69] =  11
-# noise_counter[70] =  13
-# noise_counter[71] =  18
-# noise_counter[72] =   9
-# noise_counter[73] =  19
-# noise_counter[74] =  10
-# noise_counter[75] =   7
-# noise_counter[76] =   7
-# noise_counter[77] =   6
-# noise_counter[78] =   5
-# noise_counter[79] =   6
-# noise_counter[80] =   4
-# noise_counter[81] =   1
-# noise_counter[82] =   5
-# noise_counter[83] =   5
-# noise_counter[84] =   5
-# noise_counter[85] =   3
-# noise_counter[86] =   1
-# noise_counter[87] =   0
-# noise_counter[88] =   1
-# noise_counter[89] =   1
-# noise_counter[90] =   1
-# noise_counter[91] =   0
-# noise_counter[92] =   0
-# noise_counter[93] =   0
-# noise_counter[94] =   0
-# noise_counter[95] =   0
-# noise_counter[96] =   0
-# noise_counter[97] =   0
-# noise_counter[98] =   1
-# noise_counter[99] =   0
-# noise_counter[100] =   0
-# noise_counter[101] =   0
-# noise_counter[102] =   0
-# noise_counter[103] =   0
-# noise_counter[104] =   0
-# noise_counter[105] =   0
-# noise_counter[106] =   0
-# noise_counter[107] =   0
-# noise_counter[108] =   0
-# noise_counter[109] =   0
-# noise_counter[110] =   0
-# noise_counter[111] =   0
-# noise_counter[112] =   0
-# noise_counter[113] =   0
-# noise_counter[114] =   0
-# noise_counter[115] =   0
-# noise_counter[116] =   0
-# noise_counter[117] =   0
-# noise_counter[118] =   0
-# noise_counter[119] =   0
-# noise_counter[120] =   0
-# noise_counter[121] =   0
-# noise_counter[122] =   0
-# noise_counter[123] =   0
-# noise_counter[124] =   0
-# noise_counter[125] =   0
-# noise_counter[126] =   0
-# noise_counter[127] =   0
-# ** Note: $finish    : noise_feedback_tb.sv(137)
-#    Time: 10050 ns  Iteration: 0  Instance: /noise_feedback_tb
-# 1
-# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
 vlog *.sv
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 01:44:59 on Mar 05,2024
+# Start time: 16:37:29 on Mar 12,2024
 # vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
 # -- Compiling module pam_4_encode
 # -- Compiling module pam_4_decode
@@ -976,7 +397,7 @@ vlog *.sv
 # 	noise_wrapper
 # 	noise_128_test
 # 	noise_feedback_tb
-# End time: 01:44:59 on Mar 05,2024, Elapsed time: 0:00:00
+# End time: 16:37:29 on Mar 12,2024, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 restart -f
 # Loading work.noise_feedback_tb
@@ -1128,3 +549,1328 @@ run -all
 #    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
 # 1
 # Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:04:25 on Mar 12,2024
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module DFE_prl
+# -- Compiling module decision_maker_prl
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# -- Compiling module ISI_channel_prl
+# -- Compiling module noise_wrapper
+# -- Compiling module noise
+# -- Compiling module noise_128_wrapper
+# -- Compiling module noise_128
+# -- Compiling module noise_128_test
+# -- Compiling module noise_feedback_tb
+# -- Compiling module urng_64
+# 
+# Top level modules:
+# 	rx_standalone_tb
+# 	noise_wrapper
+# 	noise_128_test
+# 	noise_feedback_tb
+# End time: 17:04:25 on Mar 12,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog *.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 17:04:28 on Mar 12,2024
+# vlog -reportprogress 300 grey_code.v prbs.v rx_tb.v 
+# -- Compiling module grey_encode
+# -- Compiling module grey_decode
+# -- Compiling module prbs31
+# -- Compiling module prbs31_checker
+# -- Compiling module dfe_tb
+# 
+# Top level modules:
+# 	prbs31_checker
+# 	dfe_tb
+# End time: 17:04:28 on Mar 12,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.noise_feedback_tb
+# Loading work.prbs31
+# Loading work.grey_encode
+# Loading work.pam_4_encode
+# Loading work.ISI_channel_prl
+# Loading work.noise_128_wrapper
+# Loading work.noise_128
+# Loading work.urng_64
+# Loading work.DFE_prl
+# Loading work.decision_maker_prl
+# Loading work.pam_4_decode
+# Loading work.grey_decode
+# Loading work.prbs31_checker
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/channel/signal_out
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 13:24:53 on Mar 13,2024
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module DFE_prl
+# -- Compiling module decision_maker_prl
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# -- Compiling module ISI_channel_prl
+# -- Compiling module noise_wrapper
+# -- Compiling module noise
+# -- Compiling module noise_128_wrapper
+# -- Compiling module noise_128
+# -- Compiling module noise_128_test
+# -- Compiling module noise_feedback_tb
+# -- Compiling module urng_64
+# 
+# Top level modules:
+# 	rx_standalone_tb
+# 	noise_wrapper
+# 	noise_128_test
+# 	noise_feedback_tb
+# End time: 13:24:53 on Mar 13,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.noise_feedback_tb
+# Loading work.pam_4_encode
+# Loading work.ISI_channel_prl
+# Loading work.noise_128_wrapper
+# Loading work.noise_128
+# Loading work.urng_64
+# Loading work.DFE_prl
+# Loading work.decision_maker_prl
+# Loading work.pam_4_decode
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/channel/signal_in_signed
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/noise_wrapper_noise/noise_out
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/noise_out
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+add wave -position insertpoint  \
+sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/random
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[0]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[1]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[2]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[3]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[4]}
+add wave -position insertpoint reg
+# ** UI-Msg: (vish-4014) No objects found matching 'reg'.
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[6]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[7]}
+add wave -position insertpoint  \
+{sim:/noise_feedback_tb/noise_wrapper_noise/noise_128/possibilities[8]}
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 03:47:18 on Mar 14,2024
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module DFE_prl
+# -- Compiling module decision_maker_prl
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# -- Compiling module ISI_channel_prl
+# -- Compiling module noise_wrapper
+# -- Compiling module noise
+# -- Compiling module noise_128_wrapper
+# -- Compiling module noise_128
+# -- Compiling module noise_128_test
+# -- Compiling module noise_feedback_tb
+# -- Compiling module urng_64
+# 
+# Top level modules:
+# 	rx_standalone_tb
+# 	noise_wrapper
+# 	noise_128_test
+# 	noise_feedback_tb
+# End time: 03:47:18 on Mar 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.noise_feedback_tb
+# Loading work.pam_4_encode
+# Loading work.ISI_channel_prl
+# Loading work.noise_128_wrapper
+# Loading work.noise_128
+# Loading work.urng_64
+# Loading work.DFE_prl
+# Loading work.decision_maker_prl
+# Loading work.pam_4_decode
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+vlog *.sv
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 08:19:30 on Mar 14,2024
+# vlog -reportprogress 300 PAM_4.sv Rx.sv Rx_prl.sv Rx_standalone_tb.sv channel_model.sv channel_model_prl.sv noise.sv noise_128.sv noise_128_test.sv noise_feedback_tb.sv urng_64.sv 
+# -- Compiling module pam_4_encode
+# -- Compiling module pam_4_decode
+# -- Compiling module DFE
+# -- Compiling module decision_maker
+# -- Compiling module DFE_prl
+# -- Compiling module decision_maker_prl
+# -- Compiling module rx_standalone_tb
+# -- Compiling module ISI_channel
+# -- Compiling module ISI_channel_prl
+# -- Compiling module noise_wrapper
+# -- Compiling module noise
+# -- Compiling module noise_128_wrapper
+# -- Compiling module noise_128
+# -- Compiling module noise_128_test
+# -- Compiling module noise_feedback_tb
+# -- Compiling module urng_64
+# 
+# Top level modules:
+# 	rx_standalone_tb
+# 	noise_wrapper
+# 	noise_128_test
+# 	noise_feedback_tb
+# End time: 08:19:30 on Mar 14,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+restart -f
+# Loading work.noise_feedback_tb
+# Loading work.pam_4_encode
+# Loading work.ISI_channel_prl
+# Loading work.noise_128_wrapper
+# Loading work.noise_128
+# Loading work.urng_64
+# Loading work.DFE_prl
+# Loading work.decision_maker_prl
+# Loading work.pam_4_decode
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# 
+# Bits Transmitted:     49987
+# 
+# Bit Errors:     16507
+# noise_counter[0] =   1
+# noise_counter[1] =   0
+# noise_counter[2] =   0
+# noise_counter[3] =   0
+# noise_counter[4] =   0
+# noise_counter[5] =   0
+# noise_counter[6] =   0
+# noise_counter[7] =   0
+# noise_counter[8] =   0
+# noise_counter[9] =   0
+# noise_counter[10] =   0
+# noise_counter[11] =   0
+# noise_counter[12] =   0
+# noise_counter[13] =   0
+# noise_counter[14] =   0
+# noise_counter[15] =   0
+# noise_counter[16] =   0
+# noise_counter[17] =   0
+# noise_counter[18] =   0
+# noise_counter[19] =   0
+# noise_counter[20] =   0
+# noise_counter[21] =   0
+# noise_counter[22] =   0
+# noise_counter[23] =   0
+# noise_counter[24] =   1
+# noise_counter[25] =   0
+# noise_counter[26] =   5
+# noise_counter[27] =   4
+# noise_counter[28] =   5
+# noise_counter[29] =   3
+# noise_counter[30] =   7
+# noise_counter[31] =  17
+# noise_counter[32] =  17
+# noise_counter[33] =  19
+# noise_counter[34] =  25
+# noise_counter[35] =  47
+# noise_counter[36] =  57
+# noise_counter[37] =  78
+# noise_counter[38] =  86
+# noise_counter[39] =  98
+# noise_counter[40] = 152
+# noise_counter[41] = 173
+# noise_counter[42] = 216
+# noise_counter[43] = 255
+# noise_counter[44] =  83
+# noise_counter[45] = 120
+# noise_counter[46] = 216
+# noise_counter[47] =  49
+# noise_counter[48] = 124
+# noise_counter[49] = 206
+# noise_counter[50] =  51
+# noise_counter[51] = 155
+# noise_counter[52] =  70
+# noise_counter[53] = 177
+# noise_counter[54] =  38
+# noise_counter[55] = 226
+# noise_counter[56] =  28
+# noise_counter[57] = 152
+# noise_counter[58] = 245
+# noise_counter[59] =  13
+# noise_counter[60] =  82
+# noise_counter[61] = 173
+# noise_counter[62] =  10
+# noise_counter[63] = 144
+# noise_counter[64] = 195
+# noise_counter[65] = 112
+# noise_counter[66] = 173
+# noise_counter[67] = 162
+# noise_counter[68] =  11
+# noise_counter[69] = 124
+# noise_counter[70] = 253
+# noise_counter[71] = 195
+# noise_counter[72] =  36
+# noise_counter[73] = 140
+# noise_counter[74] =  58
+# noise_counter[75] = 201
+# noise_counter[76] =  57
+# noise_counter[77] = 188
+# noise_counter[78] = 176
+# noise_counter[79] = 254
+# noise_counter[80] = 233
+# noise_counter[81] = 150
+# noise_counter[82] =  54
+# noise_counter[83] =  24
+# noise_counter[84] = 240
+# noise_counter[85] = 192
+# noise_counter[86] = 162
+# noise_counter[87] = 116
+# noise_counter[88] =  93
+# noise_counter[89] =  70
+# noise_counter[90] =  53
+# noise_counter[91] =  36
+# noise_counter[92] =  33
+# noise_counter[93] =  22
+# noise_counter[94] =  17
+# noise_counter[95] =  11
+# noise_counter[96] =  10
+# noise_counter[97] =   3
+# noise_counter[98] =   8
+# noise_counter[99] =   2
+# noise_counter[100] =   4
+# noise_counter[101] =   0
+# noise_counter[102] =   4
+# noise_counter[103] =   1
+# noise_counter[104] =   0
+# noise_counter[105] =   1
+# noise_counter[106] =   0
+# noise_counter[107] =   0
+# noise_counter[108] =   0
+# noise_counter[109] =   1
+# noise_counter[110] =   0
+# noise_counter[111] =   0
+# noise_counter[112] =   0
+# noise_counter[113] =   0
+# noise_counter[114] =   0
+# noise_counter[115] =   0
+# noise_counter[116] =   0
+# noise_counter[117] =   0
+# noise_counter[118] =   0
+# noise_counter[119] =   0
+# noise_counter[120] =   0
+# noise_counter[121] =   0
+# noise_counter[122] =   0
+# noise_counter[123] =   0
+# noise_counter[124] =   0
+# noise_counter[125] =   0
+# noise_counter[126] =   0
+# noise_counter[127] =   0
+# ** Note: $finish    : noise_feedback_tb.sv(137)
+#    Time: 1000050 ns  Iteration: 0  Instance: /noise_feedback_tb
+# 1
+# Break in Module noise_feedback_tb at noise_feedback_tb.sv line 137
+# End time: 09:54:14 on Mar 14,2024, Elapsed time: 56:20:08
+# Errors: 0, Warnings: 0

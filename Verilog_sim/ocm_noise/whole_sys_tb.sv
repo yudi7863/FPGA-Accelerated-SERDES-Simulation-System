@@ -111,7 +111,25 @@ module whole_sys_tb;
         .signal_in_valid(voltage_level_valid),
         .signal_out(voltage_out_channel),
         .signal_out_valid(voltage_channel_valid));*/
-
+    		//counter for number of symbols:
+		//assign LEDR[6] = (counter_samples >= 'h7a1200);
+		logic [63:0] counter_samples;
+		always_ff @ (posedge clk) begin
+			if(!rstn) counter_samples <= 'b0;
+			else begin
+				if(symbol_valid) begin
+					if(counter_samples < 'h7a1200) begin
+						counter_samples <= counter_samples + 'd2;
+						//LEDR[4] <= 'b1;
+					end
+				end
+				if (counter_samples >= 'h7a1200) begin
+					//LEDR[2] <= 'b1;
+					//LEDR[4] <= 'b0;
+				end
+            end
+			
+		end	
 
     ////////////////////////////////////////////////////////////////////////////////////////////
    ///////////////////////////////////////////////////////////noise instantiation////////////////////////////////////////////////////////////
@@ -290,16 +308,30 @@ module whole_sys_tb;
         .readdata2(mem_data)
 
     );
-    
+    wire done_wait_d;
     wire [7:0] voltage_level_dfe;
     wire voltage_level_dfe_valid;
-    DFE #(.PULSE_RESPONSE_LENGTH(2), .SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) rx(
+    /*DFE #(.PULSE_RESPONSE_LENGTH(2), .SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) rx(
         .clk(clk),
         .rstn(rstn),
         .signal_in(noise_output),
         .signal_in_valid(noise_valid),
         .signal_out(voltage_level_dfe),
-        .signal_out_valid(voltage_level_dfe_valid));
+        .signal_out_valid(voltage_level_dfe_valid));*/
+    DFE_prl rx(
+        .clk(clk),
+        .rstn(rstn),
+        .signal_in(noise_output),
+        .signal_in_valid(noise_valid),
+        .signal_out(voltage_level_dfe),
+        .signal_out_valid(voltage_level_dfe_valid),
+        .load_mem(load_mem_c),
+        .done_wait(done_wait_d),
+        .location(location_c),
+        .mem_data(mem_data));
+
+
+    
 
     wire [1:0] symbol_rx;
     wire symbol_rx_valid;
@@ -361,7 +393,7 @@ module whole_sys_tb;
         //load_mem <= 0;
         en <= 'b1;
         nvalid <= 1;
-        #1000000
+        #1000
 
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);

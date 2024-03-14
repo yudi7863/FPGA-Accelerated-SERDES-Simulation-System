@@ -1,0 +1,43 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_ocm\qsys\TX.qsys --block-symbol-file --output-directory=C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_ocm\qsys\TX --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading qsys/TX.qsys
+Progress: Reading input file
+Progress: Adding PAM_encoder_0 [PAM_encoder 1.0]
+Progress: Parameterizing module PAM_encoder_0
+Progress: Adding clk_0 [clock_source 22.1]
+Progress: Parameterizing module clk_0
+Progress: Adding gray_encoder_0 [gray_encoder 1.0]
+Progress: Parameterizing module gray_encoder_0
+Progress: Adding prbs_0 [prbs 1.0]
+Progress: Parameterizing module prbs_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_ocm\qsys\TX.qsys --synthesis=VERILOG --output-directory=C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_ocm\qsys\TX\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading qsys/TX.qsys
+Progress: Reading input file
+Progress: Adding PAM_encoder_0 [PAM_encoder 1.0]
+Progress: Parameterizing module PAM_encoder_0
+Progress: Adding clk_0 [clock_source 22.1]
+Progress: Parameterizing module clk_0
+Progress: Adding gray_encoder_0 [gray_encoder 1.0]
+Progress: Parameterizing module gray_encoder_0
+Progress: Adding prbs_0 [prbs 1.0]
+Progress: Parameterizing module prbs_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: TX: Generating TX "TX" for QUARTUS_SYNTH
+Info: PAM_encoder_0: "TX" instantiated PAM_encoder "PAM_encoder_0"
+Info: gray_encoder_0: "TX" instantiated gray_encoder "gray_encoder_0"
+Info: prbs_0: "TX" instantiated prbs "prbs_0"
+Info: rst_controller: "TX" instantiated altera_reset_controller "rst_controller"
+Info: TX: Done "TX" with 5 modules, 7 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
