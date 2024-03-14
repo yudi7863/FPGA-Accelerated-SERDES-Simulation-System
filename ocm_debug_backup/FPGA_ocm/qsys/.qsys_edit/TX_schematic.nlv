@@ -1,0 +1,21 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst TX.gray_encoder_0 -pg 1 -lvl 2 -y 230
+preplace inst TX.clk_0 -pg 1 -lvl 1 -y 90
+preplace inst TX.onchip_memory2_0 -pg 1 -lvl 2 -y 30
+preplace inst TX.PAM_encoder_0 -pg 1 -lvl 2 -y 330
+preplace inst TX -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst TX.prbs_0 -pg 1 -lvl 2 -y 430
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.gray_encoder_0_data_in,(SLAVE)gray_encoder_0.data_in) 1 0 2 NJ 260 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)TX.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.onchip_memory2_0_s1,(SLAVE)onchip_memory2_0.s1) 1 0 2 NJ 80 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.prbs_0_prbs_ctrl,(SLAVE)prbs_0.prbs_ctrl) 1 0 2 NJ 480 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.prbs_0_data_out,(SLAVE)prbs_0.data_out) 1 0 2 NJ 460 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)PAM_encoder_0.symbol_in,(SLAVE)TX.pam_encoder_0_symbol_in) 1 0 2 NJ 400 NJ
+preplace netloc FAN_OUT<net_container>TX</net_container>(MASTER)clk_0.clk_reset,(SLAVE)PAM_encoder_0.rstn,(SLAVE)prbs_0.rstn,(SLAVE)onchip_memory2_0.reset1,(SLAVE)gray_encoder_0.rstn) 1 1 1 430
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)gray_encoder_0.symbol_out,(SLAVE)TX.gray_encoder_0_symbol_out) 1 0 2 NJ 300 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.pam_encoder_0_voltage_level_out,(SLAVE)PAM_encoder_0.Voltage_level_out) 1 0 2 NJ 340 NJ
+preplace netloc EXPORT<net_container>TX</net_container>(SLAVE)TX.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc FAN_OUT<net_container>TX</net_container>(SLAVE)prbs_0.clock,(SLAVE)onchip_memory2_0.clk1,(SLAVE)PAM_encoder_0.clock,(MASTER)clk_0.clk,(SLAVE)gray_encoder_0.clock) 1 1 1 410
+levelinfo -pg 1 0 200 630
+levelinfo -hier TX 210 240 480 620

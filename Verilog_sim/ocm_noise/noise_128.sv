@@ -118,6 +118,7 @@ always @(posedge clk or negedge rstn) begin
             i <= location;
             //need to make sure that i is a valid location...
             possibilities[i] <= mem_data;
+            //possibilities[location] <= mem_data;
             count <= count + 'b1;
         end
         if(count == 'd129) begin //two cycles late...

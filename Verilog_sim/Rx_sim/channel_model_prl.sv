@@ -23,7 +23,8 @@ module ISI_channel_prl#(
     initial begin
         $readmemb("../../Matlab_sim/Tx_sim/pulse_resp_appro.mem", pulse_response);
     end
-
+    reg [SIGNAL_RESOLUTION*2 - 1:0] signal_in_signed;
+    assign signal_in_signed = (signal_in[SIGNAL_RESOLUTION-1] == 1'b1) ? {{(SIGNAL_RESOLUTION){1'b1}},signal_in} : {{(SIGNAL_RESOLUTION){1'b0}},signal_in};
     always @ (posedge clk) begin
         if (!rstn) begin
             signal_out_valid <= 0;
@@ -36,15 +37,15 @@ module ISI_channel_prl#(
                 // Updates the sum of ISI terms
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (i == PULSE_RESPONSE_LENGTH-1) begin
-                        isi[i] <= signal_in * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] <= signal_in_signed * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
                     end
                     else begin
-                        isi[i] <= isi[i+1] + signal_in * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] <= isi[i+1] + signal_in_signed * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
                     end
                 end
 
                 // Output
-                signal_out <= (isi[1] + signal_in * pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]) >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0];
+                signal_out <= (isi[1] + signal_in_signed * pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]) >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0];
                 signal_out_valid <= 1;
             end else begin
                 signal_out_valid <= 0;

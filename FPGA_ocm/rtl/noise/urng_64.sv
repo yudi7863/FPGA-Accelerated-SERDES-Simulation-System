@@ -48,7 +48,7 @@ module urng_64 #(
         if (!rstn)
             valid <= 1'b0;
         else
-            valid <= start_control;
+            valid <= en;
     end
     
     always @ (posedge clk) begin

@@ -111,13 +111,21 @@ module SerDes_Sys(
 		.prbs_0_prbs_ctrl_en                                     (prbs_en)                                    //                prbs_0_prbs_ctrl.en
 		);
 		
-		channel channel_model (
+		/*channel channel_model (
 		.clk_clk                                          (clock),                                          //                             clk.clk
 		.reset_reset_n                                    (reset_n),                                    //                           reset.reset_n
 		.channel_module_0_channel_input_signal_in         (voltage_out),         //  channel_module_0_channel_input.signal_in
 		.channel_module_0_channel_input_signal_in_valid   (voltage_valid),   //                                .signal_in_valid
 		.channel_module_0_channel_output_signal_out       (voltage_out_channel),       // channel_module_0_channel_output.signal_out
 		.channel_module_0_channel_output_signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
+	   );*/
+		ISI_channel_prl ISI_channel_prl (
+		.clk                                        (clock),                                          //                             clk.clk
+		.rstn                                    (reset_n),                                    //                           reset.reset_n
+		.signal_in         (voltage_out),         //  channel_module_0_channel_input.signal_in
+		.signal_in_valid   (voltage_valid),   //                                .signal_in_valid
+		.signal_out       (voltage_out_channel),       // channel_module_0_channel_output.signal_out
+		.signal_out_valid (voltage_channel_valid)  //                                .signal_out_valid
 	   );
 		
 		
