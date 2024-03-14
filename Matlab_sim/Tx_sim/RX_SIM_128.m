@@ -38,7 +38,7 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [0.3, 0.4, 0.1, 0.1, 0.2];
+h = [1, 0.3, 0.2];
 channel_output = conv(PAM4_out, h);
 channel_output
 
