@@ -96,7 +96,7 @@ for i = 1:length(channel_output)
 end
 %noise_value_array
 %noise_var=noise_to_verilog(noise_value_array,'noise.mem',num_data_half+1,8);
-noise_output = channel_output;
+%noise_output = channel_output;
 noise_output
 
 % DFE

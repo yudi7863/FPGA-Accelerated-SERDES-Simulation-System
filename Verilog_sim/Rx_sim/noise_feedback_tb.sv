@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 module noise_feedback_tb #(
-    parameter PULSE_RESPONSE_LENGTH = 2,
+    parameter PULSE_RESPONSE_LENGTH = 3,
     parameter SIGNAL_RESOLUTION = 10,
     parameter SYMBOL_SEPERATION = 56);
     reg clk = 0;
@@ -53,7 +53,7 @@ module noise_feedback_tb #(
 
 
     ///////////////noise///////////////
-    wire [7:0] noise_output;
+    wire [SIGNAL_RESOLUTION-1:0] noise_output;
     wire [7:0] noise_counter[127:0];
     wire noise_valid;
     // noise_wrapper noise_wrapper_noise (
@@ -66,7 +66,7 @@ module noise_feedback_tb #(
     //         .noise_out_valid(noise_valid)
     // );
 
-    noise_128_wrapper noise_wrapper_noise (
+    noise_128_wrapper #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH), .SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) noise_wrapper_noise (
             .clk(clk),
             .en(en),
             .rstn(rstn),
@@ -85,8 +85,8 @@ module noise_feedback_tb #(
     DFE_prl #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH), .SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) rx(
         .clk(clk),
         .rstn(rstn),
-        .signal_in(voltage_level_isi),
-        .signal_in_valid(voltage_level_isi_valid),
+        .signal_in(noise_output),
+        .signal_in_valid(noise_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
 
@@ -130,7 +130,7 @@ module noise_feedback_tb #(
         #50 
         en <= 1;
         rstn <=1;
-        #10000
+        #1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 

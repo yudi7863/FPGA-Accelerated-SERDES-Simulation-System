@@ -473,7 +473,7 @@ R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z34 L0 32 28
+L0 32 28
 R28
 r1
 !s85 0
@@ -487,7 +487,7 @@ R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z35 L0 1 42
+Z34 L0 1 42
 R28
 r1
 !s85 0
@@ -512,23 +512,23 @@ R24
 R25
 R0
 >>>>>>> Stashed changes
-Z36 8noise_feedback_tb.sv
-Z37 Fnoise_feedback_tb.sv
+Z35 8noise_feedback_tb.sv
+Z36 Fnoise_feedback_tb.sv
 !i122 240
 L0 2 130
 R1
 S1
 R8
 w1709325721
+R35
 R36
-R37
 !i122 167
 L0 2 135
 R0
 >>>>>>> Stashed changes
-Z38 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Z37 !s11b Dg1SIo80bB@j0V0VzS_@n1
 Ik>cVdk^@9KnkUndF;kYe@3
-Z39 VDg1SIo80bB@j0V0VzS_@n1
+Z38 VDg1SIo80bB@j0V0VzS_@n1
 R0
 >>>>>>> Stashed changes
 R0
@@ -559,44 +559,44 @@ R19
 L0 2 48
 R0
 >>>>>>> Stashed changes
-R38
+R37
 I7VHF5Yo<Kekl4RBHgXQnJ0
-R39
-R0
->>>>>>> Stashed changes
-Z40 L0 1 56
-R28
-r1
-!s85 0
-31
-R23
-R4
-R24
-!i113 1
-R25
-R0
->>>>>>> Stashed changes
-R0
->>>>>>> Stashed changes
-R28
-r1
-!s85 0
-31
-R23
-R4
-R24
-!i113 1
-R25
-R0
->>>>>>> Stashed changes
-R0
->>>>>>> Stashed changes
 R38
-I:z5YVQj6`6TVbQVjHmR;`2
-R39
 R0
 >>>>>>> Stashed changes
-Z41 L0 44 70
+Z39 L0 1 56
+R28
+r1
+!s85 0
+31
+R23
+R4
+R24
+!i113 1
+R25
+R0
+>>>>>>> Stashed changes
+R0
+>>>>>>> Stashed changes
+R28
+r1
+!s85 0
+31
+R23
+R4
+R24
+!i113 1
+R25
+R0
+>>>>>>> Stashed changes
+R0
+>>>>>>> Stashed changes
+R37
+I:z5YVQj6`6TVbQVjHmR;`2
+R38
+R0
+>>>>>>> Stashed changes
+Z40 L0 44 70
 R28
 r1
 !s85 0
@@ -622,12 +622,12 @@ R25
 n@i@s@i_channel_prl
 R0
 >>>>>>> Stashed changes
-R38
+R37
 IT[g3DM7^AJ`JG4Q]k[N0o3
-R39
+R38
 R0
 >>>>>>> Stashed changes
-Z42 L0 4 32
+Z41 L0 4 32
 R28
 r1
 !s85 0
@@ -648,7 +648,7 @@ R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z43 L0 3 56
+Z42 L0 3 56
 R28
 r1
 !s85 0
@@ -663,7 +663,7 @@ R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z44 L0 61 46
+Z43 L0 61 46
 R28
 r1
 !s85 0
@@ -678,7 +678,7 @@ R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z45 L0 3 92
+Z44 L0 3 92
 R28
 r1
 !s85 0
@@ -688,19 +688,19 @@ R0
 R0
 >>>>>>> Stashed changes
 !i10b 1
-Z46 !s100 QC:fiI7V^S>f5T9eTnGfG0
+Z45 !s100 QC:fiI7V^S>f5T9eTnGfG0
+R37
+Z46 IK:5`edj8Q:FG_2Y22CBI>2
 R38
-Z47 IK:5`edj8Q:FG_2Y22CBI>2
-R39
 R8
 w1706318096
-Z48 8rx_tb.v
-Z49 Frx_tb.v
+Z47 8rx_tb.v
+Z48 Frx_tb.v
 R0
 >>>>>>> Stashed changes
 R0
 >>>>>>> Stashed changes
-Z50 L0 2 64
+Z49 L0 2 64
 R28
 r1
 !s85 0
@@ -723,7 +723,7 @@ R0
 R22
 R0
 >>>>>>> Stashed changes
-Z51 L0 67 76
+Z50 L0 67 76
 R28
 r1
 !s85 0
@@ -733,273 +733,273 @@ R0
 R0
 >>>>>>> Stashed changes
 !i10b 1
-Z52 !s100 jjmzA;D=6bH9NPEZi?S7h3
+Z51 !s100 jjmzA;D=6bH9NPEZi?S7h3
+R37
+Z52 ICUU]3g?l1B_TH:RFh2QYT1
 R38
-Z53 ICUU]3g?l1B_TH:RFh2QYT1
-R39
 S1
 R8
 R11
-Z54 8Rx.sv
-Z55 FRx.sv
+Z53 8Rx.sv
+Z54 FRx.sv
 R0
 >>>>>>> Stashed changes
 R0
 vdecision_maker
 R8
-Z56 !s110 1710996458
+Z55 !s110 1711000853
 !i10b 1
+R51
+R37
 R52
 R38
-R53
-R39
 S1
-Z57 dC:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
-Z58 w1707676972
+Z56 dC:/Users/13083/Documents/GitHub/FPGA-Accelerated-SERDES-Simulation-System/Verilog_sim/Rx_sim
+Z57 w1707676972
+R53
 R54
-R55
-!i122 307
-R51
+!i122 347
+R50
 R28
 r1
 !s85 0
 31
-Z59 !s108 1710996458.000000
+Z58 !s108 1711000853.000000
 R26
 R27
 !i113 1
 R22
 vdecision_maker_prl
 R8
-R56
+R55
 !i10b 1
 !s100 o?BdGR@RF:TIacaBk9E=O3
-R38
+R37
 Ik`zZ3d3WI]J`UTUWg]BYA0
-R39
+R38
 S1
-R57
-Z60 w1710996416
-Z61 8Rx_prl.sv
-Z62 FRx_prl.sv
-!i122 307
+R56
+Z59 w1710996416
+Z60 8Rx_prl.sv
+Z61 FRx_prl.sv
+!i122 347
 L0 74 76
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vDFE
 R8
-R56
+R55
 !i10b 1
 !s100 6E=55]3efOjfhblBIFGo>3
-R38
+R37
 I5Jf_PeQEZZSGkB`cb1R;30
-R39
+R38
 S1
+R56
 R57
-R58
+R53
 R54
-R55
-!i122 307
-R50
+!i122 347
+R49
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vDFE_prl
 R8
-R56
+R55
 !i10b 1
 !s100 5Ccf5FkJ5f82fo:@>m`aM0
-R38
+R37
 I6@hSllj;E]>[a14JeIj7:0
-R39
+R38
 S1
-R57
+R56
+R59
 R60
 R61
-R62
-!i122 307
+!i122 347
 L0 3 70
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 n@d@f@e_prl
 vdfe_tb
-Z63 !s110 1710996456
+Z62 !s110 1710999721
 !i10b 1
+R45
+R37
 R46
 R38
+R56
+R57
 R47
-R39
-R57
-R58
 R48
-R49
-!i122 306
-R45
-R28
-r1
-!s85 0
-31
-Z64 !s108 1710996456.000000
-R2
-R4
-!i113 1
-R22
-vgrey_decode
-R63
-!i10b 1
-!s100 cJ8c]Jd:P`hc]:GZcAgPf3
-R38
-ITS:k[9M@^9H3H2jh>`c_g0
-R39
-R57
-R58
-R5
-R6
-!i122 306
+!i122 333
 R44
 R28
 r1
 !s85 0
 31
-R64
+Z63 !s108 1710999721.000000
 R2
 R4
 !i113 1
 R22
-vgrey_encode
-R63
+vgrey_decode
+R62
 !i10b 1
-!s100 i^ed0X:adR7QgkZR[zMCX1
+!s100 cJ8c]Jd:P`hc]:GZcAgPf3
+R37
+ITS:k[9M@^9H3H2jh>`c_g0
 R38
-I5:?7ZKCl<2gZ[PG`<1>Tc0
-R39
+R56
 R57
-R58
 R5
 R6
-!i122 306
+!i122 333
 R43
 R28
 r1
 !s85 0
 31
-R64
+R63
+R2
+R4
+!i113 1
+R22
+vgrey_encode
+R62
+!i10b 1
+!s100 i^ed0X:adR7QgkZR[zMCX1
+R37
+I5:?7ZKCl<2gZ[PG`<1>Tc0
+R38
+R56
+R57
+R5
+R6
+!i122 333
+R42
+R28
+r1
+!s85 0
+31
+R63
 R2
 R4
 !i113 1
 R22
 vISI_channel
 R8
-R56
+R55
 !i10b 1
 !s100 nPJZlUGP>TnO[9g8da^[R0
-R38
+R37
 I<;^Y2=h3oae2V5bK?Bg522
-R39
+R38
 S1
+R56
 R57
-R58
 8channel_model.sv
 Fchannel_model.sv
-!i122 307
-R42
+!i122 347
+R41
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vISI_channel_prl
 R8
-R56
+R55
 !i10b 1
 !s100 <>NUzgDRC:R3j0EYFad<33
-R38
+R37
 Ic9z3Rnhn4F7:fbCCiZ_1z0
-R39
+R38
 S1
-R57
+R56
 w1710996413
 R20
 R21
-!i122 307
+!i122 347
 L0 4 52
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vnoise
 R8
-R56
+R55
 !i10b 1
 !s100 @d:_<SjH>1hg4dJfio?Rj1
-R38
+R37
 IXKjGQ8^PakX2kdc<DGZL11
-R39
+R38
 S1
+R56
 R57
-R58
 R14
 R15
-!i122 307
-R41
+!i122 347
+R40
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vnoise_128
 R8
-R56
+R55
 !i10b 1
-!s100 UTgPU``>KNk8<VALmU;^43
+!s100 3SZgKLi?1Fe=NYi3>mnC>3
+R37
+IFUYZlVb703XiT[^VAEngk3
 R38
-I270_IC47NiCSPKh[E8TZ22
-R39
 S1
-R57
-Z65 w1710996406
+R56
+Z64 w1711000639
 R17
 R19
-!i122 307
-L0 52 92
+!i122 347
+L0 55 92
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
@@ -1009,11 +1009,11 @@ R8
 !s110 1707076673
 !i10b 1
 !s100 h5O2=jOj4]TBbB>4IM:cV3
-R38
+R37
 I5Qb^JJkRSVn6@[>R`FdlM3
-R39
+R38
 S1
-R57
+R56
 w1706749744
 8noise_128_tb.sv
 Fnoise_128_tb.sv
@@ -1030,236 +1030,236 @@ r1
 R25
 vnoise_128_test
 R8
-R56
+R55
 !i10b 1
 !s100 GH`T7YK8T0oz3=<[nWhYa3
-R38
+R37
 IXi2XhoP^a^?=Xc3UAF>Fa2
-R39
+R38
 S1
+R56
 R57
-R58
 8noise_128_test.sv
 Fnoise_128_test.sv
-!i122 307
-R40
+!i122 347
+R39
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vnoise_128_wrapper
 R8
-R56
+R55
 !i10b 1
-!s100 2I7;oOkin^o1iL?hVg9Gd2
+!s100 RKdg::NeV[kb917^gP]kK2
+R37
+IeES7iY>RA]KU5PlPoG3la0
 R38
-I23Ai]QB2=b`QeGU2>?ePF0
-R39
 S1
-R57
-R65
+R56
+R64
 R17
 R19
-!i122 307
-L0 2 49
+!i122 347
+L0 2 52
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vnoise_feedback_tb
 R8
-R56
+R55
 !i10b 1
-!s100 NNgHVUdzLIWe3_=T0JQOh0
-R38
-I=[OAMP?QjWNKIHi5ATTQT0
-R39
-S1
-R57
-w1710996447
-R36
+!s100 P]=A5;ifnjmRc1>]Sm=AO3
 R37
-!i122 307
+IY9YS[O^IYIn=<>nclH4m;2
+R38
+S1
+R56
+w1711000838
+R35
+R36
+!i122 347
 L0 2 141
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vnoise_wrapper
 R8
-R56
+R55
 !i10b 1
 !s100 nO:d71Fjeb4lBVWDi0d6_0
-R38
+R37
 IG8Z5J<@?SZ:l>6labO9JU3
-R39
+R38
 S1
+R56
 R57
-R58
 R14
 R15
-!i122 307
-R35
+!i122 347
+R34
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vpam_4_decode
 R8
-R56
+R55
 !i10b 1
-!s100 lMF6<[gCQ:^Tk=gK5Vg1=3
+!s100 ?Dg=T8ENkdGMCJ>FzR`G92
+R37
+IIOgb5:=eQE]PenDPd4a]c3
 R38
-ISNRkOb5U]S4H;>I1mBRcO3
-R39
 S1
-R57
-Z66 w1710996410
+R56
+Z65 w1711000698
 R13
 R12
-!i122 307
-R34
+!i122 347
+L0 32 32
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vpam_4_encode
 R8
-R56
+R55
 !i10b 1
 !s100 Z8Ln@bb<k@mSO;?dhTHVI2
-R38
+R37
 I=NE[Rgi4BAj0oaz<`S>9<2
-R39
+R38
 S1
-R57
-R66
+R56
+R65
 R13
 R12
-!i122 307
+!i122 347
 R33
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vprbs31
-R63
+R62
 !i10b 1
 !s100 =[3^Sg_?lC8j?_8BY?oQW1
-R38
+R37
 Im]7b_MILYL>ZOo=:N[fF41
-R39
+R38
+R56
 R57
-R58
 R10
 R7
-!i122 306
+!i122 333
 R32
 R28
 r1
 !s85 0
 31
-R64
+R63
 R2
 R4
 !i113 1
 R22
 vprbs31_checker
-R63
+R62
 !i10b 1
 !s100 2hb^LO8O3;3?zDV[9:EY70
-R38
+R37
 Ino@C>1zgAYVcTDzeIz:NC1
-R39
+R38
+R56
 R57
-R58
 R10
 R7
-!i122 306
+!i122 333
 R31
 R28
 r1
 !s85 0
 31
-R64
+R63
 R2
 R4
 !i113 1
 R22
 vrx_standalone_tb
 R8
-R56
+R55
 !i10b 1
 !s100 4_z[HKSS=USL9[cGk5:Fj1
-R38
+R37
 IE=CT07V4LKF[PSA1PQecV2
-R39
+R38
 S1
+R56
 R57
-R58
 8Rx_standalone_tb.sv
 FRx_standalone_tb.sv
-!i122 307
+!i122 347
 R30
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1
 R22
 vurng_64
 R8
-R56
+R55
 !i10b 1
 !s100 [7jB<`UOl[QgQb2CcCNdP1
-R38
+R37
 IOHDMnXKOF[@]Y=F>[hNG?0
-R39
+R38
 S1
-R57
+R56
 w1710104435
 8urng_64.sv
 Furng_64.sv
-!i122 307
+!i122 347
 R29
 R28
 r1
 !s85 0
 31
-R59
+R58
 R26
 R27
 !i113 1

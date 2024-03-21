@@ -45,10 +45,14 @@ module pam_4_decode #(
         end else begin
             if (voltage_level_in_valid) begin
                 case(voltage_level_in)
-                    -SYMBOL_SEPERATION - (SYMBOL_SEPERATION >> 1): symbol_out <= 2'b00;
-                    -(SYMBOL_SEPERATION >> 1): symbol_out <= 2'b01;
-                    (SYMBOL_SEPERATION >> 1): symbol_out <= 2'b10;
-                    SYMBOL_SEPERATION + (SYMBOL_SEPERATION >> 1): symbol_out <= 2'b11;
+                    //(-SYMBOL_SEPERATION - (SYMBOL_SEPERATION >> 1)): symbol_out <= 2'b00;
+                    //(-(SYMBOL_SEPERATION >> 1)): symbol_out <= 2'b01;
+                    //(SYMBOL_SEPERATION >> 1): symbol_out <= 2'b10;
+                    //SYMBOL_SEPERATION + (SYMBOL_SEPERATION >> 1): symbol_out <= 2'b11;
+                    'b1110101100: symbol_out <= 2'b00;
+                    'b1111100100: symbol_out <= 2'b01;
+                    'b0000011100: symbol_out <= 2'b10;
+                    'b0001010100: symbol_out <= 2'b11;
                 endcase
                 symbol_out_valid <= 1;
             end else begin
