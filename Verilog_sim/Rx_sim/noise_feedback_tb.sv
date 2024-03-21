@@ -1,5 +1,8 @@
 `timescale 1ns / 1ps
-module noise_feedback_tb;
+module noise_feedback_tb #(
+    parameter PULSE_RESPONSE_LENGTH = 2,
+    parameter SIGNAL_RESOLUTION = 10,
+    parameter SYMBOL_SEPERATION = 56);
     reg clk = 0;
     reg en = 0;
     reg rstn = 0;
@@ -27,9 +30,9 @@ module noise_feedback_tb;
         .symbol_out_valid(symbol_valid));
 
     // Generate voltage levels
-    wire [7:0] voltage_level;
+    wire [SIGNAL_RESOLUTION-1:0] voltage_level;
     wire voltage_level_valid;
-    pam_4_encode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pe(
+    pam_4_encode #(.SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) pe(
         .clk(clk),
         .rstn(rstn),
         .symbol_in(symbol),
@@ -37,9 +40,9 @@ module noise_feedback_tb;
         .voltage_level_out(voltage_level),
         .voltage_level_out_valid(voltage_level_valid));
 
-    wire [7:0] voltage_level_isi;
+    wire [SIGNAL_RESOLUTION-1:0] voltage_level_isi;
     wire voltage_level_isi_valid;
-    ISI_channel_prl channel (
+    ISI_channel_prl #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH), .SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
@@ -77,19 +80,19 @@ module noise_feedback_tb;
 
 
 
-    wire [7:0] voltage_level_dfe;
+    wire [SIGNAL_RESOLUTION-1:0] voltage_level_dfe;
     wire voltage_level_dfe_valid;
-    DFE_prl rx(
+    DFE_prl #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH), .SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) rx(
         .clk(clk),
         .rstn(rstn),
-        .signal_in(noise_output),
-        .signal_in_valid(noise_valid),
+        .signal_in(voltage_level_isi),
+        .signal_in_valid(voltage_level_isi_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));
 
     wire [1:0] symbol_rx;
     wire symbol_rx_valid;
-    pam_4_decode #(.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) pd(
+    pam_4_decode #(.SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) pd(
         .clk(clk),
         .rstn(rstn),
         .voltage_level_in(voltage_level_dfe),
@@ -127,7 +130,7 @@ module noise_feedback_tb;
         #50 
         en <= 1;
         rstn <=1;
-        #1000000
+        #10000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 

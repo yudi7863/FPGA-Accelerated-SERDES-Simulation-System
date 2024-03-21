@@ -1,7 +1,7 @@
 clc
 clear
 order = 31;
-num_data = 500000;
+num_data = 500;
 SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
 prbs_length = 31;
 % Generating random data
@@ -38,7 +38,7 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.3, 0.2];
+h = [1, 0.3];
 channel_output = conv(PAM4_out, h);
 channel_output
 
@@ -64,9 +64,9 @@ for i = 1:length(probability)
     %var=dec2bin(probability_verilog_helper(i),64);
     %display(var);
 end
-probability
-possibilities
-total_probability
+%probability
+%possibilities
+%total_probability
 %sprintf('%d is noise output.',noise_output(i));
 
 probability_verilog_helper_var = noise_to_verilog(possibilities,'probability_verilog_helper.mem',length(probability),64);
@@ -83,19 +83,20 @@ for i = 1:length(channel_output)
     for j = 1:length(probability)
         if(rand_num < total_prob + probability(j))
             noise = j - 64;
-            X = sprintf('%d is noise.',noise);
-            disp(X)
+            %X = sprintf('%d is noise.',noise);
+            %disp(X)
             break;
         end
         total_prob = total_prob + probability(j);
     end
     noise_value_array(i)=noise;
     noise_output(i) = channel_output(i) + noise;
-    Y = sprintf('%d is noise output.',noise_output(i));
-    disp(Y)
+    %Y = sprintf('%d is noise output.',noise_output(i));
+    %disp(Y)
 end
-noise_value_array
+%noise_value_array
 %noise_var=noise_to_verilog(noise_value_array,'noise.mem',num_data_half+1,8);
+noise_output = channel_output;
 noise_output
 
 % DFE
@@ -131,21 +132,21 @@ PAM4_dfe = zeros(ceil(double(num_data)/2.0),2);
 for i = 1:num_data_half
     PAM4_dfe(i,:) = pam4_RX(DFE_output(i));
 end
-PAM4_dfe
+%PAM4_dfe
 
 gray_dfe = zeros(ceil(double(num_data)/2.0),2);
 for i = 1:num_data_half
     gray_dfe(i,:) = gray_decoder(PAM4_dfe(i,:));
 end
-gray_dfe
+%gray_dfe
 
 data_out = zeros(1,num_data);
 for i = 1:num_data_half
     data_out(2*i-1) = gray_dfe(i,1);
     data_out(2*i) = gray_dfe(i,2);
 end
-c_randomdata
-data_out
+%c_randomdata
+%data_out
 
 % Calculate bit error rate
 error = 0;
