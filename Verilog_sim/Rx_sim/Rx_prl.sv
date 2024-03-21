@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
 module DFE_prl #(
-    parameter PULSE_RESPONSE_LENGTH = 5,
-    parameter SIGNAL_RESOLUTION = 8,
-    parameter SYMBOL_SEPERATION = 56)(
+    parameter PULSE_RESPONSE_LENGTH,
+    parameter SIGNAL_RESOLUTION,
+    parameter SYMBOL_SEPERATION)(
     input clk,
     input rstn,
     input signed [SIGNAL_RESOLUTION-1:0] signal_in,
@@ -13,7 +13,7 @@ module DFE_prl #(
 
     // Sum of ISI terms
     reg signed [SIGNAL_RESOLUTION*2:0] isi [0:PULSE_RESPONSE_LENGTH-1];
-    // First 8 bit stores m in m*2^y, last 8 bits stores y in m*2^y
+    // First 16 bit stores m in m*2^y, last 16 bits stores y in m*2^y
     reg signed [SIGNAL_RESOLUTION*4-1:0] pulse_response [0:PULSE_RESPONSE_LENGTH-1];
 
     //shift register
@@ -21,7 +21,7 @@ module DFE_prl #(
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value;
     logic f_valid;
     logic e_valid;
-    decision_maker_prl DM (
+    decision_maker_prl #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH), .SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) DM (
         .clk(clk), 
         .rstn(rstn), 
         .estimation(subtract_result),
@@ -50,13 +50,13 @@ module DFE_prl #(
                 signal_out <= feedback_value;
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (i == PULSE_RESPONSE_LENGTH-1) begin
-                        isi[i] = feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] = feedback_value * pulse_response[i][31:16];
                     end
                     else begin
-                        isi[i] = isi[i+1] + feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] = isi[i+1] + feedback_value * pulse_response[i][31:16];
                     end
                 end
-                subtract_result <= ((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                subtract_result <= ((signal_in <<< pulse_response[0][15:0]) - isi[1]) / pulse_response[0][31:16];
                 e_valid <= 'b1;
             end
             else begin 
@@ -72,9 +72,9 @@ module DFE_prl #(
 endmodule
 
 module decision_maker_prl #(
-    parameter PULSE_RESPONSE_LENGTH = 5,
-    parameter SIGNAL_RESOLUTION = 8,
-    parameter SYMBOL_SEPERATION = 56) 
+    parameter PULSE_RESPONSE_LENGTH,
+    parameter SIGNAL_RESOLUTION,
+    parameter SYMBOL_SEPERATION) 
 (   input clk,
     input rstn,
     input signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] estimation, 

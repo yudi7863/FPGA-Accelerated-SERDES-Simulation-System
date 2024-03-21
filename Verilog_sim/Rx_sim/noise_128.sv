@@ -1,18 +1,21 @@
 `timescale 1ns / 1ps
-module noise_128_wrapper (
+module noise_128_wrapper #(
+    parameter PULSE_RESPONSE_LENGTH,
+    parameter SIGNAL_RESOLUTION,
+    parameter SYMBOL_SEPERATION)(
     input clk,
     input en,
     input rstn,
-    input reg signed [7:0] noise_in,
+    input reg signed [SIGNAL_RESOLUTION-1:0] noise_in,
     input noise_in_valid,
-    output reg signed [7:0] noise_out,
+    output reg signed [SIGNAL_RESOLUTION-1:0] noise_out,
     output reg [7:0] noise_counter[127:0],
     output reg noise_out_valid =0
 );
 
 
     logic [7:0] temp;
-    logic [7:0] temp_i;
+    logic signed [7:0] temp_i;
     //logic [7:0] counter[127:0];
     logic simple_noise_out_valid;
 
