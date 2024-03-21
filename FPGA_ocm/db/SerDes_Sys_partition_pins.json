@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "HPS_UART_TX",
+					"strict" : false
+				},
+				{
 					"name" : "LEDR[0]",
 					"strict" : false
 				},
@@ -16,15 +20,7 @@
 					"strict" : false
 				},
 				{
-					"name" : "HPS_UART_TX",
-					"strict" : false
-				},
-				{
 					"name" : "KEY[1]",
-					"strict" : false
-				},
-				{
-					"name" : "CLOCK_50",
 					"strict" : false
 				},
 				{

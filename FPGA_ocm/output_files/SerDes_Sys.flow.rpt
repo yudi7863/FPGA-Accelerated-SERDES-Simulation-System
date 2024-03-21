@@ -1,5 +1,5 @@
 Flow report for SerDes_Sys
-Thu Mar 14 09:22:31 2024
+Thu Mar 21 10:43:17 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,24 +41,24 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Thu Mar 14 09:22:31 2024          ;
+; Flow Status                     ; Successful - Thu Mar 21 10:43:17 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; SerDes_Sys                                     ;
 ; Top-level Entity Name           ; SerDes_Sys                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 11,487 / 32,070 ( 36 % )                       ;
-; Total registers                 ; 14866                                          ;
+; Logic utilization (in ALMs)     ; 11,820 / 32,070 ( 37 % )                       ;
+; Total registers                 ; 16812                                          ;
 ; Total pins                      ; 27 / 457 ( 6 % )                               ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 1,208,320 / 4,065,280 ( 30 % )                 ;
-; Total DSP Blocks                ; 9 / 87 ( 10 % )                                ;
+; Total block memory bits         ; 958,016 / 4,065,280 ( 24 % )                   ;
+; Total DSP Blocks                ; 3 / 87 ( 3 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
 ; Total HSSI PMA TX Serializers   ; 0                                              ;
-; Total PLLs                      ; 0 / 6 ( 0 % )                                  ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                                 ;
 ; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
 +---------------------------------+------------------------------------------------+
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/14/2024 09:10:58 ;
+; Start date & time ; 03/21/2024 10:28:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SerDes_Sys          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                                 ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 1096190267477.171042185836844                                         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 1096190267477.171103131335964                                         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -114,12 +114,39 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_FILE                            ; qsys/channel/synthesis/channel.debuginfo                              ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; qsys/TX/synthesis/TX.debuginfo                                        ; --            ; --          ; --                                ;
 ; SLD_FILE                            ; db/channel_noise_ocm_auto_stripped.stp                                ; --            ; --          ; --                                ;
-; SLD_INFO                            ; QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1710252071           ; --            ; NIOS_UART   ; --                                ;
+; SLD_INFO                            ; QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1711001190           ; --            ; NIOS_UART   ; --                                ;
 ; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1710251821                  ; --            ; RX          ; --                                ;
 ; SLD_INFO                            ; QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1707362845                  ; --            ; TX          ; --                                ;
 ; SLD_INFO                            ; QSYS_NAME channel HAS_SOPCINFO 1 GENERATION_ID 1699844736             ; --            ; channel     ; --                                ;
+; SLD_NODE_CREATOR_ID                 ; 110                                                                   ; --            ; --          ; mem_init                          ;
 ; SLD_NODE_CREATOR_ID                 ; 110                                                                   ; --            ; --          ; data_flow                         ;
+; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                         ; --            ; --          ; mem_init                          ;
 ; SLD_NODE_ENTITY_NAME                ; sld_signaltap                                                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                               ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=313                                                     ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=313                                                  ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=313                                        ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334528                                               ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=00000000000000000000                               ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=20                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0                         ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=64                                                   ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ATTRIBUTE_MEM_MODE=OFF                                            ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_FLOW_USE_GENERATED=0                                        ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STATE_BITS=11                                                     ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_BUFFER_FULL_STOP=1                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_CURRENT_RESOURCE_WIDTH=1                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INCREMENTAL_ROUTING=1                                             ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL=1                                                   ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SAMPLE_DEPTH=64                                                   ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_IN_ENABLED=0                                              ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                    ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_mem_init_1_bf5d,  ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                          ; --            ; --          ; mem_init                          ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                         ; --            ; --          ; mem_init                          ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                               ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334529                                               ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                ; --            ; --          ; data_flow                         ;
@@ -137,10 +164,10 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                          ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                         ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=305                                                     ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=305                                                  ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=305                                        ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_data_flow_1_42af, ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=173                                                     ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=173                                                  ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=173                                        ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_data_flow_1_8ea5, ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=0000000000000000000000000                          ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK_LENGTH=25                                          ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_SEGMENT_SIZE=2048                                                 ; --            ; --          ; data_flow                         ;
@@ -164,12 +191,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:13     ; 2.8                     ; 5322 MB             ; 00:01:37                           ;
-; Fitter               ; 00:09:29     ; 1.4                     ; 8247 MB             ; 00:26:10                           ;
-; Assembler            ; 00:00:12     ; 1.0                     ; 5051 MB             ; 00:00:11                           ;
-; Timing Analyzer      ; 00:00:18     ; 5.5                     ; 5688 MB             ; 00:01:04                           ;
-; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 4946 MB             ; 00:00:05                           ;
-; Total                ; 00:11:18     ; --                      ; --                  ; 00:29:07                           ;
+; Analysis & Synthesis ; 00:01:25     ; 2.1                     ; 5353 MB             ; 00:01:20                           ;
+; Fitter               ; 00:12:14     ; 1.3                     ; 8288 MB             ; 00:21:17                           ;
+; Assembler            ; 00:00:14     ; 1.0                     ; 5069 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:20     ; 5.7                     ; 5730 MB             ; 00:01:11                           ;
+; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 5086 MB             ; 00:00:02                           ;
+; Total                ; 00:14:20     ; --                      ; --                  ; 00:23:54                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

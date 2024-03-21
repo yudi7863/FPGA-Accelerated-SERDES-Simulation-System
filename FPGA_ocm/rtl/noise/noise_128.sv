@@ -9,8 +9,8 @@ module noise_128(
     output logic done_wait,
     input [63:0] mem_data,
     input [7:0] location,
-    input  load_mem,
-    output reg [7:0] noise_counter[127:0]
+    input  load_mem
+    //output reg [7:0] noise_counter[127:0]
 );
 
 wire [63:0] random;
@@ -92,7 +92,7 @@ always @(posedge clk or negedge rstn) begin
                 if((random < possibilities[i])&&(random >= possibilities[i-1]))begin
                     noise_out <= noise_value[i] ; // Set noise_out based on the index
                     noise_out_valid <= 1'b1;
-                    noise_counter[i]<=noise_counter[i]+8'b1;
+                    //noise_counter[i]<=noise_counter[i]+8'b1;
                 end
             end
         end
