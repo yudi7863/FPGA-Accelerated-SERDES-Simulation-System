@@ -39,20 +39,22 @@ module pam_4_decode #(
     output reg [1:0] symbol_out,
     output reg symbol_out_valid = 0);
 
+    logic signed [SIGNAL_RESOLUTION-1:0] value [3:0];
+    assign value[0] = SYMBOL_SEPERATION >> 1; //28
+    assign value[1] = - (SYMBOL_SEPERATION >> 1); //-28
+    assign value[2] = value[0] + SYMBOL_SEPERATION; //84
+    assign value[3] = value[1] - SYMBOL_SEPERATION; //-84
+
     always @ (posedge clk) begin
         if (!rstn) begin
             symbol_out_valid <= 0;
         end else begin
             if (voltage_level_in_valid) begin
                 case(voltage_level_in)
-                    //(-SYMBOL_SEPERATION - (SYMBOL_SEPERATION >> 1)): symbol_out <= 2'b00;
-                    //(-(SYMBOL_SEPERATION >> 1)): symbol_out <= 2'b01;
-                    //(SYMBOL_SEPERATION >> 1): symbol_out <= 2'b10;
-                    //SYMBOL_SEPERATION + (SYMBOL_SEPERATION >> 1): symbol_out <= 2'b11;
-                    'b1110101100: symbol_out <= 2'b00;
-                    'b1111100100: symbol_out <= 2'b01;
-                    'b0000011100: symbol_out <= 2'b10;
-                    'b0001010100: symbol_out <= 2'b11;
+                    value[3]: symbol_out <= 2'b00;
+                    value[1]: symbol_out <= 2'b01;
+                    value[0]: symbol_out <= 2'b10;
+                    value[2]: symbol_out <= 2'b11;
                 endcase
                 symbol_out_valid <= 1;
             end else begin
