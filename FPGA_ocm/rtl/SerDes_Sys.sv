@@ -390,6 +390,7 @@ module SerDes_Sys(
 		assign wen2 = 'b0;
 		
 		////////////////////////////////////////////////////////////////////controls to PC////////////////////////////////////////////////////
+		//add logic to get bit error rate and output to uart:
 		
 		assign uart_rx = HPS_UART_RX;
 		assign HPS_UART_TX = uart_tx;

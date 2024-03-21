@@ -317,7 +317,7 @@
   <parameter name="enPRInitMode" value="false" />
   <parameter name="enableDiffWidth" value="true" />
   <parameter name="initMemContent" value="true" />
-  <parameter name="initializationFileName">rtl/mem_prob/P_1_5_sigma6.hex</parameter>
+  <parameter name="initializationFileName">rtl/mem_prob/P_1_8.hex</parameter>
   <parameter name="instanceID" value="NONE" />
   <parameter name="memorySize" value="71680" />
   <parameter name="readDuringWriteMode" value="DONT_CARE" />

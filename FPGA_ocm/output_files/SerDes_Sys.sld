@@ -2,7 +2,7 @@
   <sld_infos>
     <sld_info hpath="NIOS_UART:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1711001190"/>
+        <assignment_value text="QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1711048544"/>
       </assignment_values>
     </sld_info>
     <sld_info hpath="TX:transmitter" name="transmitter">
