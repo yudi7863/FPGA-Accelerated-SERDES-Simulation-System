@@ -1,7 +1,7 @@
 clc
 clear
 order = 31;
-num_data = 500;
+num_data = 50000;
 SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
 prbs_length = 31;
 % Generating random data
@@ -38,7 +38,7 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.3];
+h = [1, 0.5, 0.4];
 channel_output = conv(PAM4_out, h);
 channel_output
 
