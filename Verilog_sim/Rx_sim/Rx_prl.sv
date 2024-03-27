@@ -56,7 +56,7 @@ module DFE_prl #(
                         isi[i] = isi[i+1] + feedback_value * pulse_response[i][31:16];
                     end
                 end
-                subtract_result <= ((signal_in <<< pulse_response[0][15:0]) - isi[1]) / pulse_response[0][31:16];
+                subtract_result <= ((signal_in <<< pulse_response[0][15:0]) - isi[1]) >>> pulse_response[0][15:0];
                 e_valid <= 'b1;
             end
             else begin 

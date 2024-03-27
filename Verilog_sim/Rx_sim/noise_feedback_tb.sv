@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module noise_feedback_tb #(
-    parameter PULSE_RESPONSE_LENGTH = 2,
-    parameter SIGNAL_RESOLUTION = 10,
+    parameter PULSE_RESPONSE_LENGTH = 3,
+    parameter SIGNAL_RESOLUTION = 9,
     parameter SYMBOL_SEPERATION = 56);
     reg clk = 0;
     reg en = 0;
@@ -134,9 +134,9 @@ module noise_feedback_tb #(
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 
-        for (int i = 0; i < 128; i = i + 1) begin
-            $display("noise_counter[%0d] = %d", i, noise_counter[i]);
-        end
+        //for (int i = 0; i < 128; i = i + 1) begin
+        //    $display("noise_counter[%0d] = %d", i, noise_counter[i]);
+        //end
         $finish;
     end
 endmodule
