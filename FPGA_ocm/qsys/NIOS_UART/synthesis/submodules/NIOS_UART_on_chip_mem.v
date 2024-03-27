@@ -46,7 +46,7 @@ module NIOS_UART_on_chip_mem (
                              )
 ;
 
-  parameter INIT_FILE = "rtl/mem_prob/311version.hex";
+  parameter INIT_FILE = "rtl/mem_prob/P_1_8.hex";
 
 
   output  [ 31: 0] readdata;

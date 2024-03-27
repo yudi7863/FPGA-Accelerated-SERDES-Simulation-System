@@ -75,14 +75,14 @@ module SerDes_Sys(
 		logic clock;
 		logic refclk;
 		logic locked;
-		/*
+		
 		pll G100MHz (
 			.refclk(CLOCK_50),
 			.rst(0),
 			.outclk_0(clock)
 		);
-		*/
-		assign clock = CLOCK_50;
+		
+		//assign clock = CLOCK_50;
 		
 		//counter for number of symbols:
 		assign LEDR[6] = (counter_samples >= 'h2faf0800);
@@ -178,7 +178,7 @@ module SerDes_Sys(
 			
 		logic [63:0] pulse_data;
 		assign pulse_data = {readdata2[31:0],readdata2[63:32]};
-		 ISI_channel_ocm channel (
+		 ISI_channel_ocm  #(.PULSE_RESPONSE_LENGTH(2),.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56)) channel (
         .clk(clock),
         .rstn(reset_n),
 		  //inputs
@@ -323,7 +323,7 @@ module SerDes_Sys(
             .noise_out_valid(noise_valid)
     );*/
 		logic done_wait_d;
-		DFE_prl DFE(
+		DFE_prl #(.PULSE_RESPONSE_LENGTH(2),.SIGNAL_RESOLUTION(8), .SYMBOL_SEPERATION(56))DFE(
 		.done_wait                           (done_wait_d),                           //               dfe_0_done_wait.done_wait
 		.load_mem                             (load_mem_c),                             //                dfe_0_load_mem.load_mem
 		.mem_data                             (pulse_data),                             //                dfe_0_mem_data.mem_data
@@ -390,6 +390,7 @@ module SerDes_Sys(
 		assign wen2 = 'b0;
 		
 		////////////////////////////////////////////////////////////////////controls to PC////////////////////////////////////////////////////
+		//add logic to get bit error rate and output to uart:
 		
 		assign uart_rx = HPS_UART_RX;
 		assign HPS_UART_TX = uart_tx;

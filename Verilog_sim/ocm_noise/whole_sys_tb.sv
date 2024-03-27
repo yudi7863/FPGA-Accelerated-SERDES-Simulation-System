@@ -393,8 +393,8 @@ module whole_sys_tb;
         //load_mem <= 0;
         en <= 'b1;
         nvalid <= 1;
-        #1000
-
+        #80000
+        //#1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 
