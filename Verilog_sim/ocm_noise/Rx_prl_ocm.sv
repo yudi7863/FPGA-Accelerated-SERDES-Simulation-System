@@ -25,7 +25,7 @@ module DFE_prl #(
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value;
     logic f_valid;
     logic e_valid;
-    decision_maker_prl DM (
+   decision_maker_prl #(.PULSE_RESPONSE_LENGTH(PULSE_RESPONSE_LENGTH),.SIGNAL_RESOLUTION(SIGNAL_RESOLUTION), .SYMBOL_SEPERATION(SYMBOL_SEPERATION)) DM (
         .clk(clk), 
         .rstn(rstn), 
         .estimation(subtract_result),
@@ -84,17 +84,17 @@ module DFE_prl #(
                 signal_out <= feedback_value;
                 for (int i = 0; i < PULSE_RESPONSE_LENGTH; i++) begin
                     if (i == PULSE_RESPONSE_LENGTH-1) begin
-                        isi[i] = feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] <= feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
                     end
                     else begin
-                        isi[i] = isi[i+1] + feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+                        isi[i] <= isi[i+1] + feedback_value * pulse_response[i][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
                     end
                 end
                 //subtract_result <= (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) & 17'h10000) ? -((-((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1])) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]) : (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]);
                 //subtract_result <= (signal_in[SIGNAL_RESOLUTION-1] == 1'b1) ? -(((-signal_in << pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]) - isi[1]) : (((-signal_in <<  pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])  - isi[1]);
-                subtract_result <= (negative_or_not) ? (~division)+1'b1 : division; //negate_signal / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
-                //subtract_result <= (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) & 17'h10000) ? (~(((~(((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1])-1'b1))) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])-1'b1) : (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]);
-                e_valid <= 'b1;
+                //subtract_result <= (negative_or_not) ? (~division)+1'b1 : division; //negate_signal / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+               subtract_result <= (PULSE_RESPONSE_LENGTH > 2) ? (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (isi[2] + feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])) >>> pulse_response[0][15:0]): (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])) >>> pulse_response[0][15:0]);
+               e_valid <= 'b1;
             end
             else begin 
                 e_valid <='b0;

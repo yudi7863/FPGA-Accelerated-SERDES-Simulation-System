@@ -1,0 +1,21 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst NIOS_UART.nios2_gen2_0.clock_bridge -pg 1
+preplace inst NIOS_UART.nios2_gen2_0.reset_bridge -pg 1
+preplace inst NIOS_UART.nios2_gen2_0 -pg 1 -lvl 2 -y 130
+preplace inst NIOS_UART -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst NIOS_UART.uart_0 -pg 1 -lvl 3 -y 170
+preplace inst NIOS_UART.clk_0 -pg 1 -lvl 1 -y 70
+preplace inst NIOS_UART.on_chip_mem -pg 1 -lvl 3 -y 30
+preplace inst NIOS_UART.nios2_gen2_0.cpu -pg 1
+preplace netloc EXPORT<net_container>NIOS_UART</net_container>(SLAVE)on_chip_mem.s2,(SLAVE)NIOS_UART.on_chip_mem_s2) 1 0 3 NJ 270 NJ 270 NJ
+preplace netloc POINT_TO_POINT<net_container>NIOS_UART</net_container>(SLAVE)uart_0.irq,(MASTER)nios2_gen2_0.irq) 1 2 1 N
+preplace netloc EXPORT<net_container>NIOS_UART</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)NIOS_UART.reset) 1 0 1 NJ
+preplace netloc INTERCONNECT<net_container>NIOS_UART</net_container>(MASTER)clk_0.clk_reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)uart_0.reset,(SLAVE)on_chip_mem.reset1,(MASTER)nios2_gen2_0.debug_reset_request) 1 1 2 400 70 840
+preplace netloc EXPORT<net_container>NIOS_UART</net_container>(SLAVE)NIOS_UART.clk,(SLAVE)clk_0.clk_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>NIOS_UART</net_container>(SLAVE)NIOS_UART.uart_0_external_connection,(SLAVE)uart_0.external_connection) 1 0 3 NJ 350 NJ 350 NJ
+preplace netloc EXPORT<net_container>NIOS_UART</net_container>(SLAVE)on_chip_mem.reset2,(SLAVE)NIOS_UART.on_chip_mem_reset2) 1 0 3 NJ 290 NJ 290 NJ
+preplace netloc FAN_OUT<net_container>NIOS_UART</net_container>(SLAVE)uart_0.clk,(MASTER)clk_0.clk,(SLAVE)on_chip_mem.clk1,(SLAVE)nios2_gen2_0.clk,(SLAVE)on_chip_mem.clk2) 1 1 2 380 50 860
+preplace netloc INTERCONNECT<net_container>NIOS_UART</net_container>(SLAVE)uart_0.s1,(MASTER)nios2_gen2_0.data_master,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)on_chip_mem.s1) 1 1 2 420 90 800
+levelinfo -pg 1 0 170 1070
+levelinfo -hier NIOS_UART 180 210 540 910 1060

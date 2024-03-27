@@ -99,7 +99,10 @@ def main(argv):
         new_line += "\n"
         new_line = ":" + new_line
         print(new_line)
+        #replace this line just purely for hex version output"
         f_out.write(new_line)
+       # temp = data + "\n"
+       # f_out.write(temp)
 
     #append other parameters to it:
     #eof 

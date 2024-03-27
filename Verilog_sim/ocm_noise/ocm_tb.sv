@@ -25,7 +25,7 @@ module ocm_tb;
 // inputs:
         //port 1: 32 bits:
         .address(addr),
-        .byteenable(), //selecting bytes
+        .byteenable('hFF), //selecting bytes
         .chipselect('b1), // must be 1
         .clk(clk),
         .clken('b1), //enable clk
@@ -36,7 +36,7 @@ module ocm_tb;
         .writedata(writedata),
         //port2: 64 bits:
         .address2(addr2),
-        .byteenable2(), //selecting bytes
+        .byteenable2('hFF), //selecting bytes
         .chipselect2('b1), // must be 1
         .clk2(clk),
         .clken2('b1), //enable clk
@@ -70,7 +70,7 @@ module ocm_tb;
         $finish;
 
     end*/
-    always_ff @(posedge clk) begin
+   /* always_ff @(posedge clk) begin
         if(restn) begin addr2 <= 'h200;
         addr <= 'h200;
         end
@@ -84,9 +84,9 @@ module ocm_tb;
                 if(addr == 'h218) addr <= 'h000;
             end
         end
-    end
+    end*/
 
-    initial begin
+    /*initial begin
         #20
         clk = 'b0;
         restn = 1;
@@ -105,6 +105,41 @@ module ocm_tb;
         repeat(24) @ (posedge clk);
         restn = 1;
         $finish();
+    end*/
+
+    //testing writes:
+    initial begin
+        clk = 'b0;
+        restn = 1;
+        wen = 'b0;
+        wen2 = 'b0;
+        en2 = 'b0;
+        en = 'b0;
+        writedata = 'b0;
+        writedata2 = 'b0;
+        addr <= 'b0;
+        addr2 <= 'b0;
+        #20;
+        restn = 0;
+        addr2 = 'h04;
+        en2 = 'b1;
+        wen2 = 'b1;
+        writedata2 = 'hDEADDEAD;
+        #20;
+        addr2 = 'h08;
+        writedata2 = 'h12345678;
+        #20;
+        wen2 = 'b00;
+        addr2 = 'h2;
+        #20;
+        addr2 = 'h04;
+        #20;
+        addr2 = 'h08;
+        #40;
+        $finish();
+        
+
     end
+
 
 endmodule

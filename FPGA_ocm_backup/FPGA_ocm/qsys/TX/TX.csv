@@ -1,0 +1,20 @@
+# system info TX on 2024.02.07.22:27:00
+system_info:
+name,value
+DEVICE,5CSEMA5F31C6
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1707362819
+#
+#
+# Files generated for TX on 2024.02.07.22:27:00
+files:
+filepath,kind,attributes,module,is_top
+simulation/TX.v,VERILOG,,TX,true
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+TX.PAM_encoder_0,TX_PAM_encoder_0
+TX.gray_encoder_0,TX_gray_encoder_0
+TX.prbs_0,TX_prbs_0
+TX.rst_controller,altera_reset_controller

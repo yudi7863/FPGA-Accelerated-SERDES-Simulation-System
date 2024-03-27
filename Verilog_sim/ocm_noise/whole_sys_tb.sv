@@ -33,7 +33,9 @@ module whole_sys_tb;
     //others:
     logic en2;
     logic [1:0] noise_state, channel_state;
-	logic load_mem_pressed, channel_mem_triggered;
+	logic load_mem_pressed,load_mem_pressed_L,channel_mem_triggered;
+    logic load_mem;
+    logic [1:0] pressed;
     ///////////////////////////////////control logic//////////////////////////////////
     
     
@@ -144,18 +146,28 @@ module whole_sys_tb;
 		
 		parameter WAIT_MEM = 2'b00, LOAD_MEM = 2'b01, DONE_WAIT = 2'b10;
 
+
+       logic debug;
+       assign debug = load_mem_pressed & ~load_mem_pressed_L;
+        always_ff @(posedge clk) begin
+                load_mem_pressed_L <= load_mem;
+        end
+        assign load_mem_pressed = load_mem;
 		always_ff @(posedge clk) begin
 			if(!rstn) begin
 				noise_state = WAIT_MEM;
 				noise_enable <= 'b0;
 				noise_in_valid_i <= 'b0;
                 channel_mem_triggered <= 'b0;
+                pressed <= 1'b1;
 			end
 			else begin
+                
 				case(noise_state)
-					WAIT_MEM: begin if (load_mem_pressed) begin
+					WAIT_MEM: begin if ( load_mem_pressed != load_mem_pressed_L && !en/*load_mem && pressed == 1'b1*/ ) begin
 										load_mem_n <= 'b1;
 										noise_state <= LOAD_MEM;
+                                        
 								 end
 								 else begin
 									load_mem_n <= 1'b0;
@@ -174,7 +186,8 @@ module whole_sys_tb;
 								   noise_enable <= en;
 									noise_in_valid_i <= voltage_channel_valid;
                                     channel_mem_triggered <= 'b1;
-									end
+									pressed <= 2'd3;
+                                    end
 					default: noise_state <= noise_state;
 				endcase
 			end
@@ -220,19 +233,6 @@ module whole_sys_tb;
 		end
 
 
-        //connecting valid signals for noise and for channel:
-        //channel
-       /* logic channel_in_valid;
-        always_ff @ (posedge clk) begin
-			if(!rstn) channel_in_valid <= 'b0;
-			else begin
-				if(channel_in_valid_i) begin
-					channel_in_valid <= 'b1;
-				end
-				else channel_in_valid <= channel_in_valid;
-			end
-		end*/
-
         //noise
 		always_ff @ (posedge clk) begin
 			if(!rstn) noise_in_valid <= 'b0;
@@ -247,7 +247,7 @@ module whole_sys_tb;
 		logic [63:0] mem_data;
 
 
-        ISI_channel_ocm channel (
+        ISI_channel_ocm #(.PULSE_RESPONSE_LENGTH(2))  channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
@@ -318,7 +318,7 @@ module whole_sys_tb;
         .signal_in_valid(noise_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));*/
-    DFE_prl rx(
+    DFE_prl  #(.PULSE_RESPONSE_LENGTH(2)) rx(
         .clk(clk),
         .rstn(rstn),
         .signal_in(noise_output),
@@ -353,17 +353,48 @@ module whole_sys_tb;
         .data_out(binary_data_rx),
         .data_out_valid(binary_data_rx_valid));
 
-    wire [31:0] total_bits;
-    wire [31:0] total_bit_errors;
-    prbs31_checker ebr(
+    reg [31:0] total_bits;
+    reg [31:0] total_bit_errors;
+    logic [12:0] latched_input;
+    //logic [4:0] cnt;
+    logic correct_or_not;
+    always_ff @ (posedge clk) begin
+        if(!rstn) begin
+            latched_input <= 'b0;
+            //cnt <= 'b0;
+            //correct_or_not <= 'b0;
+            total_bits <= 'b0;
+            total_bit_errors <= 'b0;
+        end
+        if(binary_data_valid) begin
+            //latched_input[cnt] <= binary_data;
+            //latched_input[11] <= binary_data;
+            for(int i = 11; i > 0; i = i - 1) begin
+                if(i < 11 ) latched_input[i] <= latched_input [i+1];
+                if(i == 11) latched_input[i] <= binary_data;
+            end
+        end
+        if(binary_data_rx_valid) begin
+                total_bits <= total_bits + 1;
+                //correct_or_not <= (latched_input[1] == binary_data_rx);
+        end
+		if(!correct_or_not && binary_data_rx_valid) total_bit_errors <= total_bit_errors + 1;
+    end
+
+    assign correct_or_not = (binary_data_rx_valid) ? (latched_input[1] == binary_data_rx) : 'b0;
+   /* prbs31_checker ebr(
         .clk(clk),
         .rstn(rstn),
         .data_in(binary_data_rx),
         .data_in_valid(binary_data_rx_valid),
         .total_bits(total_bits),
-        .total_bit_errors(total_bit_errors));
+        .total_bit_errors(total_bit_errors));*/
+    
 
 
+    //assign load_mem_pressed = pressed == 2'b1;
+
+    
 
 
     initial begin
@@ -374,7 +405,7 @@ module whole_sys_tb;
         rstn <= 'b0;
         noise_in <= 'b0;
         nvalid <= 'b0;
-        load_mem_pressed <= 'b0;
+        load_mem <= 'b0;
         en <= 'b0;
         wen = 'b0;
         wen2 = 'b0;
@@ -383,17 +414,23 @@ module whole_sys_tb;
         //load_mem_pressed <= 'b1;
         en2 = 'b1;
         #20
-        load_mem_pressed <= 'b1;
-         #20
-         load_mem_pressed <= 'b0;
+        load_mem <= 'b1;
         //rstn <= 1;
         //en2 = 'b1;
        // load_mem <= 1;
         wait(done_wait_c);
+        #60
+        load_mem <= 'b0;
         //load_mem <= 0;
+
+        #40;
+        load_mem <= 'b1;
+        #100;
+        load_mem <= 'b0;
+        #20;
         en <= 'b1;
         nvalid <= 1;
-        #80000
+        #800;
         //#1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
