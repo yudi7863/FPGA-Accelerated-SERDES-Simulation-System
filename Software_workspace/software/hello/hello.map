@@ -82,7 +82,7 @@ LOAD c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/
                 0x0000000000020020                PROVIDE (__ram_exceptions_end = ABSOLUTE (.))
                 0x0000000000020020                PROVIDE (__flash_exceptions_start = LOADADDR (.exceptions))
 
-.text           0x0000000000020020      0x3c4
+.text           0x0000000000020020      0x454
                 [!provide]                        PROVIDE (stext = ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -130,39 +130,39 @@ LOAD c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/
  .text          0x0000000000020020       0x3c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
                 0x0000000000020020                _start
  .text          0x000000000002005c        0x0 obj/default/hello_world_small.o
- .text.startup  0x000000000002005c       0x6c obj/default/hello_world_small.o
+ .text.startup  0x000000000002005c       0xfc obj/default/hello_world_small.o
                 0x000000000002005c                main
- .text          0x00000000000200c8       0x84 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
-                0x00000000000200c8                alt_load
- .text          0x000000000002014c       0x2c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
-                0x000000000002014c                alt_main
- .text          0x0000000000020178      0x144 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
-                0x0000000000020178                alt_printf
- .text          0x00000000000202bc       0x48 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
-                0x00000000000202bc                alt_putchar
- .text          0x0000000000020304       0x24 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
-                0x0000000000020304                alt_irq_init
-                0x0000000000020324                alt_sys_init
- .text          0x0000000000020328       0x84 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
-                0x0000000000020328                altera_avalon_uart_write
- .text          0x00000000000203ac        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
-                0x00000000000203ac                alt_dcache_flush_all
- .text          0x00000000000203b0        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .text          0x00000000000203b0        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
-                0x00000000000203b0                alt_icache_flush_all
- .text          0x00000000000203b4        0x8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
-                0x00000000000203b4                altera_nios2_gen2_irq_init
- .text          0x00000000000203bc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .text          0x00000000000203bc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
- .text.memcpy   0x00000000000203bc       0x28 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
-                0x00000000000203bc                memcpy
+ .text          0x0000000000020158       0x84 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000020158                alt_load
+ .text          0x00000000000201dc       0x2c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+                0x00000000000201dc                alt_main
+ .text          0x0000000000020208      0x144 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+                0x0000000000020208                alt_printf
+ .text          0x000000000002034c       0x48 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+                0x000000000002034c                alt_putchar
+ .text          0x0000000000020394       0x24 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x0000000000020394                alt_irq_init
+                0x00000000000203b4                alt_sys_init
+ .text          0x00000000000203b8       0x84 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+                0x00000000000203b8                altera_avalon_uart_write
+ .text          0x000000000002043c        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x000000000002043c                alt_dcache_flush_all
+ .text          0x0000000000020440        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .text          0x0000000000020440        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000020440                alt_icache_flush_all
+ .text          0x0000000000020444        0x8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x0000000000020444                altera_nios2_gen2_irq_init
+ .text          0x000000000002044c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .text          0x000000000002044c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .text.memcpy   0x000000000002044c       0x28 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+                0x000000000002044c                memcpy
  *(.gnu.warning.*)
  *(.fini)
                 [!provide]                        PROVIDE (__etext = ABSOLUTE (.))
                 [!provide]                        PROVIDE (_etext = ABSOLUTE (.))
                 [!provide]                        PROVIDE (etext = ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00000000000203e4                . = ALIGN (0x4)
+                0x0000000000020474                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__preinit_array_start = ABSOLUTE (.))
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end = ABSOLUTE (.))
@@ -184,101 +184,102 @@ LOAD c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/
  *(SORT_BY_NAME(.dtors.*))
                 [!provide]                        PROVIDE (__DTOR_END__ = ABSOLUTE (.))
  *(.jcr)
-                0x00000000000203e4                . = ALIGN (0x4)
+                0x0000000000020474                . = ALIGN (0x4)
 
-.rodata         0x00000000000203e4       0x18
-                0x00000000000203e4                PROVIDE (__ram_rodata_start = ABSOLUTE (.))
-                0x00000000000203e4                . = ALIGN (0x4)
+.rodata         0x0000000000020474       0x18
+                0x0000000000020474                PROVIDE (__ram_rodata_start = ABSOLUTE (.))
+                0x0000000000020474                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00000000000203e4       0x16 obj/default/hello_world_small.o
+                0x0000000000020474       0x16 obj/default/hello_world_small.o
  *(.rodata1)
-                0x00000000000203fc                . = ALIGN (0x4)
- *fill*         0x00000000000203fa        0x2 
-                0x00000000000203fc                PROVIDE (__ram_rodata_end = ABSOLUTE (.))
-                0x00000000000203e4                PROVIDE (__flash_rodata_start = LOADADDR (.rodata))
+                0x000000000002048c                . = ALIGN (0x4)
+ *fill*         0x000000000002048a        0x2 
+                0x000000000002048c                PROVIDE (__ram_rodata_end = ABSOLUTE (.))
+                0x0000000000020474                PROVIDE (__flash_rodata_start = LOADADDR (.rodata))
 
-.rwdata         0x00000000000203fc      0x408 load address 0x0000000000020804
-                0x00000000000203fc                PROVIDE (__ram_rwdata_start = ABSOLUTE (.))
-                0x00000000000203fc                . = ALIGN (0x4)
+.rwdata         0x000000000002048c      0x418 load address 0x00000000000208a4
+                0x000000000002048c                PROVIDE (__ram_rwdata_start = ABSOLUTE (.))
+                0x000000000002048c                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000000203fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .data          0x00000000000203fc      0x400 obj/default/hello_world_small.o
-                0x00000000000203fc                SIGMA6
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x00000000000207fc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .data          0x00000000000207fc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .data          0x00000000000207fc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
-                0x00000000000287fc                _gp = ABSOLUTE ((. + 0x8000))
+ .data          0x000000000002048c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
+ .data          0x000000000002048c      0x410 obj/default/hello_world_small.o
+                0x000000000002048c                PULSE_RESPONSE_VALS
+                0x000000000002049c                SIGMA6
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x000000000002089c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x000000000002089c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .data          0x000000000002089c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+                0x000000000002889c                _gp = ABSOLUTE ((. + 0x8000))
                 [!provide]                        PROVIDE (gp = _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
- .sdata         0x00000000000207fc        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
-                0x00000000000207fc                uart_0
- .sdata         0x0000000000020800        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
-                0x0000000000020800                alt_errno
+ .sdata         0x000000000002089c        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x000000000002089c                uart_0
+ .sdata         0x00000000000208a0        0x4 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+                0x00000000000208a0                alt_errno
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x0000000000020804                . = ALIGN (0x4)
-                0x0000000000020804                _edata = ABSOLUTE (.)
+                0x00000000000208a4                . = ALIGN (0x4)
+                0x00000000000208a4                _edata = ABSOLUTE (.)
                 [!provide]                        PROVIDE (edata = ABSOLUTE (.))
-                0x0000000000020804                PROVIDE (__ram_rwdata_end = ABSOLUTE (.))
-                0x0000000000020804                PROVIDE (__flash_rwdata_start = LOADADDR (.rwdata))
+                0x00000000000208a4                PROVIDE (__ram_rwdata_end = ABSOLUTE (.))
+                0x00000000000208a4                PROVIDE (__flash_rwdata_start = LOADADDR (.rwdata))
 
-.bss            0x0000000000020c0c       0x10
-                0x0000000000020c0c                __bss_start = ABSOLUTE (.)
+.bss            0x0000000000020cbc       0x10
+                0x0000000000020cbc                __bss_start = ABSOLUTE (.)
                 [!provide]                        PROVIDE (__sbss_start = ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_start = ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000000020c0c        0xc c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
-                0x0000000000020c0c                alt_envp
-                0x0000000000020c10                alt_argv
-                0x0000000000020c14                alt_argc
- .sbss.errno    0x0000000000020c18        0x4 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
-                0x0000000000020c18                errno
+ .sbss          0x0000000000020cbc        0xc c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000020cbc                alt_envp
+                0x0000000000020cc0                alt_argv
+                0x0000000000020cc4                alt_argc
+ .sbss.errno    0x0000000000020cc8        0x4 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+                0x0000000000020cc8                errno
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
                 [!provide]                        PROVIDE (__sbss_end = ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_end = ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .bss           0x0000000000020c1c        0x0 obj/default/hello_world_small.o
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x0000000000020c1c        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .bss           0x0000000000020c1c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .bss           0x0000000000020c1c        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000020ccc        0x0 obj/default/hello_world_small.o
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000020ccc        0x0 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x0000000000020ccc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0000000000020ccc        0x0 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
  *(COMMON)
-                0x0000000000020c1c                . = ALIGN (0x4)
-                0x0000000000020c1c                __bss_end = ABSOLUTE (.)
+                0x0000000000020ccc                . = ALIGN (0x4)
+                0x0000000000020ccc                __bss_end = ABSOLUTE (.)
 
-.on_chip_mem    0x0000000000020c1c        0x0
+.on_chip_mem    0x0000000000020ccc        0x0
                 [!provide]                        PROVIDE (_alt_partition_on_chip_mem_start = ABSOLUTE (.))
  *(.on_chip_mem .on_chip_mem. on_chip_mem.*)
-                0x0000000000020c1c                . = ALIGN (0x4)
+                0x0000000000020ccc                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_alt_partition_on_chip_mem_end = ABSOLUTE (.))
-                0x0000000000020c1c                _end = ABSOLUTE (.)
-                0x0000000000020c1c                end = ABSOLUTE (.)
-                0x0000000000020c1c                __alt_stack_base = ABSOLUTE (.)
+                0x0000000000020ccc                _end = ABSOLUTE (.)
+                0x0000000000020ccc                end = ABSOLUTE (.)
+                0x0000000000020ccc                __alt_stack_base = ABSOLUTE (.)
                 [!provide]                        PROVIDE (_alt_partition_on_chip_mem_load_addr = LOADADDR (.on_chip_mem))
 
 .stab
@@ -362,56 +363,56 @@ LOAD c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x0000000000000000      0xe83
+.debug_info     0x0000000000000000      0xeda
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x0000000000000000       0x22 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .debug_info    0x0000000000000022      0x183 obj/default/hello_world_small.o
- .debug_info    0x00000000000001a5      0x239 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
- .debug_info    0x00000000000003de      0x13e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
- .debug_info    0x000000000000051c      0x17e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .debug_info    0x000000000000069a      0x130 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .debug_info    0x00000000000007ca      0x127 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_info    0x00000000000008f1      0x19d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_info    0x0000000000000a8e       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_info    0x0000000000000b1b       0xa8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_info    0x0000000000000bc3       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_info    0x0000000000000c50       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_info    0x0000000000000cdd       0x85 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .debug_info    0x0000000000000d62      0x121 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .debug_info    0x0000000000000022      0x1da obj/default/hello_world_small.o
+ .debug_info    0x00000000000001fc      0x239 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_info    0x0000000000000435      0x13e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_info    0x0000000000000573      0x17e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_info    0x00000000000006f1      0x130 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_info    0x0000000000000821      0x127 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_info    0x0000000000000948      0x19d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_info    0x0000000000000ae5       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_info    0x0000000000000b72       0xa8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_info    0x0000000000000c1a       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_info    0x0000000000000ca7       0x8d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_info    0x0000000000000d34       0x85 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_info    0x0000000000000db9      0x121 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
 
-.debug_abbrev   0x0000000000000000      0x950
+.debug_abbrev   0x0000000000000000      0x971
  *(.debug_abbrev)
  .debug_abbrev  0x0000000000000000       0x12 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .debug_abbrev  0x0000000000000012      0x109 obj/default/hello_world_small.o
- .debug_abbrev  0x000000000000011b      0x12c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
- .debug_abbrev  0x0000000000000247       0xeb c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
- .debug_abbrev  0x0000000000000332      0x10d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .debug_abbrev  0x000000000000043f       0xca c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .debug_abbrev  0x0000000000000509      0x107 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_abbrev  0x0000000000000610      0x10d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_abbrev  0x000000000000071d       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_abbrev  0x0000000000000760       0x70 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_abbrev  0x00000000000007d0       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_abbrev  0x0000000000000813       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_abbrev  0x0000000000000856       0x39 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .debug_abbrev  0x000000000000088f       0xc1 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .debug_abbrev  0x0000000000000012      0x12a obj/default/hello_world_small.o
+ .debug_abbrev  0x000000000000013c      0x12c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_abbrev  0x0000000000000268       0xeb c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_abbrev  0x0000000000000353      0x10d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_abbrev  0x0000000000000460       0xca c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_abbrev  0x000000000000052a      0x107 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_abbrev  0x0000000000000631      0x10d c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_abbrev  0x000000000000073e       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_abbrev  0x0000000000000781       0x70 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_abbrev  0x00000000000007f1       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_abbrev  0x0000000000000834       0x43 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_abbrev  0x0000000000000877       0x39 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_abbrev  0x00000000000008b0       0xc1 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
 
-.debug_line     0x0000000000000000      0x815
+.debug_line     0x0000000000000000      0x8ce
  *(.debug_line)
  .debug_line    0x0000000000000000       0x66 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .debug_line    0x0000000000000066       0xcf obj/default/hello_world_small.o
- .debug_line    0x0000000000000135       0xd2 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
- .debug_line    0x0000000000000207       0xa2 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
- .debug_line    0x00000000000002a9      0x177 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .debug_line    0x0000000000000420       0x82 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .debug_line    0x00000000000004a2       0x8e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_line    0x0000000000000530       0xe5 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_line    0x0000000000000615       0x4e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_line    0x0000000000000663       0x4c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
- .debug_line    0x00000000000006af       0x4c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_line    0x00000000000006fb       0x54 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_line    0x000000000000074f       0x3a c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .debug_line    0x0000000000000789       0x8c c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .debug_line    0x0000000000000066      0x188 obj/default/hello_world_small.o
+ .debug_line    0x00000000000001ee       0xd2 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_line    0x00000000000002c0       0xa2 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_line    0x0000000000000362      0x177 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_line    0x00000000000004d9       0x82 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_line    0x000000000000055b       0x8e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_line    0x00000000000005e9       0xe5 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_line    0x00000000000006ce       0x4e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_line    0x000000000000071c       0x4c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_line    0x0000000000000768       0x4c c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_line    0x00000000000007b4       0x54 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_line    0x0000000000000808       0x3a c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_line    0x0000000000000842       0x8c c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
 
 .debug_frame    0x0000000000000000      0x1ec
  *(.debug_frame)
@@ -427,31 +428,31 @@ LOAD c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/
  .debug_frame   0x00000000000001ac       0x20 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
  .debug_frame   0x00000000000001cc       0x20 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
 
-.debug_str      0x0000000000000000      0x473
+.debug_str      0x0000000000000000      0x487
  *(.debug_str)
  .debug_str     0x0000000000000000       0x89 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
- .debug_str     0x0000000000000089       0xf6 obj/default/hello_world_small.o
-                                        0x14d (size before relaxing)
- .debug_str     0x000000000000017f      0x125 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+ .debug_str     0x0000000000000089      0x10a obj/default/hello_world_small.o
+                                        0x161 (size before relaxing)
+ .debug_str     0x0000000000000193      0x125 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
                                         0x208 (size before relaxing)
- .debug_str     0x00000000000002a4       0x4b c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
+ .debug_str     0x00000000000002b8       0x4b c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_main.o)
                                         0x138 (size before relaxing)
- .debug_str     0x00000000000002ef       0x44 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_str     0x0000000000000303       0x44 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
                                          0xc1 (size before relaxing)
- .debug_str     0x0000000000000333       0x3b c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_str     0x0000000000000347       0x3b c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
                                         0x12f (size before relaxing)
- .debug_str     0x000000000000036e       0x52 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_str     0x0000000000000382       0x52 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
                                         0x17b (size before relaxing)
- .debug_str     0x00000000000003c0       0x32 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_str     0x00000000000003d4       0x32 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
                                         0x178 (size before relaxing)
- .debug_str     0x00000000000003f2       0xfd c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .debug_str     0x00000000000003f2        0x8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
+ .debug_str     0x0000000000000406       0xfd c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .debug_str     0x0000000000000406        0x8 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_errno.o)
                                          0xfa (size before relaxing)
- .debug_str     0x00000000000003fa       0xfd c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .debug_str     0x00000000000003fa      0x103 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .debug_str     0x00000000000003fa       0x5e c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .debug_str     0x000000000000040e       0xfd c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .debug_str     0x000000000000040e      0x103 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .debug_str     0x000000000000040e       0x5e c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
                                          0xf9 (size before relaxing)
- .debug_str     0x0000000000000458       0x1b c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .debug_str     0x000000000000046c       0x1b c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
                                         0x115 (size before relaxing)
 
 .debug_loc
@@ -488,18 +489,33 @@ LOAD linker stubs
 .debug_ranges   0x0000000000000000       0x20
  .debug_ranges  0x0000000000000000       0x20 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o
 
+.debug_loclists
+                0x0000000000000000      0x3ee
+ .debug_loclists
+                0x0000000000000000       0x50 obj/default/hello_world_small.o
+ .debug_loclists
+                0x0000000000000050      0x180 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+ .debug_loclists
+                0x00000000000001d0       0x25 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
+ .debug_loclists
+                0x00000000000001f5       0x1e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .debug_loclists
+                0x0000000000000213      0x10f c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+ .debug_loclists
+                0x0000000000000322       0xcc c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+
 .debug_rnglists
-                0x0000000000000000       0x74
+                0x0000000000000000       0x90
  .debug_rnglists
-                0x0000000000000000       0x13 obj/default/hello_world_small.o
+                0x0000000000000000       0x2f obj/default/hello_world_small.o
  .debug_rnglists
-                0x0000000000000013       0x23 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
+                0x000000000000002f       0x23 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_load.o)
  .debug_rnglists
-                0x0000000000000036       0x17 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
+                0x0000000000000052       0x17 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
  .debug_rnglists
-                0x000000000000004d       0x14 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
+                0x0000000000000069       0x14 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
  .debug_rnglists
-                0x0000000000000061       0x13 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+                0x000000000000007d       0x13 c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
 
 .debug_line_str
                 0x0000000000000000      0x743
@@ -542,16 +558,3 @@ LOAD linker stubs
  .debug_line_str
                 0x0000000000000566      0x1dd c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
                                         0x2b3 (size before relaxing)
-
-.debug_loclists
-                0x0000000000000000      0x39e
- .debug_loclists
-                0x0000000000000000      0x180 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_printf.o)
- .debug_loclists
-                0x0000000000000180       0x25 c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_putchar.o)
- .debug_loclists
-                0x00000000000001a5       0x1e c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(alt_sys_init.o)
- .debug_loclists
-                0x00000000000001c3      0x10f c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/\libhal_bsp.a(altera_avalon_uart_write.o)
- .debug_loclists
-                0x00000000000002d2       0xcc c:/intelfpga_lite/22.1std/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/12.2.1/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)

@@ -213,8 +213,15 @@ volatile uint64_t SIGMA6 [128] = {
 		0xfffffffeadb7e000,
 		0xffffffff17498000,
 		0xffffffff4f3b5800,
+};
 
-
+volatile uint64_t PULSE_RESPONSE_VALS [2] = { //1, 0.0
+		//0x0000000001000008, //1, 0.0
+		//0x0000000000000008,
+		0x0000000001000008, //1, 0.8
+		0x0000000000cd0008,
+		//0x0000000001000008,//1, 0.5
+		//0x0000000000800008,
 };
 
 int main()
@@ -233,20 +240,16 @@ int main()
 	//*(ocm_base+3) = value;
 
 	//writing sigma_6 values into ocm:
-	/*for(int i = 0; i < 128; i = i + 2){ //this starts at 1C0;
-		*(ocm_base+i+865) = 0x11111111;//(uint32_t)(SIGMA6[i] >> 32); //upper
-		*(ocm_base+i+1+865) = 0x22222222;//(uint32_t)SIGMA6[i]; //lower //1c0
-	}*/
-	//*(ocm_base+10) = 0x12345678;
-	//*(ocm_base+1) = 0x22222222;
-	//*(ocm_base+2) = 0x11111111;
-	//*(ocm_base+3) = 0x22222222;
-	//*(ocm_base+4) = 0x11111111;
-	//*(ocm_base+5) = 0x22222222;
-	//*(ocm_base+200) = 0x33333333;
-	//*(ocm_base+250) = 0x33333333;
-	//*(ocm_base+300) = 0x33333333; //this is 4B0
-	//*(ocm_base+350) = 0x33333333; //this is 578, I want CF0 = 828
+	for(int i = 0; i < 128; i = i + 1){ //this starts at 1C0;
+		*(ocm_base+i*4+864) = (uint32_t)(SIGMA6[i] >> 32); //upper
+		*(ocm_base+i*4+1+864) = (uint32_t)SIGMA6[i]; //lower //1c0
+	}
+	//writing channel: channel starting at 1580 and 1584:  1376:
+	for(int i = 0; i < 2; i = i + 1){
+		*(ocm_base+(i)*4+1376) = (uint32_t)(PULSE_RESPONSE_VALS[i] >> 32); //upper
+		*(ocm_base+(i)*4+1+1376) = (uint32_t)PULSE_RESPONSE_VALS[i]; //lower //1c0
+	}
+
 	//found the location of the actual hex file!!
 	// the noise channel location starts at D80, D84
 	//conversion: D80 =

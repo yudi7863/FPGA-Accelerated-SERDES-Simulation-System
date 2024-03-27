@@ -830,3 +830,810 @@ Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation
 make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
 [BSP build complete]
 [hello build complete]
+17:24:07 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:259:22: warning: unused variable 'count' [-Wunused-variable]
+  259 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:257:25: warning: unused variable 'BER' [-Wunused-variable]
+  257 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2116 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:24:17 **** Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:26:39 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:28:19 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:259:22: warning: unused variable 'count' [-Wunused-variable]
+  259 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:257:25: warning: unused variable 'BER' [-Wunused-variable]
+  257 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:237:54: warning: iteration 64 invokes undefined behavior [-Waggressive-loop-optimizations]
+  237 |                 *(ocm_base+i+865) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                ~~~~~~^~~
+hello_world_small.c:236:26: note: within this loop
+  236 |         for(int i = 0; i < 130; i = i + 2){ //this starts at 1C0;
+      |                        ~~^~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2136 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:28:22 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:28:30 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:32:02 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:33:10 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:36:03 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:37:27 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:259:22: warning: unused variable 'count' [-Wunused-variable]
+  259 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:257:25: warning: unused variable 'BER' [-Wunused-variable]
+  257 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:237:54: warning: iteration 32 invokes undefined behavior [-Waggressive-loop-optimizations]
+  237 |                 *(ocm_base+i+864) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                ~~~~~~^~~
+hello_world_small.c:236:26: note: within this loop
+  236 |         for(int i = 0; i < 130; i = i + 4){ //this starts at 1C0;
+      |                        ~~^~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2136 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:37:29 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:37:51 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:259:22: warning: unused variable 'count' [-Wunused-variable]
+  259 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:257:25: warning: unused variable 'BER' [-Wunused-variable]
+  257 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:237:54: warning: iteration 32 invokes undefined behavior [-Waggressive-loop-optimizations]
+  237 |                 *(ocm_base+i+864) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                ~~~~~~^~~
+hello_world_small.c:236:26: note: within this loop
+  236 |         for(int i = 0; i < 130*2; i = i + 4){ //this starts at 1C0;
+      |                        ~~^~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2136 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:37:54 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:38:08 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:40:36 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:259:22: warning: unused variable 'count' [-Wunused-variable]
+  259 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:257:25: warning: unused variable 'BER' [-Wunused-variable]
+  257 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:237:56: warning: iteration 128 invokes undefined behavior [-Waggressive-loop-optimizations]
+  237 |                 *(ocm_base+i*4+864) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                  ~~~~~~^~~
+hello_world_small.c:236:26: note: within this loop
+  236 |         for(int i = 0; i < 130; i = i + 1){ //this starts at 1C0;
+      |                        ~~^~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2136 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:44:34 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:47:43 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:243:53: warning: value computed is not used [-Wunused-value]
+  243 |                 *(ocm_base+i*4+1+1376) = 0x22222222;(uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                     ^~~~~~~~~~~~~~~~~~~
+hello_world_small.c:264:22: warning: unused variable 'count' [-Wunused-variable]
+  264 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:262:25: warning: unused variable 'BER' [-Wunused-variable]
+  262 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2204 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:47:45 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:47:49 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:49:41 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:264:22: warning: unused variable 'count' [-Wunused-variable]
+  264 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:262:25: warning: unused variable 'BER' [-Wunused-variable]
+  262 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:242:57: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+i*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                   ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:58: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+i*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                    ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:242:57: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+i*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                   ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:58: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+i*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                    ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2196 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:49:44 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:50:17 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:52:01 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:264:22: warning: unused variable 'count' [-Wunused-variable]
+  264 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:262:25: warning: unused variable 'BER' [-Wunused-variable]
+  262 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:242:63: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:242:63: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2196 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:52:03 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:52:15 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:53:34 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x0000000000000008,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:264:22: warning: unused variable 'count' [-Wunused-variable]
+  264 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:262:25: warning: unused variable 'BER' [-Wunused-variable]
+  262 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:242:63: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:242:63: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2196 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:53:36 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:53:46 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:54:59 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+17:57:53 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c:216:17: warning: excess elements in array initializer
+  216 |                 0x0000000001888888,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:216:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c:217:17: warning: excess elements in array initializer
+  217 |                 0x00000000a0999999,
+      |                 ^~~~~~~~~~~~~~~~~~
+hello_world_small.c:217:17: note: (near initialization for 'SIGMA6')
+hello_world_small.c: In function 'main':
+hello_world_small.c:264:22: warning: unused variable 'count' [-Wunused-variable]
+  264 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:262:25: warning: unused variable 'BER' [-Wunused-variable]
+  262 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:227:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  227 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:242:63: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 128 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:242:63: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  242 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(SIGMA6[i] >> 32); //upper
+      |                                                         ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+hello_world_small.c:243:64: warning: array subscript 129 is above array bounds of 'volatile uint64_t[128]' {aka 'volatile long long unsigned int[128]'} [-Warray-bounds]
+  243 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)SIGMA6[i]; //lower //1c0
+      |                                                          ~~~~~~^~~
+hello_world_small.c:86:19: note: while referencing 'SIGMA6'
+   86 | volatile uint64_t SIGMA6 [128] = {
+      |                   ^~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2196 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+17:57:55 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+17:58:09 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:01:08 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:267:22: warning: unused variable 'count' [-Wunused-variable]
+  267 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:265:25: warning: unused variable 'BER' [-Wunused-variable]
+  265 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:230:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  230 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+hello_world_small.c:245:76: warning: array subscript 128 is above array bounds of 'volatile uint64_t[2]' {aka 'volatile long long unsigned int[2]'} [-Warray-bounds]
+  245 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(PULSE_RESPONSE_VALS[i] >> 32); //upper
+      |                                                         ~~~~~~~~~~~~~~~~~~~^~~
+hello_world_small.c:218:19: note: while referencing 'PULSE_RESPONSE_VALS'
+  218 | volatile uint64_t PULSE_RESPONSE_VALS [2] = {
+      |                   ^~~~~~~~~~~~~~~~~~~
+hello_world_small.c:246:77: warning: array subscript 128 is above array bounds of 'volatile uint64_t[2]' {aka 'volatile long long unsigned int[2]'} [-Warray-bounds]
+  246 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)PULSE_RESPONSE_VALS[i]; //lower //1c0
+      |                                                          ~~~~~~~~~~~~~~~~~~~^~~
+hello_world_small.c:218:19: note: while referencing 'PULSE_RESPONSE_VALS'
+  218 | volatile uint64_t PULSE_RESPONSE_VALS [2] = {
+      |                   ^~~~~~~~~~~~~~~~~~~
+hello_world_small.c:245:76: warning: array subscript 129 is above array bounds of 'volatile uint64_t[2]' {aka 'volatile long long unsigned int[2]'} [-Warray-bounds]
+  245 |                 *(ocm_base+(i-128)*4+1376) = (uint32_t)(PULSE_RESPONSE_VALS[i] >> 32); //upper
+      |                                                         ~~~~~~~~~~~~~~~~~~~^~~
+hello_world_small.c:218:19: note: while referencing 'PULSE_RESPONSE_VALS'
+  218 | volatile uint64_t PULSE_RESPONSE_VALS [2] = {
+      |                   ^~~~~~~~~~~~~~~~~~~
+hello_world_small.c:246:77: warning: array subscript 129 is above array bounds of 'volatile uint64_t[2]' {aka 'volatile long long unsigned int[2]'} [-Warray-bounds]
+  246 |                 *(ocm_base+(i-128)*4+1+1376) = (uint32_t)PULSE_RESPONSE_VALS[i]; //lower //1c0
+      |                                                          ~~~~~~~~~~~~~~~~~~~^~~
+hello_world_small.c:218:19: note: while referencing 'PULSE_RESPONSE_VALS'
+  218 | volatile uint64_t PULSE_RESPONSE_VALS [2] = {
+      |                   ^~~~~~~~~~~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2220 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:01:09 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+18:01:26 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:03:30 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:267:22: warning: unused variable 'count' [-Wunused-variable]
+  267 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:265:25: warning: unused variable 'BER' [-Wunused-variable]
+  265 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:230:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  230 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2228 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:03:32 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+18:04:06 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:05:07 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:09:05 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:269:22: warning: unused variable 'count' [-Wunused-variable]
+  269 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:267:25: warning: unused variable 'BER' [-Wunused-variable]
+  267 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:232:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  232 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2228 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:09:10 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+18:09:25 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:20:51 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:271:22: warning: unused variable 'count' [-Wunused-variable]
+  271 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:269:25: warning: unused variable 'BER' [-Wunused-variable]
+  269 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:234:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  234 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2228 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:22:04 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:24:37 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:271:22: warning: unused variable 'count' [-Wunused-variable]
+  271 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:269:25: warning: unused variable 'BER' [-Wunused-variable]
+  269 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:234:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  234 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2228 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:24:40 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+18:24:50 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:24:51 **** Incremental Build of configuration Nios II for project hello_bsp ****
+wsl make all 
+[BSP build complete]
+18:25:12 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:31:48 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc.exe -xc -MP -MMD -c -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//HAL/inc -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/ -Ic:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o "obj/default/hello_world_small.o" "hello_world_small.c"
+hello_world_small.c: In function 'main':
+hello_world_small.c:262:22: warning: unused variable 'count' [-Wunused-variable]
+  262 |         volatile int count = 0; //should be at 144
+      |                      ^~~~~
+hello_world_small.c:260:25: warning: unused variable 'BER' [-Wunused-variable]
+  260 |         volatile double BER = 0.0;
+      |                         ^~~
+hello_world_small.c:234:27: warning: variable 'total_bits' set but not used [-Wunused-but-set-variable]
+  234 |         volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+      |                           ^~~~~~~~~~
+Info: Linking hello.elf
+nios2-elf-g++.exe  -T'c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//linker.x' -msys-crt0='c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -Lc:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/  -msmallc  -Wl,-Map=hello.map   -Os -g -Wall   -mno-hw-div -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o hello.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert.exe hello.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart_0 --stdin_dev uart_0 --stdout_dev uart_0 --sopc_system_name NIOS_UART --quartus_project_dir "c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace" --sopcinfo c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
+Info: (hello.elf) 2228 Bytes program size (code + initialized data).
+Info:             66 KBytes free for stack + heap.
+Info: Creating hello.objdump
+nios2-elf-objdump.exe --disassemble --syms --all-header --source hello.elf >hello.objdump
+[hello build complete]
+18:33:08 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:34:12 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]
+18:35:11 **** Incremental Build of configuration Nios II for project hello ****
+wsl make all 
+Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
+[BSP build complete]
+[hello build complete]

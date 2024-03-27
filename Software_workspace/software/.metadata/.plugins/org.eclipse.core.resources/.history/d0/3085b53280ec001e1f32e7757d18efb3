@@ -213,8 +213,8 @@ volatile uint64_t SIGMA6 [128] = {
 		0xfffffffeadb7e000,
 		0xffffffff17498000,
 		0xffffffff4f3b5800,
-
-
+		0x0000000001000008,
+		0x0000000000000008,
 };
 
 int main()
@@ -224,7 +224,7 @@ int main()
 
 
 	volatile uint32_t * ocm_base = (uint32_t *) ON_CHIP_MEM_BASE;
-	volatile uint32_t total_bits;// = 0x1234DEAD;
+	volatile uint32_t total_bits = 0;// = 0x1234DEAD;
 
 	//writing to ocm to see if it works:
 	//*(ocm_base) = value;
@@ -234,10 +234,10 @@ int main()
 
 	//writing sigma_6 values into ocm:
 	/*for(int i = 0; i < 128; i = i + 2){ //this starts at 1C0;
-		*(ocm_base+i) = 0x11111111;//(uint32_t)(SIGMA6[i] >> 32); //upper
-		*(ocm_base+i+1) = 0x22222222;//(uint32_t)SIGMA6[i]; //lower //1c0
+		*(ocm_base+i+865) = 0x11111111;//(uint32_t)(SIGMA6[i] >> 32); //upper
+		*(ocm_base+i+1+865) = 0x22222222;//(uint32_t)SIGMA6[i]; //lower //1c0
 	}*/
-	*(ocm_base+10) = 0x12345678;
+	//*(ocm_base+10) = 0x12345678;
 	//*(ocm_base+1) = 0x22222222;
 	//*(ocm_base+2) = 0x11111111;
 	//*(ocm_base+3) = 0x22222222;
@@ -247,36 +247,25 @@ int main()
 	//*(ocm_base+250) = 0x33333333;
 	//*(ocm_base+300) = 0x33333333; //this is 4B0
 	//*(ocm_base+350) = 0x33333333; //this is 578, I want CF0 = 828
-	volatile uint32_t total_bit_errors;
+	//found the location of the actual hex file!!
+	// the noise channel location starts at D80, D84
+	//conversion: D80 =
+	//D84 =
+	//1600 =
+	//2c0 maps to 1600
+	volatile uint32_t total_bit_errors = 0;
+	volatile double BER = 0.0;
 	//printing a range of values to see where the total_bits are located
 	volatile int count = 0; //should be at 144
 	//while(count < 146){
 		//total_bits = *(ocm_base+130+count);
 		//total_bit_errors = *(ocm_base+404);
-		total_bit_errors = *(ocm_base+826);
-		total_bit_errors = *(ocm_base+827); //this is 8
-		total_bit_errors = *(ocm_base+828); //this is 10
-		total_bit_errors = *(ocm_base+829); //this is 12
-		total_bit_errors = *(ocm_base+830); // this is 14
-		total_bit_errors = *(ocm_base+831); //this is 8
-		total_bit_errors = *(ocm_base+832); //this is 10
-		total_bit_errors = *(ocm_base+833); //this is 12
-		total_bit_errors = *(ocm_base+834); // this is 14
-		total_bit_errors = *(ocm_base+835); //this is 8
-		total_bit_errors = *(ocm_base+836); //this is 10
-		total_bit_errors = *(ocm_base+837); //this is 12
-		total_bit_errors = *(ocm_base+838); // this is 14
-		total_bit_errors = *(ocm_base+839);
-		total_bit_errors = *(ocm_base+840); // this is 14
-		total_bit_errors = *(ocm_base+841); //this is 8
-		total_bit_errors = *(ocm_base+842); //this is 10
-		total_bit_errors = *(ocm_base+843); //this is 12
-		total_bit_errors = *(ocm_base+844); // this is 14
-		total_bit_errors = *(ocm_base+845); //this is 8
-		total_bit_errors = *(ocm_base+846); //this is 10
-		total_bit_errors = *(ocm_base+847); //this is 12
-		total_bit_errors = *(ocm_base+848); // this is 14
+		total_bit_errors = *(ocm_base+864);
+		total_bit_errors = *(ocm_base+865); //this is 8 //this is 6991a1e1
+		total_bits = *(ocm_base+1408); //this is 12 //this is 2C0 in quartus total bits:
+		total_bit_errors = *(ocm_base+1412); // this is 14 1610
 //count = count + 2;
+		//BER = ((double) total_bit_errors) / ((double) total_bits);
 		//alt_printf("total bits: %x\n", total_bits);
 		//alt_printf("total bit errors: %x\n", total_bit_errors);
 	//}
