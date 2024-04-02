@@ -90,8 +90,8 @@ reg signed [7:0] noise_value[127:0];
     //static string possibilities_file = "../../Matlab_sim/noise_prob//probability_verilog_helper.mem";
     $readmemb("../../Matlab_sim/noise_prob//probability_verilog_helper.mem", possibilities);
 end
-*//*
-initial begin
+*/
+/*initial begin
     for(int i=0; i<128;i=i+1)begin
         noise_value[i]=i-63;       
         //$display("noise value:%d",noise_value[i]); 
@@ -101,16 +101,34 @@ end */
 //loading from mem:
 integer i;
 logic [7:0] count;
+logic [6:0] level [6:0];
+logic [4:0] index [6:0];
+logic [7:0] sel;
+logic [6:0] middle_val;
 always @(posedge clk or negedge rstn) begin
     if(!rstn) begin 
         done_wait <= 'b0;
         i <= 'b0;
         count <= 'b0;
-
         gen_dut_start <= 1'b0;
-        for(int i=0; i<128;i=i+1)begin
-            noise_counter[i]<= 8'b0;
-            noise_value[i]=i-63;     
+        level[6] <= 64;
+        level[5] <= 32;
+        level[4] <= 16;
+        level[3] <= 8;
+        level[2] <= 4;
+        level[1] <= 2;
+        level[0] <= 1;
+        index[0] <= 6;
+        index[1] <= 5;
+        index[2] <= 4;
+        index[3] <= 3;
+        index[4] <= 2;
+        index[5] <= 1;
+        index[6] <= 0;
+        sel <='b0;
+        for(int j=0; j<128;j=j+1)begin
+            //noise_counter[i]<= 8'b0;
+            noise_value[j]<=j-8'd63;     
         end
     end
     else begin
@@ -136,8 +154,12 @@ always @(posedge clk or negedge rstn) begin
     else if (en && !load_mem && done_wait) begin
         noise_out_valid <= 1'b0; // Default value
         gen_dut_start <= 1'b1;
+        sel = 'b0;
         // Iterate through possibilities
-        for (int i = 0; i < 128; i = i + 1) begin
+        
+        
+        
+     /*   for (int i = 0; i < 128; i = i + 1) begin
             if (i==0)begin
                 if (random < possibilities[i]) begin
                     noise_out <= noise_value[i] ; // Set noise_out based on the index
@@ -153,7 +175,23 @@ always @(posedge clk or negedge rstn) begin
                     noise_counter[i]=noise_counter[i]+1;
                 end
             end
+        end*/
+      // Variables to keep track of the boundaries of the search
+
+    // Binary search algorithm
+    for(int i = 0; i < 7; i = i  + 1) begin
+        //middle_val = sel[0] * level[0] + sel[1] * level[1] + sel[2] * level[2] + sel[3] * level[3] + sel[4] * level[4] + sel[5] * level[5] + sel[6] * level[6];  
+        middle_val = level[i] + middle_val;
+        if(random >= possibilities[middle_val-1]) begin
+            sel[6-i] = 1'b1;
         end
+        else begin
+            sel[6-i] = 1'b0;
+        end
+    end
+
+    noise_out <= noise_value[sel];
+    noise_out_valid <= 1'b1;
     end
 end
 

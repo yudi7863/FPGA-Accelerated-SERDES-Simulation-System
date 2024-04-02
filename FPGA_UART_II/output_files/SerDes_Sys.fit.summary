@@ -1,0 +1,20 @@
+Fitter Status : Successful - Tue Apr  2 11:34:46 2024
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : SerDes_Sys
+Top-level Entity Name : SerDes_Sys
+Family : Cyclone V
+Device : 5CSEMA5F31C6
+Timing Models : Final
+Logic utilization (in ALMs) : 9,640 / 32,070 ( 30 % )
+Total registers : 10140
+Total pins : 27 / 457 ( 6 % )
+Total virtual pins : 0
+Total block memory bits : 583,680 / 4,065,280 ( 14 % )
+Total RAM Blocks : 75 / 397 ( 19 % )
+Total DSP Blocks : 3 / 87 ( 3 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1 / 6 ( 17 % )
+Total DLLs : 0 / 4 ( 0 % )

@@ -1,0 +1,171 @@
+Flow report for SerDes_Sys
+Tue Apr  2 11:35:30 2024
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Flow Summary                                                                     ;
++---------------------------------+------------------------------------------------+
+; Flow Status                     ; Successful - Tue Apr  2 11:35:30 2024          ;
+; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                   ; SerDes_Sys                                     ;
+; Top-level Entity Name           ; SerDes_Sys                                     ;
+; Family                          ; Cyclone V                                      ;
+; Device                          ; 5CSEMA5F31C6                                   ;
+; Timing Models                   ; Final                                          ;
+; Logic utilization (in ALMs)     ; 9,640 / 32,070 ( 30 % )                        ;
+; Total registers                 ; 10140                                          ;
+; Total pins                      ; 27 / 457 ( 6 % )                               ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 583,680 / 4,065,280 ( 14 % )                   ;
+; Total DSP Blocks                ; 3 / 87 ( 3 % )                                 ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 1 / 6 ( 17 % )                                 ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                  ;
++---------------------------------+------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 04/02/2024 11:23:27 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; SerDes_Sys          ;
++-------------------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                    ;
++-------------------------------------+-------------------------------------------------------------+---------------+-------------+-----------------------------------+
+; Assignment Name                     ; Value                                                       ; Default Value ; Entity Name ; Section Id                        ;
++-------------------------------------+-------------------------------------------------------------+---------------+-------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 1096190267477.171207140748980                               ; --            ; --          ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                         ; --            ; --          ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                         ; --            ; --          ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                         ; --            ; --          ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                         ; --            ; --          ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                                 ; --            ; --          ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; ModelSim (Verilog)                                          ; <None>        ; --          ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                                        ; --            ; --          ; eda_simulation                    ;
+; ENABLE_SIGNALTAP                    ; Off                                                         ; --            ; --          ; --                                ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                                          ; --            ; --          ; --                                ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                                           ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../NIOS_UART.cmp                   ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/NIOS_UART/synthesis/../../NIOS_UART.qsys               ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/RX/synthesis/../RX.cmp                                 ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/RX/synthesis/../../RX.qsys                             ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/channel/synthesis/../channel.cmp                       ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/channel/synthesis/../../channel.qsys                   ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/TX/synthesis/../TX.cmp                                 ; --            ; --          ; --                                ;
+; MISC_FILE                           ; qsys/TX/synthesis/../../TX.qsys                             ; --            ; --          ; --                                ;
+; MISC_FILE                           ; ips/pll.cmp                                                 ; --            ; --          ; --                                ;
+; MISC_FILE                           ; ips/pll_sim/pll.vo                                          ; --            ; --          ; --                                ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                      ; --            ; --          ; Top                               ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family)                      ; --            ; de1soc_top  ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                      ; --            ; --          ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                      ; --            ; de1soc_top  ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                      ; --            ; --          ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                      ; --            ; de1soc_top  ; Top                               ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                         ; --            ; --          ; --                                ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                       ; --            ; --          ; --                                ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/NIOS_UART/synthesis/NIOS_UART.debuginfo                ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/RX/synthesis/RX.debuginfo                              ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/channel/synthesis/channel.debuginfo                    ; --            ; --          ; --                                ;
+; SLD_FILE                            ; qsys/TX/synthesis/TX.debuginfo                              ; --            ; --          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME NIOS_UART HAS_SOPCINFO 1 GENERATION_ID 1711469257 ; --            ; NIOS_UART   ; --                                ;
+; SLD_INFO                            ; QSYS_NAME RX HAS_SOPCINFO 1 GENERATION_ID 1710251821        ; --            ; RX          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME TX HAS_SOPCINFO 1 GENERATION_ID 1707362845        ; --            ; TX          ; --                                ;
+; SLD_INFO                            ; QSYS_NAME channel HAS_SOPCINFO 1 GENERATION_ID 1699844736   ; --            ; channel     ; --                                ;
+; SOPCINFO_FILE                       ; qsys/NIOS_UART/synthesis/../../NIOS_UART.sopcinfo           ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/RX/synthesis/../../RX.sopcinfo                         ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/channel/synthesis/../../channel.sopcinfo               ; --            ; --          ; --                                ;
+; SOPCINFO_FILE                       ; qsys/TX/synthesis/../../TX.sopcinfo                         ; --            ; --          ; --                                ;
+; SPD_FILE                            ; ips/pll.spd                                                 ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                          ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                          ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                          ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                          ; --            ; --          ; --                                ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                          ; --            ; --          ; --                                ;
+; USE_SIGNALTAP_FILE                  ; stp/PROBLEMATIC.stp                                         ; --            ; --          ; --                                ;
++-------------------------------------+-------------------------------------------------------------+---------------+-------------+-----------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:01:08     ; 3.4                     ; 5286 MB             ; 00:01:04                           ;
+; Fitter               ; 00:10:06     ; 1.3                     ; 8451 MB             ; 00:19:37                           ;
+; Assembler            ; 00:00:14     ; 1.0                     ; 5006 MB             ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:19     ; 5.1                     ; 5725 MB             ; 00:00:52                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 5005 MB             ; 00:00:01                           ;
+; Total                ; 00:11:51     ; --                      ; --                  ; 00:21:38                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; yudi             ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off SerDes_Sys -c SerDes_Sys
+quartus_fit --read_settings_files=off --write_settings_files=off SerDes_Sys -c SerDes_Sys
+quartus_asm --read_settings_files=off --write_settings_files=off SerDes_Sys -c SerDes_Sys
+quartus_sta SerDes_Sys -c SerDes_Sys
+quartus_eda --read_settings_files=off --write_settings_files=off SerDes_Sys -c SerDes_Sys
+
+
+

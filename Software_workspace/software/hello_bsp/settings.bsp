@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2024-3-26 12:28:07</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1711470487100</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2024-3-29 18:45:20</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1711752320360</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\Software_workspace\software\hello_bsp</BspGeneratedLocation>
         <BspSettingsFile>.\settings.bsp</BspSettingsFile>
         <SopcDesignFile>C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\Software_workspace\NIOS_UART.sopcinfo</SopcDesignFile>

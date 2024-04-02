@@ -240,7 +240,7 @@ int main()
 	//*(ocm_base+3) = value;
 
 	//writing sigma_6 values into ocm:
-	for(int i = 0; i < 128; i = i + 1){ //this starts at 1C0;
+	/*for(int i = 0; i < 128; i = i + 1){ //this starts at 1C0;
 		*(ocm_base+i*4+864) = (uint32_t)(SIGMA6[i] >> 32); //upper
 		*(ocm_base+i*4+1+864) = (uint32_t)SIGMA6[i]; //lower //1c0
 	}
@@ -248,7 +248,7 @@ int main()
 	for(int i = 0; i < 2; i = i + 1){
 		*(ocm_base+(i)*4+1376) = (uint32_t)(PULSE_RESPONSE_VALS[i] >> 32); //upper
 		*(ocm_base+(i)*4+1+1376) = (uint32_t)PULSE_RESPONSE_VALS[i]; //lower //1c0
-	}
+	}*/
 
 	//found the location of the actual hex file!!
 	// the noise channel location starts at D80, D84
@@ -263,6 +263,9 @@ int main()
 	//while(count < 146){
 		//total_bits = *(ocm_base+130+count);
 		//total_bit_errors = *(ocm_base+404);
+		*(ocm_base+1440) = 0x1;
+		*(ocm_base+1440) = 0x2;
+
 		total_bit_errors = *(ocm_base+864);
 		total_bit_errors = *(ocm_base+865); //this is 8 //this is 6991a1e1
 		total_bits = *(ocm_base+1408); //this is 12 //this is 2C0 in quartus total bits:
@@ -275,5 +278,3 @@ int main()
 	alt_printf("total bit errors: %x\n", total_bit_errors);
   return 0;
 }
-
-

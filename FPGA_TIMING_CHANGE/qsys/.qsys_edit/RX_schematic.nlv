@@ -1,0 +1,23 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst RX -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst RX.pam4_decoder_0 -pg 1 -lvl 2 -y 390
+preplace inst RX.clk_0 -pg 1 -lvl 1 -y 150
+preplace inst RX.gray_decoder_0 -pg 1 -lvl 2 -y 290
+preplace inst RX.dfe_0 -pg 1 -lvl 2 -y 110
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.signal_in,(SLAVE)RX.dfe_0_signal_in) 1 0 2 NJ 240 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)clk_0.clk_in,(SLAVE)RX.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.pam4_decoder_0_rx_pam4_output,(SLAVE)pam4_decoder_0.rx_pam4_output) 1 0 2 NJ 460 NJ
+preplace netloc FAN_OUT<net_container>RX</net_container>(SLAVE)pam4_decoder_0.reset_n,(SLAVE)dfe_0.reset_n,(SLAVE)gray_decoder_0.rstn,(MASTER)clk_0.clk_reset) 1 1 1 400
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.mem_data,(SLAVE)RX.dfe_0_mem_data) 1 0 2 NJ 120 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)pam4_decoder_0.rx_pam4_input,(SLAVE)RX.pam4_decoder_0_rx_pam4_input) 1 0 2 NJ 440 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.location,(SLAVE)RX.dfe_0_location) 1 0 2 NJ 100 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)clk_0.clk_in_reset,(SLAVE)RX.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.dfe_0_signal_out,(SLAVE)dfe_0.signal_out) 1 0 2 NJ 140 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.gray_decoder_0_data_out,(SLAVE)gray_decoder_0.data_out) 1 0 2 NJ 320 NJ
+preplace netloc FAN_OUT<net_container>RX</net_container>(SLAVE)gray_decoder_0.clock,(SLAVE)pam4_decoder_0.clock,(SLAVE)dfe_0.clock,(MASTER)clk_0.clk) 1 1 1 480
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.gray_decoder_0_symbol_in,(SLAVE)gray_decoder_0.symbol_in) 1 0 2 NJ 360 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)RX.dfe_0_load_mem,(SLAVE)dfe_0.load_mem) 1 0 2 NJ 60 NJ
+preplace netloc EXPORT<net_container>RX</net_container>(SLAVE)dfe_0.done_wait,(SLAVE)RX.dfe_0_done_wait) 1 0 2 NJ 40 NJ
+levelinfo -pg 1 0 190 710
+levelinfo -hier RX 200 230 580 700

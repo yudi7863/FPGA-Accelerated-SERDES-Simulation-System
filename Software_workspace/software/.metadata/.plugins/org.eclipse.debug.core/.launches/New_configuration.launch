@@ -2,7 +2,7 @@
 <launchConfiguration type="com.altera.sbtgui.launch.hardware.Nios2HardwareLaunchConfiguration">
 <booleanAttribute key="acceptBadSysId" value="true"/>
 <booleanAttribute key="acceptBadTimestamp" value="true"/>
-<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="53621"/>
+<stringAttribute key="com.altera.sbtgui.launch.REMOTE_PORT" value="52973"/>
 <booleanAttribute key="downloadProgram" value="true"/>
 <stringAttribute key="elfFile" value="C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\Software_workspace\software\hello\hello.elf"/>
 <stringAttribute key="org.eclipse.cdt.debug.mi.core.GDB_INIT" value=""/>

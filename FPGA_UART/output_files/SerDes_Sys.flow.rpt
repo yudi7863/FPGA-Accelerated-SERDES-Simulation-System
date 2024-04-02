@@ -1,5 +1,5 @@
 Flow report for SerDes_Sys
-Wed Mar 27 16:45:53 2024
+Fri Mar 29 19:50:48 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Wed Mar 27 16:45:53 2024          ;
+; Flow Status                     ; Successful - Fri Mar 29 19:50:48 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; SerDes_Sys                                     ;
 ; Top-level Entity Name           ; SerDes_Sys                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 13,349 / 32,070 ( 42 % )                       ;
-; Total registers                 ; 21185                                          ;
+; Logic utilization (in ALMs)     ; 13,717 / 32,070 ( 43 % )                       ;
+; Total registers                 ; 22692                                          ;
 ; Total pins                      ; 27 / 457 ( 6 % )                               ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 1,627,136 / 4,065,280 ( 40 % )                 ;
+; Total block memory bits         ; 2,053,120 / 4,065,280 ( 51 % )                 ;
 ; Total DSP Blocks                ; 3 / 87 ( 3 % )                                 ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 03/27/2024 16:33:21 ;
+; Start date & time ; 03/29/2024 19:37:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; SerDes_Sys          ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                                                 ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+-----------------------------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 1096190267477.171157160120520                                         ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 1096190267477.171175547022164                                         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                                                   ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -148,9 +148,6 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=654                                        ; --            ; --          ; mem_init                          ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_mem_init_1_345,   ; --            ; --          ; mem_init                          ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_BLOCK_TYPE=AUTO                                               ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=173                                                     ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=173                                                  ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=173                                        ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_NODE_INFO=805334529                                               ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_POWER_UP_TRIGGER=0                                                ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_INVERSION_MASK=00000000000000000000000000                         ; --            ; --          ; data_flow                         ;
@@ -169,9 +166,12 @@ https://fpgasoftware.intel.com/eula.
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_PIPELINE=0                                                ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_RAM_PIPELINE=0                                                    ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_COUNTER_PIPELINE=0                                                ; --            ; --          ; data_flow                         ;
-; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_data_flow_1_8ea5, ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_LEVEL_PIPELINE=1                                          ; --            ; --          ; data_flow                         ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ENABLE_ADVANCED_TRIGGER=1                                         ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_DATA_BITS=277                                                     ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_TRIGGER_BITS=277                                                  ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_STORAGE_QUALIFIER_BITS=277                                        ; --            ; --          ; data_flow                         ;
+; SLD_NODE_PARAMETER_ASSIGNMENT       ; SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_SerDes_Sys_data_flow_1_1edf, ; --            ; --          ; data_flow                         ;
 ; SOPCINFO_FILE                       ; qsys/NIOS_UART/synthesis/../../NIOS_UART.sopcinfo                     ; --            ; --          ; --                                ;
 ; SOPCINFO_FILE                       ; qsys/RX/synthesis/../../RX.sopcinfo                                   ; --            ; --          ; --                                ;
 ; SOPCINFO_FILE                       ; qsys/channel/synthesis/../../channel.sopcinfo                         ; --            ; --          ; --                                ;
@@ -191,12 +191,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:09     ; 2.5                     ; 5336 MB             ; 00:01:25                           ;
-; Fitter               ; 00:10:20     ; 1.4                     ; 8345 MB             ; 00:19:51                           ;
-; Assembler            ; 00:00:15     ; 1.0                     ; 5114 MB             ; 00:00:08                           ;
-; Timing Analyzer      ; 00:00:21     ; 5.7                     ; 5804 MB             ; 00:01:18                           ;
-; EDA Netlist Writer   ; 00:00:07     ; 1.0                     ; 5127 MB             ; 00:00:03                           ;
-; Total                ; 00:12:12     ; --                      ; --                  ; 00:22:45                           ;
+; Analysis & Synthesis ; 00:01:25     ; 2.7                     ; 5426 MB             ; 00:01:44                           ;
+; Fitter               ; 00:10:27     ; 1.4                     ; 8410 MB             ; 00:21:54                           ;
+; Assembler            ; 00:00:16     ; 1.0                     ; 5148 MB             ; 00:00:13                           ;
+; Timing Analyzer      ; 00:00:22     ; 6.0                     ; 5826 MB             ; 00:01:28                           ;
+; EDA Netlist Writer   ; 00:00:06     ; 1.0                     ; 5150 MB             ; 00:00:05                           ;
+; Total                ; 00:12:36     ; --                      ; --                  ; 00:25:24                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

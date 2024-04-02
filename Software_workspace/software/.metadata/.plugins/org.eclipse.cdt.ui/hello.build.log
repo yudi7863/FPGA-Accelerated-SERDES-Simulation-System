@@ -1,9 +1,9 @@
-18:35:11 **** Incremental Build of configuration Nios II for project hello ****
+16:29:45 **** Incremental Build of configuration Nios II for project hello ****
 wsl make all 
 Info: Building /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
 make --no-print-directory -C /mnt/c/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/software/hello_bsp/
 [BSP build complete]
 [hello build complete]
 
-18:35:12 Build Finished (took 1s.625ms)
+16:29:46 Build Finished (took 962ms)
 
