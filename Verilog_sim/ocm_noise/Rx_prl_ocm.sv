@@ -129,31 +129,11 @@ module decision_maker_prl #(
     //logic [1:0] count;
    // integer i;
     //constants
-    assign value[0] = SYMBOL_SEPERATION >> 1; //28
-    assign value[1] = - (SYMBOL_SEPERATION >> 1); //-28
-    assign value[2] = value[0] + SYMBOL_SEPERATION; //84
-    assign value[3] = value[1] - SYMBOL_SEPERATION; //-84
-
-    always_ff @ (posedge clk) begin
-        if(!rstn) begin
-            feedback_value_i <= 'b0;
-            f_valid = 1'b0;
-        end else begin
-            if(e_valid) begin
-                if(estimation >= SYMBOL_SEPERATION) feedback_value_i <= value[2];
-                else if(estimation < SYMBOL_SEPERATION && estimation >= 0) feedback_value_i <= value[0];
-                else if( estimation < 0 && estimation >= 0-SYMBOL_SEPERATION) feedback_value_i <= value[1];
-                else feedback_value_i <= value[3]; 
-                f_valid = 1'b1;
-            end else begin
-                feedback_value_i <= feedback_value_i;
-                f_valid <= f_valid;
-            end
-
-        end
-
-    end
-/*always_ff @ (posedge clk) begin
+    assign value[0] = SYMBOL_SEPERATION >> 1;
+    assign value[1] = - (SYMBOL_SEPERATION >> 1);
+    assign value[2] = value[0] + SYMBOL_SEPERATION;
+    assign value[3] = value[1] - SYMBOL_SEPERATION;
+always_ff @ (posedge clk) begin
 	if(!rstn) begin
         best_difference <= 'hFFFFFFFF;
         best_value <= 'b0;
@@ -201,8 +181,6 @@ always_comb begin
     
 
 
-end*/
-
-
+end
 
 endmodule
