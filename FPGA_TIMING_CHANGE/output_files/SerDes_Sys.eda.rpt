@@ -1,5 +1,5 @@
 EDA Netlist Writer report for SerDes_Sys
-Tue Apr  2 16:20:58 2024
+Thu Apr  4 16:38:06 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Apr  2 16:20:58 2024 ;
+; EDA Netlist Writer Status ; Successful - Thu Apr  4 16:38:06 2024 ;
 ; Revision Name             ; SerDes_Sys                            ;
 ; Top-level Entity Name     ; SerDes_Sys                            ;
 ; Family                    ; Cyclone V                             ;
@@ -81,14 +81,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Apr  2 16:20:55 2024
+    Info: Processing started: Thu Apr  4 16:38:01 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off SerDes_Sys -c SerDes_Sys
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file SerDes_Sys.vo in folder "C:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/FPGA_TIMING_CHANGE/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4986 megabytes
-    Info: Processing ended: Tue Apr  2 16:20:58 2024
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 5118 megabytes
+    Info: Processing ended: Thu Apr  4 16:38:07 2024
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:05
 
 

@@ -353,9 +353,9 @@ module whole_sys_tb;
         .data_out(binary_data_rx),
         .data_out_valid(binary_data_rx_valid));
 
-    reg [31:0] total_bits;
-    reg [31:0] total_bit_errors;
-    logic [12:0] latched_input;
+    logic [31:0] total_bits;
+    logic [31:0] total_bit_errors;
+   /* logic [12:0] latched_input;
     //logic [4:0] cnt;
     logic correct_or_not;
     always_ff @ (posedge clk) begin
@@ -381,14 +381,14 @@ module whole_sys_tb;
 		if(!correct_or_not && binary_data_rx_valid) total_bit_errors <= total_bit_errors + 1;
     end
 
-    assign correct_or_not = (binary_data_rx_valid) ? (latched_input[1] == binary_data_rx) : 'b0;
-   /* prbs31_checker ebr(
+    assign correct_or_not = (binary_data_rx_valid) ? (latched_input[1] == binary_data_rx) : 'b0;*/
+    prbs31_checker ebr(
         .clk(clk),
         .rstn(rstn),
         .data_in(binary_data_rx),
         .data_in_valid(binary_data_rx_valid),
         .total_bits(total_bits),
-        .total_bit_errors(total_bit_errors));*/
+        .total_bit_errors(total_bit_errors));
     
 
 
@@ -430,8 +430,8 @@ module whole_sys_tb;
         #20;
         en <= 'b1;
         nvalid <= 1;
-        #800;
-        //#1000000
+        //#800;
+        #1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 

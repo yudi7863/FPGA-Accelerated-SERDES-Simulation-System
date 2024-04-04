@@ -1,10 +1,4 @@
 
-State Machine - |SerDes_Sys|TX:transmitter|grey_encode:gray_encoder_0|bit_idx
-Name bit_idx.00 bit_idx.10 bit_idx.01 
-bit_idx.00 0 0 0 
-bit_idx.01 1 0 1 
-bit_idx.10 1 1 0 
-
 State Machine - |SerDes_Sys|channel_state
 Name channel_state.WAIT_MEM channel_state.DONE_WAIT channel_state.LOAD_MEM 
 channel_state.WAIT_MEM 0 0 0 
@@ -16,3 +10,9 @@ Name noise_state.WAIT_MEM noise_state.DONE_WAIT noise_state.LOAD_MEM
 noise_state.WAIT_MEM 0 0 0 
 noise_state.LOAD_MEM 1 0 1 
 noise_state.DONE_WAIT 1 1 0 
+
+State Machine - |SerDes_Sys|TX:transmitter|grey_encode:gray_encoder_0|bit_idx
+Name bit_idx.00 bit_idx.10 bit_idx.01 
+bit_idx.00 0 0 0 
+bit_idx.01 1 0 1 
+bit_idx.10 1 1 0 

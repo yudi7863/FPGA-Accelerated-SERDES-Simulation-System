@@ -22,7 +22,9 @@ module DFE_prl #(
 
     //shift register
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] subtract_result /* synthesis preserve*/ ;
-    logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value /* synthesis preserve*/ ;
+    logic signed [39:0] feedback_value /* synthesis preserve*/ ;
+    logic signed [SIGNAL_RESOLUTION*2-1:0] pulse_response_upper, pulse_response_lower /* synthesis preserve*/; 
+
     logic f_valid;
     logic e_valid;
 
@@ -64,11 +66,14 @@ module DFE_prl #(
         end
     end
 
-	 logic signed [SIGNAL_RESOLUTION*2-1:0] temp_signal/* synthesis preserve*/;
-    logic [SIGNAL_RESOLUTION*2-1:0] negate_signal/* synthesis preserve*/;
-    logic [SIGNAL_RESOLUTION*2-1:0] division/* synthesis preserve*/;
+	 logic signed [55:0] temp_signal/* synthesis preserve*/;
+    //logic [SIGNAL_RESOLUTION*2-1:0] negate_signal/* synthesis preserve*/;
+    //logic [SIGNAL_RESOLUTION*2-1:0] division/* synthesis preserve*/;
     //logic negative_or_not/* synthesis preserve*/;
-    assign temp_signal = (PULSE_RESPONSE_LENGTH > 2) ? ((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (isi[2] + feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])) : ((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]));
+    assign pulse_response_upper = pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
+    assign pulse_response_lower = pulse_response[0][SIGNAL_RESOLUTION*2-1:0];
+    assign temp_signal = (PULSE_RESPONSE_LENGTH > 2) ? ((signal_in <<< pulse_response_lower) - (isi[2] + feedback_value * pulse_response_upper)) : ((signal_in <<< pulse_response_lower) - (feedback_value * pulse_response_upper));
+
     //assign negate_signal = (temp_signal[SIGNAL_RESOLUTION*2-1] == 1'b1) ? (~(temp_signal-1'b1)) : temp_signal;
     //assign negative_or_not = (temp_signal[SIGNAL_RESOLUTION*2-1] == 1'b1) ? 1'b1 : 1'b0;
     //assign division = negate_signal >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0];/// pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
@@ -95,7 +100,7 @@ module DFE_prl #(
                 end
                 //subtract_result <= ((signal_in_signed <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2];
                 //subtract_result <= (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) & 17'h10000) ? ~(((~(((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1])-1'b1)) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])-1'b1) : (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - isi[1]) / pulse_response[0][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2]);
-					 subtract_result <= (temp_signal >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0]); //(temp_signal[SIGNAL_RESOLUTION*2-1] == 1'b1) ? (~((~(temp_signal-1'b1)) >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0])+1'b1 ): (temp_signal >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0]);//(negative_or_not) ? (~division)+1'b1  : division;
+					 subtract_result <= (temp_signal >>> pulse_response_lower); //(temp_signal[SIGNAL_RESOLUTION*2-1] == 1'b1) ? (~((~(temp_signal-1'b1)) >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0])+1'b1 ): (temp_signal >>> pulse_response[0][SIGNAL_RESOLUTION*2-1:0]);//(negative_or_not) ? (~division)+1'b1  : division;
 					 //subtract_result <= (PULSE_RESPONSE_LENGTH > 2) ? (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (isi[2] + feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])) >>> pulse_response[0][15:0]): (((signal_in <<< pulse_response[0][SIGNAL_RESOLUTION*2-1:0]) - (feedback_value * pulse_response[1][SIGNAL_RESOLUTION*4-1:SIGNAL_RESOLUTION*2])) >>> pulse_response[0][15:0]);
 					 
 					 e_valid <= 'b1;

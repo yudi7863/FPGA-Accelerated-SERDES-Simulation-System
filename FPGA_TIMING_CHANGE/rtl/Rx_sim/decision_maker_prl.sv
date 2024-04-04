@@ -7,15 +7,15 @@ module decision_maker_prl #(
     input rstn,
     input signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] estimation, 
     input e_valid,
-    output signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value,
+    output signed [39:0] feedback_value,
     output logic f_valid
     );
     //the four values that we want
-    logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] value [3:0];
+    logic signed [39:0] value [3:0];
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] difference [3:0];
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] best_value;
     logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] best_difference;
-    logic signed [SIGNAL_RESOLUTION*PULSE_RESPONSE_LENGTH-1:0] feedback_value_i;
+    logic signed [39:0] feedback_value_i;
     assign feedback_value = feedback_value_i;
     //logic [1:0] count;
    // integer i;

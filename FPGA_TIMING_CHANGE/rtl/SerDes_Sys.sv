@@ -50,7 +50,7 @@ module SerDes_Sys(
 		//noise control signals:
 		logic done_wait_n;
 		logic [7:0] location_n;
-		logic  load_mem_n;
+		logic  load_mem_n=0;
 		logic load_mem_pressed;
 		 //controls for channel
 		 logic done_wait_c;
@@ -71,6 +71,7 @@ module SerDes_Sys(
 		logic uart_rx;
 		logic uart_tx;
 		logic prbs_en;
+		
 		
 		//100MHz clock:
 		logic clock;
@@ -236,12 +237,12 @@ module SerDes_Sys(
                /*else*/ addr2 <= addr2 + 14'd2;
 				end
             else begin
-					if(counter_samples >= 'h7A1200 && counter_samples < 'h7A1201) begin //4000 = 'hFA0
+					if(counter_samples >= 'hC343 && counter_samples < 'hC344) begin //4000 = 'hFA0, 8000000 = h7A1200
 						addr2 <= 14'h2c0; //0580 in hex mem
 						writedata2 <= counter_samples;
 						wen2 <= 'b1;
 					end 
-					else if(counter_samples >= 'h7A1201 && counter_samples < 'h7A1202) begin
+					else if(counter_samples >= 'hC344 && counter_samples < 'hC345) begin
 						addr2 <= addr2 + 'd2; //0580 in hex mem
 						writedata2 <= total_bit_errors;
 						wen2 <= 'b1;
@@ -422,7 +423,7 @@ module SerDes_Sys(
 				  total_bit_errors = 'b0;
 				  LEDR[6] <= 'b0;
 			 end else begin
-					LEDR[6] <= (counter_samples >=  'h2faf0800);//'h2faf0800);
+					LEDR[6] <= (counter_samples >= 'hC343); //'h2faf0800);//'h2faf0800);
 				  if (data_out_valid) begin
 						sr <= {sr[29:0],sr_in};
 						counter_samples <= counter_samples + 1;
