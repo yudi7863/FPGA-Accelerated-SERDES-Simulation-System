@@ -38,22 +38,22 @@ gray_data
 PAM4_out
 
 %pass through channel
-h = [1, 0.5, 0.4];
+h = [1, 0.5];
 channel_output = conv(PAM4_out, h);
 channel_output
 
 % Noise
 noise_array = [-63:64];
 mu = 0;
-sigma = 10;
+sigma = 15;
 probability = pdf('Normal', noise_array, mu, sigma);
-total_probability = 0;
-for i = 1:length(probability)
-    total_probability = total_probability + probability(i);
-end
-for i = 1:length(probability)
-    probability(i) = probability(i)/total_probability;
-end
+%total_probability = 0;
+%for i = 1:length(probability)
+%    total_probability = total_probability + probability(i);
+%end
+%for i = 1:length(probability)
+%    probability(i) = probability(i)/total_probability;
+%end
 possibilities = zeros(1, length(probability));
 for i = 1:length(probability)
     if i == 1

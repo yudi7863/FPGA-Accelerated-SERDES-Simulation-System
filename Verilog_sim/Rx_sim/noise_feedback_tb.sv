@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 module noise_feedback_tb #(
-    parameter PULSE_RESPONSE_LENGTH = 3,
+    parameter PULSE_RESPONSE_LENGTH = 2,
     parameter SIGNAL_RESOLUTION = 9,
     parameter SYMBOL_SEPERATION = 56);
     reg clk = 0;
