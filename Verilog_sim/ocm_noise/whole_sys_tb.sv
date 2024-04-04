@@ -247,7 +247,7 @@ module whole_sys_tb;
 		logic [63:0] mem_data;
 
 
-        ISI_channel_ocm #(.PULSE_RESPONSE_LENGTH(2))  channel (
+        ISI_channel_ocm #(.PULSE_RESPONSE_LENGTH(3))  channel (
         .clk(clk),
         .rstn(rstn),
         .signal_in(voltage_level),
@@ -318,7 +318,7 @@ module whole_sys_tb;
         .signal_in_valid(noise_valid),
         .signal_out(voltage_level_dfe),
         .signal_out_valid(voltage_level_dfe_valid));*/
-    DFE_prl  #(.PULSE_RESPONSE_LENGTH(2)) rx(
+    DFE_prl  #(.PULSE_RESPONSE_LENGTH(3)) rx(
         .clk(clk),
         .rstn(rstn),
         .signal_in(noise_output),
@@ -430,14 +430,14 @@ module whole_sys_tb;
         #20;
         en <= 'b1;
         nvalid <= 1;
-        #800;
-        //#1000000
+        //#800;
+        #1000000
         $display("\nBits Transmitted:%d", total_bits);
         $display("\nBit Errors:%d", total_bit_errors);
 
-        for (int i = 0; i < 128; i = i + 1) begin
-            $display("noise_counter[%0d] = %d", i, noise_counter[i]);
-        end
+        //for (int i = 0; i < 128; i = i + 1) begin
+        //    $display("noise_counter[%0d] = %d", i, noise_counter[i]);
+        //end
         $finish();
 
     end

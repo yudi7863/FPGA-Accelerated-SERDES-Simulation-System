@@ -1,6 +1,6 @@
 clc
 clear
-h = [1, 0.5];
+h = [1, 0.2, 0.1];
 approximation = zeros(length(h),2);
 
 %%%
