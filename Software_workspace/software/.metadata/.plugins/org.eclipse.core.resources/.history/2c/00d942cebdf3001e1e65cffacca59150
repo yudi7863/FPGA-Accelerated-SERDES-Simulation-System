@@ -1,0 +1,308 @@
+/* 
+ * "Small Hello World" example. 
+ * 
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example 
+ * designs. It requires a STDOUT  device in your system's hardware. 
+ *
+ * The purpose of this example is to demonstrate the smallest possible Hello 
+ * World application, using the Nios II HAL library.  The memory footprint
+ * of this hosted application is ~332 bytes by default using the standard 
+ * reference design.  For a more fully featured Hello World application
+ * example, see the example titled "Hello World".
+ *
+ * The memory footprint of this example has been reduced by making the
+ * following changes to the normal "Hello World" example.
+ * Check in the Nios II Software Developers Manual for a more complete 
+ * description.
+ * 
+ * In the SW Application project (small_hello_world):
+ *
+ *  - In the C/C++ Build page
+ * 
+ *    - Set the Optimization Level to -Os
+ * 
+ * In System Library project (small_hello_world_syslib):
+ *  - In the C/C++ Build page
+ * 
+ *    - Set the Optimization Level to -Os
+ * 
+ *    - Define the preprocessor option ALT_NO_INSTRUCTION_EMULATION 
+ *      This removes software exception handling, which means that you cannot 
+ *      run code compiled for Nios II cpu with a hardware multiplier on a core 
+ *      without a the multiply unit. Check the Nios II Software Developers 
+ *      Manual for more details.
+ *
+ *  - In the System Library page:
+ *    - Set Periodic system timer and Timestamp timer to none
+ *      This prevents the automatic inclusion of the timer driver.
+ *
+ *    - Set Max file descriptors to 4
+ *      This reduces the size of the file handle pool.
+ *
+ *    - Check Main function does not exit
+ *    - Uncheck Clean exit (flush buffers)
+ *      This removes the unneeded call to exit when main returns, since it
+ *      won't.
+ *
+ *    - Check Don't use C++
+ *      This builds without the C++ support code.
+ *
+ *    - Check Small C library
+ *      This uses a reduced functionality C library, which lacks  
+ *      support for buffering, file IO, floating point and getch(), etc. 
+ *      Check the Nios II Software Developers Manual for a complete list.
+ *
+ *    - Check Reduced device drivers
+ *      This uses reduced functionality drivers if they're available. For the
+ *      standard design this means you get polled UART and JTAG UART drivers,
+ *      no support for the LCD driver and you lose the ability to program 
+ *      CFI compliant flash devices.
+ *
+ *    - Check Access device drivers directly
+ *      This bypasses the device file system to access device drivers directly.
+ *      This eliminates the space required for the device file system services.
+ *      It also provides a HAL version of libc services that access the drivers
+ *      directly, further reducing space. Only a limited number of libc
+ *      functions are available in this configuration.
+ *
+ *    - Use ALT versions of stdio routines:
+ *
+ *           Function                  Description
+ *        ===============  =====================================
+ *        alt_printf       Only supports %s, %x, and %c ( < 1 Kbyte)
+ *        alt_putstr       Smaller overhead than puts with direct drivers
+ *                         Note this function doesn't add a newline.
+ *        alt_putchar      Smaller overhead than putchar with direct drivers
+ *        alt_getchar      Smaller overhead than getchar with direct drivers
+ *
+ */
+
+
+
+#include "sys/alt_stdio.h"
+#include "HAL/inc/io.h"
+#include "system.h"
+#include <stdint.h>
+volatile uint64_t SIGMA10 [128] = {
+
+		0x000927fe6ce8965c,
+		0x0013dc6679d0ad64,
+		0x00205842a81e2efa,
+		0x002eddf6db30f434,
+		0x003fb7ec95cf58fe,
+		0x005339453052a3a8,
+		0x0069be9098e38e68,
+		0x0083ae86e19e3ca0,
+		0x00a17ac28f09d940,
+		0x00c3a07945137de8,
+		0x00eaa9301b0c9bb8,
+		0x01172b6889a844e0,
+		0x0149cb429272b480,
+		0x01833b1070d6ef30,
+		0x01c43bd7dbbe83e0,
+		0x020d9dbc9ea1dd40,
+		0x026040501c0f8a80,
+		0x02bd12c124ed7ea0,
+		0x032513e779abef80,
+		0x0399522647ec95e0,
+		0x041aeb210a404240,
+		0x04ab0b3e5ad85740,
+		0x054aecf48f5e68c0,
+		0x05fbd7dc552cae00,
+		0x06bf1f8603009980,
+		0x0796220ef08a3d80,
+		0x08824674dce26800,
+		0x0984faa64236bf00,
+		0x0a9fb14f655e4100,
+		0x0bd3df64f93e2680,
+		0x0d22f96e4cd44900,
+		0x0e8e70922b769980,
+		0x1017af6ad4ab4100,
+		0x11c016a6b67b1b00,
+		0x1388f97cdc2f2c00,
+		0x157399fd45618400,
+		0x178125468f12bc00,
+		0x19b2afab7aae7500,
+		0x1c0930d3e6135600,
+		0x1e857fe5ac600a00,
+		0x21284fc2a24bc200,
+		0x23f22b696b79e600,
+		0x26e372873a7e6800,
+		0x29fc5648a600ba00,
+		0x2d3cd677967c8a00,
+		0x30a4bef3e6a79800,
+		0x3433a593a3016c00,
+		0x37e8e876e37e0800,
+		0x3bc3acda06220c00,
+		0x3fc2de6f9de90a00,
+		0x43e52f49bb2aa000,
+		0x482918585031f800,
+		0x4c8cda80659a2800,
+		0x510e804d9f4eb000,
+		0x55abe03d46f97c00,
+		0x5a629f9fb648e000,
+		0x5f30360a9e941000,
+		0x6411f15458200400,
+		0x6904fa0e25dfc800,
+		0x6e0658713f047800,
+		0x7312f9b0818b2000,
+		0x7827b59efadb8000,
+		0x7d415499ff0bd000,
+		0x825c95a45cb04800,
+		0x8776349f60e09800,
+		0x8c8af08dda30f800,
+		0x919791cd1cb7a000,
+		0x9698f03035dc5000,
+		0x9b8bf8ea039c1000,
+		0xa06db433bd280000,
+		0xa53b4a9ea5733000,
+		0xa9f20a0114c29800,
+		0xae8f69f0bc6d6000,
+		0xb3110fbdf621e800,
+		0xb774d1e60b8a1800,
+		0xbbb8baf4a0917000,
+		0xbfdb0bcebdd30800,
+		0xc3da3d64559a0800,
+		0xc7b501c7783e1000,
+		0xcb6a44aab8baa800,
+		0xcef92b4a75148000,
+		0xd26113c6c53f9000,
+		0xd5a193f5b5bb6000,
+		0xd8ba77b7213db000,
+		0xdbabbed4f0423000,
+		0xde759a7bb9705800,
+		0xe1186a58af5c1000,
+		0xe394b96a75a8c000,
+		0xe5eb3a92e10da000,
+		0xe81cc4f7cca95800,
+		0xea2a5041165a9000,
+		0xec14f0c17f8ce800,
+		0xedddd397a540f800,
+		0xef863ad38710d000,
+		0xf10f79ac30457800,
+		0xf27af0d00ee7c800,
+		0xf3ca0ad9627de800,
+		0xf4fe38eef65dd000,
+		0xf618ef9819855000,
+		0xf71ba3c97ed9a800,
+		0xf807c82f6b31d000,
+		0xf8decab858bb7800,
+		0xf9a21262068f6000,
+		0xfa52fd49cc5da800,
+		0xfaf2df0000e3b800,
+		0xfb82ff1d517bd000,
+		0xfc04981813cf8000,
+		0xfc78d656e2102800,
+		0xfce0d77d36ce9800,
+		0xfd3da9ee3fac9000,
+		0xfd904c81bd1a4000,
+		0xfdd9ae667ffd9800,
+		0xfe1aaf2deae53000,
+		0xfe541efbc9496800,
+		0xfe86bed5d213d800,
+		0xfeb3410e40af8000,
+		0xfeda49c516a8a000,
+		0xfefc6f7bccb24800,
+		0xff1a3bb77a1de800,
+		0xff342badc2d89800,
+		0xff4ab0f92b698000,
+		0xff5e3251c5ecc800,
+		0xff6f0c47808b3000,
+		0xff7d91fbb39df800,
+		0xff8a0dd7e1eb7800,
+		0xff94c23feed39000,
+		0xff9dea3e5bbc2800,
+		0xffa5ba2966b15800
+
+
+
+
+
+
+
+
+};
+
+volatile uint64_t PULSE_RESPONSE_VALS [2] = { //1, 0.0
+		//0x0000000001000008, //1, 0.0
+		//0x0000000000000008,
+		//0x0000000001000008, //1, 0.1
+		//0x00000000001a0008
+		//0x0000000001000008,//1, 0.2
+		//0x0000000000330008
+		//0x0000000001000008, //1, 0.3
+		//0x00000000004d0008
+		//0x0000000001000008, // 0.4
+		//0x0000000000660008
+		//0x0000000001000008, //1, 0.6
+		//0x00000000009a0008,
+		//0x0000000001000008, //1, 0.8
+		//0x0000000000cd0008
+		//0x0000000001000008,//1, 0.5
+		//0x0000000000800008
+
+		/////////////////////pulse_response length == 3:
+		//0x0000000001000008, // 1, 0.4, 0.3
+		//0x0000000000660008,
+		//0x00000000004d0008
+		//0x0000000001000008, // 1, 0.2, 0.1
+		//0x0000000000330008,
+		//0x00000000001a0008
+
+};
+
+int main()
+{
+  //printf("Hello from Nios II!\n");
+	//assigning values to SIGMA6:
+
+
+	volatile uint32_t * ocm_base = (uint32_t *) ON_CHIP_MEM_BASE;
+	volatile uint32_t total_bits = 0;// = 0x1234DEAD;
+
+	//writing to ocm to see if it works:
+	//*(ocm_base) = value;
+	//*(ocm_base+1) = value;
+	//*(ocm_base+2) = value;
+	//*(ocm_base+3) = value;
+
+	//writing sigma_6 values into ocm:
+	for(int i = 0; i < 128; i = i + 1){ //this starts at 1C0;
+		*(ocm_base+i*4+864) = (uint32_t)(SIGMA10[i] >> 32); //upper
+		*(ocm_base+i*4+1+864) = (uint32_t)SIGMA10[i]; //lower //1c0
+	}
+	//writing channel: channel starting at 1580 and 1584:  1376:
+	for(int i = 0; i < 2; i = i + 1){
+		*(ocm_base+(i)*4+1376) = (uint32_t)(PULSE_RESPONSE_VALS[i] >> 32); //upper
+		*(ocm_base+(i)*4+1+1376) = (uint32_t)PULSE_RESPONSE_VALS[i]; //lower //1c0
+	}
+
+	//found the location of the actual hex file!!
+	// the noise channel location starts at D80, D84
+	//conversion: D80 =
+	//D84 =
+	//1600 =
+	//2c0 maps to 1600
+	volatile uint32_t total_bit_errors = 0;
+	volatile double BER = 0.0;
+	//printing a range of values to see where the total_bits are located
+	volatile int count = 0; //should be at 144
+	//while(count < 146){
+		//total_bits = *(ocm_base+130+count);
+		//total_bit_errors = *(ocm_base+404);
+		*(ocm_base+1440) = 0x1;
+		*(ocm_base+1440) = 0x2;
+
+		//total_bit_errors = *(ocm_base+864);
+		//total_bit_errors = *(ocm_base+865); //this is 8 //this is 6991a1e1
+		total_bits = *(ocm_base+1408); //this is 12 //this is 2C0 in quartus total bits:
+		total_bit_errors = *(ocm_base+1412); // this is 14 1610
+//count = count + 2;
+		//BER = ((double) total_bit_errors) / ((double) total_bits);
+		//alt_printf("total bits: %x\n", total_bits);
+		//alt_printf("total bit errors: %x\n", total_bit_errors);
+	//}
+	alt_printf("total bit errors: %x\n", total_bit_errors);
+  return 0;
+}

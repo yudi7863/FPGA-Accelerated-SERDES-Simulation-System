@@ -1,0 +1,229 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.044
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'actual_clock'
+Slack : 2.643
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Setup 'altera_reserved_tck'
+Slack : 12.515
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'altera_reserved_tck'
+Slack : 0.113
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'actual_clock'
+Slack : 4.745
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Recovery 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -0.087
+TNS   : -5.115
+
+Type  : Slow 1100mV 85C Model Recovery 'altera_reserved_tck'
+Slack : 31.037
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'altera_reserved_tck'
+Slack : 0.932
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.984
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.761
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'actual_clock'
+Slack : 9.670
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
+Slack : 15.803
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : -0.093
+TNS   : -0.152
+
+Type  : Slow 1100mV 0C Model Setup 'actual_clock'
+Slack : 2.836
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'altera_reserved_tck'
+Slack : 12.631
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'altera_reserved_tck'
+Slack : 0.103
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'actual_clock'
+Slack : 4.613
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.088
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Recovery 'altera_reserved_tck'
+Slack : 31.139
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'altera_reserved_tck'
+Slack : 0.886
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.893
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.745
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'actual_clock'
+Slack : 9.673
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
+Slack : 15.810
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.996
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'actual_clock'
+Slack : 5.710
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'altera_reserved_tck'
+Slack : 14.444
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'altera_reserved_tck'
+Slack : 0.018
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.177
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'actual_clock'
+Slack : 2.715
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.787
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'altera_reserved_tck'
+Slack : 31.796
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'altera_reserved_tck'
+Slack : 0.457
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.577
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.884
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'actual_clock'
+Slack : 9.336
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
+Slack : 15.791
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.348
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'actual_clock'
+Slack : 6.029
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'altera_reserved_tck'
+Slack : 14.701
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'altera_reserved_tck'
+Slack : 0.005
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.137
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'actual_clock'
+Slack : 2.436
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 2.858
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'altera_reserved_tck'
+Slack : 31.929
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'altera_reserved_tck'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 0.492
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'
+Slack : 1.666
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'G100MHz|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'
+Slack : 3.883
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'actual_clock'
+Slack : 9.286
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
+Slack : 15.802
+TNS   : 0.000
+
+------------------------------------------------------------

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="simulation/TX.v" type="VERILOG" />
+ <topLevel name="TX" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

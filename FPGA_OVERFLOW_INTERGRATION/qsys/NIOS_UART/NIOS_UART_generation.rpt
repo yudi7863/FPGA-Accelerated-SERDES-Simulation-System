@@ -1,0 +1,82 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_UART\qsys\NIOS_UART.qsys --block-symbol-file --output-directory=C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_UART\qsys\NIOS_UART --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading qsys/NIOS_UART.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 22.1]
+Progress: Parameterizing module clk_0
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 22.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding on_chip_mem [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module on_chip_mem
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Adding uart_0 [altera_avalon_uart 22.1]
+Progress: Parameterizing module uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_UART\qsys\NIOS_UART.qsys --synthesis=VERILOG --output-directory=C:\ECE496_FPGA\git_version\FPGA-Accelerated-SERDES-Simulation-System\FPGA_UART\qsys\NIOS_UART\synthesis --family="Cyclone V" --part=5CSEMA5F31C6
+Progress: Loading qsys/NIOS_UART.qsys
+Progress: Reading input file
+Progress: Adding clk_0 [clock_source 22.1]
+Progress: Parameterizing module clk_0
+Progress: Adding nios2_gen2_0 [altera_nios2_gen2 22.1]
+Progress: Parameterizing module nios2_gen2_0
+Progress: Adding on_chip_mem [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module on_chip_mem
+Progress: Adding onchip_memory2_0 [altera_avalon_onchip_memory2 22.1]
+Progress: Parameterizing module onchip_memory2_0
+Progress: Adding uart_0 [altera_avalon_uart 22.1]
+Progress: Parameterizing module uart_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: NIOS_UART: Generating NIOS_UART "NIOS_UART" for QUARTUS_SYNTH
+Info: nios2_gen2_0: "NIOS_UART" instantiated altera_nios2_gen2 "nios2_gen2_0"
+Info: on_chip_mem: Starting RTL generation for module 'NIOS_UART_on_chip_mem'
+Info: on_chip_mem:   Generation command is [exec C:/intelfpga_lite/22.1std/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/22.1std/quartus/bin64/perl/lib -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2 -- C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_onchip_memory2/generate_rtl.pl --name=NIOS_UART_on_chip_mem --dir=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0002_on_chip_mem_gen/ --quartus_dir=C:/intelfpga_lite/22.1std/quartus --verilog --config=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0002_on_chip_mem_gen//NIOS_UART_on_chip_mem_component_configuration.pl  --do_build_sim=0  ]
+Info: on_chip_mem: Done RTL generation for module 'NIOS_UART_on_chip_mem'
+Info: on_chip_mem: "NIOS_UART" instantiated altera_avalon_onchip_memory2 "on_chip_mem"
+Info: uart_0: Starting RTL generation for module 'NIOS_UART_uart_0'
+Info: uart_0:   Generation command is [exec C:/intelfpga_lite/22.1std/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/22.1std/quartus/bin64/perl/lib -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart -- C:/intelfpga_lite/22.1std/quartus/../ip/altera/sopc_builder_ip/altera_avalon_uart/generate_rtl.pl --name=NIOS_UART_uart_0 --dir=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0003_uart_0_gen/ --quartus_dir=C:/intelfpga_lite/22.1std/quartus --verilog --config=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0003_uart_0_gen//NIOS_UART_uart_0_component_configuration.pl  --do_build_sim=0  ]
+Info: uart_0: Done RTL generation for module 'NIOS_UART_uart_0'
+Info: uart_0: "NIOS_UART" instantiated altera_avalon_uart "uart_0"
+Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
+Info: avalon_st_adapter_002: Inserting error_adapter: error_adapter_0
+Info: mm_interconnect_0: "NIOS_UART" instantiated altera_mm_interconnect "mm_interconnect_0"
+Info: irq_mapper: "NIOS_UART" instantiated altera_irq_mapper "irq_mapper"
+Info: rst_controller: "NIOS_UART" instantiated altera_reset_controller "rst_controller"
+Info: cpu: Starting RTL generation for module 'NIOS_UART_nios2_gen2_0_cpu'
+Info: cpu:   Generation command is [exec C:/intelFPGA_lite/22.1std/quartus/bin64//perl/bin/perl.exe -I C:/intelFPGA_lite/22.1std/quartus/bin64//perl/lib -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/22.1std/quartus/sopc_builder/bin -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/intelfpga_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/intelfpga_lite/22.1std/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.pl --name=NIOS_UART_nios2_gen2_0_cpu --dir=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0006_cpu_gen/ --quartus_bindir=C:/intelFPGA_lite/22.1std/quartus/bin64/ --verilog --config=C:/Users/wangy/AppData/Local/Temp/alt9808_6462377589457957478.dir/0006_cpu_gen//NIOS_UART_nios2_gen2_0_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2024.03.26 12:07:52 (*) Starting Nios II generation
+Info: cpu: # 2024.03.26 12:07:52 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2024.03.26 12:07:52 (*)   Creating all objects for CPU
+Info: cpu: # 2024.03.26 12:07:53 (*)   Generating RTL from CPU objects
+Info: cpu: # 2024.03.26 12:07:53 (*)   Creating plain-text RTL
+Info: cpu: # 2024.03.26 12:07:53 (*) Done Nios II generation
+Info: cpu: Done RTL generation for module 'NIOS_UART_nios2_gen2_0_cpu'
+Info: cpu: "nios2_gen2_0" instantiated altera_nios2_gen2_unit "cpu"
+Info: nios2_gen2_0_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "nios2_gen2_0_data_master_translator"
+Info: nios2_gen2_0_debug_mem_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "nios2_gen2_0_debug_mem_slave_translator"
+Info: nios2_gen2_0_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "nios2_gen2_0_data_master_agent"
+Info: nios2_gen2_0_debug_mem_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "nios2_gen2_0_debug_mem_slave_agent"
+Info: nios2_gen2_0_debug_mem_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "nios2_gen2_0_debug_mem_slave_agent_rsp_fifo"
+Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
+Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
+Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
+Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
+Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
+Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
+Info: Reusing file C:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/FPGA_UART/qsys/NIOS_UART/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
+Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
+Info: NIOS_UART: Done "NIOS_UART" with 21 modules, 33 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'NIOS_UART'
 # SOPC Builder design path: c:/ECE496_FPGA/git_version/FPGA-Accelerated-SERDES-Simulation-System/Software_workspace/NIOS_UART.sopcinfo
 #
-# Generated: Wed Apr 03 17:32:17 EDT 2024
+# Generated: Fri Apr 05 18:11:17 EDT 2024
 
 # DO NOT MODIFY THIS FILE
 #
