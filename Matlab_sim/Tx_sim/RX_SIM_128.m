@@ -45,7 +45,7 @@ channel_output
 % Noise
 noise_array = [-63:64];
 mu = 0;
-sigma = 60;
+sigma = 9;
 probability = pdf('Normal', noise_array, mu, sigma);
 %total_probability = 0;
 %for i = 1:length(probability)
