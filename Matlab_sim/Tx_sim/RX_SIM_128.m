@@ -1,7 +1,7 @@
 clc
 clear
 order = 31;
-num_data = 50000;
+num_data = 500000
 SEED = [1,1,0,1,0,0,0,1,0,1,0,1,1,0,1,0,0,1,0,0,1,0,1,0,0,0,1,1,1,1,1];
 prbs_length = 31;
 % Generating random data
@@ -33,19 +33,18 @@ for i = 1:num_data_half
     PAM4_out(i) = pam4_TX(gray_data(i,:));
 end
 
-c_randomdata
-gray_data
-PAM4_out
-
 %pass through channel
-h = [1, 0.2, 0.1];
+h = [1, 0.6]
 channel_output = conv(PAM4_out, h);
-channel_output
 
 % Noise
-noise_array = [-63:64];
 mu = 0;
-sigma = 9;
+sigma = 56
+if (sigma > 34)
+    noise_array = [-191:192];
+else
+    noise_array = [-63:64];
+end
 probability = pdf('Normal', noise_array, mu, sigma);
 %total_probability = 0;
 %for i = 1:length(probability)
@@ -54,6 +53,13 @@ probability = pdf('Normal', noise_array, mu, sigma);
 %for i = 1:length(probability)
 %    probability(i) = probability(i)/total_probability;
 %end
+if (sigma > 34)
+    probability_large = zeros(1, 128);
+    for i = 1:length(probability_large)
+        probability_large(i) = probability(3*i-2) + probability(3*i-1) + probability(3*i);
+    end
+    probability = probability_large;
+end
 possibilities = zeros(1, length(probability));
 for i = 1:length(probability)
     if i == 1
@@ -61,18 +67,17 @@ for i = 1:length(probability)
     else
         possibilities(i) = probability(i)*(2^64-1)+possibilities(i-1);
     end
-    %var=dec2bin(probability_verilog_helper(i),64);
-    %display(var);
 end
-%probability
-%possibilities
-%total_probability
-%sprintf('%d is noise output.',noise_output(i));
 
 probability_verilog_helper_var = noise_to_verilog(possibilities,'probability_verilog_helper.mem',length(probability),64);
 
 % With noise
 % Generate random integer within range 0 to 1
+if (sigma > 34)
+    select_noise = linspace(-191, 190, 128);
+else
+    select_noise = linspace(-63, 64, 128);
+end
 noise_value_array = zeros(1,num_data_half+1);
 noise_output = zeros(1,num_data_half+1);
 for i = 1:length(channel_output)
@@ -82,22 +87,17 @@ for i = 1:length(channel_output)
     total_prob = 0;
     for j = 1:length(probability)
         if(rand_num < total_prob + probability(j))
-            noise = j - 64;
-            %X = sprintf('%d is noise.',noise);
-            %disp(X)
+            noise = select_noise(j);
             break;
         end
         total_prob = total_prob + probability(j);
     end
     noise_value_array(i)=noise;
     noise_output(i) = channel_output(i) + noise;
-    %Y = sprintf('%d is noise output.',noise_output(i));
-    %disp(Y)
 end
 %noise_value_array
 %noise_var=noise_to_verilog(noise_value_array,'noise.mem',num_data_half+1,8);
 %noise_output = channel_output;
-noise_output
 
 % DFE
 % Define length
@@ -126,27 +126,22 @@ for i = 1:num_data_half
         DFE_output(i) = -84;
     end
 end
-DFE_output
 
 PAM4_dfe = zeros(ceil(double(num_data)/2.0),2);
 for i = 1:num_data_half
     PAM4_dfe(i,:) = pam4_RX(DFE_output(i));
 end
-%PAM4_dfe
 
 gray_dfe = zeros(ceil(double(num_data)/2.0),2);
 for i = 1:num_data_half
     gray_dfe(i,:) = gray_decoder(PAM4_dfe(i,:));
 end
-%gray_dfe
 
 data_out = zeros(1,num_data);
 for i = 1:num_data_half
     data_out(2*i-1) = gray_dfe(i,1);
     data_out(2*i) = gray_dfe(i,2);
 end
-%c_randomdata
-%data_out
 
 % Calculate bit error rate
 error = 0;
@@ -155,8 +150,4 @@ for i = 1:num_data
         error = error + 1;
     end
 end
-bit_error_rate = error/num_data;
-num_data
-bit_error_rate
-
-%loopback to rx side:
+bit_error_rate = error/num_data
