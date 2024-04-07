@@ -39,7 +39,7 @@ channel_output = conv(PAM4_out, h);
 
 % Noise
 mu = 0;
-sigma = 44
+sigma = 63
 if (sigma > 34)
     noise_array = [-191:192];
 else
