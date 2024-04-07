@@ -14,8 +14,8 @@ module noise_128_wrapper #(
 );
 
 
-    logic [7:0] temp;
-    logic signed [7:0] temp_i;
+    logic [8:0] temp;
+    logic signed [8:0] temp_i;
     //logic [7:0] counter[127:0];
     logic simple_noise_out_valid;
 
@@ -56,7 +56,7 @@ module noise_128(
     input clk,
     input en,
     input rstn,
-    output reg signed [7:0] noise_out,
+    output reg signed [8:0] noise_out,
     output reg [7:0] noise_counter[127:0],
     output reg noise_out_valid =0
 );
@@ -75,7 +75,7 @@ urng_64 dut (
 
 //array to store comparison information
 reg [63:0] possibilities[127:0];
-reg signed [7:0] noise_value[127:0];
+reg signed [8:0] noise_value[127:0];
 //reg [7:0] noise_counter[127:0];
 //for loop to initialize the array;
 
@@ -117,7 +117,8 @@ always @(posedge clk or negedge rstn) begin
         gen_dut_start <= 1'b0;
         for(int i=0; i<128;i=i+1)begin
             noise_counter[i]<= 8'b0;
-            noise_value[i]=i-63;     
+            //noise_value[i]=i-63;
+            noise_value[i]=-191+3*i;
         end
         level[6] <= 64;
         level[5] <= 32;

@@ -34,12 +34,12 @@ for i = 1:num_data_half
 end
 
 %pass through channel
-h = [1, 0.6]
+h = [1, 0]
 channel_output = conv(PAM4_out, h);
 
 % Noise
 mu = 0;
-sigma = 56
+sigma = 44
 if (sigma > 34)
     noise_array = [-191:192];
 else
